@@ -15,41 +15,42 @@ import * as Highcharts from 'highcharts';
 })
 export class DashboardBufferComponent implements AfterViewInit {
   projects = [
-    'Waterborne Polyurethane Dispersion (PUD) Discovery Project',
-    'Hydrogenation Catalyst Development (Pd/C)',
-    'Agrochemical Active Ingredient Multi-Step Synthesis Development',
-    'Solvent Recovery & Fractional Distillation Process Development',
-    'Water-Dispersible Granule (WDG) Formulation Development',
-    'Acrylic Emulsion Binder 50% Solids',
-    'Liquid Epoxy Resin (Bisphenol-A, EEW 185-192)',
-    'Sodium Lauryl Ether Sulfate (SLES) 70% Paste',
-    'Fumed Silica (Hydrophilic, 200 m2/g)',
-    'Hydrogen Peroxide 50% w/w (Anthraquinone Process)'
+    'New Beverage Product Development Program',
+    'New Personal Care Product Formulation Development',
+    'Multi-Variant Snack Product Development',
+    'Ingredient Sourcing and Blend Optimization',
+    'Shelf-Stable Powdered Beverage Product Formulation',
+    'Vitamin-Enriched Fruit Beverage 250ml',
+    'Premium Personal Care Lotion 200ml',
+    'Ready-to-Eat Snack Range 100g',
+    'Low-Sugar Dairy Beverage 200ml',
+    'Plant-Based Protein Drink 300ml'
   ];
-  selectedBufferProject = 'All Projects';
+  selectedBufferProject = 'All Programs';
 
   selectedDivision: string = 'All';
   selectedLocation: string = 'All';
 
   readonly divisionsList: string[] = [
     'All',
-    'Specialty Chemicals - SC',
-    'Polymers & Resins - PR',
-    'Agrochemicals - AC',
-    'Industrial & Fine Chemicals - IF',
+    'Beverages - BV',
+    'Personal Care & Beauty - PC',
+    'Packaged Foods & Snacks - FS',
+    'Dairy & Nutrition - DN',
+    'Home Care - HC'
   ];
 
   readonly locationsList: string[] = [
     'All',
-    'Ahmedabad',
-    'Hyderabad',
     'Mumbai',
-    'Pune',
-    'Vadodara',
     'Bengaluru',
+    'Delhi NCR',
+    'Pune',
+    'Hyderabad',
     'Chennai',
-    'Delhi',
-    'Baddi',
+    'Kolkata',
+    'Ahmedabad',
+    'Baddi'
   ];
 
   onApplyFilters(): void {
@@ -60,83 +61,83 @@ export class DashboardBufferComponent implements AfterViewInit {
   bufferStageChart: Highcharts.Chart | null = null;
 
   readonly phaseDefinitions = [
-    { key: 'Phase 1 - Concept', fullName: 'Concept & Feasibility (S1-S2)', threshold: 2.0 },
-    { key: 'Phase 2 - Route', fullName: 'Route Development & Selection (S3-S5)', threshold: 4.5 },
-    { key: 'Phase 3 - Pilot', fullName: 'Pilot Development & Safety (S6-S7)', threshold: 6.5 },
-    { key: 'Phase 4 - Scale-Up', fullName: 'Registration & Scale-Up (S8-S10)', threshold: 8.5 },
-    { key: 'Phase 5 - Commercial', fullName: 'Commercial Plant & Launch (S11-S12)', threshold: 10.5 }
+    { key: 'Stage 0 – Target', fullName: 'Product Concept Selection & Business Case', threshold: 2.0 },
+    { key: 'Stage 1 – Formula', fullName: 'Formula Design & Candidate Optimization', threshold: 4.5 },
+    { key: 'Stage 2 – Process', fullName: 'Product Formulation & Pilot Process Development', threshold: 6.5 },
+    { key: 'Stage 3 – Testing', fullName: 'Consumer Testing & Feasibility Studies', threshold: 8.5 },
+    { key: 'Stage 4 – Launch', fullName: 'Commercial Scale-Up & Launch Preparation', threshold: 10.5 }
   ];
 
   bufferProjectData: { [project: string]: { [phase: string]: { bufferUsed: number; bufferTime: number } } } = {
-    'Waterborne Polyurethane Dispersion (PUD) Discovery Project': {
-      'Phase 1 - Concept': { bufferUsed: 0.8, bufferTime: -0.3 },
-      'Phase 2 - Route': { bufferUsed: 2.3, bufferTime: -0.2 },
-      'Phase 3 - Pilot': { bufferUsed: 4.4, bufferTime: 0.4 },
-      'Phase 4 - Scale-Up': { bufferUsed: 6.1, bufferTime: 0.8 },
-      'Phase 5 - Commercial': { bufferUsed: 8.0, bufferTime: 1.2 }
+    'New Beverage Product Development Program': {
+      'Stage 0 – Target': { bufferUsed: 0.8, bufferTime: -0.3 },
+      'Stage 1 – Formula': { bufferUsed: 2.3, bufferTime: -0.2 },
+      'Stage 2 – Process': { bufferUsed: 4.4, bufferTime: 0.4 },
+      'Stage 3 – Testing': { bufferUsed: 6.1, bufferTime: 0.8 },
+      'Stage 4 – Launch': { bufferUsed: 8.0, bufferTime: 1.2 }
     },
-    'Hydrogenation Catalyst Development (Pd/C)': {
-      'Phase 1 - Concept': { bufferUsed: 0.7, bufferTime: -0.4 },
-      'Phase 2 - Route': { bufferUsed: 2.1, bufferTime: -0.3 },
-      'Phase 3 - Pilot': { bufferUsed: 4.2, bufferTime: 0.2 },
-      'Phase 4 - Scale-Up': { bufferUsed: 5.9, bufferTime: 0.6 },
-      'Phase 5 - Commercial': { bufferUsed: 7.8, bufferTime: 0.9 }
+    'New Personal Care Product Formulation Development': {
+      'Stage 0 – Target': { bufferUsed: 0.7, bufferTime: -0.4 },
+      'Stage 1 – Formula': { bufferUsed: 2.1, bufferTime: -0.3 },
+      'Stage 2 – Process': { bufferUsed: 4.2, bufferTime: 0.2 },
+      'Stage 3 – Testing': { bufferUsed: 5.9, bufferTime: 0.6 },
+      'Stage 4 – Launch': { bufferUsed: 7.8, bufferTime: 0.9 }
     },
-    'Agrochemical Active Ingredient Multi-Step Synthesis Development': {
-      'Phase 1 - Concept': { bufferUsed: 0.9, bufferTime: 0.2 },
-      'Phase 2 - Route': { bufferUsed: 2.5, bufferTime: 0.5 },
-      'Phase 3 - Pilot': { bufferUsed: 4.8, bufferTime: 0.7 },
-      'Phase 4 - Scale-Up': { bufferUsed: 6.8, bufferTime: 1.1 },
-      'Phase 5 - Commercial': { bufferUsed: 8.9, bufferTime: 1.5 }
+    'Multi-Variant Snack Product Development': {
+      'Stage 0 – Target': { bufferUsed: 0.9, bufferTime: 0.2 },
+      'Stage 1 – Formula': { bufferUsed: 2.5, bufferTime: 0.5 },
+      'Stage 2 – Process': { bufferUsed: 4.8, bufferTime: 0.7 },
+      'Stage 3 – Testing': { bufferUsed: 6.8, bufferTime: 1.1 },
+      'Stage 4 – Launch': { bufferUsed: 8.9, bufferTime: 1.5 }
     },
-    'Solvent Recovery & Fractional Distillation Process Development': {
-      'Phase 1 - Concept': { bufferUsed: 0.6, bufferTime: -0.5 },
-      'Phase 2 - Route': { bufferUsed: 1.9, bufferTime: -0.4 },
-      'Phase 3 - Pilot': { bufferUsed: 3.8, bufferTime: -0.1 },
-      'Phase 4 - Scale-Up': { bufferUsed: 5.5, bufferTime: 0.3 },
-      'Phase 5 - Commercial': { bufferUsed: 7.2, bufferTime: 0.6 }
+    'Ingredient Sourcing and Blend Optimization': {
+      'Stage 0 – Target': { bufferUsed: 0.6, bufferTime: -0.5 },
+      'Stage 1 – Formula': { bufferUsed: 1.9, bufferTime: -0.4 },
+      'Stage 2 – Process': { bufferUsed: 3.8, bufferTime: -0.1 },
+      'Stage 3 – Testing': { bufferUsed: 5.5, bufferTime: 0.3 },
+      'Stage 4 – Launch': { bufferUsed: 7.2, bufferTime: 0.6 }
     },
-    'Water-Dispersible Granule (WDG) Formulation Development': {
-      'Phase 1 - Concept': { bufferUsed: 0.8, bufferTime: -0.1 },
-      'Phase 2 - Route': { bufferUsed: 2.4, bufferTime: 0.3 },
-      'Phase 3 - Pilot': { bufferUsed: 4.6, bufferTime: 0.5 },
-      'Phase 4 - Scale-Up': { bufferUsed: 6.3, bufferTime: 0.9 },
-      'Phase 5 - Commercial': { bufferUsed: 8.2, bufferTime: 1.3 }
+    'Shelf-Stable Powdered Beverage Product Formulation': {
+      'Stage 0 – Target': { bufferUsed: 0.8, bufferTime: -0.1 },
+      'Stage 1 – Formula': { bufferUsed: 2.4, bufferTime: 0.3 },
+      'Stage 2 – Process': { bufferUsed: 4.6, bufferTime: 0.5 },
+      'Stage 3 – Testing': { bufferUsed: 6.3, bufferTime: 0.9 },
+      'Stage 4 – Launch': { bufferUsed: 8.2, bufferTime: 1.3 }
     },
-    'Acrylic Emulsion Binder 50% Solids': {
-      'Phase 1 - Concept': { bufferUsed: 0.8, bufferTime: -0.2 },
-      'Phase 2 - Route': { bufferUsed: 2.3, bufferTime: -0.1 },
-      'Phase 3 - Pilot': { bufferUsed: 4.4, bufferTime: 0.3 },
-      'Phase 4 - Scale-Up': { bufferUsed: 6.1, bufferTime: 0.7 },
-      'Phase 5 - Commercial': { bufferUsed: 8.0, bufferTime: 1.0 }
+    'Vitamin-Enriched Fruit Beverage 250ml': {
+      'Stage 0 – Target': { bufferUsed: 0.8, bufferTime: -0.2 },
+      'Stage 1 – Formula': { bufferUsed: 2.3, bufferTime: -0.1 },
+      'Stage 2 – Process': { bufferUsed: 4.4, bufferTime: 0.3 },
+      'Stage 3 – Testing': { bufferUsed: 6.1, bufferTime: 0.7 },
+      'Stage 4 – Launch': { bufferUsed: 8.0, bufferTime: 1.0 }
     },
-    'Liquid Epoxy Resin (Bisphenol-A, EEW 185-192)': {
-      'Phase 1 - Concept': { bufferUsed: 0.7, bufferTime: -0.3 },
-      'Phase 2 - Route': { bufferUsed: 2.2, bufferTime: -0.1 },
-      'Phase 3 - Pilot': { bufferUsed: 4.3, bufferTime: 0.3 },
-      'Phase 4 - Scale-Up': { bufferUsed: 6.0, bufferTime: 0.6 },
-      'Phase 5 - Commercial': { bufferUsed: 7.9, bufferTime: 1.1 }
+    'Premium Personal Care Lotion 200ml': {
+      'Stage 0 – Target': { bufferUsed: 0.7, bufferTime: -0.3 },
+      'Stage 1 – Formula': { bufferUsed: 2.2, bufferTime: -0.1 },
+      'Stage 2 – Process': { bufferUsed: 4.3, bufferTime: 0.3 },
+      'Stage 3 – Testing': { bufferUsed: 6.0, bufferTime: 0.6 },
+      'Stage 4 – Launch': { bufferUsed: 7.9, bufferTime: 1.1 }
     },
-    'Sodium Lauryl Ether Sulfate (SLES) 70% Paste': {
-      'Phase 1 - Concept': { bufferUsed: 0.6, bufferTime: -0.4 },
-      'Phase 2 - Route': { bufferUsed: 2.0, bufferTime: -0.2 },
-      'Phase 3 - Pilot': { bufferUsed: 4.1, bufferTime: 0.1 },
-      'Phase 4 - Scale-Up': { bufferUsed: 5.8, bufferTime: 0.5 },
-      'Phase 5 - Commercial': { bufferUsed: 7.6, bufferTime: 0.8 }
+    'Ready-to-Eat Snack Range 100g': {
+      'Stage 0 – Target': { bufferUsed: 0.6, bufferTime: -0.4 },
+      'Stage 1 – Formula': { bufferUsed: 2.0, bufferTime: -0.2 },
+      'Stage 2 – Process': { bufferUsed: 4.1, bufferTime: 0.1 },
+      'Stage 3 – Testing': { bufferUsed: 5.8, bufferTime: 0.5 },
+      'Stage 4 – Launch': { bufferUsed: 7.6, bufferTime: 0.8 }
     },
-    'Fumed Silica (Hydrophilic, 200 m2/g)': {
-      'Phase 1 - Concept': { bufferUsed: 0.9, bufferTime: 0.1 },
-      'Phase 2 - Route': { bufferUsed: 2.6, bufferTime: 0.4 },
-      'Phase 3 - Pilot': { bufferUsed: 4.7, bufferTime: 0.6 },
-      'Phase 4 - Scale-Up': { bufferUsed: 6.5, bufferTime: 1.0 },
-      'Phase 5 - Commercial': { bufferUsed: 8.5, bufferTime: 1.4 }
+    'Low-Sugar Dairy Beverage 200ml': {
+      'Stage 0 – Target': { bufferUsed: 0.9, bufferTime: 0.1 },
+      'Stage 1 – Formula': { bufferUsed: 2.6, bufferTime: 0.4 },
+      'Stage 2 – Process': { bufferUsed: 4.7, bufferTime: 0.6 },
+      'Stage 3 – Testing': { bufferUsed: 6.5, bufferTime: 1.0 },
+      'Stage 4 – Launch': { bufferUsed: 8.5, bufferTime: 1.4 }
     },
-    'Hydrogen Peroxide 50% w/w (Anthraquinone Process)': {
-      'Phase 1 - Concept': { bufferUsed: 0.8, bufferTime: -0.2 },
-      'Phase 2 - Route': { bufferUsed: 2.3, bufferTime: 0.1 },
-      'Phase 3 - Pilot': { bufferUsed: 4.5, bufferTime: 0.4 },
-      'Phase 4 - Scale-Up': { bufferUsed: 6.2, bufferTime: 0.8 },
-      'Phase 5 - Commercial': { bufferUsed: 8.1, bufferTime: 1.2 }
+    'Plant-Based Protein Drink 300ml': {
+      'Stage 0 – Target': { bufferUsed: 0.8, bufferTime: -0.2 },
+      'Stage 1 – Formula': { bufferUsed: 2.3, bufferTime: 0.1 },
+      'Stage 2 – Process': { bufferUsed: 4.5, bufferTime: 0.4 },
+      'Stage 3 – Testing': { bufferUsed: 6.2, bufferTime: 0.8 },
+      'Stage 4 – Launch': { bufferUsed: 8.1, bufferTime: 1.2 }
     }
   };
 
@@ -153,7 +154,7 @@ export class DashboardBufferComponent implements AfterViewInit {
   }
 
   getBufferDataForProject(project: string): { [phase: string]: { bufferUsed: number; bufferTime: number } } {
-    if (project !== 'All Projects' && this.bufferProjectData[project]) {
+    if (project !== 'All Programs' && this.bufferProjectData[project]) {
       return this.bufferProjectData[project];
     }
     const phases = this.phaseDefinitions.map(p => p.key);
@@ -163,224 +164,162 @@ export class DashboardBufferComponent implements AfterViewInit {
     phases.forEach(phase => {
       let totalUsed = 0;
       let totalTime = 0;
-      projectKeys.forEach(p => {
-        totalUsed += this.bufferProjectData[p][phase]?.bufferUsed || 0;
-        totalTime += this.bufferProjectData[p][phase]?.bufferTime || 0;
+      projectKeys.forEach(pk => {
+        const item = this.bufferProjectData[pk]?.[phase];
+        if (item) {
+          totalUsed += item.bufferUsed;
+          totalTime += item.bufferTime;
+        }
       });
+      const count = projectKeys.length || 1;
       result[phase] = {
-        bufferUsed: +(totalUsed / projectKeys.length).toFixed(1),
-        bufferTime: +(totalTime / projectKeys.length).toFixed(1)
+        bufferUsed: parseFloat((totalUsed / count).toFixed(1)),
+        bufferTime: parseFloat((totalTime / count).toFixed(1))
       };
     });
+
     return result;
   }
 
   renderBufferBarChart() {
-    const containerId = 'bufferBarChartContainer';
-    if (!document.getElementById(containerId)) return;
+    const container = document.getElementById('bufferBarChartContainer');
+    if (!container) return;
 
+    const data = this.getBufferDataForProject(this.selectedBufferProject);
     const categories = this.phaseDefinitions.map(p => p.key);
+    const bufferUsedData = this.phaseDefinitions.map(p => data[p.key]?.bufferUsed ?? 0);
     const thresholdData = this.phaseDefinitions.map(p => p.threshold);
-    const projectData = this.getBufferDataForProject(this.selectedBufferProject);
-
     const self = this;
-    const columnData = this.phaseDefinitions.map(pDef => {
-      const used = projectData[pDef.key]?.bufferUsed ?? 0;
-      return {
-        y: used,
-        color: used > pDef.threshold ? '#dc3545' : '#28a745',
-        status: used > pDef.threshold ? 'Over Threshold' : 'On Track',
-        fullName: pDef.fullName
-      };
-    });
 
-    this.bufferBarChart = Highcharts.chart(containerId, {
+    if (this.bufferBarChart) {
+      this.bufferBarChart.destroy();
+    }
+
+    this.bufferBarChart = Highcharts.chart('bufferBarChartContainer', {
       chart: { type: 'column', backgroundColor: '#ffffff' },
       title: { text: null },
       credits: { enabled: false },
-      legend: {
-        itemStyle: { color: '#000000' }
-      },
+      exporting: { enabled: true },
       xAxis: {
-        title: { text: 'Phases', style: { color: '#000000' } },
         categories: categories,
-        lineWidth: 1,
-        lineColor: '#1b2e5e',
+        title: { text: 'Stages' },
         labels: {
-          step: 1,
-          style: { color: '#000000' }
+          style: { fontSize: '11px' },
+          formatter: function (this: any) {
+            const def = self.phaseDefinitions.find(p => p.key === this.value);
+            return `<span title="${def?.fullName || this.value}">${this.value}</span>`;
+          }
         }
       },
       yAxis: {
-        title: { text: 'Buffer Time Used (days)', style: { color: '#000000' } },
         min: 0,
-        lineWidth: 1,
-        lineColor: '#1b2e5e',
-        labels: { style: { color: '#000000' } }
+        max: 12,
+        tickInterval: 2,
+        title: { text: 'Buffer Time Used (days)' },
+        plotLines: [{ value: 0, width: 1, color: '#ccd6eb' }]
       },
       tooltip: {
-        shared: false,
+        shared: true,
         useHTML: true,
-        formatter: function (this: any): string {
-          if (this.series.name.includes('Average Threshold')) {
-            return `<div style="color: white;"><b>Average Threshold</b><br/>${this.x}<br/>Expected Buffer: <b>${this.y}</b></div>`;
-          }
-          const fullName = (this.point as any).options?.fullName || this.x;
-          return `
-            <div style="font-size: 13px; color:white;">
-              <b>${this.x}</b><br/>
-              <span style="font-size: 11px; opacity: 0.85;">${fullName}</span><br/>
-              <span style="color: ${this.point.color}">\u25CF</span> Buffer Time Used: <b>${this.y} days</b><br/>
-              Status: <i>${(this.point as any).options?.status}</i>
-            </div>
-          `;
+        formatter: function (this: any) {
+          const def = self.phaseDefinitions.find(p => p.key === this.x);
+          let s = `<b>${def?.fullName || this.x}</b><br/>`;
+          this.points.forEach((point: any) => {
+            s += `<span style="color:${point.series.color}">\u25CF</span> ${point.series.name}: <b>${point.y} days</b><br/>`;
+          });
+          return s;
         }
       },
+      legend: { align: 'center', verticalAlign: 'bottom', layout: 'horizontal' },
       plotOptions: {
         column: {
-          borderRadius: 3,
-          dataLabels: {
-            enabled: true,
-            format: '{point.y}',
-            style: { fontWeight: 'bold', color: '#000000', textOutline: 'none' }
-          },
-          point: {
-            events: {
-              mouseOver: function () {
-                const idx = (this as any).index;
-                const stageChart = self.bufferStageChart;
-                if (!stageChart) return;
-                const pt = stageChart.series[0]?.points[idx];
-                if (pt) pt.setState('hover');
-              },
-              mouseOut: function () {
-                const idx = (this as any).index;
-                const stageChart = self.bufferStageChart;
-                if (!stageChart) return;
-                const pt = stageChart.series[0]?.points[idx];
-                if (pt) pt.setState('');
-              }
-            }
-          }
+          dataLabels: { enabled: true, format: '{y}' },
+          maxPointWidth: 40
+        },
+        spline: {
+          dataLabels: { enabled: false },
+          enableMouseTracking: true
         }
       },
       series: [
         {
-          type: 'column',
           name: 'Buffer Used',
-          data: columnData
+          type: 'column',
+          data: bufferUsedData,
+          color: '#0d6efd'
         },
         {
-          type: 'line',
           name: 'Average Threshold (y=x)',
+          type: 'spline',
           data: thresholdData,
-          color: '#007bff',
+          color: '#198754',
           dashStyle: 'Dash',
-          marker: { enabled: true, radius: 4 }
+          marker: { enabled: false }
         }
       ]
     } as any);
   }
 
   renderBufferPieChart() {
-    const containerId = 'bufferPieChartContainer';
-    if (!document.getElementById(containerId)) return;
+    const container = document.getElementById('bufferPieChartContainer');
+    if (!container) return;
 
+    const data = this.getBufferDataForProject(this.selectedBufferProject);
     const categories = this.phaseDefinitions.map(p => p.key);
-    const projectData = this.getBufferDataForProject(this.selectedBufferProject);
-
-    const stageData = this.phaseDefinitions.map(pDef => {
-      const timeVal = projectData[pDef.key]?.bufferTime ?? 0;
-      return {
-        name: pDef.key,
-        y: timeVal,
-        color: timeVal > 0 ? '#dc3545' : '#00a859',
-        fullName: pDef.fullName
-      };
-    });
-
+    const bufferTimeData = this.phaseDefinitions.map(p => data[p.key]?.bufferTime ?? 0);
     const self = this;
 
-    this.bufferStageChart = Highcharts.chart(containerId, {
+    if (this.bufferStageChart) {
+      this.bufferStageChart.destroy();
+    }
+
+    this.bufferStageChart = Highcharts.chart('bufferPieChartContainer', {
       chart: { type: 'column', backgroundColor: '#ffffff' },
       title: { text: null },
       credits: { enabled: false },
-      legend: {
-        itemStyle: { color: '#000000' }
-      },
+      exporting: { enabled: true },
       xAxis: {
-        title: { text: 'Phases', style: { color: '#000000' } },
         categories: categories,
-        lineWidth: 1,
-        lineColor: '#1b2e5e',
-        gridLineWidth: 0,
+        title: { text: 'Stages' },
         labels: {
-          step: 1,
-          style: { color: '#000000' }
-        }
-      },
-      yAxis: {
-        title: { text: 'Buffer Time (days)', style: { color: '#000000' } },
-        gridLineWidth: 0,
-        lineWidth: 1,
-        lineColor: '#1b2e5e',
-        plotLines: [{ value: 0, width: 2, color: '#1b2e5e', zIndex: 4 }],
-        labels: { style: { color: '#000000' } }
-      },
-      tooltip: {
-        useHTML: true,
-        formatter: function (this: any): string {
-          const p = this.point as any;
-          const fullName = p.options?.fullName || this.key;
-          const status = p.y > 0 ? 'Over Buffer (Delay)' : (p.y < 0 ? 'Under Buffer (Saved)' : 'On Track');
-          return `
-            <div style="font-size: 13px; color:white;">
-              <b>${this.key}</b><br/>
-              <span style="font-size: 11px; opacity: 0.85;">${fullName}</span><br/>
-              Buffer Time: <b>${p.y > 0 ? '+' : ''}${p.y} days</b><br/>
-              Status: <i>${status}</i>
-            </div>
-          `;
-        }
-      },
-      plotOptions: {
-        column: {
-          borderRadius: 3,
-          borderWidth: 1,
-          borderColor: '#000000',
-          dataLabels: {
-            enabled: true,
-            formatter: function (this: any): string {
-              const val = this.y as number;
-              return (val > 0 ? '+' : '') + val.toFixed(1);
-            },
-            style: { fontWeight: 'bold', color: '#000000', textOutline: 'none' }
-          },
-          point: {
-            events: {
-              mouseOver: function () {
-                const idx = (this as any).index;
-                const barChart = self.bufferBarChart;
-                if (!barChart) return;
-                const pt = barChart.series[0]?.points[idx];
-                if (pt) pt.setState('hover');
-              },
-              mouseOut: function () {
-                const idx = (this as any).index;
-                const barChart = self.bufferBarChart;
-                if (!barChart) return;
-                const pt = barChart.series[0]?.points[idx];
-                if (pt) pt.setState('');
-              }
-            }
+          style: { fontSize: '11px' },
+          formatter: function (this: any) {
+            const def = self.phaseDefinitions.find(p => p.key === this.value);
+            return `<span title="${def?.fullName || this.value}">${this.value}</span>`;
           }
         }
       },
-      series: [{
-        type: 'column',
-        name: 'Buffer Time',
-        data: stageData
-      }]
+      yAxis: {
+        title: { text: 'Buffer Time (days)' },
+        plotLines: [{ value: 0, width: 1, color: '#333333' }]
+      },
+      tooltip: {
+        shared: true,
+        useHTML: true,
+        formatter: function (this: any) {
+          const def = self.phaseDefinitions.find(p => p.key === this.x);
+          let s = `<b>${def?.fullName || this.x}</b><br/>`;
+          this.points.forEach((point: any) => {
+            s += `<span style="color:${point.series.color}">\u25CF</span> ${point.series.name}: <b>${point.y} days</b><br/>`;
+          });
+          return s;
+        }
+      },
+      legend: { align: 'center', verticalAlign: 'bottom', layout: 'horizontal' },
+      plotOptions: {
+        column: {
+          dataLabels: { enabled: true, format: '{y}' },
+          maxPointWidth: 40
+        }
+      },
+      series: [
+        {
+          name: 'Buffer Time',
+          type: 'column',
+          data: bufferTimeData,
+          color: '#0d6efd'
+        }
+      ]
     } as any);
   }
 }

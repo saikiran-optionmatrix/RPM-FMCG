@@ -30,6 +30,11 @@ export interface StageItem {
   gateCode: string;
   status: boolean;
   setupCount: number;
+  updated?: string;
+  updatedDate?: string;
+  updatedBy?: string;
+  historyCount?: number;
+  documentsCount?: number;
 }
 
 @Component({
@@ -52,304 +57,402 @@ export class TemplateStagesComponent implements OnInit, OnDestroy {
     this.route.snapshot.queryParamMap.get('projectName') ||
     this.route.snapshot.queryParamMap.get('name') ||
     this.route.snapshot.queryParamMap.get('templateName') ||
-    'Specialty Chemical Process Development Program';
+    'New Beverage Product Development Program';
+  projectCode: string = '2026/FMCG/001';
+  dynamicBreadcrumb: string = 'New Beverage Product Development Program - 2026/FMCG/001';
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
   stages: StageItem[] = [
-    {
-      stageCode: 'S1',
-      name: 'Opportunity Identification',
-      planEffort: '400 hrs',
-      planDuration: '10 days',
-      actualEffort: '400 hrs',
-      actualDuration: '10 days',
-      percentCompletion: 100,
-      done: true,
-      description: 'Identify and prioritize product and market opportunities from customer demand, competitor gaps and technology trends.',
-      planStart: '2026-01-05',
-      planEnd: '2026-01-15',
-      actualStart: '2026-01-05',
-      actualEnd: '2026-01-15',
-      eta: '2026-01-15',
-      buffer: '2 days',
-      gateName: '-',
-      gateStatus: 'Approved',
-      gateCode: '-',
-      status: true,
-      setupCount: 8,
-    },
-    {
-      stageCode: 'S2',
-      name: 'Concept Screening & Feasibility',
-      planEffort: '300 hrs',
-      planDuration: '10 days',
-      actualEffort: '300 hrs',
-      actualDuration: '10 days',
-      percentCompletion: 100,
-      done: true,
-      description: 'Assess technical, economic and regulatory feasibility of candidate chemistries and products.',
-      planStart: '2026-01-16',
-      planEnd: '2026-01-26',
-      actualStart: '2026-01-16',
-      actualEnd: '2026-01-26',
-      eta: '2026-01-26',
-      buffer: '2 days',
-      gateName: 'Business case and project charter approval (Gate 1)',
-      gateStatus: 'Approved',
-      gateCode: 'Gate 1',
-      status: true,
-      setupCount: 12,
-    },
-    {
-      stageCode: 'S3',
-      name: 'Route Scouting & Lab Synthesis',
-      planEffort: '1,500 hrs',
-      planDuration: '30 days',
-      actualEffort: '1,500 hrs',
-      actualDuration: '30 days',
-      percentCompletion: 100,
-      done: true,
-      description: 'Screen synthesis routes, catalysts and raw materials and prove the chemistry at laboratory scale.',
-      planStart: '2026-01-27',
-      planEnd: '2026-02-28',
-      actualStart: '2026-01-27',
-      actualEnd: '2026-02-28',
-      eta: '2026-02-28',
-      buffer: '3 days',
-      gateName: '-',
-      gateStatus: 'Approved',
-      gateCode: '-',
-      status: true,
-      setupCount: 17,
-    },
-    {
-      stageCode: 'S4',
-      name: 'Process Optimization (Lab Scale)',
-      planEffort: '3,000 hrs',
-      planDuration: '60 days',
-      actualEffort: '1,740 hrs',
-      actualDuration: '35 days',
-      percentCompletion: 58,
-      done: false,
-      description: 'Improve yield, selectivity, impurity profile and process robustness at bench scale.',
-      planStart: '2026-03-01',
-      planEnd: '2026-05-15',
-      actualStart: '2026-03-01',
-      actualEnd: '',
-      eta: '2026-05-30',
-      buffer: '5 days',
-      gateName: '-',
-      gateStatus: 'Pending',
-      gateCode: '-',
-      status: true,
-      setupCount: 26,
-    },
-    {
-      stageCode: 'S5',
-      name: 'Process Route Selection & Basis of Design',
-      planEffort: '1,200 hrs',
-      planDuration: '25 days',
-      actualEffort: '',
-      actualDuration: '',
-      percentCompletion: 0,
-      done: false,
-      description: 'Select the commercial route and define the basis of design, cost of manufacturing and risks.',
-      planStart: '2026-05-16',
-      planEnd: '2026-06-15',
-      actualStart: '',
-      actualEnd: '',
-      eta: '2026-06-15',
-      buffer: '2 days',
-      gateName: 'Process route selection and basis of design approval (Gate 2)',
-      gateStatus: 'Pending',
-      gateCode: 'Gate 2',
-      status: true,
-      setupCount: 14,
-    },
-    {
-      stageCode: 'S6',
-      name: 'Bench-to-Pilot Process Development',
-      planEffort: '3,500 hrs',
-      planDuration: '50 days',
-      actualEffort: '',
-      actualDuration: '',
-      percentCompletion: 0,
-      done: false,
-      description: 'Develop and scale the reaction, separation and purification steps for the pilot plant.',
-      planStart: '2026-06-16',
-      planEnd: '2026-08-10',
-      actualStart: '',
-      actualEnd: '',
-      eta: '2026-08-10',
-      buffer: '4 days',
-      gateName: '-',
-      gateStatus: 'Pending',
-      gateCode: '-',
-      status: true,
-      setupCount: 22,
-    },
-    {
-      stageCode: 'S7',
-      name: 'Process Safety & Regulatory Studies',
-      planEffort: '3,200 hrs',
-      planDuration: '45 days',
-      actualEffort: '',
-      actualDuration: '',
-      percentCompletion: 0,
-      done: false,
-      description: 'Run hazard studies (HAZOP, calorimetry), toxicology and environmental studies needed to support registration.',
-      planStart: '2026-08-11',
-      planEnd: '2026-09-30',
-      actualStart: '',
-      actualEnd: '',
-      eta: '2026-09-30',
-      buffer: '4 days',
-      gateName: 'Registration and pilot plant readiness approval (Gate 3)',
-      gateStatus: 'Pending',
-      gateCode: 'Gate 3',
-      status: true,
-      setupCount: 19,
-    },
-    {
-      stageCode: 'S8',
-      name: 'Regulatory Registration Filing (REACH / TSCA)',
-      planEffort: '1,500 hrs',
-      planDuration: '30 days',
-      actualEffort: '',
-      actualDuration: '',
-      percentCompletion: 0,
-      done: false,
-      description: 'Compile and submit chemical registration dossiers and respond to authority queries.',
-      planStart: '2026-10-01',
-      planEnd: '2026-11-05',
-      actualStart: '',
-      actualEnd: '',
-      eta: '2026-11-05',
-      buffer: '2 days',
-      gateName: '-',
-      gateStatus: 'Pending',
-      gateCode: '-',
-      status: true,
-      setupCount: 18,
-    },
-    {
-      stageCode: 'S9',
-      name: 'Pilot Plant Campaign',
-      planEffort: '3,600 hrs',
-      planDuration: '40 days',
-      actualEffort: '',
-      actualDuration: '',
-      percentCompletion: 0,
-      done: false,
-      description: 'Produce pilot batches to confirm process performance and generate customer samples.',
-      planStart: '2026-11-06',
-      planEnd: '2026-12-20',
-      actualStart: '',
-      actualEnd: '',
-      eta: '2026-12-20',
-      buffer: '3 days',
-      gateName: '-',
-      gateStatus: 'Pending',
-      gateCode: '-',
-      status: true,
-      setupCount: 11,
-    },
-    {
-      stageCode: 'S10',
-      name: 'Demonstration-Scale Campaign',
-      planEffort: '4,000 hrs',
-      planDuration: '55 days',
-      actualEffort: '',
-      actualDuration: '',
-      percentCompletion: 0,
-      done: false,
-      description: 'Run larger campaigns to prove scale-up, equipment fit and product quality with customers.',
-      planStart: '2026-12-21',
-      planEnd: '2027-02-20',
-      actualStart: '',
-      actualEnd: '',
-      eta: '2027-02-20',
-      buffer: '4 days',
-      gateName: 'Demo-scale proof and commercial plant design approval (Gate 4)',
-      gateStatus: 'Pending',
-      gateCode: 'Gate 4',
-      status: true,
-      setupCount: 24,
-    },
-    {
-      stageCode: 'S11',
-      name: 'Commercial Plant Build & Commissioning',
-      planEffort: '6,500 hrs',
-      planDuration: '150 days',
-      actualEffort: '',
-      actualDuration: '',
-      percentCompletion: 0,
-      done: false,
-      description: 'Engineer, build, commission and qualify the commercial plant or line.',
-      planStart: '2027-02-21',
-      planEnd: '2027-06-30',
-      actualStart: '',
-      actualEnd: '',
-      eta: '2027-06-30',
-      buffer: '10 days',
-      gateName: 'Commercial production readiness approval (Gate 5)',
-      gateStatus: 'Pending',
-      gateCode: 'Gate 5',
-      status: true,
-      setupCount: 31,
-    },
-    {
-      stageCode: 'S12',
-      name: 'Commercial Launch & Ramp-Up',
-      planEffort: '1,300 hrs',
-      planDuration: '35 days',
-      actualEffort: '',
-      actualDuration: '',
-      percentCompletion: 0,
-      done: false,
-      description: 'Start commercial production, ramp up volumes and hand over to operations.',
-      planStart: '2027-07-01',
-      planEnd: '2027-07-31',
-      actualStart: '',
-      actualEnd: '',
-      eta: '2027-07-31',
-      buffer: '4 days',
-      gateName: '-',
-      gateStatus: 'Pending',
-      gateCode: '-',
-      status: true,
-      setupCount: 15,
-    }
-  ];
+  {
+    "stageCode": "S1",
+    "name": "Business Case",
+    "planEffort": "400 hrs",
+    "planDuration": "10 days",
+    "actualEffort": "400 hrs",
+    "actualDuration": "10 days",
+    "percentCompletion": 100,
+    "done": true,
+    "description": "Identify and prioritize consumer need, market opportunities and benchmark competitive products.",
+    "planStart": "2026-01-05",
+    "planEnd": "2026-01-15",
+    "actualStart": "2026-01-05",
+    "actualEnd": "2026-01-15",
+    "eta": "2026-01-15",
+    "buffer": "2 days",
+    "gateName": "-",
+    "gateStatus": "Approved",
+    "gateCode": "-",
+    "status": true,
+    "setupCount": 8,
+    "updated": "20 Feb 2026",
+    "updatedDate": "20 Feb 2026",
+    "updatedBy": "Ananya Rao",
+    "historyCount": 4,
+    "documentsCount": 4
+  },
+  {
+    "stageCode": "S2",
+    "name": "Initiation",
+    "planEffort": "300 hrs",
+    "planDuration": "10 days",
+    "actualEffort": "300 hrs",
+    "actualDuration": "10 days",
+    "percentCompletion": 100,
+    "done": true,
+    "description": "Assess technical, sensory and regulatory feasibility of beverage formulations.",
+    "planStart": "2026-01-16",
+    "planEnd": "2026-01-26",
+    "actualStart": "2026-01-16",
+    "actualEnd": "2026-01-26",
+    "eta": "2026-01-26",
+    "buffer": "2 days",
+    "gateName": "Business case and program charter approval",
+    "gateStatus": "Approved",
+    "gateCode": "Gate 1",
+    "status": true,
+    "setupCount": 12,
+    "updated": "12 Mar 2026",
+    "updatedDate": "12 Mar 2026",
+    "updatedBy": "Rajesh Kumar",
+    "historyCount": 2,
+    "documentsCount": 3
+  },
+  {
+    "stageCode": "S3",
+    "name": "product formulation & food-grade ingredient / processing aid Procurement",
+    "planEffort": "1,800 hrs",
+    "planDuration": "30 days",
+    "actualEffort": "1,800 hrs",
+    "actualDuration": "30 days",
+    "percentCompletion": 100,
+    "done": true,
+    "description": "Source and qualify food-grade ingredients, vitamins, natural flavors and packaging materials.",
+    "planStart": "2026-01-27",
+    "planEnd": "2026-02-28",
+    "actualStart": "2026-01-27",
+    "actualEnd": "2026-02-28",
+    "eta": "2026-02-28",
+    "buffer": "3 days",
+    "gateName": "-",
+    "gateStatus": "Approved",
+    "gateCode": "-",
+    "status": true,
+    "setupCount": 17,
+    "updated": "28 Apr 2026",
+    "updatedDate": "28 Apr 2026",
+    "updatedBy": "Anita Desai",
+    "historyCount": 1,
+    "documentsCount": 2
+  },
+  {
+    "stageCode": "S4",
+    "name": "POC Expression & ingredient refining",
+    "planEffort": "3,200 hrs",
+    "planDuration": "60 days",
+    "actualEffort": "1,856 hrs",
+    "actualDuration": "35 days",
+    "percentCompletion": 58,
+    "done": false,
+    "description": "Optimize beverage recipe, thermal treatment, vitamin retention and sensory attributes.",
+    "planStart": "2026-03-01",
+    "planEnd": "2026-05-15",
+    "actualStart": "2026-03-01",
+    "actualEnd": "",
+    "eta": "2026-05-30",
+    "buffer": "5 days",
+    "gateName": "Clone and process Product Concept and Formula Selection",
+    "gateStatus": "Pending",
+    "gateCode": "Gate 2",
+    "status": true,
+    "setupCount": 26,
+    "updated": "05 Oct 2026",
+    "updatedDate": "05 Oct 2026",
+    "updatedBy": "Priya Reddy",
+    "historyCount": 5,
+    "documentsCount": 4
+  },
+  {
+    "stageCode": "S5",
+    "name": "GMP production batch Material Procurement",
+    "planEffort": "1,600 hrs",
+    "planDuration": "30 days",
+    "actualEffort": "",
+    "actualDuration": "",
+    "percentCompletion": 0,
+    "done": false,
+    "description": "Procure production materials, packaging substrates and validate commercial suppliers.",
+    "planStart": "2026-05-16",
+    "planEnd": "2026-06-15",
+    "actualStart": "",
+    "actualEnd": "",
+    "eta": "2026-06-15",
+    "buffer": "3 days",
+    "gateName": "-",
+    "gateStatus": "Pending",
+    "gateCode": "-",
+    "status": true,
+    "setupCount": 14,
+    "updated": "-",
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "documentsCount": 0
+  },
+  {
+    "stageCode": "S6",
+    "name": "pilot manufacturing run",
+    "planEffort": "3,800 hrs",
+    "planDuration": "50 days",
+    "actualEffort": "",
+    "actualDuration": "",
+    "percentCompletion": 0,
+    "done": false,
+    "description": "Develop and scale pilot processing, mixing and filling lines.",
+    "planStart": "2026-06-16",
+    "planEnd": "2026-08-10",
+    "actualStart": "",
+    "actualEnd": "",
+    "eta": "2026-08-10",
+    "buffer": "4 days",
+    "gateName": "-",
+    "gateStatus": "Pending",
+    "gateCode": "-",
+    "status": true,
+    "setupCount": 22,
+    "updated": "-",
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "documentsCount": 0
+  },
+  {
+    "stageCode": "S7",
+    "name": "bulk product Validation",
+    "planEffort": "3,000 hrs",
+    "planDuration": "45 days",
+    "actualEffort": "",
+    "actualDuration": "",
+    "percentCompletion": 0,
+    "done": false,
+    "description": "Execute microbiological testing, preservative efficacy and bulk shelf-life stability studies.",
+    "planStart": "2026-08-11",
+    "planEnd": "2026-09-30",
+    "actualStart": "",
+    "actualEnd": "",
+    "eta": "2026-09-30",
+    "buffer": "4 days",
+    "gateName": "-",
+    "gateStatus": "Pending",
+    "gateCode": "-",
+    "status": true,
+    "setupCount": 19,
+    "updated": "-",
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "documentsCount": 0
+  },
+  {
+    "stageCode": "S8",
+    "name": "finished consumer product Validation",
+    "planEffort": "2,600 hrs",
+    "planDuration": "40 days",
+    "actualEffort": "",
+    "actualDuration": "",
+    "percentCompletion": 0,
+    "done": false,
+    "description": "Lock manufacturing recipe, compile nutritional label claims and packaging compatibility dossiers.",
+    "planStart": "2026-10-01",
+    "planEnd": "2026-11-05",
+    "actualStart": "",
+    "actualEnd": "",
+    "eta": "2026-11-05",
+    "buffer": "3 days",
+    "gateName": "Process lock and analytical similarity approval",
+    "gateStatus": "Pending",
+    "gateCode": "Gate 3",
+    "status": true,
+    "setupCount": 18,
+    "updated": "-",
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "documentsCount": 0
+  },
+  {
+    "stageCode": "S9",
+    "name": "Product and Manufacturing Transfer Dossier Submission",
+    "planEffort": "1,300 hrs",
+    "planDuration": "20 days",
+    "actualEffort": "",
+    "actualDuration": "",
+    "percentCompletion": 0,
+    "done": false,
+    "description": "Submit technology transfer dossier and execute transfer to commercial bottling facility.",
+    "planStart": "2026-11-06",
+    "planEnd": "2026-12-20",
+    "actualStart": "",
+    "actualEnd": "",
+    "eta": "2026-12-20",
+    "buffer": "2 days",
+    "gateName": "-",
+    "gateStatus": "Pending",
+    "gateCode": "-",
+    "status": true,
+    "setupCount": 11,
+    "updated": "-",
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "documentsCount": 0
+  },
+  {
+    "stageCode": "S10",
+    "name": "GMP validation batches",
+    "planEffort": "3,400 hrs",
+    "planDuration": "55 days",
+    "actualEffort": "",
+    "actualDuration": "",
+    "percentCompletion": 0,
+    "done": false,
+    "description": "Manufacture pilot commercial batches for consumer panels and test-market distribution.",
+    "planStart": "2026-12-21",
+    "planEnd": "2027-02-20",
+    "actualStart": "",
+    "actualEnd": "",
+    "eta": "2027-02-20",
+    "buffer": "4 days",
+    "gateName": "consumer and market study readiness (Product Concept Approval)",
+    "gateStatus": "Pending",
+    "gateCode": "Gate 4",
+    "status": true,
+    "setupCount": 24,
+    "updated": "-",
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "documentsCount": 0
+  },
+  {
+    "stageCode": "S11",
+    "name": "Pivotal Comparative consumer and market Study",
+    "planEffort": "6,500 hrs",
+    "planDuration": "150 days",
+    "actualEffort": "",
+    "actualDuration": "",
+    "percentCompletion": 0,
+    "done": false,
+    "description": "Complete commercial scale validation batches, warehouse distribution trials and sales pipeline.",
+    "planStart": "2027-02-21",
+    "planEnd": "2027-06-30",
+    "actualStart": "",
+    "actualEnd": "",
+    "eta": "2027-06-30",
+    "buffer": "10 days",
+    "gateName": "Market Launch / Regulatory Approval filing readiness",
+    "gateStatus": "Pending",
+    "gateCode": "Gate 5",
+    "status": true,
+    "setupCount": 31,
+    "updated": "-",
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "documentsCount": 0
+  },
+  {
+    "stageCode": "S12",
+    "name": "Market Launch / Regulatory Approval Dossier Filing",
+    "planEffort": "2,100 hrs",
+    "planDuration": "40 days",
+    "actualEffort": "",
+    "actualDuration": "",
+    "percentCompletion": 0,
+    "done": false,
+    "description": "Filing regulatory declarations, first production batch dispatch and retail rollout.",
+    "planStart": "2027-07-01",
+    "planEnd": "2027-07-31",
+    "actualStart": "",
+    "actualEnd": "",
+    "eta": "2027-07-31",
+    "buffer": "3 days",
+    "gateName": "-",
+    "gateStatus": "Pending",
+    "gateCode": "-",
+    "status": true,
+    "setupCount": 15,
+    "updated": "-",
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "documentsCount": 0
+  }
+];
 
   // Stage table pagination
   pagedStagesList: StageItem[] = [];
-  pageSizeOptions = [5, 10, 20];
-  pageSize = 10;
+  pageSizeOptions = [5, 10, 15, 20];
+  pageSize = 15;
   currentPage = 0;
 
   // Timeline Modal Popup state
   showTimelineModal = false;
   selectedTimelineItem: any = null;
 
+  // Add / Edit Stage Modal states
+  showStageModal = false;
+  stageModalStep = 1;
+  isEditStageMode = false;
+  stageModalData: Partial<StageItem> = {};
+  stageModalIndex = -1;
+
   private subs = new Subscription();
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly location: Location,
-  ) {}
+    private readonly location: Location
+  ) { }
+
+  readonly historySequence: number[] = [4, 2, 1, 5, 4, 6, 8, 3, 2, 5, 1, 4, 7, 3, 6, 2, 5, 8, 4, 1];
+  readonly documentsSequence: number[] = [3, 2, 4, 1, 5, 2, 3, 4, 1, 2, 3, 5, 2, 4, 1];
+
+  getHistoryCount(index: number): number {
+    return this.historySequence[index % this.historySequence.length];
+  }
+
+  getDocumentsCount(index: number): number {
+    return this.documentsSequence[index % this.documentsSequence.length];
+  }
 
   ngOnInit(): void {
-    const sub = this.route.queryParams.subscribe((params) => {
-      const templateName = params['templateName'] || params['projectName'] || params['name'];
-      if (templateName) {
-        this.projectName = templateName;
+    this.subs.add(
+      this.route.queryParams.subscribe(params => {
+        if (params['projectName'] || params['name']) {
+          this.projectName = params['projectName'] || params['name'];
+        }
+        if (params['projectCode'] || params['code']) {
+          this.projectCode = params['projectCode'] || params['code'];
+        }
+        this.dynamicBreadcrumb = `${this.projectName} - ${this.projectCode}`;
+      })
+    );
+
+    this.stages.forEach((s, idx) => {
+      s.historyCount = this.historySequence[idx % this.historySequence.length];
+      s.documentsCount = this.documentsSequence[idx % this.documentsSequence.length];
+      if (!s.updatedDate) {
+        s.updatedDate = '2026-02-15';
+      }
+      if (!s.updated) {
+        s.updated = s.updatedDate;
+      }
+      const defaultUpdaters = ['Dr. Sarah Jenkins', 'John Doe', 'Priya Sharma', 'Michael Chang', 'Alex Rivera'];
+      if (!s.updatedBy) {
+        s.updatedBy = defaultUpdaters[idx % defaultUpdaters.length];
       }
     });
-    this.subs.add(sub);
-
     this.updatePagedStages();
   }
 
@@ -362,7 +465,8 @@ export class TemplateStagesComponent implements OnInit, OnDestroy {
     this.router.navigate(['/master-data/templates']);
   }
 
-  // Scrolling logic
+  // --- Scrolling logic ---
+
   scrollLeft(): void {
     if (this.scrollContainer) {
       this.scrollContainer.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });

@@ -67,8 +67,8 @@ export interface GateItem {
 export class ProjectGatesComponent implements OnInit, OnDestroy {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
-  readonly projectName = this.route.snapshot.queryParamMap.get('projectName') || this.route.snapshot.queryParamMap.get('name') || 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = this.route.snapshot.queryParamMap.get('code') || '2026/CHM/006';
+  readonly projectName = this.route.snapshot.queryParamMap.get('projectName') || this.route.snapshot.queryParamMap.get('name') || 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = this.route.snapshot.queryParamMap.get('code') || '2026/FMCG/006';
 
   scrollLeft(): void {
     if (this.scrollContainer) {
@@ -83,26 +83,26 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
   }
 
   redirectStageOptions: string[] = [
-  "S1 - Opportunity Identification",
-  "S2 - Concept Screening & Feasibility",
-  "S3 - Route Scouting & Lab Synthesis",
-  "S4 - Process Optimization (Lab Scale)",
-  "S5 - Process Route Selection & Basis of Design",
-  "S6 - Bench-to-Pilot Process Development",
-  "S7 - Process Safety & Regulatory Studies",
-  "S8 - Regulatory Registration Filing (REACH / TSCA)",
-  "S9 - Pilot Plant Campaign",
-  "S10 - Demonstration-Scale Campaign",
-  "S11 - Commercial Plant Build & Commissioning",
-  "S12 - Commercial Launch & Ramp-Up"
+  "S1 - Consumer Need and Market Opportunity",
+  "S2 - Market and Product Concept Validation",
+  "S3 - Product Ideation and Concept Screening",
+  "S4 - Product Formulation and Product Optimization",
+  "S5 - Product Concept and Formula Selection",
+  "S6 - Product Formulation and Manufacturing Process Development",
+  "S7 - Prototype Testing and Product Safety Assessment",
+  "S8 - Product Concept Approval Filing",
+  "S9 - Concept and Feasibility Validation",
+  "S10 - Pilot Production and Market Testing",
+  "S11 - Commercial Scale-Up and Launch Preparation",
+  "S12 - Regulatory Approval and Commercial Product Launch"
 ];
 
   gates: GateItem[] = [
   {
     "gateCode": "Gate 1",
-    "gateName": "Concept Approval",
+    "gateName": "Product Concept Selection",
     "status": "Approved",
-    "remarks": "Business case and project charter approved",
+    "remarks": "Business case and program charter approved",
     "checklistCount": 7,
     "activitiesCount": 7,
     "workflow": "5/5",
@@ -117,7 +117,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
     "checklistItems": [
       {
         "id": 1,
-        "text": "Competitor grade and market assessment complete",
+        "text": "Reference product and market assessment complete",
         "mandatory": true,
         "status": "Yes",
         "done": true,
@@ -125,7 +125,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 2,
-        "text": "Patent and FTO review",
+        "text": "FMCG market and competitor landscape and IP / FTO review",
         "mandatory": true,
         "status": "Yes",
         "done": true,
@@ -133,11 +133,11 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 3,
-        "text": "Regulatory region shortlist",
+        "text": "Regulatory Affairs & Compliance pathway shortlist",
         "mandatory": true,
         "status": "Yes",
         "done": true,
-        "remarks": "India, ASEAN, and EU target regions documented"
+        "remarks": "FSSAI, CDSCO, and ASEAN target pathways documented"
       },
       {
         "id": 4,
@@ -165,7 +165,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 7,
-        "text": "Project charter signed",
+        "text": "Program charter signed",
         "mandatory": true,
         "status": "Yes",
         "done": true,
@@ -175,9 +175,9 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
   },
   {
     "gateCode": "Gate 2",
-    "gateName": "Process Route Selection",
+    "gateName": "Product Concept and Formula Selection",
     "status": "Pending",
-    "remarks": "Process Route Selection review pending completion of S5",
+    "remarks": "Product Concept and Formula Selection review pending completion of S5",
     "checklistCount": 4,
     "activitiesCount": 6,
     "workflow": "2/5",
@@ -192,39 +192,39 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
     "checklistItems": [
       {
         "id": 1,
-        "text": "Reaction yield and selectivity data",
+        "text": "Clone productivity and shelf-life Stability data",
         "mandatory": true,
         "status": "Yes",
         "done": true,
-        "remarks": "Lab yield achieves 94% target"
+        "remarks": "Sensory and nutrient stability baselines verified"
       },
       {
         "id": 2,
-        "text": "Candidate route conversion and impurity profile",
+        "text": "Candidate process titer and quality attributes",
         "mandatory": true,
         "status": "Yes",
         "done": true,
-        "remarks": "Residual monomer below 100 ppm target"
+        "remarks": "Homogenization and viscosity parameters verified"
       },
       {
         "id": 3,
-        "text": "Preliminary benchmark equivalence data",
+        "text": "Preliminary analytical similarity data",
         "mandatory": true,
         "status": "Yes",
         "done": true,
-        "remarks": "Solids, viscosity and MFFT match benchmark"
+        "remarks": "Nutritional profile matches leading benchmark"
       },
       {
         "id": 4,
-        "text": "Raw material and catalyst supply plan",
+        "text": "Master ingredient specification (MCB) plan",
         "mandatory": true,
         "status": "Yes",
         "done": true,
-        "remarks": "Dual sourcing qualified for monomers"
+        "remarks": "Raw material and packaging specifications documented"
       },
       {
         "id": 5,
-        "text": "Basis of Design and cost update",
+        "text": "Developability and Cost of Goods Sold (COGS) update",
         "mandatory": false,
         "status": "No",
         "done": false,
@@ -232,7 +232,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 6,
-        "text": "Route selection review",
+        "text": "Product Concept and Formula Selection review",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -242,9 +242,9 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
   },
   {
     "gateCode": "Gate 3",
-    "gateName": "Registration & Pilot Readiness",
+    "gateName": "Product Concept and Feasibility Approval",
     "status": "Pending",
-    "remarks": "Registration & Pilot Readiness review",
+    "remarks": "Product Concept and Feasibility Approval review",
     "checklistCount": 0,
     "activitiesCount": 8,
     "workflow": "0/5",
@@ -259,7 +259,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
     "checklistItems": [
       {
         "id": 1,
-        "text": "Process locked (reaction and separation)",
+        "text": "Upstream and blending and finishing locked",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -267,7 +267,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 2,
-        "text": "Equivalence package complete",
+        "text": "Analytical similarity package complete",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -275,7 +275,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 3,
-        "text": "Analytical methods validated",
+        "text": "Product efficacy and performance test methods validated",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -283,7 +283,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 4,
-        "text": "Technical grade and finished product validated",
+        "text": "Bulk product and finished consumer product validated",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -291,7 +291,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 5,
-        "text": "Storage stability data",
+        "text": "Shelf-life Stability data",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -299,7 +299,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 6,
-        "text": "Hazard study (HAZOP / LOPA) complete",
+        "text": "Comparability to reference product",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -307,7 +307,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 7,
-        "text": "Tech transfer readiness",
+        "text": "Product and Manufacturing Transfer readiness",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -315,7 +315,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 8,
-        "text": "QA and EHS review",
+        "text": "QA review",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -325,9 +325,9 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
   },
   {
     "gateCode": "Gate 4",
-    "gateName": "Demo-Scale Proof",
+    "gateName": "Consumer Validation and Product Performance Proof",
     "status": "Pending",
-    "remarks": "Demo-Scale Proof review",
+    "remarks": "Consumer Validation and Product Performance Proof review",
     "checklistCount": 0,
     "activitiesCount": 7,
     "workflow": "0/5",
@@ -342,7 +342,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
     "checklistItems": [
       {
         "id": 1,
-        "text": "Toxicology and ecotoxicology package",
+        "text": "Non-consumer and market package",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -350,7 +350,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 2,
-        "text": "Pilot batch released",
+        "text": "GMP consumer and market batch released",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -358,7 +358,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 3,
-        "text": "Customer trial protocol finalized",
+        "text": "Consumer and market protocol finalized",
         "mandatory": false,
         "status": "No",
         "done": false,
@@ -366,7 +366,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 4,
-        "text": "Toll manufacturer and site qualification",
+        "text": "Third-party testing and research partner and site qualification",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -374,7 +374,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 5,
-        "text": "REACH / TSCA dossier ready",
+        "text": "Product Concept Approval dossier ready",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -382,7 +382,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 6,
-        "text": "Regulator advice incorporated",
+        "text": "Regulatory Affairs & Compliance scientific advice incorporated",
         "mandatory": false,
         "status": "No",
         "done": false,
@@ -390,7 +390,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 7,
-        "text": "Process safety plan approved",
+        "text": "Safety monitoring plan approved",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -400,9 +400,9 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
   },
   {
     "gateCode": "Gate 5",
-    "gateName": "Commercial Production Readiness",
+    "gateName": "Market Launch and Regulatory Readiness",
     "status": "Pending",
-    "remarks": "Commercial Production Readiness review",
+    "remarks": "Market Launch and Regulatory Affairs & Compliance Readiness review",
     "checklistCount": 0,
     "activitiesCount": 9,
     "workflow": "0/5",
@@ -417,7 +417,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
     "checklistItems": [
       {
         "id": 1,
-        "text": "Demonstration campaign report",
+        "text": "Pivotal study report",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -425,7 +425,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 2,
-        "text": "Statistical and capability analysis",
+        "text": "Statistical and immunogenicity analysis",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -433,7 +433,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 3,
-        "text": "Plant design package complete",
+        "text": "CMC module complete",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -441,7 +441,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 4,
-        "text": "Commissioning and validation data",
+        "text": "Process validation (PPQ) data",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -449,7 +449,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 5,
-        "text": "Storage stability data",
+        "text": "Shelf-life Stability data",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -457,7 +457,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 6,
-        "text": "Labeling (GHS / CLP) and SDS",
+        "text": "Labeling and device information",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -465,7 +465,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 7,
-        "text": "Emergency response plan",
+        "text": "Pharmacovigilance plan",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -473,7 +473,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 8,
-        "text": "Registration status review",
+        "text": "Market Launch / Regulatory Approval submission review",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -481,7 +481,7 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
       },
       {
         "id": 9,
-        "text": "Final approval to start production",
+        "text": "Final approval to file",
         "mandatory": true,
         "status": "No",
         "done": false,
@@ -548,7 +548,9 @@ export class ProjectGatesComponent implements OnInit, OnDestroy {
   }
 
   goBack(): void {
-    this.router.navigate(['/projects/dashboard/analytics']);
+    this.router.navigate(['/projects/dashboard/analytics'], {
+      queryParams: { code: this.projectCode || "2026/FMCG/006", name: this.projectName || "Vitamin-Enriched Fruit Beverage 250ml" }
+    });
   }
 
   // --- Pagination Logic ---

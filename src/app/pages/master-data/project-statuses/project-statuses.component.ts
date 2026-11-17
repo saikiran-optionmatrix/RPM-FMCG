@@ -37,31 +37,36 @@ export class ProjectStatusesComponent {
   constructor(private dialog: MatDialog) {}
   readonly items: MasterItem[] = [
     {
-      name: 'Planning',
-      description: 'Target product profile, research scope and development planning',
-      status: 'Active',
+        "name": "Planning",
+        "description": "Consumer insights mapping, target product profile (TPP) definition and opportunity scoping",
+        "status": "Active"
     },
     {
-      name: 'Approved',
-      description: 'Project approved for execution and funding released',
-      status: 'Active',
+        "name": "Approved",
+        "description": "Project business case approved by steering committee and Stage-Gate budget released",
+        "status": "Active"
     },
     {
-      name: 'In Progress',
-      description: 'Route development, process development and pilot or plant activities underway',
-      status: 'Active',
+        "name": "In Progress",
+        "description": "Formulation, sensory testing, packaging development and pilot manufacturing trials actively underway",
+        "status": "Active"
     },
     {
-      name: 'On Hold',
-      description: 'Project temporarily paused pending data review, safety review or regulatory feedback',
-      status: 'Inactive',
+        "name": "On Hold",
+        "description": "Project temporarily paused pending consumer validation, stability re-test or regulatory alignment",
+        "status": "Inactive"
     },
     {
-      name: 'Completed',
-      description: 'Development successfully completed and ready for technology transfer',
-      status: 'Active',
+        "name": "Completed",
+        "description": "Stage-Gate lifecycle successfully completed, product commercially launched and handed over to brand operations",
+        "status": "Active"
     },
-  ];
+    {
+        "name": "Cancelled",
+        "description": "Project terminated at decision gate due to unmet consumer hurdle rate or business feasibility",
+        "status": "Inactive"
+    }
+];
 
   showFilter = false;
   keyword = '';

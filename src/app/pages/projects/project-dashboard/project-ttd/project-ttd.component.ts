@@ -42,11 +42,11 @@ export class ProjectTtdComponent implements OnInit {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
   // Header and Top Information Table fields
-  productName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  strength: string = '50% w/w solids';
-  market: string = 'India & ASEAN';
-  ttdNumber: string = 'TTD/2026/CHM/006';
+  productName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
+  strength: string = '40 mg/0.8 mL';
+  market: string = 'India (CDSCO) & ASEAN';
+  ttdNumber: string = 'PMTD/2026/FMCG/006';
   versionNumber: string = 'v2.1';
 
   // Save feedback state
@@ -60,17 +60,17 @@ export class ProjectTtdComponent implements OnInit {
     "sNo": "1.",
     "checkPoint": "Title Page",
     "status": "Yes",
-    "remarks": "Title page verified with exact product name, grade specifications, and facility codes.",
+    "remarks": "Title page verified with exact program name, formulation specifications, and facility codes.",
     "documentsCount": 2,
     "documents": [
       {
         "id": 1,
-        "title": "TTD_Title_Page_Approved.pdf",
+        "title": "PMTD_Title_Page_Approved.pdf",
         "uploadedDate": "2026-02-10"
       },
       {
         "id": 2,
-        "title": "Product_Dossier_Index.pdf",
+        "title": "Program_Dossier_Index.pdf",
         "uploadedDate": "2026-02-12"
       }
     ]
@@ -80,7 +80,7 @@ export class ProjectTtdComponent implements OnInit {
     "sNo": "2.",
     "checkPoint": "Approval Page",
     "status": "Yes",
-    "remarks": "Signed off by Head of Process Chemistry, Tech Transfer Lead, and Plant Operations Head.",
+    "remarks": "Signed off by Head of Product Formulation, Technology Transfer Lead, and Quality Head.",
     "documentsCount": 3,
     "documents": [
       {
@@ -105,7 +105,7 @@ export class ProjectTtdComponent implements OnInit {
     "sNo": "3.",
     "checkPoint": "Table of contents",
     "status": "Yes",
-    "remarks": "Comprehensive TOC linking all process, safety, engineering and QA sections.",
+    "remarks": "Master index and cross-references verified against CTD format standards.",
     "documentsCount": 1,
     "documents": [
       {
@@ -118,304 +118,164 @@ export class ProjectTtdComponent implements OnInit {
   {
     "id": 4,
     "sNo": "4.",
-    "checkPoint": "Scope and Process Flow Scheme (Block Flow Diagram)",
+    "checkPoint": "Scope and Process Flow Scheme",
     "status": "Yes",
-    "remarks": "Reactor train capacities, raw material feed tanks and block flow diagram defined.",
+    "remarks": "Process flow scheme defines beverage blending, homogenization, pasteurization and filling line operations.",
     "documentsCount": 2,
     "documents": [
       {
         "id": 1,
-        "title": "Commercial_Process_Scheme_BFD.pdf",
+        "title": "Process_Flow_Scheme_Diagram.pdf",
         "uploadedDate": "2026-02-20"
-      },
-      {
-        "id": 2,
-        "title": "Scope_Demarcation_Protocol.pdf",
-        "uploadedDate": "2026-02-22"
       }
     ]
   },
   {
     "id": 5,
     "sNo": "5.",
-    "checkPoint": "Statutory Consents and Hazardous Chemical Permits (CTE / CTO)",
+    "checkPoint": "Biosafety and rDNA Approvals (IBSC / RCGM)",
     "status": "Yes",
-    "remarks": "State pollution control board Consent to Establish and flammable storage approvals.",
-    "documentsCount": 4,
+    "remarks": "Food safety compliance approvals and statutory clearances baselined.",
+    "documentsCount": 2,
     "documents": [
       {
         "id": 1,
-        "title": "SPCB_Consent_to_Establish.pdf",
+        "title": "Food_Safety_Statutory_Clearance.pdf",
         "uploadedDate": "2026-02-25"
-      },
-      {
-        "id": 2,
-        "title": "PESO_Monomer_Storage_Permit.pdf",
-        "uploadedDate": "2026-02-26"
-      },
-      {
-        "id": 3,
-        "title": "Factory_Inspectorate_Approval.pdf",
-        "uploadedDate": "2026-02-28"
-      },
-      {
-        "id": 4,
-        "title": "Environmental_Clearance_Copy.pdf",
-        "uploadedDate": "2026-03-01"
       }
     ]
   },
   {
     "id": 6,
     "sNo": "6.",
-    "checkPoint": "Procurement Package (Monomers, Catalysts, Solvents and Packaging)",
+    "checkPoint": "Procurement Package (product formulation, packaging substrate, Resins and Single-Use Consumables)",
     "status": "Yes",
-    "remarks": "Vendor qualification audit packages for Butyl Acrylate, MMA, initiators & surfactants.",
-    "documentsCount": 3,
+    "remarks": "Raw material vendor qualifications, juice concentrate specs, and aseptic container specs approved.",
+    "documentsCount": 4,
     "documents": [
       {
         "id": 1,
-        "title": "Monomer_Vendor_Audit_Package.pdf",
-        "uploadedDate": "2026-03-02"
-      },
-      {
-        "id": 2,
-        "title": "Surfactant_Supplier_COA_Dossier.pdf",
-        "uploadedDate": "2026-03-04"
-      },
-      {
-        "id": 3,
-        "title": "Packaging_IBC_Drum_Supplier_Audit.pdf",
-        "uploadedDate": "2026-03-05"
+        "title": "Procurement_Package_Specification.pdf",
+        "uploadedDate": "2026-03-01"
       }
     ]
   },
   {
     "id": 7,
     "sNo": "7.",
-    "checkPoint": "Technical Grade / Intermediate Specifications and Standard Test Procedures",
+    "checkPoint": "Bulk Product Specifications and Standard Test Procedures",
     "status": "Yes",
-    "remarks": "Pre-emulsion specs, monomer purity limits, and gas chromatography assay methods.",
-    "documentsCount": 5,
+    "remarks": "Bulk beverage intermediate release specs, vitamin assay, pH, Brix, and microbial limits.",
+    "documentsCount": 3,
     "documents": [
       {
         "id": 1,
-        "title": "Monomer_Raw_Specifications.pdf",
-        "uploadedDate": "2026-03-06"
-      },
-      {
-        "id": 2,
-        "title": "STP_GC_Monomer_Purity_Assay.pdf",
-        "uploadedDate": "2026-03-08"
-      },
-      {
-        "id": 3,
-        "title": "Inhibitor_MEHQ_STP.pdf",
+        "title": "Bulk_Product_STP_v2.pdf",
         "uploadedDate": "2026-03-10"
-      },
-      {
-        "id": 4,
-        "title": "Initiator_Active_Oxygen_STP.pdf",
-        "uploadedDate": "2026-03-12"
-      },
-      {
-        "id": 5,
-        "title": "Pre_Emulsion_Stability_STP.pdf",
-        "uploadedDate": "2026-03-14"
       }
     ]
   },
   {
     "id": 8,
     "sNo": "8.",
-    "checkPoint": "Raw Material Specifications and Standard Test Procedures",
+    "checkPoint": "Raw Material and Packaging Material and packaging material and Product Formulation Development packaging substrate Specifications and Standard Test Procedures",
     "status": "Yes",
-    "remarks": "Industrial specifications for surfactants, chain transfer agents, and biocides.",
-    "documentsCount": 4,
+    "remarks": "Specifications and test procedures for vitamins, citric acid, natural flavors, stabilizers, and barrier bottles.",
+    "documentsCount": 5,
     "documents": [
       {
         "id": 1,
-        "title": "Raw_Material_Specifications_Compendium.pdf",
+        "title": "RM_PM_Packaging_STP_Consolidated.pdf",
         "uploadedDate": "2026-03-15"
-      },
-      {
-        "id": 2,
-        "title": "STP_Surfactant_Release_Testing.pdf",
-        "uploadedDate": "2026-03-16"
-      },
-      {
-        "id": 3,
-        "title": "Buffer_and_Redox_Agents_Specs.pdf",
-        "uploadedDate": "2026-03-18"
-      },
-      {
-        "id": 4,
-        "title": "Industrial_Biocide_Preservative_Specs.pdf",
-        "uploadedDate": "2026-03-20"
       }
     ]
   },
   {
     "id": 9,
     "sNo": "9.",
-    "checkPoint": "Packaging Material (Drum, IBC) Specifications and Standard Test Procedures",
+    "checkPoint": "Primary Container Closure Specifications and Standard Test Procedures (Syringe, Plunger, Needle Shield)",
     "status": "Yes",
-    "remarks": "UN certified 200 L HDPE drums, 1000 L IBC totes and liner compatibility.",
-    "documentsCount": 3,
+    "remarks": "Barrier container closure integrity, cap induction seal and oxygen transmission rate verification.",
+    "documentsCount": 2,
     "documents": [
       {
         "id": 1,
-        "title": "HDPE_Drum_UN_Certification.pdf",
-        "uploadedDate": "2026-03-22"
-      },
-      {
-        "id": 2,
-        "title": "IBC_Tote_Specification_STP.pdf",
-        "uploadedDate": "2026-03-24"
-      },
-      {
-        "id": 3,
-        "title": "GHS_Hazard_Labeling_Specs.pdf",
-        "uploadedDate": "2026-03-25"
+        "title": "Container_Closure_Integrity_STP.pdf",
+        "uploadedDate": "2026-03-20"
       }
     ]
   },
   {
     "id": 10,
     "sNo": "10.",
-    "checkPoint": "Finished Product Specifications and Standard Test Procedures: In-process, Release and Shelf-life",
+    "checkPoint": "Finished Consumer Product Specifications and Standard Test Procedures: In-process, Release and Shelf-life",
     "status": "Yes",
-    "remarks": "Solids content (50%), Brookfield viscosity, pH, particle size, and MFFT limits.",
-    "documentsCount": 6,
+    "remarks": "Release specifications for bottled beverage, sensory triangle test, and accelerated shelf-life limits.",
+    "documentsCount": 4,
     "documents": [
       {
         "id": 1,
-        "title": "Finished_Product_Specifications.pdf",
-        "uploadedDate": "2026-03-26"
-      },
-      {
-        "id": 2,
-        "title": "In_Process_Polymerization_Checks.pdf",
-        "uploadedDate": "2026-03-28"
-      },
-      {
-        "id": 3,
-        "title": "STP_Non_Volatile_Solids_Content.pdf",
-        "uploadedDate": "2026-03-30"
-      },
-      {
-        "id": 4,
-        "title": "STP_Brookfield_Viscosity_Test.pdf",
-        "uploadedDate": "2026-04-02"
-      },
-      {
-        "id": 5,
-        "title": "STP_Particle_Size_DLS_Analysis.pdf",
-        "uploadedDate": "2026-04-04"
-      },
-      {
-        "id": 6,
-        "title": "Shelf_Life_Specification_Limits.pdf",
-        "uploadedDate": "2026-04-05"
+        "title": "Finished_Product_Release_STP.pdf",
+        "uploadedDate": "2026-03-25"
       }
     ]
   },
   {
     "id": 11,
     "sNo": "11.",
-    "checkPoint": "Master Batch Manufacturing Instruction (Reaction, Separation and Packing)",
+    "checkPoint": "Master Batch Record (Upstream, Downstream and Fill-Finish)",
     "status": "Yes",
-    "remarks": "Detailed MBMI covering reactor charging, seed addition, dosing profile, and devolatilization.",
-    "documentsCount": 4,
+    "remarks": "Master formulation batch manufacturing record for syrup preparation, blending, pasteurization and bottling.",
+    "documentsCount": 3,
     "documents": [
       {
         "id": 1,
-        "title": "MBMI_Reactor_Charge_Seed.pdf",
-        "uploadedDate": "2026-04-06"
-      },
-      {
-        "id": 2,
-        "title": "MBMI_Monomer_Feed_Control.pdf",
-        "uploadedDate": "2026-04-08"
-      },
-      {
-        "id": 3,
-        "title": "MBMI_Chaser_Residual_Monomer.pdf",
-        "uploadedDate": "2026-04-10"
-      },
-      {
-        "id": 4,
-        "title": "MBMI_Authorized_Master.pdf",
-        "uploadedDate": "2026-04-12"
+        "title": "MBR_Beverage_Blending_Bottling.pdf",
+        "uploadedDate": "2026-04-05"
       }
     ]
   },
   {
     "id": 12,
     "sNo": "12.",
-    "checkPoint": "Master Packaging and Labeling Instruction (GHS / CLP)",
+    "checkPoint": "Master Packaging Record (Prefilled Syringe Assembly and Labeling)",
     "status": "Yes",
-    "remarks": "Filtration through 100 mesh bag, drum filling line speeds, and GHS label placement.",
-    "documentsCount": 3,
+    "remarks": "Master packaging record for sleeve labeling, carton collation, and shrink-wrap packaging.",
+    "documentsCount": 2,
     "documents": [
       {
         "id": 1,
-        "title": "MPI_Filtration_Drum_Filling.pdf",
-        "uploadedDate": "2026-04-14"
-      },
-      {
-        "id": 2,
-        "title": "MPI_IBC_Filling_Automation.pdf",
-        "uploadedDate": "2026-04-16"
-      },
-      {
-        "id": 3,
-        "title": "GHS_Warning_Label_Placement_SOP.pdf",
-        "uploadedDate": "2026-04-18"
+        "title": "MPR_Labeling_Carton_Packaging.pdf",
+        "uploadedDate": "2026-04-12"
       }
     ]
   },
   {
     "id": 13,
     "sNo": "13.",
-    "checkPoint": "Storage Stability and Shelf-Life Plan",
+    "checkPoint": "Shelf-Life Stability Plan (Bulk Product and Finished Consumer Product)",
     "status": "Yes",
-    "remarks": "Accelerated thermal storage at 50°C (3 months) and ambient 12-month retention plan.",
+    "remarks": "Real-time and accelerated stability study protocols (25°C/60% RH & 40°C/75% RH).",
     "documentsCount": 4,
     "documents": [
       {
         "id": 1,
-        "title": "Thermal_Stability_Protocol.pdf",
+        "title": "Shelf_Life_Stability_Protocol.pdf",
         "uploadedDate": "2026-04-20"
-      },
-      {
-        "id": 2,
-        "title": "Freeze_Thaw_Resistance_Study.pdf",
-        "uploadedDate": "2026-04-22"
-      },
-      {
-        "id": 3,
-        "title": "Viscosity_Drift_Monitoring_Log.pdf",
-        "uploadedDate": "2026-04-24"
-      },
-      {
-        "id": 4,
-        "title": "Long_Term_Storage_Validation.pdf",
-        "uploadedDate": "2026-04-25"
       }
     ]
   },
   {
     "id": 14,
     "sNo": "14.",
-    "checkPoint": "Process Flow Diagrams and P&IDs",
+    "checkPoint": "Product Formulation History and Master / Working ingredient specification (MCB / WCB) Characterization",
     "status": "No",
-    "remarks": "P&IDs for polymerization reactor, monomer dosing, cooling water & scrubber systems.",
+    "remarks": "Master ingredient specification pedigree, nutrient assay baseline, and supplier certificate of analysis archive.",
     "documentsCount": 5,
     "documents": [
       {
         "id": 1,
-        "title": "PFD_Polymerization_Reactor_Train.pdf",
+        "title": "Ingredient_Specification_Characterization.pdf",
         "uploadedDate": "2026-05-01"
       }
     ]
@@ -423,14 +283,14 @@ export class ProjectTtdComponent implements OnInit {
   {
     "id": 15,
     "sNo": "15.",
-    "checkPoint": "Material and Energy Balance and Basis of Design",
+    "checkPoint": "Ingredient Preparation Description (Seed Train, Mixing and Blending vessel and Harvest)",
     "status": "No",
-    "remarks": "Detailed heat of polymerization calculations, jacket heat removal, and steam demand.",
+    "remarks": "Detailed syrup dissolution, high-shear vitamin mixing, and clarification filtration description.",
     "documentsCount": 4,
     "documents": [
       {
         "id": 1,
-        "title": "Heat_Balance_Exotherm_Calculations.pdf",
+        "title": "Syrup_Prep_Dissolution_Description.pdf",
         "uploadedDate": "2026-05-05"
       }
     ]
@@ -438,14 +298,14 @@ export class ProjectTtdComponent implements OnInit {
   {
     "id": 16,
     "sNo": "16.",
-    "checkPoint": "Process Hazard Analysis (HAZOP / LOPA) Report",
+    "checkPoint": "Blending, Finishing and Quality Control Process Description (Ingredient separation and quality testing, Viral Inactivation and UF/DF)",
     "status": "No",
-    "remarks": "HAZOP node sheets, safety interlocks, rupture disk sizing, and SIL assignment.",
+    "remarks": "Continuous in-line blending, de-aeration, and ultra-clean thermal pasteurization sequence.",
     "documentsCount": 4,
     "documents": [
       {
         "id": 1,
-        "title": "HAZOP_Report_Acrylic_Polymerization.pdf",
+        "title": "Blending_Finishing_QC_Description.pdf",
         "uploadedDate": "2026-05-10"
       }
     ]
@@ -453,14 +313,14 @@ export class ProjectTtdComponent implements OnInit {
   {
     "id": 17,
     "sNo": "17.",
-    "checkPoint": "Safety Data Sheets (SDS) and GHS Hazard Classification",
+    "checkPoint": "Critical Quality Attributes (Critical-to-Quality (CTQ) product attributes) and Control Strategy",
     "status": "No",
-    "remarks": "16-section SDS authored in accordance with GHS Rev 8 and REACH Annex II.",
+    "remarks": "CTQ risk assessment, in-line turbidity monitoring, Brix controls, and vitamin fortification strategy.",
     "documentsCount": 3,
     "documents": [
       {
         "id": 1,
-        "title": "SDS_Acrylic_Emulsion_Binder_50.pdf",
+        "title": "CTQ_Control_Strategy_Matrix.pdf",
         "uploadedDate": "2026-05-15"
       }
     ]
@@ -468,14 +328,14 @@ export class ProjectTtdComponent implements OnInit {
   {
     "id": 18,
     "sNo": "18.",
-    "checkPoint": "Critical Process Parameters (CPP) and Control Strategy",
+    "checkPoint": "Quality Testing Method Validation and Transfer Protocols (Product efficacy and performance, Charge Variants, Glycan, Purity)",
     "status": "No",
-    "remarks": "DCS recipe interlocks for feed rate, temperature window (80-82°C), and agitation.",
+    "remarks": "HPLC analytical test validation protocols for vitamins B, C, D and antioxidant potency assays.",
     "documentsCount": 6,
     "documents": [
       {
         "id": 1,
-        "title": "CPP_Control_Strategy_Document.pdf",
+        "title": "Vitamin_Assay_Method_Validation.pdf",
         "uploadedDate": "2026-05-20"
       }
     ]
@@ -483,14 +343,14 @@ export class ProjectTtdComponent implements OnInit {
   {
     "id": 19,
     "sNo": "19.",
-    "checkPoint": "Analytical Method Validation and Transfer Protocols (Solids, Particle Size, Viscosity, Residual Monomer)",
+    "checkPoint": "Reference Product Analytical Similarity and Comparability Plan",
     "status": "No",
-    "remarks": "Method validation protocol for GC-FID residual monomers and particle size by DLS.",
+    "remarks": "Sensory triangle test, head-to-head nutritional profile and colorimetric comparability package.",
     "documentsCount": 4,
     "documents": [
       {
         "id": 1,
-        "title": "Method_Validation_GC_Residual_Monomer.pdf",
+        "title": "Reference_Product_Comparability_Plan.pdf",
         "uploadedDate": "2026-05-25"
       }
     ]
@@ -498,14 +358,14 @@ export class ProjectTtdComponent implements OnInit {
   {
     "id": 20,
     "sNo": "20.",
-    "checkPoint": "Environmental Compliance Plan (Effluent, Emissions, Waste)",
+    "checkPoint": "Viral Safety and Adventitious Agent Testing Plan",
     "status": "No",
-    "remarks": "ETP coagulum treatment, VOC carbon adsorption scrubber, and solid waste handling.",
+    "remarks": "Microbiological surveillance plan, pathogenic indicator organisms, and water system testing.",
     "documentsCount": 2,
     "documents": [
       {
         "id": 1,
-        "title": "ETP_Waste_Treatment_Protocol.pdf",
+        "title": "Microbiological_Safety_Plan.pdf",
         "uploadedDate": "2026-05-28"
       }
     ]
@@ -513,14 +373,14 @@ export class ProjectTtdComponent implements OnInit {
   {
     "id": 21,
     "sNo": "21.",
-    "checkPoint": "Equipment Qualification (IQ / OQ / PQ) and Scale-Up Equivalence",
+    "checkPoint": "Immunogenicity (Anti-Drug ingredient blend) quality test Plan",
     "status": "No",
-    "remarks": "Glass-lined reactor installation qualification and agitation equivalence protocols.",
+    "remarks": "Food allergen safety screening, cross-contact risk assessment and ELISA allergen verification.",
     "documentsCount": 2,
     "documents": [
       {
         "id": 1,
-        "title": "Equipment_IQ_OQ_Protocol.pdf",
+        "title": "Allergen_Safety_Assessment.pdf",
         "uploadedDate": "2026-06-01"
       }
     ]
@@ -528,14 +388,14 @@ export class ProjectTtdComponent implements OnInit {
   {
     "id": 22,
     "sNo": "22.",
-    "checkPoint": "Process Validation (Demonstration Batch) Protocol",
+    "checkPoint": "Process Validation (PPQ) Protocol",
     "status": "No",
-    "remarks": "Protocol for 3 consecutive conformance batches at commercial scale.",
+    "remarks": "Protocol for 3 consecutive commercial scale validation batches at target bottling line speed.",
     "documentsCount": 3,
     "documents": [
       {
         "id": 1,
-        "title": "Demonstration_Batch_Validation_Protocol.pdf",
+        "title": "PPQ_Commercial_Validation_Protocol.pdf",
         "uploadedDate": "2026-06-05"
       }
     ]

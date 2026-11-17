@@ -40,54 +40,72 @@ export class DelayReasonsComponent {
 
   readonly delayReasons: DelayReason[] = [
     {
-      id: 1,
-      reason: 'Raw Material / Catalyst Shortage',
-      context: 'Activity',
-      status: 'Active',
+        "id": 1,
+        "reason": "Consumer concept test inconclusive",
+        "context": "Activity",
+        "status": "Active"
     },
     {
-      id: 2,
-      reason: 'Reactor / Equipment Breakdown or Maintenance',
-      context: 'Task',
-      status: 'Active',
+        "id": 2,
+        "reason": "Ingredient supplier qualification delay",
+        "context": "Activity",
+        "status": "Active"
     },
     {
-      id: 3,
-      reason: 'Batch Contamination / Out of Specification',
-      context: 'Issue',
-      status: 'Active',
+        "id": 3,
+        "reason": "Packaging barrier / seal integrity failure",
+        "context": "Issue",
+        "status": "Active"
     },
     {
-      id: 4,
-      reason: 'Environmental Clearance / Regulatory Approval Pending',
-      context: 'Gate',
-      status: 'Active',
+        "id": 4,
+        "reason": "Accelerated formulation instability observed",
+        "context": "Task",
+        "status": "Active"
     },
     {
-      id: 5,
-      reason: 'Documentation and Process Safety (HAZOP) Clearance Delay',
-      context: 'Requirement',
-      status: 'Active',
+        "id": 5,
+        "reason": "Sensory acceptance gap vs benchmark",
+        "context": "Gate",
+        "status": "Active"
     },
     {
-      id: 6,
-      reason: 'Hazardous Material Shipment Delay',
-      context: 'Activity',
-      status: 'Inactive',
+        "id": 6,
+        "reason": "Pilot batch filling speed mismatch",
+        "context": "Activity",
+        "status": "Active"
     },
     {
-      id: 7,
-      reason: 'Resource Unavailability',
-      context: 'Task',
-      status: 'Active',
+        "id": 7,
+        "reason": "Regulatory label claim / artwork rejection",
+        "context": "Gate",
+        "status": "Active"
     },
     {
-      id: 8,
-      reason: 'Drum / IBC Packaging Lot Rejection',
-      context: 'Issue',
-      status: 'Inactive',
+        "id": 8,
+        "reason": "Nutritional / microbiology turnaround delay",
+        "context": "Requirement",
+        "status": "Active"
     },
-  ];
+    {
+        "id": 9,
+        "reason": "Retailer listing window missed",
+        "context": "Gate",
+        "status": "Inactive"
+    },
+    {
+        "id": 10,
+        "reason": "Artwork approval turnaround delay",
+        "context": "Task",
+        "status": "Active"
+    },
+    {
+        "id": 11,
+        "reason": "Supply chain raw ingredient stockout",
+        "context": "Issue",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
   keyword = '';

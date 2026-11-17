@@ -12,21 +12,21 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class EditTemplateComponent implements OnInit {
   readonly projectTypes = [
-    'Generic Formulation R&D',
-    '505(b)(2) Value-Added Generic',
-    'Biosimilar Development',
-    'NCE Formulation Development',
-    'Complex Injectable & Liposomal',
-    'Life Cycle Management / Line Extension'
-  ];
+    "New Product Development (NPD)",
+    "Line Extension & Variant Expansion",
+    "Packaging Innovation & Sustainability",
+    "Cost Optimization & Value Engineering (VAVE)",
+    "Regulatory Reformulation & Compliance"
+];
 
   readonly divisionsList = [
-    'Oral Solids - OS',
-    'Injectables - IJ',
-    'Complex Injectables - CI',
-    'Biotech - BT',
-    'Inhalation & Respiratory - IR'
-  ];
+    "Beverages - BV",
+    "Personal Care & Beauty - PC",
+    "Packaged Foods & Snacks - FS",
+    "Dairy & Nutrition - DN",
+    "Home Care - HC",
+    "FMCG Product Innovation - FI"
+];
 
   readonly bufferStatuses = ['On Track', 'At Risk', 'Delayed'];
 

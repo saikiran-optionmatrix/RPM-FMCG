@@ -19,31 +19,27 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProjectTeamComponent implements OnInit {
   // Project Header Properties
-  projectName: string = 'Generic Tablet Development';
-  projectCode: string = '2026/GEN/001';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
   dynamicBreadcrumb: string = 'Team';
 
   // Migrated Properties
   availableMembers: string[] = [
-    'Alex Johnson',
-    'Samantha Carter',
-    'Michael Chen',
-    'Sarah Williams',
-    'David Rodriguez',
-    'Emily Davis',
-    'James Wilson',
-    'Olivia Martinez',
-    'William Taylor',
-    'Sophia Anderson',
-    'Daniel Thomas'
+    'Rajesh Kumar',
+    'Anita Desai',
+    'Priya Reddy',
+    'Neha Sharma',
+    'Priya Nair',
+    'Dr. Sarah Jenkins',
+    'Suresh Nair',
+    'Kavita Joshi'
   ];
 
   assignedMembers: string[] = [
-    'Liam White',
-    'Emma Harris',
-    'Noah Martin',
-    'Ava Jackson',
-    'Ethan Moore'
+    'Ananya Rao',
+    'Dr. Priya Raman',
+    'Vikram Singh',
+    'Amit Patel'
   ];
 
   selectedAvailable: string[] = [];
@@ -87,7 +83,7 @@ export class ProjectTeamComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/projects/dashboard/analytics'], {
-      queryParams: { code: this.projectCode || "2026/GEN/001", name: this.projectName || "Generic Tablet Development" }
+      queryParams: { code: this.projectCode || "2026/FMCG/006", name: this.projectName || "Vitamin-Enriched Fruit Beverage 250ml" }
     });
   }
 

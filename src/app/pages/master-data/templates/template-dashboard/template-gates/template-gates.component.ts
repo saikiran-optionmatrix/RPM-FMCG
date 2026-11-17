@@ -40,6 +40,9 @@ export interface GateItem {
   decision: 'Go' | 'Kill' | 'Hold' | 'Redirect' | null;
   redirectToStage?: string;
   isReadonly?: boolean;
+  documentsCount?: number;
+  historyCount?: number;
+  updatedBy?: string;
 }
 
 @Component({
@@ -66,8 +69,8 @@ export class TemplateGatesComponent implements OnInit, OnDestroy {
     this.route.snapshot.queryParamMap.get('projectName') ||
     this.route.snapshot.queryParamMap.get('name') ||
     this.route.snapshot.queryParamMap.get('templateName') ||
-    'Specialty Chemical Process Development Program';
-  projectCode: string = this.route.snapshot.queryParamMap.get('code') || '2026/CHM/001';
+    'New Beverage Product Development Program';
+  projectCode: string = this.route.snapshot.queryParamMap.get('code') || '2026/FMCG/001';
 
   scrollLeft(): void {
     if (this.scrollContainer) {
@@ -82,139 +85,413 @@ export class TemplateGatesComponent implements OnInit, OnDestroy {
   }
 
   redirectStageOptions: string[] = [
-    'S1 - Opportunity Identification',
-    'S2 - Concept Screening & Feasibility',
-    'S3 - Route Scouting & Lab Synthesis',
-    'S4 - Process Optimization (Lab Scale)',
-    'S5 - Process Route Selection & Basis of Design',
-    'S6 - Bench-to-Pilot Process Development',
-    'S7 - Process Safety & Regulatory Studies',
-    'S8 - Regulatory Registration Filing (REACH / TSCA)',
-    'S9 - Pilot Plant Campaign',
-    'S10 - Demonstration-Scale Campaign',
-    'S11 - Commercial Plant Build & Commissioning',
-    'S12 - Commercial Launch & Ramp-Up',
-  ];
+  "S1 - Consumer Need and Market Opportunity",
+  "S2 - Market and Product Concept Validation",
+  "S3 - Product Ideation and Concept Screening",
+  "S4 - Product Formulation and Product Optimization",
+  "S5 - Product Concept and Formula Selection",
+  "S6 - Product Formulation and Manufacturing Process Development",
+  "S7 - Prototype Testing and Product Safety Assessment",
+  "S8 - Product Concept Approval Filing",
+  "S9 - Concept and Feasibility Validation",
+  "S10 - Pilot Production and Market Testing",
+  "S11 - Commercial Scale-Up and Launch Preparation",
+  "S12 - Regulatory Approval and Commercial Product Launch"
+];
 
   gates: GateItem[] = [
-    {
-      gateCode: 'Gate 1',
-      gateName: 'Concept Approval',
-      status: 'Approved',
-      remarks: 'Business case and project charter approved',
-      checklistCount: 7,
-      activitiesCount: 7,
-      workflow: '5/5',
-      decision: 'Go',
-      updatedDate: '12-Mar-2026',
-      timelineDate: '2026-03-12',
-      planStart: '2026-01-05',
-      planEnd: '2026-03-12',
-      checklistItems: [
-        { id: 1, text: 'Competitor grade and market assessment complete', mandatory: true, done: true },
-        { id: 2, text: 'Patent and FTO review', mandatory: true, done: true },
-        { id: 3, text: 'Regulatory region shortlist', mandatory: true, done: true },
-        { id: 4, text: 'Business case and NPV approved', mandatory: true, done: true },
-        { id: 5, text: 'Budget and resource plan', mandatory: true, done: true },
-        { id: 6, text: 'Risk register baselined', mandatory: false, done: true },
-        { id: 7, text: 'Project charter signed', mandatory: true, done: true }
-      ]
-    },
-    {
-      gateCode: 'Gate 2',
-      gateName: 'Process Route Selection',
-      status: 'Pending',
-      remarks: 'Process Route Selection review pending completion of S5',
-      checklistCount: 4,
-      activitiesCount: 6,
-      workflow: '2/5',
-      decision: null,
-      updatedDate: '05-Oct-2026',
-      timelineDate: '2026-08-15',
-      planStart: '2026-03-01',
-      planEnd: '2026-08-15',
-      checklistItems: [
-        { id: 1, text: 'Reaction yield and selectivity data', mandatory: true, done: true },
-        { id: 2, text: 'Candidate route conversion and impurity profile', mandatory: true, done: true },
-        { id: 3, text: 'Preliminary benchmark equivalence data', mandatory: true, done: true },
-        { id: 4, text: 'Raw material and catalyst supply plan', mandatory: true, done: true },
-        { id: 5, text: 'Basis of Design and cost update', mandatory: false, done: false },
-        { id: 6, text: 'Route selection review', mandatory: true, done: false }
-      ]
-    },
-    {
-      gateCode: 'Gate 3',
-      gateName: 'Registration & Pilot Readiness',
-      status: 'Pending',
-      remarks: 'Registration & Pilot Readiness review',
-      checklistCount: 0,
-      activitiesCount: 8,
-      workflow: '0/5',
-      decision: null,
-      updatedDate: '-',
-      timelineDate: '2026-09-30',
-      planStart: '2026-08-11',
-      planEnd: '2026-09-30',
-      checklistItems: [
-        { id: 1, text: 'Process locked (reaction and separation)', mandatory: true, done: false },
-        { id: 2, text: 'Equivalence package complete', mandatory: true, done: false },
-        { id: 3, text: 'Analytical methods validated', mandatory: true, done: false },
-        { id: 4, text: 'Technical grade and finished product validated', mandatory: true, done: false },
-        { id: 5, text: 'Storage stability data', mandatory: true, done: false },
-        { id: 6, text: 'Hazard study (HAZOP / LOPA) complete', mandatory: true, done: false },
-        { id: 7, text: 'Tech transfer readiness', mandatory: true, done: false },
-        { id: 8, text: 'QA and EHS review', mandatory: true, done: false }
-      ]
-    },
-    {
-      gateCode: 'Gate 4',
-      gateName: 'Demo-Scale Proof',
-      status: 'Pending',
-      remarks: 'Demo-Scale Proof review',
-      checklistCount: 0,
-      activitiesCount: 7,
-      workflow: '0/5',
-      decision: null,
-      updatedDate: '-',
-      timelineDate: '2027-02-20',
-      planStart: '2026-12-21',
-      planEnd: '2027-02-20',
-      checklistItems: [
-        { id: 1, text: 'Toxicology and ecotoxicology package', mandatory: true, done: false },
-        { id: 2, text: 'Pilot batch released', mandatory: true, done: false },
-        { id: 3, text: 'Customer trial protocol finalized', mandatory: false, done: false },
-        { id: 4, text: 'Toll manufacturer and site qualification', mandatory: true, done: false },
-        { id: 5, text: 'REACH / TSCA dossier ready', mandatory: true, done: false },
-        { id: 6, text: 'Regulator advice incorporated', mandatory: false, done: false },
-        { id: 7, text: 'Process safety plan approved', mandatory: true, done: false }
-      ]
-    },
-    {
-      gateCode: 'Gate 5',
-      gateName: 'Commercial Production Readiness',
-      status: 'Pending',
-      remarks: 'Commercial Production Readiness review',
-      checklistCount: 0,
-      activitiesCount: 9,
-      workflow: '0/5',
-      decision: null,
-      updatedDate: '-',
-      timelineDate: '2027-06-30',
-      planStart: '2027-02-21',
-      planEnd: '2027-06-30',
-      checklistItems: [
-        { id: 1, text: 'Demonstration campaign report', mandatory: true, done: false },
-        { id: 2, text: 'Statistical and capability analysis', mandatory: true, done: false },
-        { id: 3, text: 'Plant design package complete', mandatory: true, done: false },
-        { id: 4, text: 'Commissioning and validation data', mandatory: true, done: false },
-        { id: 5, text: 'Storage stability data', mandatory: true, done: false },
-        { id: 6, text: 'Labeling (GHS / CLP) and SDS', mandatory: true, done: false },
-        { id: 7, text: 'Emergency response plan', mandatory: true, done: false },
-        { id: 8, text: 'Registration status review', mandatory: true, done: false },
-        { id: 9, text: 'Final approval to start production', mandatory: true, done: false }
-      ]
-    }
-  ];
+  {
+    "gateCode": "Gate 1",
+    "gateName": "Product Concept Selection",
+    "status": "Approved",
+    "remarks": "Business case and program charter approved",
+    "checklistCount": 7,
+    "activitiesCount": 7,
+    "workflow": "5/5",
+    "decision": "Go",
+    "documentsCount": 3,
+    "updatedDate": "12-Mar-2026",
+    "updatedBy": "Rajesh Kumar",
+    "historyCount": 5,
+    "timelineDate": "2026-03-12",
+    "planStart": "2026-01-05",
+    "planEnd": "2026-03-12",
+    "checklistItems": [
+      {
+        "id": 1,
+        "text": "Reference product and market assessment complete",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "Completed and verified by commercial team"
+      },
+      {
+        "id": 2,
+        "text": "FMCG market and competitor landscape and IP / FTO review",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "No patent infringements detected"
+      },
+      {
+        "id": 3,
+        "text": "Regulatory Affairs & Compliance pathway shortlist",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "FSSAI, CDSCO, and ASEAN target pathways documented"
+      },
+      {
+        "id": 4,
+        "text": "Business case and NPV approved",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "NPV meets hurdle rate of >15%"
+      },
+      {
+        "id": 5,
+        "text": "Budget and resource plan",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "Budget of $12.5M allocated"
+      },
+      {
+        "id": 6,
+        "text": "Risk register baselined",
+        "mandatory": false,
+        "status": "Yes",
+        "done": true,
+        "remarks": "Risk mitigations documented"
+      },
+      {
+        "id": 7,
+        "text": "Program charter signed",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "Steering committee sign-off obtained"
+      }
+    ]
+  },
+  {
+    "gateCode": "Gate 2",
+    "gateName": "Product Concept and Formula Selection",
+    "status": "Pending",
+    "remarks": "Product Concept and Formula Selection review pending completion of S5",
+    "checklistCount": 4,
+    "activitiesCount": 6,
+    "workflow": "2/5",
+    "decision": null,
+    "documentsCount": 1,
+    "updatedDate": "05-Oct-2026",
+    "updatedBy": "Priya Reddy",
+    "historyCount": 2,
+    "timelineDate": "2026-08-15",
+    "planStart": "2026-03-01",
+    "planEnd": "2026-08-15",
+    "checklistItems": [
+      {
+        "id": 1,
+        "text": "Clone productivity and shelf-life Stability data",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "Sensory and nutrient stability baselines verified"
+      },
+      {
+        "id": 2,
+        "text": "Candidate process titer and quality attributes",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "Homogenization and viscosity parameters verified"
+      },
+      {
+        "id": 3,
+        "text": "Preliminary analytical similarity data",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "Nutritional profile matches leading benchmark"
+      },
+      {
+        "id": 4,
+        "text": "Master ingredient specification (MCB) plan",
+        "mandatory": true,
+        "status": "Yes",
+        "done": true,
+        "remarks": "Raw material and packaging specifications documented"
+      },
+      {
+        "id": 5,
+        "text": "Developability and Cost of Goods Sold (COGS) update",
+        "mandatory": false,
+        "status": "No",
+        "done": false,
+        "remarks": "In progress under S5"
+      },
+      {
+        "id": 6,
+        "text": "Product Concept and Formula Selection review",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": "Scheduled upon S5 completion"
+      }
+    ]
+  },
+  {
+    "gateCode": "Gate 3",
+    "gateName": "Product Concept and Feasibility Approval",
+    "status": "Pending",
+    "remarks": "Product Concept and Feasibility Approval review",
+    "checklistCount": 0,
+    "activitiesCount": 8,
+    "workflow": "0/5",
+    "decision": null,
+    "documentsCount": 0,
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "timelineDate": "2026-09-30",
+    "planStart": "2026-08-11",
+    "planEnd": "2026-09-30",
+    "checklistItems": [
+      {
+        "id": 1,
+        "text": "Upstream and blending and finishing locked",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 2,
+        "text": "Analytical similarity package complete",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 3,
+        "text": "Product efficacy and performance test methods validated",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 4,
+        "text": "Bulk product and finished consumer product validated",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 5,
+        "text": "Shelf-life Stability data",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 6,
+        "text": "Comparability to reference product",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 7,
+        "text": "Product and Manufacturing Transfer readiness",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 8,
+        "text": "QA review",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      }
+    ]
+  },
+  {
+    "gateCode": "Gate 4",
+    "gateName": "Consumer Validation and Product Performance Proof",
+    "status": "Pending",
+    "remarks": "Consumer Validation and Product Performance Proof review",
+    "checklistCount": 0,
+    "activitiesCount": 7,
+    "workflow": "0/5",
+    "decision": null,
+    "documentsCount": 0,
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "timelineDate": "2027-02-20",
+    "planStart": "2026-12-21",
+    "planEnd": "2027-02-20",
+    "checklistItems": [
+      {
+        "id": 1,
+        "text": "Non-consumer and market package",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 2,
+        "text": "GMP consumer and market batch released",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 3,
+        "text": "Consumer and market protocol finalized",
+        "mandatory": false,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 4,
+        "text": "Third-party testing and research partner and site qualification",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 5,
+        "text": "Product Concept Approval dossier ready",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 6,
+        "text": "Regulatory Affairs & Compliance scientific advice incorporated",
+        "mandatory": false,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 7,
+        "text": "Safety monitoring plan approved",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      }
+    ]
+  },
+  {
+    "gateCode": "Gate 5",
+    "gateName": "Market Launch and Regulatory Readiness",
+    "status": "Pending",
+    "remarks": "Market Launch and Regulatory Affairs & Compliance Readiness review",
+    "checklistCount": 0,
+    "activitiesCount": 9,
+    "workflow": "0/5",
+    "decision": null,
+    "documentsCount": 0,
+    "updatedDate": "-",
+    "updatedBy": "-",
+    "historyCount": 0,
+    "timelineDate": "2027-06-30",
+    "planStart": "2027-02-21",
+    "planEnd": "2027-06-30",
+    "checklistItems": [
+      {
+        "id": 1,
+        "text": "Pivotal study report",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 2,
+        "text": "Statistical and immunogenicity analysis",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 3,
+        "text": "CMC module complete",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 4,
+        "text": "Process validation (PPQ) data",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 5,
+        "text": "Shelf-life Stability data",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 6,
+        "text": "Labeling and device information",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 7,
+        "text": "Pharmacovigilance plan",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 8,
+        "text": "Market Launch / Regulatory Approval submission review",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      },
+      {
+        "id": 9,
+        "text": "Final approval to file",
+        "mandatory": true,
+        "status": "No",
+        "done": false,
+        "remarks": ""
+      }
+    ]
+  }
+];
 
   // Pagination
   pageSizeOptions = [5, 10, 20];

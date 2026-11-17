@@ -66,57 +66,44 @@ export class HoursTimesheetComponent implements OnInit {
 
   rows: TimesheetRow[] = [];
 
-  availableProjects: string[] = [
-    '2026/RD/001 - Abiraterone Acetate Film Coated',
-    '2026/RD/002 - Apremilast Tablets',
-    '2026/RD/003 - Brivaracetam Film Coated Tablets',
-    '2026/RD/004 - Cabozantinib Tablets',
-    '2026/RD/005 - Dapagliflozin Propanediol Tablets',
-    '2026/RD/006 - Empagliflozin Tablets',
-    '2026/RD/007 - Fimasartan Potassium Tablets',
-    '2026/RD/008 - Macitentan Film Coated Tablets',
-    '2026/RD/009 - Niraparib Tosylate Capsules',
-    '2026/RD/010 - Olaparib Film Coated Tablets',
-    '2026/GEN/001 - Generic Tablet Development'
+    availableProjects: string[] = [
+    '2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml',
+    '2026/FMCG/002 - Probiotic Greek Yogurt 150g',
+    '2026/FMCG/003 - Sustainable Barrier Snack Pouch 50g',
+    '2026/FMCG/004 - Plant-Based Protein Shake 330ml',
+    '2026/FMCG/005 - Clean-Label Dishwash Gel Concentrate 500ml',
+    '2026/FMCG/006 - Fortified Whole Grain Cereal Flakes 400g'
   ];
 
-  availableModules: string[] = [
-    'Product Selection',
-    'Pre-Formulation',
-    'Formulation Development',
-    'Prototype & Optimization',
-    'Analytical Development',
-    'Scale-Up',
-    'Testing & Validation',
-    'BA/BE & Stability',
-    'Regulatory Submission',
-    'Regulatory Approval',
-    'Manufacturing Readiness',
-    'Commercialization',
-    'General'
+    availableModules: string[] = [
+    'Consumer Need & Market Opportunity',
+    'Market & Product Concept Validation',
+    'Product Ideation & Concept Screening',
+    'Product Formulation & Product Optimization',
+    'Prototype Validation & Stability',
+    'Pilot Manufacturing Run',
+    'Packaging & Label Validation',
+    'Commercial Scale-Up & Plant Validation',
+    'FSSAI Regulatory Filing',
+    'Commercial Launch Readiness'
   ];
 
-  availableTasks = [
-    'Reference Product Characterization',
-    'API Characterization',
-    'API–Excipient Compatibility',
-    'Excipient Screening',
-    'Prototype Formulation Design',
-    'Laboratory Prototype Batch',
-    'Dissolution Testing',
-    'Analytical Method Development',
-    'Formulation Optimization',
-    'Scale-Up & Pilot Batch',
-    'Stability Study',
-    'Bioequivalence Readiness',
-    'Regulatory Dossier Preparation',
-    'Regulatory Review',
-    'Commercial Manufacturing Readiness',
-    'Launch Readiness',
-    'Define product & technical specifications',
-    'Identify raw material requirements',
-    'Estimate target production volume',
-    'Initial BOM & labor cost estimation'
+    availableTasks = [
+    'Consumer Sensory & Competitor Benchmarking',
+    'Brix, Acidity & Vitamin Formulation Balancing',
+    'Natural Flavor & Color Screening',
+    'Nutrient Premix Compatibility & Dissolution',
+    'Laboratory Prototype Batch Execution',
+    'Sensory 9-Point Hedonic Taste Panel',
+    'Analytical Method & HPLC Assay Development',
+    'Barrier Packaging OTR/WVTR Testing',
+    'High-Shear Emulsification & Homogenization',
+    'Pilot Jacketed Blending Vessel Run',
+    'Accelerated Shelf-Life Climatic Chamber Study',
+    'FSSAI Regulatory Dossier Compilation',
+    'Packaging Seal Integrity & Burst Test',
+    'Commercial Manufacturing Readiness Audit',
+    'Define Product Quality & Nutritional Criteria'
   ];
 
   constructor(

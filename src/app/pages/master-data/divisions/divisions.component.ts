@@ -39,26 +39,36 @@ export class DivisionsComponent {
 
   readonly divisions: Division[] = [
     {
-      name: 'Specialty Chemicals',
-      code: 'SC',
-      status: 'Active',
+        "name": "Beverages",
+        "code": "BV",
+        "status": "Active"
     },
     {
-      name: 'Polymers & Resins',
-      code: 'PR',
-      status: 'Active',
+        "name": "Personal Care & Beauty",
+        "code": "PC",
+        "status": "Active"
     },
     {
-      name: 'Agrochemicals',
-      code: 'AC',
-      status: 'Active',
+        "name": "Packaged Foods & Snacks",
+        "code": "FS",
+        "status": "Active"
     },
     {
-      name: 'Industrial & Fine Chemicals',
-      code: 'IF',
-      status: 'Active',
+        "name": "Dairy & Nutrition",
+        "code": "DN",
+        "status": "Active"
     },
-  ];
+    {
+        "name": "Home Care",
+        "code": "HC",
+        "status": "Active"
+    },
+    {
+        "name": "FMCG Product Innovation",
+        "code": "FI",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
   keyword = '';

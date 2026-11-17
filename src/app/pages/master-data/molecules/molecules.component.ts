@@ -35,56 +35,56 @@ export class MoleculesComponent {
   constructor(private dialog: MatDialog) {}
   readonly assets: Asset[] = [
     {
-      name: 'Technical-Grade Active Ingredient Synthesis Train',
-      code: 'CMP-1001',
-      status: 'Active',
+        "name": "Beverage Concentrate & Flavor Emulsion System",
+        "code": "CMP-1001",
+        "status": "Active"
     },
     {
-      name: 'Polymerization Reactor System',
-      code: 'CMP-1002',
-      status: 'Active',
+        "name": "Sustainable Barrier Film & Pouch Laminate Line",
+        "code": "CMP-1002",
+        "status": "Active"
     },
     {
-      name: 'Raw Material & Solvent Feed System',
-      code: 'CMP-1003',
-      status: 'Active',
+        "name": "Raw Ingredient & Food-Grade Processing Feed System",
+        "code": "CMP-1003",
+        "status": "Active"
     },
     {
-      name: 'Downstream Separation & Purification Train (Distillation / Crystallization)',
-      code: 'CMP-1004',
-      status: 'Active',
+        "name": "Blending, Finishing & High-Shear Mixing Train",
+        "code": "CMP-1004",
+        "status": "Active"
     },
     {
-      name: 'Catalyst Preparation & Handling Module',
-      code: 'CMP-1005',
-      status: 'Active',
+        "name": "Microencapsulated Nutrient & Vitamin Blend Module",
+        "code": "CMP-1005",
+        "status": "Active"
     },
     {
-      name: 'Solvent Recovery & Fractional Distillation Unit',
-      code: 'CMP-1006',
-      status: 'Active',
+        "name": "Bio-Based Surfactant & Personal Care Matrix Unit",
+        "code": "CMP-1006",
+        "status": "Active"
     },
     {
-      name: 'Drying, Milling & Drum / Bag Packing Line',
-      code: 'CMP-1007',
-      status: 'Active',
+        "name": "High-Speed Aseptic Bottle & Carton Fill-Finish Line",
+        "code": "CMP-1007",
+        "status": "Active"
     },
     {
-      name: 'Raw Material & Intermediate Tank Farm Management',
-      code: 'CMP-1008',
-      status: 'Active',
+        "name": "Raw Material & Packaging Substrate Warehouse Management",
+        "code": "CMP-1008",
+        "status": "Active"
     },
     {
-      name: 'Analytical Assay & Performance Testing Suite',
-      code: 'CMP-1009',
-      status: 'Active',
+        "name": "Sensory Hedonic & Product Performance Testing Suite",
+        "code": "CMP-1009",
+        "status": "Active"
     },
     {
-      name: 'Continuous Flow Reactor Assembly',
-      code: 'CMP-1010',
-      status: 'Active',
-    },
-  ];
+        "name": "Biodegradable Closure & Dispenser Assembly",
+        "code": "CMP-1010",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
 

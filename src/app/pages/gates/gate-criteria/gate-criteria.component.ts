@@ -56,7 +56,7 @@ export class GateCriteriaComponent implements OnInit {
 
   currentGateContext: string = '';
   currentGateCode: string = 'Gate 1';
-  currentGateName: string = 'Concept Approval';
+  currentGateName: string = 'Product Concept Selection';
 
   readonly gateDefinitions: Record<string, { gateCode: string; gateName: string; criteria: GateCriteria[] }> = {
     'concept-approval': {
@@ -379,15 +379,25 @@ export class GateCriteriaComponent implements OnInit {
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe(params => {
       const rawContext = params.get('id') || 'concept-approval';
       const aliases: Record<string, string> = {
-        feasibility: 'concept-approval',
-        formulation: 'route-selection',
-        development: 'pilot-readiness',
-        testing: 'demo-scale',
-        scaling: 'commercial-readiness',
-        validation: 'commercial-readiness'
+        feasibility: 'gate-1',
+        'concept-approval': 'gate-1',
+        'product-concept-selection': 'gate-1',
+        'route-selection': 'gate-2',
+        formulation: 'gate-2',
+        'product-concept-formula-selection': 'gate-2',
+        'pilot-readiness': 'gate-3',
+        development: 'gate-3',
+        'product-concept-feasibility-approval': 'gate-3',
+        'demo-scale': 'gate-4',
+        testing: 'gate-4',
+        'consumer-validation': 'gate-4',
+        'commercial-readiness': 'gate-5',
+        scaling: 'gate-5',
+        validation: 'gate-5',
+        'launch-readiness': 'gate-5'
       };
       this.currentGateContext = aliases[rawContext] || rawContext;
-      const def = this.gateDefinitions[this.currentGateContext] || this.gateDefinitions['concept-approval'];
+      const def = this.gateDefinitions[this.currentGateContext] || this.gateDefinitions['gate-1'];
       this.currentGateCode = def.gateCode;
       this.currentGateName = def.gateName;
       this.criteriaList = def.criteria.map(c => ({ ...c }));

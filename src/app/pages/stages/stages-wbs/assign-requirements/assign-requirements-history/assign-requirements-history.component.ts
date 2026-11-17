@@ -66,7 +66,7 @@ export class AssignRequirementsHistoryComponent implements OnInit {
   }
 
   initHistoryRecords(): void {
-    const curReqName = this.requirementName || 'Target Product Profile (TPP): intended application, grade, purity, concentration and performance criteria';
+    const curReqName = this.requirementName || 'Target Product Profile (TPP): sensory profile, shelf life, pack format, claim targets and COGS';
     const count = this.historyCount || 3;
 
     const baseDates = [
@@ -79,11 +79,11 @@ export class AssignRequirementsHistoryComponent implements OnInit {
     ];
 
     const users = [
-      'Dr. Robert Vance',
-      'Sarah Jenkins',
-      'Michael Chang',
-      'Emily Watson',
-      'David Miller'
+      'Ananya Rao',
+      'Dr. Priya Raman',
+      'Vikram Singh',
+      'Anita Desai',
+      'Rajesh Kumar'
     ];
 
     const reqNameVariations = [
@@ -111,45 +111,45 @@ export class AssignRequirementsHistoryComponent implements OnInit {
     const otherReqsCatalog: AssignRequirementHistoryItem[] = [
       {
         id: 101,
-        requirementName: 'Target Product Profile (TPP): intended application, grade, purity, concentration and performance criteria',
+        requirementName: 'Target Product Profile (TPP): sensory profile, shelf life, pack format, claim targets and COGS',
         revision: 'Rev 2',
-        changedDate: '2026-05-19 16:40',
+        changedDate: '2026-11-13 16:40',
         changedBy: 'Dr. Priya Raman'
       },
       {
         id: 102,
-        requirementName: 'Market demand, customer segment and competitor grade assessment',
+        requirementName: 'Quantitative consumer concept validation hurdle rate (Top 2 Box purchase intent >= 75%)',
         revision: 'Rev 1',
-        changedDate: '2026-05-01 10:30',
-        changedBy: 'Rajesh Kumar'
+        changedDate: '2026-11-10 10:30',
+        changedBy: 'Ananya Rao'
       },
       {
         id: 103,
-        requirementName: 'Preliminary business case, project economics and cost-of-manufacturing estimate',
+        requirementName: 'Packaging barrier requirements (moisture, oxygen, aroma, UV protection)',
         revision: 'Rev 3',
-        changedDate: '2026-05-15 09:20',
-        changedBy: 'Anita Desai'
+        changedDate: '2026-11-08 09:20',
+        changedBy: 'Vikram Singh'
       },
       {
         id: 104,
-        requirementName: 'Raw material, catalyst, solvent and critical supplier availability assessment',
+        requirementName: 'Ingredient compliance screening against FSSAI / FDA / EU cosmetic & food safety regulations',
         revision: 'Rev 2',
-        changedDate: '2026-05-10 11:45',
-        changedBy: 'Priya Reddy'
+        changedDate: '2026-11-05 11:45',
+        changedBy: 'Rajesh Kumar'
       },
       {
         id: 105,
-        requirementName: 'Preliminary process chemistry feasibility and route selection rationale',
+        requirementName: 'Cost of Goods Sold (COGS) model and gross margin sensitivity envelope',
         revision: 'Rev 1',
-        changedDate: '2026-05-05 14:15',
-        changedBy: 'Suresh Naidu'
+        changedDate: '2026-10-30 14:15',
+        changedBy: 'Amit Patel'
       },
       {
         id: 106,
-        requirementName: 'Initial process hazard identification and environmental screening',
+        requirementName: 'Microbiological challenge testing and accelerated 3-month shelf-life stability verification',
         revision: 'Rev 2',
-        changedDate: '2026-05-12 13:00',
-        changedBy: 'Amit Patel'
+        changedDate: '2026-10-25 13:00',
+        changedBy: 'Anita Desai'
       }
     ];
 

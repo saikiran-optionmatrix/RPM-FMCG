@@ -45,74 +45,91 @@ export class StagesPredecessorComponent implements OnInit {
   ];
 
   stageOptions: string[] = [
-    "S1 - Opportunity Identification",
-    "S2 - Concept Screening & Feasibility",
-    "S3 - Route Scouting & Lab Synthesis",
-    "S4 - Process Optimization (Lab Scale)",
-    "S5 - Process Route Selection & Basis of Design",
-    "S6 - Bench-to-Pilot Process Development",
-    "S7 - Process Safety & Regulatory Studies",
-    "S8 - Regulatory Registration Filing (REACH / TSCA)",
-    "S9 - Pilot Plant Campaign",
-    "S10 - Demonstration-Scale Campaign",
-    "S11 - Commercial Plant Build & Commissioning",
-    "S12 - Commercial Launch & Ramp-Up"
+  "S1 - Consumer Need & Market Opportunity",
+  "S2 - Market & Product Concept Validation",
+  "S3 - Product Ideation & Concept Screening",
+  "S4 - Product Formulation & Optimization",
+  "S5 - Product Concept & Formula Selection",
+  "S6 - Formulation & Manufacturing Process Development",
+  "S7 - Prototype Testing & Product Safety Assessment",
+  "S8 - Product Compliance Documentation & Label Filing",
+  "S9 - Concept & Feasibility Validation",
+  "S10 - Pilot Production & Market Testing",
+  "S11 - Commercial Scale-Up & Launch Preparation",
+  "S12 - Regulatory Compliance Release & Commercial Product Launch"
 ];
 
   stageDeliverablesMap: { [key: string]: string[] } = {
-    "S1 - Opportunity Identification": [
-        "1.1 - Market opportunity and customer requirements baseline",
-        "1.2 - Product concept and preliminary business case"
-    ],
-    "S2 - Concept Screening & Feasibility": [
-        "2.1 - Product and process feasibility assessment",
-        "2.2 - Project charter, EHS and regulatory feasibility package",
-        "Gate 1 - Gate 1: Concept Approval Checkpoints"
-    ],
-    "S3 - Route Scouting & Lab Synthesis": [
-        "3.1 - Candidate chemistry routes and laboratory synthesis results",
-        "3.2 - Intermediate characterization and route scouting report"
-    ],
-    "S4 - Process Optimization (Lab Scale)": [
-        "4.1 - Optimized laboratory process and operating window",
-        "4.2 - Analytical control strategy and process robustness evidence"
-    ],
-    "S5 - Process Route Selection & Basis of Design": [
-        "5.1 - Selected process route and approved basis of design",
-        "5.2 - Engineering design basis and scale-up risk assessment",
-        "Gate 2 - Gate 2: Process Route Selection Checkpoints"
-    ],
-    "S6 - Bench-to-Pilot Process Development": [
-        "6.1 - Bench-to-pilot process development package",
-        "6.2 - Pilot equipment, materials and scale-up readiness"
-    ],
-    "S7 - Process Safety & Regulatory Studies": [
-        "7.1 - Process safety and risk assessment dossier",
-        "7.2 - Regulatory, environmental and pilot readiness evidence",
-        "Gate 3 - Gate 3: Registration & Pilot Readiness Checkpoints"
-    ],
-    "S8 - Regulatory Registration Filing (REACH / TSCA)": [
-        "8.1 - Chemical registration dossier and submission",
-        "8.2 - Regulatory filing, authority interaction and compliance records"
-    ],
-    "S9 - Pilot Plant Campaign": [
-        "9.1 - Pilot plant campaign execution records",
-        "9.2 - Pilot batch quality, yield and scale-up assessment"
-    ],
-    "S10 - Demonstration-Scale Campaign": [
-        "10.1 - Demonstration-scale campaign performance package",
-        "10.2 - Commercial plant design basis and Gate 4 evidence",
-        "Gate 4 - Gate 4: Demo-Scale Proof Checkpoints"
-    ],
-    "S11 - Commercial Plant Build & Commissioning": [
-        "11.1 - Commercial plant construction and commissioning package",
-        "11.2 - Equipment qualification, process validation and readiness approval",
-        "Gate 5 - Gate 5: Commercial Production Readiness Checkpoints"
-    ],
-    "S12 - Commercial Launch & Ramp-Up": [
-        "12.1 - Commercial launch and first-batch release package",
-        "12.2 - Ramp-up, product stewardship and post-launch improvement plan"
-    ]
+  "S1 - Consumer Need & Market Opportunity": [
+    "1.1 - Consumer opportunity and category landscape",
+    "1.2 - Consumer insights and channel discovery",
+    "1.3 - Opportunity case and strategic alignment"
+  ],
+  "S2 - Market & Product Concept Validation": [
+    "2.1 - Concept demand and target-product definition",
+    "2.2 - Technical and supply feasibility screening",
+    "2.3 - Commercial case and concept research",
+    "Gate 1 - Gate 1: Product Concept Selection Checkpoints"
+  ],
+  "S3 - Product Ideation & Concept Screening": [
+    "3.1 - Idea generation and portfolio exploration",
+    "3.2 - Supplier and technology concept screening",
+    "3.3 - Concept ranking and early risk reduction"
+  ],
+  "S4 - Product Formulation & Optimization": [
+    "4.1 - Bench formulation and prototype creation",
+    "4.2 - Sensory, functional and physicochemical optimization",
+    "4.3 - Bench analytical and safety evaluation",
+    "4.4 - Experimental design and formula optimization"
+  ],
+  "S5 - Product Concept & Formula Selection": [
+    "5.1 - Formula option selection and lock",
+    "5.2 - Packaging concept and consumer fit selection",
+    "5.3 - Design gate and development handover",
+    "Gate 2 - Gate 2: Product Concept & Formula Selection Checkpoints"
+  ],
+  "S6 - Formulation & Manufacturing Process Development": [
+    "6.1 - Manufacturing process and scale-up design",
+    "6.2 - Equipment, packaging and cleaning integration",
+    "6.3 - Quality control plan and process capability",
+    "6.4 - Pilot readiness and manufacturing cost"
+  ],
+  "S7 - Prototype Testing & Product Safety Assessment": [
+    "7.1 - Prototype verification and product safety",
+    "7.2 - Sensory performance and consumer handling",
+    "7.3 - Shelf-life pilot studies and product risk closure",
+    "Gate 3 - Gate 3: Product Concept & Feasibility Approval Checkpoints"
+  ],
+  "S8 - Product Compliance Documentation & Label Filing": [
+    "8.1 - Compliance documentation and label development",
+    "8.2 - Claims and pack artwork review",
+    "8.3 - Compliance release planning"
+  ],
+  "S9 - Concept & Feasibility Validation": [
+    "9.1 - Feasibility validation against target attributes",
+    "9.2 - Operational and supply feasibility",
+    "9.3 - Consumer proposition and claim feasibility",
+    "9.4 - Feasibility decision and gap closure"
+  ],
+  "S10 - Pilot Production & Market Testing": [
+    "10.1 - Pilot manufacturing builds and yield stabilization",
+    "10.2 - Pilot quality assurance and shelf-life monitoring",
+    "10.3 - In-market or controlled market evaluation",
+    "10.4 - Pilot exit and commercial readiness recommendation",
+    "Gate 4 - Gate 4: Consumer Validation & Product Performance Proof Checkpoints"
+  ],
+  "S11 - Commercial Scale-Up & Launch Preparation": [
+    "11.1 - Industrial scale-up and site qualification",
+    "11.2 - Supply availability and operational resilience",
+    "11.3 - Commercial quality system and launch controls",
+    "11.4 - Go-to-market and trade launch preparation",
+    "Gate 5 - Gate 5: Market Launch & Regulatory Compliance Readiness Checkpoints"
+  ],
+  "S12 - Regulatory Compliance Release & Commercial Product Launch": [
+    "12.1 - Final market authorization and production release",
+    "12.2 - Commercial launch execution and performance",
+    "12.3 - Post-launch quality and business stabilization"
+  ]
 };
 
   stageActivitiesMap: { [key: string]: string[] } = {

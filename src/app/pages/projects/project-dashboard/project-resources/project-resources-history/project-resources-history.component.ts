@@ -99,10 +99,10 @@ export class ProjectResourcesHistoryComponent implements OnInit {
   }
 
   initHistoryRecords(): void {
-    const res = this.resourceName || 'Lyophilizer A';
-    const stg = this.stage || 'Feasibility';
-    const deliv = this.deliverable || 'API Assessment';
-    const act = this.activity || 'API Evaluation';
+    const res = this.resourceName || 'LC-MS System A';
+    const stg = this.stage || 'S1 - Business Case';
+    const deliv = this.deliverable || 'Reference Product & Market Analysis';
+    const act = this.activity || 'Reference Product Analytical Characterization';
     const pDur = this.planDuration || '5 days';
     const aDur = this.actualDuration || '5 days';
 
@@ -186,10 +186,10 @@ export class ProjectResourcesHistoryComponent implements OnInit {
       },
       {
         id: 5,
-        resource: 'Lyophilizer B',
+        resource: 'Benchtop Mixing & Blending Vessel B (5 L)',
         stage: 'Development',
         deliverable: 'Process Development',
-        activity: 'Granulation & Process Optimization',
+        activity: 'Emulsion & Homogenization Process Optimization',
         planDuration: '10 days',
         actualDuration: '8 days',
         fromDate: '2026-06-22',
@@ -197,9 +197,9 @@ export class ProjectResourcesHistoryComponent implements OnInit {
         fromTime: '09:00 AM',
         toTime: '05:00 PM',
         status: 'Active',
-        remarks: 'Granulation parameters optimized at 35 rpm; moisture content monitored below critical threshold.',
+        remarks: 'Emulsification speed optimized at 3500 rpm; droplet size distribution verified below 1 micron.',
         revision: 'Rev 1',
-        updatedBy: 'Diego Ruiz',
+        updatedBy: 'Rajesh Kumar',
         changeDate: '22-Jun-2026'
       },
       {
@@ -207,7 +207,7 @@ export class ProjectResourcesHistoryComponent implements OnInit {
         resource: 'Amit Patel',
         stage: 'Testing',
         deliverable: 'Analytical Development',
-        activity: 'Assay & Dissolution Testing',
+        activity: 'Brix, Acidity & Vitamin C Retention Testing',
         planDuration: '10 days',
         actualDuration: 'N/A',
         fromDate: '2026-07-03',
@@ -215,17 +215,17 @@ export class ProjectResourcesHistoryComponent implements OnInit {
         fromTime: '09:00 AM',
         toTime: '05:00 PM',
         status: 'Pending',
-        remarks: 'HPLC column equilibrated; waiting for formulation batch sample delivery from pilot facility.',
+        remarks: 'Refractometer and HPLC equilibrated; waiting for beverage batch sample delivery from pilot facility.',
         revision: 'Rev 1',
         updatedBy: 'Amit Patel',
         changeDate: '30-Jun-2026'
       },
       {
         id: 7,
-        resource: 'Lyophilizer C',
+        resource: 'HunterLab Colorimeter & Spectrophotometer',
         stage: 'Manufacturing',
-        deliverable: 'Compression & Coating',
-        activity: 'Tablet Manufacturing Trial',
+        deliverable: 'Sensory & Visual Quality Testing',
+        activity: 'Color Delta-E & Cloud Turbidity Measurement',
         planDuration: '12 days',
         actualDuration: 'N/A',
         fromDate: '2026-07-14',
@@ -233,9 +233,9 @@ export class ProjectResourcesHistoryComponent implements OnInit {
         fromTime: '09:00 AM',
         toTime: '05:00 PM',
         status: 'Pending',
-        remarks: 'Compression machine tooling inspection scheduled prior to batch charging.',
+        remarks: 'Optical spectrophotometer calibration scheduled prior to measurement.',
         revision: 'Rev 1',
-        updatedBy: 'Production Head',
+        updatedBy: 'Priya Reddy',
         changeDate: '01-Jul-2026'
       },
       {

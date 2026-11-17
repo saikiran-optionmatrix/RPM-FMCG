@@ -23,11 +23,12 @@ export class ResetTemplateComponent implements OnInit {
   selectedTemplate = '';
 
   readonly templatesList: string[] = [
-    'Generic Tablet Development',
-    'Generic API Process Development',
-    'Complex Injectable Development',
-    'Generic API Development',
-    'Generic Injectable Formulation',
+    'Functional Beverage Development',
+    'Personal Care & Cosmetics Platform',
+    'Multi-Variant Snack Product Development',
+    'Ingredient Sourcing & Blend Optimization',
+    'Shelf-Stable Powdered Beverage Formulation',
+    'Vitamin-Enriched Fruit Beverage 250ml'
   ];
 
   constructor(
@@ -41,13 +42,13 @@ export class ResetTemplateComponent implements OnInit {
         this.data.projectName ||
         this.data.project?.productName ||
         this.data.project?.projectCode ||
-        'Selected Project';
+        'Selected Program';
       this.selectedTemplate =
         this.data.currentTemplate ||
         this.data.project?.template ||
-        'Generic Tablet Development';
+        'Functional Beverage Development';
     } else {
-      this.selectedTemplate = 'Generic Tablet Development';
+      this.selectedTemplate = 'Functional Beverage Development';
     }
   }
 

@@ -136,11 +136,11 @@ export class ProjectsComponent implements OnInit {
   };
 
   kanbanData = [
-    { subject: 'Acrylic Emulsion Binder 50% Solids', code: '2026/CHM/006', distributor: 'Water-based emulsion (50% solids)', Lead: 'Ananya Rao', status: 'Progress', TargetDate: '2027-07-31', FailureDate: '2026-03-01' },
-    { subject: 'Liquid Epoxy Resin (Bisphenol-A / ECH)', code: '2026/CHM/011', distributor: 'Liquid resin (EEW 185-192 g/eq)', Lead: 'Devendra Joshi', status: 'Allocated', TargetDate: '2027-11-30', FailureDate: '2026-05-15' },
-    { subject: 'Sodium Lauryl Ether Sulfate (SLES) 70% Paste', code: '2026/CHM/018', distributor: 'Surfactant paste (70% w/w)', Lead: 'Kavita Sundaram', status: 'Completed', TargetDate: '2026-09-30', FailureDate: '2026-01-10' },
-    { subject: 'Hydrophilic Fumed Silica 200 m²/g', code: '2026/CHM/023', distributor: 'Fluffy white powder (BET 200)', Lead: 'Manish Verma', status: 'Hold', TargetDate: '2028-03-31', FailureDate: '2026-04-01' },
-    { subject: 'Hydrogen Peroxide 50% Technical Grade', code: '2026/CHM/031', distributor: 'Clear liquid (50% w/w)', Lead: 'Suresh Nambiar', status: 'Pending', TargetDate: '2028-06-30', FailureDate: '2026-07-01' }
+    { subject: 'Vitamin-Enriched Fruit Beverage 250ml', code: '2026/FMCG/006', distributor: 'Aseptic carton pack 250ml', Lead: 'Ananya Rao', status: 'Progress', TargetDate: '2027-07-31', FailureDate: '2026-03-01' },
+    { subject: 'Premium Personal Care Lotion 200ml', code: '2026/FMCG/007', distributor: 'Airless pump bottle 200ml', Lead: 'Rahul Mehta', status: 'Allocated', TargetDate: '2032-11-12', FailureDate: '2026-05-15' },
+    { subject: 'Ready-to-Eat Snack Range 100g', code: '2026/FMCG/008', distributor: 'Nitrogen-flushed pouch 100g', Lead: 'Vikram Singh', status: 'Completed', TargetDate: '2032-11-15', FailureDate: '2026-01-10' },
+    { subject: 'Low-Sugar Dairy Beverage 200ml', code: '2026/FMCG/009', distributor: 'HDPE bottle with induction seal', Lead: 'Anita Desai', status: 'Hold', TargetDate: '2032-10-22', FailureDate: '2026-04-01' },
+    { subject: 'Plant-Based Protein Drink 300ml', code: '2026/FMCG/010', distributor: 'Recyclable aluminium can 300ml', Lead: 'Suresh Naidu', status: 'Pending', TargetDate: '2032-10-30', FailureDate: '2026-07-01' }
   ];
 
   private statusMap: Record<string, Status> = {

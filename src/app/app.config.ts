@@ -18,9 +18,10 @@ export const appConfig: ApplicationConfig = {
     ),
 
     provideHttpClient(withXhr()),
-    importProvidersFrom(InMemoryWebApiModule.forRoot(UsersData, { delay: 1000 })),
+    importProvidersFrom(InMemoryWebApiModule.forRoot(UsersData, { delay: 0 })),
     provideNativeDateAdapter(),
     { provide: OverlayContainer, useClass: CustomOverlayContainer },
   ]
 };
+
 

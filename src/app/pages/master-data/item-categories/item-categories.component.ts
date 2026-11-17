@@ -52,41 +52,36 @@ export class ItemCategoriesComponent {
   constructor(private dialog: MatDialog) {}
   readonly assets: Asset[] = [
     {
-      name: 'API & Raw Materials',
-      code: 'CAT-001',
-      status: 'Active',
+        "name": "Raw Ingredients",
+        "code": "CAT-001",
+        "status": "Active"
     },
-
     {
-      name: 'Excipients',
-      code: 'CAT-002',
-      status: 'Active',
+        "name": "Functional Additives & Texturizers",
+        "code": "CAT-002",
+        "status": "Active"
     },
-
     {
-      name: 'Analytical Materials',
-      code: 'CAT-003',
-      status: 'Active',
+        "name": "Flavors & Fragrance Concentrates",
+        "code": "CAT-003",
+        "status": "Active"
     },
-
     {
-      name: 'Packaging Materials',
-      code: 'CAT-004',
-      status: 'Active',
+        "name": "Packaging Materials & Substrates",
+        "code": "CAT-004",
+        "status": "Active"
     },
-
     {
-      name: 'Finished Products',
-      code: 'CAT-005',
-      status: 'Active',
+        "name": "Finished FMCG Products",
+        "code": "CAT-005",
+        "status": "Active"
     },
-
     {
-      name: 'Laboratory Consumables',
-      code: 'CAT-006',
-      status: 'Active',
-    },
-  ];
+        "name": "Laboratory & Sensory Supplies",
+        "code": "CAT-006",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
 

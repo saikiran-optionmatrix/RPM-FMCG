@@ -36,13 +36,47 @@ interface MasterItem {
 export class GroupsComponent {
   constructor(private dialog: MatDialog) {}
   readonly items: MasterItem[] = [
-    { name: 'R&D Group', code: 'GRP-RND', status: 'Active' },
-    { name: 'Quality Group', code: 'GRP-QA', status: 'Active' },
-    { name: 'Production Group', code: 'GRP-PRD', status: 'Active' },
-    { name: 'Regulatory Group', code: 'GRP-RA', status: 'Active' },
-    { name: 'Analytical Group', code: 'GRP-ANA', status: 'Active' },
-    { name: 'Supply Chain Group', code: 'GRP-SCM', status: 'Active' },
-  ];
+    {
+        "name": "Consumer Insights & Strategy Group",
+        "code": "GRP-CINS",
+        "status": "Active"
+    },
+    {
+        "name": "Formulation & Innovation Group",
+        "code": "GRP-RDI",
+        "status": "Active"
+    },
+    {
+        "name": "Packaging Engineering Group",
+        "code": "GRP-PKG",
+        "status": "Active"
+    },
+    {
+        "name": "Sensory & Consumer Science Group",
+        "code": "GRP-SEN",
+        "status": "Active"
+    },
+    {
+        "name": "Quality Assurance & Food Safety Group",
+        "code": "GRP-QA",
+        "status": "Active"
+    },
+    {
+        "name": "Pilot Plant & Commercialization Group",
+        "code": "GRP-MFG",
+        "status": "Active"
+    },
+    {
+        "name": "Regulatory Affairs & Compliance Group",
+        "code": "GRP-REG",
+        "status": "Active"
+    },
+    {
+        "name": "Supply Chain & Sourcing Group",
+        "code": "GRP-SCM",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
   keyword = '';

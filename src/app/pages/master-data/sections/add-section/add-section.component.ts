@@ -16,12 +16,21 @@ export class AddSectionComponent implements OnInit {
   isSubmitting = false;
 
   departments: string[] = [
-    'Research & Development',
-    'Quality Control',
-    'Quality Assurance',
-    'Production',
-    'Regulatory Affairs',
-  ];
+    "Consumer Insights & Strategy",
+    "Consumer Research",
+    "Category Management",
+    "R&D & Product Innovation",
+    "Packaging Development",
+    "Sensory & Consumer Science",
+    "Quality Assurance",
+    "Quality Control",
+    "Regulatory Affairs & Compliance",
+    "Pilot & Commercial Manufacturing",
+    "Supply Chain & Sourcing",
+    "Brand Marketing & Commercialization",
+    "Finance & Commercialization",
+    "Program Management Office"
+];
 
   constructor(
     private fb: FormBuilder,

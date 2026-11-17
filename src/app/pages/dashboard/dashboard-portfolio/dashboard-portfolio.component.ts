@@ -48,31 +48,33 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
   pageIndex = 0;
   pageSize = 10;
   selectedGate = 'Gate 1';
+
   portfolioGates = [
-    { code: 'Gate 1', name: 'Concept Approval', label: 'Gate 1' },
-    { code: 'Gate 2', name: 'Route Selection', label: 'Gate 2' },
-    { code: 'Gate 3', name: 'Registration & Pilot Readiness', label: 'Gate 3' },
-    { code: 'Gate 4', name: 'Demo-Scale Proof', label: 'Gate 4' },
-    { code: 'Gate 5', name: 'Commercial Readiness', label: 'Gate 5' }
+    { code: 'Gate 1', name: 'Product Concept Selection', label: 'Gate 1' },
+    { code: 'Gate 2', name: 'Product Concept and Formula Selection', label: 'Gate 2' },
+    { code: 'Gate 3', name: 'Product Concept and Feasibility Approval', label: 'Gate 3' },
+    { code: 'Gate 4', name: 'Consumer Validation and Product Performance Proof', label: 'Gate 4' },
+    { code: 'Gate 5', name: 'Market Launch and Regulatory Readiness', label: 'Gate 5' }
   ];
 
   getGateTitle(gateCode: string): string {
-    return `${gateCode} - Portfolio Summary`;
+    const gateObj = this.portfolioGates.find(g => g.code === gateCode);
+    return `${gateCode} - ${gateObj ? gateObj.name : 'Portfolio Summary'}`;
   }
 
   readonly stageNamesMap: Record<string, string> = {
-    'S1': 'Opportunity Identification',
-    'S2': 'Concept Screening & Feasibility',
-    'S3': 'Route Scouting & Lab Synthesis',
-    'S4': 'Process Optimization (Lab Scale)',
-    'S5': 'Process Route Selection & Basis of Design',
-    'S6': 'Bench-to-Pilot Process Development',
-    'S7': 'Process Safety & Regulatory Studies',
-    'S8': 'Regulatory Registration Filing (REACH / TSCA)',
-    'S9': 'Pilot Plant Campaign',
-    'S10': 'Demonstration-Scale Campaign',
-    'S11': 'Commercial Plant Build & Commissioning',
-    'S12': 'Commercial Launch & Ramp-Up'
+    'S1': 'Consumer Need and Market Opportunity',
+    'S2': 'Market and Product Concept Validation',
+    'S3': 'Product Ideation and Concept Screening',
+    'S4': 'Product Formulation and Product Optimization',
+    'S5': 'Product Concept and Formula Selection',
+    'S6': 'Product Formulation and Manufacturing Process Development',
+    'S7': 'Prototype Testing and Product Safety Assessment',
+    'S8': 'Product Concept Approval Filing',
+    'S9': 'Concept and Feasibility Validation',
+    'S10': 'Pilot Production and Market Testing',
+    'S11': 'Commercial Scale-Up and Launch Preparation',
+    'S12': 'Regulatory Affairs & Compliance Approval and Commercial Product Launch'
   };
 
   selectedDivision: string = 'All';
@@ -80,27 +82,28 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
 
   readonly divisionsList: string[] = [
     'All',
-    'Specialty Chemicals - SC',
-    'Polymers & Resins - PR',
-    'Agrochemicals - AC',
-    'Industrial & Fine Chemicals - IF',
+    'Beverages - BV',
+    'Personal Care & Beauty - PC',
+    'Packaged Foods & Snacks - FS',
+    'Dairy & Nutrition - DN',
+    'Home Care - HC'
   ];
 
   readonly locationsList: string[] = [
     'All',
-    'Ahmedabad',
-    'Hyderabad',
     'Mumbai',
-    'Pune',
-    'Vadodara',
     'Bengaluru',
+    'Delhi NCR',
+    'Pune',
+    'Hyderabad',
     'Chennai',
-    'Delhi',
-    'Baddi',
+    'Kolkata',
+    'Ahmedabad',
+    'Baddi'
   ];
 
   onApplyFilters(): void {
-    // UI filter apply trigger
+    this.applyAllFilters();
   }
 
   portfolioActiveFilter: { type: 'bar'; stage: string; status: 'on-schedule' | 'delayed'; label: string } | null = null;
@@ -109,49 +112,56 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
   filteredPortfolioProjects: any[] = [];
   paginatedProjects: any[] = [];
 
-  chartCategories: string[] = [];
-  chartOnTrackData: number[] = [];
-  chartDueData: number[] = [];
+  chartCategories: string[] = ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11', 'S12'];
+  chartOnTrackData: number[] = [8, 7, 6, 5, 5, 4, 3, 2, 1, 1, 1, 1];
+  chartDueData: number[] = [2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0];
 
   gatePieDataMap: any = {
     'Gate 1': [
-      { name: 'Go', y: 11, color: '#2ecc71' },
-      { name: 'Evaluation', y: 6, color: '#3366cc' },
-      { name: 'Rework', y: 2, color: '#f39c12' },
+      { name: 'Go', y: 5, color: '#2ecc71' },
+      { name: 'Evaluation', y: 2, color: '#3366cc' },
+      { name: 'Rework', y: 1, color: '#f39c12' },
       { name: 'Pending', y: 1, color: '#7f8c8d' },
       { name: 'Redirect', y: 1, color: '#9b59b6' }
     ],
     'Gate 2': [
-      { name: 'Go', y: 9, color: '#2ecc71' },
-      { name: 'Evaluation', y: 5, color: '#3366cc' },
-      { name: 'Rework', y: 2, color: '#f39c12' },
-      { name: 'Redirect', y: 2, color: '#9b59b6' },
-      { name: 'Pending', y: 1, color: '#7f8c8d' }
+      { name: 'Go', y: 5, color: '#2ecc71' },
+      { name: 'Evaluation', y: 2, color: '#3366cc' },
+      { name: 'Rework', y: 1, color: '#f39c12' },
+      { name: 'Pending', y: 1, color: '#7f8c8d' },
+      { name: 'Redirect', y: 1, color: '#9b59b6' }
     ],
     'Gate 3': [
-      { name: 'Go', y: 8, color: '#2ecc71' },
-      { name: 'Evaluation', y: 3, color: '#3366cc' },
-      { name: 'Redirect', y: 3, color: '#9b59b6' },
-      { name: 'Rework', y: 2, color: '#f39c12' },
-      { name: 'Pending', y: 2, color: '#7f8c8d' }
+      { name: 'Go', y: 4, color: '#2ecc71' },
+      { name: 'Evaluation', y: 2, color: '#3366cc' },
+      { name: 'Rework', y: 1, color: '#f39c12' },
+      { name: 'Pending', y: 1, color: '#7f8c8d' }
     ],
     'Gate 4': [
-      { name: 'Go', y: 6, color: '#2ecc71' },
-      { name: 'Evaluation', y: 4, color: '#3366cc' },
-      { name: 'Rework', y: 3, color: '#f39c12' },
-      { name: 'Pending', y: 3, color: '#7f8c8d' },
+      { name: 'Go', y: 4, color: '#2ecc71' },
+      { name: 'Evaluation', y: 1, color: '#3366cc' },
+      { name: 'Rework', y: 1, color: '#f39c12' },
       { name: 'Redirect', y: 1, color: '#9b59b6' }
     ],
     'Gate 5': [
-      { name: 'Go', y: 10, color: '#2ecc71' },
-      { name: 'Evaluation', y: 2, color: '#3366cc' },
-      { name: 'Redirect', y: 2, color: '#9b59b6' },
-      { name: 'Rework', y: 1, color: '#f39c12' },
+      { name: 'Go', y: 4, color: '#2ecc71' },
+      { name: 'Evaluation', y: 1, color: '#3366cc' },
       { name: 'Pending', y: 1, color: '#7f8c8d' }
     ]
   };
 
-  constructor(private cdr: ChangeDetectorRef, private router: Router) { }
+  constructor(private router: Router, private cdr: ChangeDetectorRef) { }
+
+  ngOnInit(): void {
+    this.initPortfolioData();
+    this.applyAllFilters();
+  }
+
+  ngAfterViewInit(): void {
+    this.renderPortfolioStatusChart();
+    this.renderPortfolioSummaryChart();
+    setTimeout(() => this.updateScrollButtons(), 300);
+  }
 
   navigateToStages(): void {
     this.router.navigate(['/dashboard/portfolio/stages-data-table']);
@@ -161,135 +171,197 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/dashboard/portfolio/gates-data-table']);
   }
 
-  ngOnInit() {
-    this.initializePortfolioProjects();
-    this.applyPortfolioFilter();
-  }
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.renderPortfolioStatusChart();
-      this.renderPortfolioSummaryChart();
-    }, 0);
-  }
-
-  initializePortfolioProjects(): void {
-    const chemicalProducts = [
-      { name: 'Waterborne Polyurethane Dispersion (PUD) Discovery Project', family: 'Polymers & Resins', industry: 'Coatings & Adhesives' },
-      { name: 'Hydrogenation Catalyst Development (Pd/C)', family: 'Specialty Chemicals', industry: 'Fine Chemicals & Pharma' },
-      { name: 'Agrochemical Active Ingredient Multi-Step Synthesis Development', family: 'Agrochemicals', industry: 'Crop Protection' },
-      { name: 'Solvent Recovery & Fractional Distillation Process Development', family: 'Industrial & Fine Chemicals', industry: 'Petrochemical & Industrial' },
-      { name: 'Water-Dispersible Granule (WDG) Formulation Development', family: 'Agrochemicals', industry: 'Agriculture' },
-      { name: 'Acrylic Emulsion Binder 50% Solids', family: 'Polymers & Resins', industry: 'Paints & Construction' },
-      { name: 'Liquid Epoxy Resin (Bisphenol-A, EEW 185-192)', family: 'Polymers & Resins', industry: 'Composites & Electronics' },
-      { name: 'Sodium Lauryl Ether Sulfate (SLES) 70% Paste', family: 'Specialty Chemicals', industry: 'Personal Care & Detergents' },
-      { name: 'Fumed Silica (Hydrophilic, 200 m2/g)', family: 'Specialty Chemicals', industry: 'Cosmetics & Silicone Rubber' },
-      { name: 'Hydrogen Peroxide 50% w/w (Anthraquinone Process)', family: 'Industrial & Fine Chemicals', industry: 'Bleaching & Disinfection' },
-    ];
-
-    const stageSpecs = [
-      { stage: 'S1', stageName: 'Opportunity Identification', onTrack: 12, due: 3, dates: ['10/01/26', '20/03/26', '25/06/26'] },
-      { stage: 'S2', stageName: 'Concept Screening & Feasibility', onTrack: 16, due: 2, dates: ['20/03/26', '15/05/26', '30/07/26'] },
-      { stage: 'S3', stageName: 'Route Scouting & Lab Synthesis', onTrack: 8, due: 4, dates: ['25/06/26', '10/08/26', '15/09/26'] },
-      { stage: 'S4', stageName: 'Process Optimization (Lab Scale)', onTrack: 15, due: 5, dates: ['15/10/26', '30/11/26', '15/01/27'] },
-      { stage: 'S5', stageName: 'Process Route Selection & Basis of Design', onTrack: 7, due: 3, dates: ['20/01/27', '28/02/27', '15/04/27'] },
-      { stage: 'S6', stageName: 'Bench-to-Pilot Process Development', onTrack: 11, due: 1, dates: ['25/05/27', '10/07/27', '30/08/27'] },
-      { stage: 'S7', stageName: 'Process Safety & Regulatory Studies', onTrack: 13, due: 4, dates: ['10/10/27', '15/11/27', '20/12/27'] },
-      { stage: 'S8', stageName: 'Regulatory Registration Filing (REACH / TSCA)', onTrack: 8, due: 0, dates: ['20/02/28', '30/03/28', '15/05/28'] },
-      { stage: 'S9', stageName: 'Pilot Plant Campaign', onTrack: 10, due: 2, dates: ['15/06/28', '20/08/28', '30/09/28'] },
-      { stage: 'S10', stageName: 'Demonstration-Scale Campaign', onTrack: 14, due: 3, dates: ['20/11/28', '15/01/29', '28/02/29'] },
-      { stage: 'S11', stageName: 'Commercial Plant Build & Commissioning', onTrack: 9, due: 2, dates: ['25/09/29', '15/11/29', '20/01/30'] },
-      { stage: 'S12', stageName: 'Commercial Launch & Ramp-Up', onTrack: 7, due: 1, dates: ['15/03/30', '30/06/30', '30/09/30'] },
-    ];
-
-    this.allPortfolioProjects = [];
-    this.chartCategories = [];
-    this.chartOnTrackData = [];
-    this.chartDueData = [];
-
-    let nameIndex = 0;
-    let codeCounter = 1;
-
-    stageSpecs.forEach(spec => {
-      this.chartCategories.push(spec.stage);
-      this.chartOnTrackData.push(spec.onTrack);
-      this.chartDueData.push(spec.due);
-
-      for (let i = 0; i < spec.onTrack; i++) {
-        const prod = chemicalProducts[nameIndex % chemicalProducts.length];
-        this.allPortfolioProjects.push(this.createProject(prod, codeCounter++, spec.stage, 'on-schedule', spec.dates[i % spec.dates.length]));
-        nameIndex++;
+  initPortfolioData(): void {
+    this.allPortfolioProjects = [
+      {
+        projectName: 'New Beverage Product Development Program',
+        projectCode: '2026/FMCG/001',
+        productFamily: 'Beverages',
+        endUseIndustry: 'Modern Trade & E-Commerce',
+        division: 'Beverages - BV',
+        location: 'Mumbai',
+        scheduleStatus: 'on-schedule',
+        s1: '10/01/26', s2: '15/06/26', s3: '20/01/27', s4: '25/08/27',
+        s5: '10/03/28', s6: '15/10/28', s7: '20/05/29', s8: '25/12/29',
+        s9: '10/07/30', s10: '15/02/31', s11: '20/09/31', s12: '25/04/32',
+        completionDate: '15/10/32'
+      },
+      {
+        projectName: 'New Personal Care Product Formulation Development',
+        projectCode: '2026/FMCG/002',
+        productFamily: 'Personal Care & Beauty',
+        endUseIndustry: 'Retail & Salons',
+        division: 'Personal Care & Beauty - PC',
+        location: 'Bengaluru',
+        scheduleStatus: 'on-schedule',
+        s1: '15/02/26', s2: '20/07/26', s3: '25/02/27', s4: '30/09/27',
+        s5: '15/04/28', s6: '20/11/28', s7: '25/06/29', s8: '30/01/30',
+        s9: '15/08/30', s10: '20/03/31', s11: '25/10/31', s12: '30/05/32',
+        completionDate: '20/11/32'
+      },
+      {
+        projectName: 'Multi-Variant Snack Product Development',
+        projectCode: '2026/FMCG/003',
+        productFamily: 'Packaged Foods & Snacks',
+        endUseIndustry: 'General Trade & Q-Commerce',
+        division: 'Packaged Foods & Snacks - FS',
+        location: 'Delhi NCR',
+        scheduleStatus: 'delayed',
+        s1: '01/03/26', s2: '10/08/26', s3: '15/03/27', s4: '20/10/27',
+        s5: '01/05/28', s6: '10/12/28', s7: '15/07/29', s8: '20/02/30',
+        s9: '01/09/30', s10: '10/04/31', s11: '15/11/31', s12: '20/06/32',
+        completionDate: '10/12/32'
+      },
+      {
+        projectName: 'Ingredient Sourcing and Blend Optimization',
+        projectCode: '2026/FMCG/004',
+        productFamily: 'Nutrition & Ingredients',
+        endUseIndustry: 'B2B & Food Service',
+        division: 'Dairy & Nutrition - DN',
+        location: 'Pune',
+        scheduleStatus: 'on-schedule',
+        s1: '12/01/26', s2: '18/06/26', s3: '22/01/27', s4: '28/08/27',
+        s5: '12/03/28', s6: '18/10/28', s7: '22/05/29', s8: '28/12/29',
+        s9: '12/07/30', s10: '18/02/31', s11: '22/09/31', s12: '28/04/32',
+        completionDate: '18/10/32'
+      },
+      {
+        projectName: 'Shelf-Stable Powdered Beverage Product Formulation',
+        projectCode: '2026/FMCG/005',
+        productFamily: 'Beverages',
+        endUseIndustry: 'Direct to Consumer',
+        division: 'Beverages - BV',
+        location: 'Hyderabad',
+        scheduleStatus: 'delayed',
+        s1: '20/02/26', s2: '25/07/26', s3: '01/03/27', s4: '05/10/27',
+        s5: '20/04/28', s6: '25/11/28', s7: '01/07/29', s8: '05/02/30',
+        s9: '20/08/30', s10: '25/03/31', s11: '01/11/31', s12: '05/06/32',
+        completionDate: '25/11/32'
+      },
+      {
+        projectName: 'Vitamin-Enriched Fruit Beverage 250ml',
+        projectCode: '2026/FMCG/006',
+        productFamily: 'Beverages',
+        endUseIndustry: 'Convenience & Modern Trade',
+        division: 'Beverages - BV',
+        location: 'Mumbai',
+        scheduleStatus: 'on-schedule',
+        s1: '15/01/26', s2: '20/06/26', s3: '25/01/27', s4: '30/08/27',
+        s5: '15/03/28', s6: '20/10/28', s7: '25/05/29', s8: '30/12/29',
+        s9: '15/07/30', s10: '20/02/31', s11: '25/09/31', s12: '30/04/32',
+        completionDate: '20/10/32'
+      },
+      {
+        projectName: 'Premium Personal Care Lotion 200ml',
+        projectCode: '2026/FMCG/007',
+        productFamily: 'Personal Care & Beauty',
+        endUseIndustry: 'E-Commerce & Pharmacy',
+        division: 'Personal Care & Beauty - PC',
+        location: 'Chennai',
+        scheduleStatus: 'on-schedule',
+        s1: '05/02/26', s2: '12/07/26', s3: '18/02/27', s4: '22/09/27',
+        s5: '05/04/28', s6: '12/11/28', s7: '18/06/29', s8: '22/01/30',
+        s9: '05/08/30', s10: '12/03/31', s11: '18/10/31', s12: '22/05/32',
+        completionDate: '12/11/32'
+      },
+      {
+        projectName: 'Ready-to-Eat Snack Range 100g',
+        projectCode: '2026/FMCG/008',
+        productFamily: 'Packaged Foods & Snacks',
+        endUseIndustry: 'Retail FMCG',
+        division: 'Packaged Foods & Snacks - FS',
+        location: 'Ahmedabad',
+        scheduleStatus: 'delayed',
+        s1: '10/02/26', s2: '15/07/26', s3: '20/02/27', s4: '25/09/27',
+        s5: '10/04/28', s6: '15/11/28', s7: '20/06/29', s8: '25/01/30',
+        s9: '10/08/30', s10: '15/03/31', s11: '20/10/31', s12: '25/05/32',
+        completionDate: '15/11/32'
+      },
+      {
+        projectName: 'Low-Sugar Dairy Beverage 200ml',
+        projectCode: '2026/FMCG/009',
+        productFamily: 'Dairy & Refrigerated',
+        endUseIndustry: 'Modern Trade & Supermarkets',
+        division: 'Dairy & Nutrition - DN',
+        location: 'Baddi',
+        scheduleStatus: 'on-schedule',
+        s1: '18/01/26', s2: '22/06/26', s3: '28/01/27', s4: '04/09/27',
+        s5: '18/03/28', s6: '22/10/28', s7: '28/05/29', s8: '04/01/30',
+        s9: '18/07/30', s10: '22/02/31', s11: '28/09/31', s12: '04/05/32',
+        completionDate: '22/10/32'
+      },
+      {
+        projectName: 'Plant-Based Protein Drink 300ml',
+        projectCode: '2026/FMCG/010',
+        productFamily: 'Health & Wellness',
+        endUseIndustry: 'Specialty Retail & Fitness',
+        division: 'Dairy & Nutrition - DN',
+        location: 'Bengaluru',
+        scheduleStatus: 'on-schedule',
+        s1: '25/01/26', s2: '30/06/26', s3: '05/02/27', s4: '12/09/27',
+        s5: '25/03/28', s6: '30/10/28', s7: '05/06/29', s8: '12/01/30',
+        s9: '25/07/30', s10: '30/02/31', s11: '05/10/31', s12: '12/05/32',
+        completionDate: '30/10/32'
       }
-      for (let i = 0; i < spec.due; i++) {
-        const prod = chemicalProducts[nameIndex % chemicalProducts.length];
-        this.allPortfolioProjects.push(this.createProject(prod, codeCounter++, spec.stage, 'delayed', spec.dates[i % spec.dates.length]));
-        nameIndex++;
-      }
-    });
+    ];
   }
 
-  createProject(prod: { name: string; family: string; industry: string }, codeNum: number, stage: string, status: 'on-schedule' | 'delayed', completion: string) {
-    const isDiscovery = codeNum <= 5;
-    return {
-      projectName: prod.name,
-      projectCode: `2026/CHM/${codeNum.toString().padStart(3, '0')}`,
-      productFamily: prod.family,
-      endUseIndustry: prod.industry,
-      currentStage: stage,
-      scheduleStatus: status,
-      s1: '10/01/26', s2: '20/03/26', s3: '25/06/26', s4: '15/10/26',
-      s5: '20/01/27', s6: '25/05/27', s7: '10/10/27', s8: '20/02/28',
-      s9: '15/06/28', s10: '20/11/28', s11: '25/09/29', s12: '15/03/30',
-      completionDate: isDiscovery ? '15/06/28' : (completion || '30/09/30')
-    };
-  }
-
-  applyPortfolioFilter() {
+  applyAllFilters(): void {
     let list = [...this.allPortfolioProjects];
-    if (this.portfolioActiveFilter) {
-      list = list.filter(p => p.currentStage === this.portfolioActiveFilter!.stage && p.scheduleStatus === this.portfolioActiveFilter!.status);
+
+    if (this.selectedDivision && this.selectedDivision !== 'All') {
+      list = list.filter(p => p.division === this.selectedDivision);
     }
+
+    if (this.selectedLocation && this.selectedLocation !== 'All') {
+      list = list.filter(p => p.location === this.selectedLocation);
+    }
+
+    if (this.portfolioActiveFilter) {
+      const statusFilter = this.portfolioActiveFilter.status;
+      list = list.filter(p => p.scheduleStatus === statusFilter);
+    }
+
     this.filteredPortfolioProjects = list;
     this.pageIndex = 0;
     this.updatePagination();
   }
 
-  resetPortfolioFilter() {
-    this.portfolioActiveFilter = null;
-    this.applyPortfolioFilter();
-    this.cdr.detectChanges();
-  }
-
-  onPortfolioChartBarClick(stage: string, status: 'on-schedule' | 'delayed') {
-    const statusLabel = status === 'on-schedule' ? 'On Schedule' : 'Delayed';
+  onPortfolioChartBarClick(stage: string, status: 'on-schedule' | 'delayed'): void {
+    const stageFullName = this.stageNamesMap[stage] || stage;
+    const statusText = status === 'on-schedule' ? 'On Track' : 'Delayed';
     this.portfolioActiveFilter = {
       type: 'bar',
       stage,
       status,
-      label: `${stage} • ${statusLabel}`
+      label: `${stage} (${stageFullName}) - ${statusText}`
     };
-    this.applyPortfolioFilter();
-    this.cdr.detectChanges();
+    this.applyAllFilters();
   }
 
-  handlePage(event: PageEvent) {
+  resetPortfolioFilter(): void {
+    this.portfolioActiveFilter = null;
+    this.applyAllFilters();
+  }
+
+  handlePage(event: PageEvent): void {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
     this.updatePagination();
   }
 
-  updatePagination() {
+  updatePagination(): void {
     const start = this.pageIndex * this.pageSize;
     this.paginatedProjects = this.filteredPortfolioProjects.slice(start, start + this.pageSize);
   }
 
-  setGateCategory(gate: string) {
+  setGateCategory(gate: string): void {
     this.selectedGate = gate;
     this.renderPortfolioSummaryChart();
     this.cdr.detectChanges();
   }
 
-  renderPortfolioStatusChart() {
+  renderPortfolioStatusChart(): void {
     const containerId = 'portfolioStatusChartContainer';
     if (!document.getElementById(containerId)) return;
 
@@ -297,7 +369,7 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
 
     Highcharts.chart(containerId, {
       chart: { type: 'column', backgroundColor: '#ffffff' },
-      title: { text: null }, // Title moved to HTML
+      title: { text: null },
       credits: { enabled: false },
       exporting: { enabled: true },
       xAxis: {
@@ -306,7 +378,7 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
       },
       yAxis: {
         min: 0,
-        title: { text: 'No of projects' }
+        title: { text: 'No. of programs' }
       },
       tooltip: {
         shared: true,
@@ -336,7 +408,7 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
               click: function (this: any) {
                 const stage = this.category as string;
                 const seriesName = this.series.name;
-                const status = seriesName === 'Project on schedule' ? 'on-schedule' : 'delayed';
+                const status = seriesName === 'Programs on track' ? 'on-schedule' : 'delayed';
                 self.onPortfolioChartBarClick(stage, status);
               }
             }
@@ -344,13 +416,13 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
         }
       },
       series: [
-        { name: 'Project on schedule', color: '#00a859', type: 'column', data: this.chartOnTrackData },
-        { name: 'Projects delayed', color: '#ed1c24', type: 'column', data: this.chartDueData }
+        { name: 'Programs on track', color: '#00a859', type: 'column', data: this.chartOnTrackData },
+        { name: 'Programs delayed', color: '#ed1c24', type: 'column', data: this.chartDueData }
       ]
     } as any);
   }
 
-  renderPortfolioSummaryChart() {
+  renderPortfolioSummaryChart(): void {
     const containerId = 'portfolioSummaryPieChartContainer';
     if (!document.getElementById(containerId)) return;
 
@@ -358,13 +430,13 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
 
     Highcharts.chart(containerId, {
       chart: { type: 'pie', backgroundColor: '#ffffff' },
-      title: { text: null }, // Title moved to HTML
+      title: { text: null },
       credits: { enabled: false },
       exporting: { enabled: true },
       tooltip: {
         useHTML: true,
         formatter: function (this: any) {
-          return `<b>${this.key}</b>: ${this.y} Projects (${this.percentage.toFixed(1)}%)`;
+          return `<b>${this.key}</b>: ${this.y} Programs (${this.percentage.toFixed(1)}%)`;
         }
       },
       plotOptions: {
@@ -397,13 +469,11 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
       },
       series: [{
         type: 'pie',
-        name: 'Projects',
+        name: 'Programs',
         data: pieData
       }]
     } as any);
   }
-
-
 
   scrollTable(direction: 'left' | 'right', amount: number = 380): void {
     if (!this.tableContainer?.nativeElement) return;
@@ -412,10 +482,10 @@ export class DashboardPortfolioComponent implements OnInit, AfterViewInit {
     container.scrollBy({ left: delta, behavior: 'smooth' });
     setTimeout(() => this.updateScrollButtons(), 350);
   }
+
   private updateScrollButtons(): void {
     if (!this.tableContainer?.nativeElement) return;
     const el = this.tableContainer.nativeElement;
-    // Buffer of 5px to prevent floating point glitches
     this.canScrollLeft = el.scrollLeft > 5;
     this.canScrollRight = el.scrollLeft + el.clientWidth < el.scrollWidth - 5;
   }

@@ -94,8 +94,8 @@ export type TreeNode = StageNode | GateNode;
 export class ProjectDocumentsComponent implements OnInit {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
 
   // Filter dropdown: All, Stages, Gates
   selectedFilter: 'All' | 'Stages' | 'Gates' = 'All';
@@ -163,8 +163,8 @@ export class ProjectDocumentsComponent implements OnInit {
     const stage1: StageNode = {
       id: 'S1',
       type: 'stage',
-      stageCode: 'S1', stageName: 'Opportunity Identification',
-      gateCode: 'Gate 1',
+      stageCode: 'S1', stageName: 'Business Case',
+      gateCode: '-',
       expanded: true,
       deliverables: [
         {
@@ -182,12 +182,12 @@ export class ProjectDocumentsComponent implements OnInit {
                   stageName: 'Business Case',
                   deliverableName: 'Business Case Preparation & Commercial Feasibility',
                   activityName: 'Market Sizing & Commercial Modeling',
-                  taskName: 'Market opportunity assessment & end-use demand review',
+                  taskName: 'Market opportunity assessment & reference product sales review',
                   documentsCount: 4,
                   documents: [
-                    { id: 1, title: 'Epidemiology_Report_2026.pdf', uploadedDate: '2026-01-08' },
+                    { id: 1, title: 'Reference_Product_Sales_Review.pdf', uploadedDate: '2026-01-08' },
                     { id: 2, title: 'Commercial_Model_v2.xlsx', uploadedDate: '2026-01-09' },
-                    { id: 3, title: 'IMS_Data_Market_Overview.pdf', uploadedDate: '2026-01-10' },
+                    { id: 3, title: 'FMCG_Market_Overview.pdf', uploadedDate: '2026-01-10' },
                     { id: 4, title: 'Market_Share_Simulation.pdf', uploadedDate: '2026-01-11' }
                   ]
                 },
@@ -196,12 +196,12 @@ export class ProjectDocumentsComponent implements OnInit {
                   stageName: 'Business Case',
                   deliverableName: 'Business Case Preparation & Commercial Feasibility',
                   activityName: 'Market Sizing & Commercial Modeling',
-                  taskName: 'Competitive landscape and patent mapping',
+                  taskName: 'FMCG market and competitor landscape and patent / data exclusivity mapping',
                   documentsCount: 3,
                   documents: [
                     { id: 1, title: 'Competitor_Pipeline_Analysis.pdf', uploadedDate: '2026-01-12' },
-                    { id: 2, title: 'Orange_Book_Patents_Mapping.pdf', uploadedDate: '2026-01-13' },
-                    { id: 3, title: 'Paragraph_IV_Litigation_Review.pdf', uploadedDate: '2026-01-14' }
+                    { id: 2, title: 'Patent_Exclusivity_Mapping.pdf', uploadedDate: '2026-01-13' },
+                    { id: 3, title: 'IP_Freedom_To_Operate_Review.pdf', uploadedDate: '2026-01-14' }
                   ]
                 },
                 {
@@ -209,11 +209,11 @@ export class ProjectDocumentsComponent implements OnInit {
                   stageName: 'Business Case',
                   deliverableName: 'Business Case Preparation & Commercial Feasibility',
                   activityName: 'Market Sizing & Commercial Modeling',
-                  taskName: 'Pricing strategy and contract price projection',
+                  taskName: 'Pricing strategy and tender / payer net price projection',
                   documentsCount: 2,
                   documents: [
                     { id: 1, title: 'Pricing_Strategy_Draft.pdf', uploadedDate: '2026-01-14' },
-                    { id: 2, title: 'GTN_Assumptions_Model.xlsx', uploadedDate: '2026-01-15' }
+                    { id: 2, title: 'Net_Price_Projection_Model.xlsx', uploadedDate: '2026-01-15' }
                   ]
                 }
               ]
@@ -241,40 +241,11 @@ export class ProjectDocumentsComponent implements OnInit {
                   stageName: 'Business Case',
                   deliverableName: 'Business Case Preparation & Commercial Feasibility',
                   activityName: 'Financial Evaluation & NPV Calculation',
-                  taskName: 'Capex, Opex and plant modification budget validation',
+                  taskName: 'Capex, Opex and CDMO / manufacturing budget validation',
                   documentsCount: 2,
                   documents: [
                     { id: 1, title: 'Capex_Requisition_Approval.pdf', uploadedDate: '2026-01-14' },
-                    { id: 2, title: 'Tooling_Cost_Breakdown.pdf', uploadedDate: '2026-01-15' }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          id: 'D1-2',
-          name: 'Technical & Regulatory Feasibility Charter',
-          expanded: false,
-          activities: [
-            {
-              id: 'A1-3',
-              name: 'Project Charter & Risk Register Compilation',
-              jobCode: 'ACT3',
-              tasks: [
-                {
-                  id: 'T1-6',
-                  stageName: 'Business Case',
-                  deliverableName: 'Technical & Regulatory Feasibility Charter',
-                  activityName: 'Project Charter & Risk Register Compilation',
-                  taskName: 'Formal Project Charter & Scope Baseline',
-                  documentsCount: 5,
-                  documents: [
-                    { id: 1, title: 'Signed_Project_Charter.pdf', uploadedDate: '2026-01-15' },
-                    { id: 2, title: 'Risk_Register_Initial.xlsx', uploadedDate: '2026-01-15' },
-                    { id: 3, title: 'Stakeholder_Matrix.pdf', uploadedDate: '2026-01-15' },
-                    { id: 4, title: 'Governance_Structure.pdf', uploadedDate: '2026-01-15' },
-                    { id: 5, title: 'Milestone_Schedule.pdf', uploadedDate: '2026-01-15' }
+                    { id: 2, title: 'CDMO_Budget_Validation.pdf', uploadedDate: '2026-01-15' }
                   ]
                 }
               ]
@@ -284,59 +255,44 @@ export class ProjectDocumentsComponent implements OnInit {
       ]
     };
 
-    // 2. Gate 1: Business Case
-    const gate1: GateNode = {
-      id: 'G1',
-      type: 'gate',
-      gateCode: 'Gate 1', gateName: 'Concept Approval',
-      documents: [
-        { id: 'GD1-1', gateCode: 'Gate 1', gateName: 'Concept Approval', documentTitle: 'Formal Freedom-to-Operate (FTO) Legal Opinion', uploadedDate: '2026-01-15', uploadedBy: 'Legal Counsel' },
-        { id: 'GD1-2', gateCode: 'Gate 1', gateName: 'Concept Approval', documentTitle: 'Raw Material Source & Primary Vendor Qualification Report', uploadedDate: '2026-01-15', uploadedBy: 'Procurement PMO' },
-        { id: 'GD1-3', gateCode: 'Gate 1', gateName: 'Concept Approval', documentTitle: 'Benchmark Grade Characterization Protocol', uploadedDate: '2026-01-14', uploadedBy: 'Formulation Lead' },
-        { id: 'GD1-4', gateCode: 'Gate 1', gateName: 'Concept Approval', documentTitle: 'Target Product Profile and Specification Baseline Document', uploadedDate: '2026-01-13', uploadedBy: 'Medical Affairs' },
-        { id: 'GD1-5', gateCode: 'Gate 1', gateName: 'Concept Approval', documentTitle: 'Cost of Manufacturing Feasibility Summary', uploadedDate: '2026-01-12', uploadedBy: 'Finance Controller' },
-        { id: 'GD1-6', gateCode: 'Gate 1', gateName: 'Concept Approval', documentTitle: 'Gate 1 Steering Committee Approval Resolution', uploadedDate: '2026-01-15', uploadedBy: 'Steering Committee' }
-      ]
-    };
-
-    // 3. Stage 2: Product / Project In Initiation
+    // 2. Stage 2: Initiation
     const stage2: StageNode = {
       id: 'S2',
       type: 'stage',
       stageCode: 'S2',
-      stageName: 'Product / Project In Initiation',
-      gateCode: '-',
+      stageName: 'Initiation',
+      gateCode: 'Gate 1',
       expanded: false,
       deliverables: [
         {
           id: 'D2-1',
-          name: 'Project Costing Sheet Preparation & Toll Manufacturer Selection',
+          name: 'Program Costing Sheet Preparation & CDMO Selection',
           expanded: false,
           activities: [
             {
               id: 'A2-1',
-              name: 'Analytical Costing & Contract Lab Costing',
+              name: 'Analytical Costing & External third-party testing and research partner Costing',
               jobCode: 'ACT4',
               tasks: [
                 {
                   id: 'T2-1',
-                  stageName: 'Product / Project In Initiation',
-                  deliverableName: 'Project Costing Sheet Preparation & Selection',
-                  activityName: 'Analytical Costing & Contract Lab Costing',
-                  taskName: 'Analytical testing & contract lab proposal evaluation',
+                  stageName: 'Initiation',
+                  deliverableName: 'Program Costing Sheet Preparation & CDMO Selection',
+                  activityName: 'Analytical Costing & External third-party testing and research partner Costing',
+                  taskName: 'Analytical characterization & product performance and quality test third-party testing and research partner proposal evaluation',
                   documentsCount: 4,
                   documents: [
-                    { id: 1, title: 'CRO_Proposal_Eurofins.pdf', uploadedDate: '2026-01-18' },
-                    { id: 2, title: 'CRO_Cost_Comparison_Matrix.xlsx', uploadedDate: '2026-01-19' },
-                    { id: 3, title: 'Analytical_Instrumentation_Audit.pdf', uploadedDate: '2026-01-20' },
+                    { id: 1, title: 'Testing_Partner_Proposal.pdf', uploadedDate: '2026-01-18' },
+                    { id: 2, title: 'Analytical_Cost_Comparison.xlsx', uploadedDate: '2026-01-19' },
+                    { id: 3, title: 'Instrumentation_Audit.pdf', uploadedDate: '2026-01-20' },
                     { id: 4, title: 'Scope_of_Work_Analytical.pdf', uploadedDate: '2026-01-20' }
                   ]
                 },
                 {
                   id: 'T2-2',
-                  stageName: 'Product / Project In Initiation',
-                  deliverableName: 'Project Costing Sheet Preparation & Selection',
-                  activityName: 'Analytical Costing & Contract Lab Costing',
+                  stageName: 'Initiation',
+                  deliverableName: 'Program Costing Sheet Preparation & CDMO Selection',
+                  activityName: 'Analytical Costing & External third-party testing and research partner Costing',
                   taskName: 'Method transfer and verification quote review',
                   documentsCount: 2,
                   documents: [
@@ -348,32 +304,32 @@ export class ProjectDocumentsComponent implements OnInit {
             },
             {
               id: 'A2-2',
-              name: 'Raw Material, Packaging & Benchmark Grade Costing Breakdown',
+              name: 'Raw Material and Packaging Material, packaging substrate & Reference Product Costing Breakdown',
               jobCode: 'ACT5',
               tasks: [
                 {
                   id: 'T2-3',
-                  stageName: 'Product / Project In Initiation',
-                  deliverableName: 'Project Costing Sheet Preparation & Selection',
-                  activityName: 'Raw Material, Packaging & Benchmark Grade Costing Breakdown',
-                  taskName: 'Benchmark grade sample receipt, hazmat transport & customs clearance documentation',
+                  stageName: 'Initiation',
+                  deliverableName: 'Program Costing Sheet Preparation & CDMO Selection',
+                  activityName: 'Raw Material and Packaging Material, packaging substrate & Reference Product Costing Breakdown',
+                  taskName: 'Reference product lot receipt, cold-chain & customs clearance documentation',
                   documentsCount: 3,
                   documents: [
-                    { id: 1, title: 'RLD_Customs_Declaration.pdf', uploadedDate: '2026-01-21' },
-                    { id: 2, title: 'Invoice_RLD_Lot_Batch.pdf', uploadedDate: '2026-01-22' },
-                    { id: 3, title: 'Inspection_Checklist_RLD.pdf', uploadedDate: '2026-01-22' }
+                    { id: 1, title: 'Reference_Product_Customs_Declaration.pdf', uploadedDate: '2026-01-21' },
+                    { id: 2, title: 'Cold_Chain_Receipt_Log.pdf', uploadedDate: '2026-01-22' },
+                    { id: 3, title: 'Inspection_Checklist_Reference.pdf', uploadedDate: '2026-01-22' }
                   ]
                 },
                 {
                   id: 'T2-4',
-                  stageName: 'Product / Project In Initiation',
-                  deliverableName: 'Project Costing Sheet Preparation & Selection',
-                  activityName: 'Raw Material, Packaging & Benchmark Grade Costing Breakdown',
-                  taskName: 'Bill of Materials (BOM) monomer, solvent & packaging quote consolidation',
+                  stageName: 'Initiation',
+                  deliverableName: 'Program Costing Sheet Preparation & CDMO Selection',
+                  activityName: 'Raw Material and Packaging Material, packaging substrate & Reference Product Costing Breakdown',
+                  taskName: 'Bill of Materials (BOM) packaging substrate, resin & consumables quote consolidation',
                   documentsCount: 2,
                   documents: [
-                    { id: 1, title: 'Consolidated_Excipient_Quotes.xlsx', uploadedDate: '2026-01-23' },
-                    { id: 2, title: 'Vendor_Price_Commitment.pdf', uploadedDate: '2026-01-24' }
+                    { id: 1, title: 'Consolidated_BOM_Packaging_Quotes.xlsx', uploadedDate: '2026-01-23' },
+                    { id: 2, title: 'Supplier_Price_Commitment.pdf', uploadedDate: '2026-01-24' }
                   ]
                 }
               ]
@@ -382,24 +338,24 @@ export class ProjectDocumentsComponent implements OnInit {
         },
         {
           id: 'D2-2',
-          name: 'Project Initiation Form (PIF)',
+          name: 'Program Initiation Form (PIF)',
           expanded: false,
           activities: [
             {
               id: 'A2-3',
-              name: 'PPIF Draft & Cross-Functional Sign-Off',
+              name: 'PIF Draft & Cross-Functional Sign-Off',
               jobCode: 'ACT6',
               tasks: [
                 {
                   id: 'T2-5',
-                  stageName: 'Product / Project In Initiation',
-                  deliverableName: 'Provincial Product Initiation Form (PPIF)',
-                  activityName: 'PPIF Draft & Cross-Functional Sign-Off',
-                  taskName: 'PPIF final draft compilation & QA approval',
+                  stageName: 'Initiation',
+                  deliverableName: 'Program Initiation Form (PIF)',
+                  activityName: 'PIF Draft & Cross-Functional Sign-Off',
+                  taskName: 'PIF final draft compilation & QA approval',
                   documentsCount: 3,
                   documents: [
-                    { id: 1, title: 'PPIF_Final_Signed_Copy.pdf', uploadedDate: '2026-01-25' },
-                    { id: 2, title: 'Regulatory_Formulation_Alignment.pdf', uploadedDate: '2026-01-25' },
+                    { id: 1, title: 'PIF_Final_Signed_Copy.pdf', uploadedDate: '2026-01-25' },
+                    { id: 2, title: 'Formulation_Alignment_Memo.pdf', uploadedDate: '2026-01-25' },
                     { id: 3, title: 'Quality_Risk_Assessment.pdf', uploadedDate: '2026-01-25' }
                   ]
                 }
@@ -410,12 +366,27 @@ export class ProjectDocumentsComponent implements OnInit {
       ]
     };
 
-    // 4. Stage 3: Procurement of API, RM & Packaging materials
+    // 3. Gate 1: Feasibility & Charter
+    const gate1: GateNode = {
+      id: 'G1',
+      type: 'gate',
+      gateCode: 'Gate 1', gateName: 'Feasibility & Charter',
+      documents: [
+        { id: 'GD1-1', gateCode: 'Gate 1', gateName: 'Feasibility & Charter', documentTitle: 'Formal Freedom-to-Operate (FTO) Legal Opinion', uploadedDate: '2026-01-15', uploadedBy: 'Legal Counsel' },
+        { id: 'GD1-2', gateCode: 'Gate 1', gateName: 'Feasibility & Charter', documentTitle: 'product formulation Source & Primary CDMO Qualification Report', uploadedDate: '2026-01-15', uploadedBy: 'Procurement PMO' },
+        { id: 'GD1-3', gateCode: 'Gate 1', gateName: 'Feasibility & Charter', documentTitle: 'Reference Product Analytical Characterization Protocol', uploadedDate: '2026-01-14', uploadedBy: 'Formulation Lead' },
+        { id: 'GD1-4', gateCode: 'Gate 1', gateName: 'Feasibility & Charter', documentTitle: 'Target Product Profile (TPP) and QTPP Baseline Document', uploadedDate: '2026-01-13', uploadedBy: 'Product Management' },
+        { id: 'GD1-5', gateCode: 'Gate 1', gateName: 'Feasibility & Charter', documentTitle: 'Biologics Cost of Goods Sold (COGS) Feasibility Summary', uploadedDate: '2026-01-12', uploadedBy: 'Finance Controller' },
+        { id: 'GD1-6', gateCode: 'Gate 1', gateName: 'Feasibility & Charter', documentTitle: 'Gate 1 Steering Committee Approval Resolution', uploadedDate: '2026-01-15', uploadedBy: 'Steering Committee' }
+      ]
+    };
+
+    // 4. Stage 3: product formulation & food-grade ingredient / processing aid Procurement
     const stage3: StageNode = {
       id: 'S3',
       type: 'stage',
       stageCode: 'S3',
-      stageName: 'Procurement of API, RM & Packaging materials - For Developmental studies.',
+      stageName: 'product formulation & food-grade ingredient / processing aid Procurement',
       gateCode: '-',
       expanded: false,
       deliverables: [
@@ -426,33 +397,21 @@ export class ProjectDocumentsComponent implements OnInit {
           activities: [
             {
               id: 'A3-1',
-              name: 'API Vendor Evaluation & Tech Pack Sourcing',
+              name: 'Active Ingredient Sourcing & Supplier Qualification',
               jobCode: 'ACT7',
               tasks: [
                 {
                   id: 'T3-1',
-                  stageName: 'Procurement of API, RM & Packaging materials',
+                  stageName: 'product formulation Procurement',
                   deliverableName: 'Developmental Material Procurement & Release',
-                  activityName: 'API Vendor Evaluation & Tech Pack Sourcing',
-                  taskName: 'API Open part DMF review and qualification audit',
+                  activityName: 'Active Ingredient Sourcing & Supplier Qualification',
+                  taskName: 'Active ingredient documentation review and qualification audit',
                   documentsCount: 4,
                   documents: [
-                    { id: 1, title: 'API_Open_Part_DMF.pdf', uploadedDate: '2026-02-01' },
-                    { id: 2, title: 'API_Vendor_Audit_Report.pdf', uploadedDate: '2026-02-03' },
-                    { id: 3, title: 'CEP_Certificate_Suitability.pdf', uploadedDate: '2026-02-05' },
+                    { id: 1, title: 'Ingredient_Specification_Dossier.pdf', uploadedDate: '2026-02-01' },
+                    { id: 2, title: 'Supplier_Audit_Report.pdf', uploadedDate: '2026-02-03' },
+                    { id: 3, title: 'Food_Safety_Certificate.pdf', uploadedDate: '2026-02-05' },
                     { id: 4, title: 'Letter_of_Access_LOA.pdf', uploadedDate: '2026-02-06' }
-                  ]
-                },
-                {
-                  id: 'T3-2',
-                  stageName: 'Procurement of API, RM & Packaging materials',
-                  deliverableName: 'Developmental Material Procurement & Release',
-                  activityName: 'API Vendor Evaluation & Tech Pack Sourcing',
-                  taskName: 'Raw material COA verification and quarantine release',
-                  documentsCount: 2,
-                  documents: [
-                    { id: 1, title: 'COA_Developmental_API.pdf', uploadedDate: '2026-02-10' },
-                    { id: 2, title: 'Analytical_QC_Release_Slip.pdf', uploadedDate: '2026-02-12' }
                   ]
                 }
               ]
@@ -462,12 +421,12 @@ export class ProjectDocumentsComponent implements OnInit {
       ]
     };
 
-    // 5. Stage 4: Formulation Development Phase 1: POC completion
+    // 5. Stage 4: POC Expression & ingredient refining
     const stage4: StageNode = {
       id: 'S4',
       type: 'stage',
       stageCode: 'S4',
-      stageName: 'Formulation Development Phase 1: POC completion',
+      stageName: 'POC Expression & ingredient refining',
       gateCode: 'Gate 2',
       expanded: false,
       deliverables: [
@@ -478,35 +437,20 @@ export class ProjectDocumentsComponent implements OnInit {
           activities: [
             {
               id: 'A4-1',
-              name: 'Excipient Compatibility & Pre-formulation Studies',
+              name: 'Formula Consistency & Stability Trials',
               jobCode: 'ACT8',
               tasks: [
                 {
                   id: 'T4-1',
-                  stageName: 'Formulation Development Phase 1: POC completion',
+                  stageName: 'POC Expression & ingredient refining',
                   deliverableName: 'Proof of Concept (POC) Formulation Trials',
-                  activityName: 'Excipient Compatibility & Pre-formulation Studies',
-                  taskName: 'Binary mixture stress testing & HPLC compatibility',
+                  activityName: 'Formula Consistency & Stability Trials',
+                  taskName: 'Batch stability testing & sensory compatibility',
                   documentsCount: 3,
                   documents: [
-                    { id: 1, title: 'Excipient_Compatibility_Protocol.pdf', uploadedDate: '2026-03-01' },
-                    { id: 2, title: 'DSC_TGA_Thermal_Curves.pdf', uploadedDate: '2026-03-10' },
-                    { id: 3, title: 'Compatibility_Study_Report.pdf', uploadedDate: '2026-03-20' }
-                  ]
-                },
-                {
-                  id: 'T4-2',
-                  stageName: 'Formulation Development Phase 1: POC completion',
-                  deliverableName: 'Proof of Concept (POC) Formulation Trials',
-                  activityName: 'Excipient Compatibility & Pre-formulation Studies',
-                  taskName: 'Prototype formulation trial batches execution (F1 - F4)',
-                  documentsCount: 5,
-                  documents: [
-                    { id: 1, title: 'Trial_Batch_F1_BMR.pdf', uploadedDate: '2026-04-05' },
-                    { id: 2, title: 'Trial_Batch_F2_BMR.pdf', uploadedDate: '2026-04-12' },
-                    { id: 3, title: 'Trial_Batch_F3_BMR.pdf', uploadedDate: '2026-04-19' },
-                    { id: 4, title: 'Comparative_Dissolution_Profiles.xlsx', uploadedDate: '2026-04-25' },
-                    { id: 5, title: 'POC_Summary_Signoff.pdf', uploadedDate: '2026-05-02' }
+                    { id: 1, title: 'Formulation_Trial_Protocol.pdf', uploadedDate: '2026-03-01' },
+                    { id: 2, title: 'Sensory_Evaluation_Curves.pdf', uploadedDate: '2026-03-10' },
+                    { id: 3, title: 'Stability_Study_Report.pdf', uploadedDate: '2026-03-20' }
                   ]
                 }
               ]
@@ -516,397 +460,138 @@ export class ProjectDocumentsComponent implements OnInit {
       ]
     };
 
-    // 6. Gate 2: Feasibility
+    // 6. Gate 2: Product Concept and Formula Selection
     const gate2: GateNode = {
       id: 'G2',
       type: 'gate',
-      gateCode: 'Gate 2', gateName: 'Process Route Selection',
+      gateCode: 'Gate 2', gateName: 'Product Concept and Formula Selection',
       documents: [
-        { id: 'GD2-1', gateCode: 'Gate 2', gateName: 'Feasibility', documentTitle: 'Prototype Batches Manufacturing Protocol & Data', uploadedDate: '2026-05-10', uploadedBy: 'Formulation Scientist' },
-        { id: 'GD2-2', gateCode: 'Gate 2', gateName: 'Feasibility', documentTitle: 'Comparative Dissolution Profile Report (f2 ≥ 50)', uploadedDate: '2026-05-12', uploadedBy: 'Analytical Lead' },
-        { id: 'GD2-3', gateCode: 'Gate 2', gateName: 'Feasibility', documentTitle: 'Critical Quality Attributes (CQAs) Target Ranges Dossier', uploadedDate: '2026-05-15', uploadedBy: 'Quality Assurance' },
-        { id: 'GD2-4', gateCode: 'Gate 2', gateName: 'Feasibility', documentTitle: 'Excipient Compatibility Final Study Report', uploadedDate: '2026-05-18', uploadedBy: 'Formulation Scientist' },
-        { id: 'GD2-5', gateCode: 'Gate 2', gateName: 'Feasibility', documentTitle: 'Preliminary Impurity Profile Evaluation Report', uploadedDate: '2026-05-20', uploadedBy: 'Analytical Lead' },
-        { id: 'GD2-6', gateCode: 'Gate 2', gateName: 'Feasibility', documentTitle: 'Gate 2 Steering Committee Feasibility Endorsement', uploadedDate: '2026-05-22', uploadedBy: 'Project Steering Committee' }
+        { id: 'GD2-1', gateCode: 'Gate 2', gateName: 'Product Concept and Formula Selection', documentTitle: 'formula consistency and Productivity Summary Report', uploadedDate: '2026-05-10', uploadedBy: 'Formulation Scientist' },
+        { id: 'GD2-2', gateCode: 'Gate 2', gateName: 'Product Concept and Formula Selection', documentTitle: 'Candidate Process Titer and Quality Attributes Report', uploadedDate: '2026-05-12', uploadedBy: 'Process Lead' },
+        { id: 'GD2-3', gateCode: 'Gate 2', gateName: 'Product Concept and Formula Selection', documentTitle: 'Preliminary Analytical Similarity Data Package', uploadedDate: '2026-05-15', uploadedBy: 'Analytical Lead' },
+        { id: 'GD2-4', gateCode: 'Gate 2', gateName: 'Product Concept and Formula Selection', documentTitle: 'Master ingredient specification (MCB) Plan', uploadedDate: '2026-05-18', uploadedBy: 'Quality Assurance' },
+        { id: 'GD2-5', gateCode: 'Gate 2', gateName: 'Product Concept and Formula Selection', documentTitle: 'Developability and Cost of Goods Sold (COGS) Update', uploadedDate: '2026-05-20', uploadedBy: 'Finance Lead' },
+        { id: 'GD2-6', gateCode: 'Gate 2', gateName: 'Product Concept and Formula Selection', documentTitle: 'Gate 2 Steering Committee Approval Resolution', uploadedDate: '2026-05-22', uploadedBy: 'Project Steering Committee' }
       ]
     };
 
-    // 7. Stage 5: Procurement of API, Raw materials & Packaging materials - For Ebs
+    // 7. Stage 5: GMP production batch Material Procurement
     const stage5: StageNode = {
       id: 'S5',
       type: 'stage',
       stageCode: 'S5',
-      stageName: 'Procurement of API, Raw materials & Packaging materials - For Ebs',
+      stageName: 'GMP production batch Material Procurement',
       gateCode: '-',
       expanded: false,
-      deliverables: [
-        {
-          id: 'D5-1',
-          name: 'Exhibit Batch Material Sourcing & QC Release',
-          expanded: false,
-          activities: [
-            {
-              id: 'A5-1',
-              name: 'Exhibit Batch Commercial BOM Procurement',
-              jobCode: 'ACT9',
-              tasks: [
-                {
-                  id: 'T5-1',
-                  stageName: 'Procurement of API, Raw materials - For Ebs',
-                  deliverableName: 'Exhibit Batch Material Sourcing & QC Release',
-                  activityName: 'Exhibit Batch Commercial BOM Procurement',
-                  taskName: 'Commercial grade API batch reservation & COA receipt',
-                  documentsCount: 3,
-                  documents: [
-                    { id: 1, title: 'Commercial_API_Reservation.pdf', uploadedDate: '2026-05-25' },
-                    { id: 2, title: 'EB_Primary_Packaging_Foil_Specs.pdf', uploadedDate: '2026-05-28' },
-                    { id: 3, title: 'Commercial_Material_Incoming_Inspection.pdf', uploadedDate: '2026-06-02' }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      deliverables: []
     };
 
-    // 8. Stage 6: Formulation Development Phase 2: Pilot Bio
+    // 8. Stage 6: pilot manufacturing run
     const stage6: StageNode = {
       id: 'S6',
       type: 'stage',
       stageCode: 'S6',
-      stageName: 'Formulation Development Phase 2: Pilot Bio',
+      stageName: 'pilot manufacturing run',
       gateCode: 'Gate 3',
       expanded: false,
-      deliverables: [
-        {
-          id: 'D6-1',
-          name: 'Pilot Bioequivalence Batch Execution',
-          expanded: false,
-          activities: [
-            {
-              id: 'A6-1',
-              name: 'Pilot BE Batch Manufacturing & Stability Charging',
-              jobCode: 'ACT10',
-              tasks: [
-                {
-                  id: 'T6-1',
-                  stageName: 'Formulation Development Phase 2: Pilot Bio',
-                  deliverableName: 'Pilot Bioequivalence Batch Execution',
-                  activityName: 'Pilot BE Batch Manufacturing & Stability Charging',
-                  taskName: 'Pilot BE Batch Manufacturing Record (BMR)',
-                  documentsCount: 4,
-                  documents: [
-                    { id: 1, title: 'Pilot_BMR_Execution_Record.pdf', uploadedDate: '2026-06-15' },
-                    { id: 2, title: 'In_Process_Quality_Controls.pdf', uploadedDate: '2026-06-18' },
-                    { id: 3, title: 'Pilot_Dissolution_Testing_Report.pdf', uploadedDate: '2026-06-22' },
-                    { id: 4, title: 'Stability_Station_Charging_Log.pdf', uploadedDate: '2026-06-25' }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      deliverables: []
     };
 
-    // 9. Gate 3: Lab Stability
+    // 9. Gate 3: Product Concept and Feasibility Approval
     const gate3: GateNode = {
       id: 'G3',
       type: 'gate',
-      gateCode: 'Gate 3',
-      gateName: 'Lab Stability',
-      documents: [
-        { id: 'GD3-1', gateCode: 'Gate 3', gateName: 'Lab Stability', documentTitle: 'Analytical Methods Validation Protocol (ICH Q2)', uploadedDate: '2026-07-01', uploadedBy: 'Analytical Validation Lead' },
-        { id: 'GD3-2', gateCode: 'Gate 3', gateName: 'Lab Stability', documentTitle: 'Forced Degradation & Stability-Indicating Study Dossier', uploadedDate: '2026-07-05', uploadedBy: 'Senior Research Scientist' },
-        { id: 'GD3-3', gateCode: 'Gate 3', gateName: 'Lab Stability', documentTitle: 'Accelerated Stability Data Report (3M 40°C/75% RH)', uploadedDate: '2026-07-15', uploadedBy: 'Stability Section Head' },
-        { id: 'GD3-4', gateCode: 'Gate 3', gateName: 'Lab Stability', documentTitle: 'Long-Term Stability Study Protocol & Interim Data', uploadedDate: '2026-07-20', uploadedBy: 'Stability Section Head' },
-        { id: 'GD3-5', gateCode: 'Gate 3', gateName: 'Lab Stability', documentTitle: 'Exhibit Batch Manufacturing Record (BMR) Master Draft', uploadedDate: '2026-07-25', uploadedBy: 'Manufacturing Head' },
-        { id: 'GD3-6', gateCode: 'Gate 3', gateName: 'Lab Stability', documentTitle: 'Gate 3 Gatekeeper Stability Clearance Authorization', uploadedDate: '2026-07-28', uploadedBy: 'Gatekeeper Panel' }
-      ]
+      gateCode: 'Gate 3', gateName: 'Product Concept and Feasibility Approval',
+      documents: []
     };
 
-    // 10. Stage 7: API Method Validation / verification
+    // 10. Stage 7: bulk product Validation
     const stage7: StageNode = {
       id: 'S7',
       type: 'stage',
       stageCode: 'S7',
-      stageName: 'API Method Validation / verification',
+      stageName: 'bulk product Validation',
       gateCode: '-',
       expanded: false,
-      deliverables: [
-        {
-          id: 'D7-1',
-          name: 'API Analytical Method Validation & Transfer',
-          expanded: false,
-          activities: [
-            {
-              id: 'A7-1',
-              name: 'HPLC Assay & Related Substances Validation',
-              jobCode: 'ACT11',
-              tasks: [
-                {
-                  id: 'T7-1',
-                  stageName: 'API Method Validation / verification',
-                  deliverableName: 'API Analytical Method Validation & Transfer',
-                  activityName: 'HPLC Assay & Related Substances Validation',
-                  taskName: 'API Method validation protocol & analytical raw data',
-                  documentsCount: 3,
-                  documents: [
-                    { id: 1, title: 'API_Validation_Protocol_Assay.pdf', uploadedDate: '2026-08-01' },
-                    { id: 2, title: 'Linearity_Precision_Raw_Data.xlsx', uploadedDate: '2026-08-10' },
-                    { id: 3, title: 'Validation_Final_Summary_Report.pdf', uploadedDate: '2026-08-18' }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      deliverables: []
     };
 
-    // 11. Stage 8: FP method validation, FP specifications & STP
+    // 11. Stage 8: finished consumer product Validation
     const stage8: StageNode = {
       id: 'S8',
       type: 'stage',
       stageCode: 'S8',
-      stageName: 'FP method validation, FP specifications & STP',
+      stageName: 'finished consumer product Validation',
       gateCode: '-',
       expanded: false,
-      deliverables: [
-        {
-          id: 'D8-1',
-          name: 'Finished Product Standard Test Procedures (STP)',
-          expanded: false,
-          activities: [
-            {
-              id: 'A8-1',
-              name: 'STP Release & Dissolution Method Transfer',
-              jobCode: 'ACT12',
-              tasks: [
-                {
-                  id: 'T8-1',
-                  stageName: 'FP method validation, FP specifications & STP',
-                  deliverableName: 'Finished Product Standard Test Procedures (STP)',
-                  activityName: 'STP Release & Dissolution Method Transfer',
-                  taskName: 'Finished Product Finished Specifications & STP Release',
-                  documentsCount: 4,
-                  documents: [
-                    { id: 1, title: 'FP_Release_Specifications.pdf', uploadedDate: '2026-08-25' },
-                    { id: 2, title: 'STP_Dissolution_Method.pdf', uploadedDate: '2026-08-28' },
-                    { id: 3, title: 'STP_Assay_Uniformity.pdf', uploadedDate: '2026-09-02' },
-                    { id: 4, title: 'Analytical_Method_Transfer_Protocol.pdf', uploadedDate: '2026-09-05' }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      deliverables: []
     };
 
-    // 12. Stage 9: TTD Submission
+    // 12. Stage 9: Product and Manufacturing Transfer Dossier Submission
     const stage9: StageNode = {
       id: 'S9',
       type: 'stage',
       stageCode: 'S9',
-      stageName: 'TTD Submission',
+      stageName: 'Product and Manufacturing Transfer Dossier Submission',
       gateCode: '-',
       expanded: false,
-      deliverables: [
-        {
-          id: 'D9-1',
-          name: 'Technology Transfer Documentation Package',
-          expanded: false,
-          activities: [
-            {
-              id: 'A9-1',
-              name: 'Commercial Site Gap Assessment & TTD Compilation',
-              jobCode: 'ACT13',
-              tasks: [
-                {
-                  id: 'T9-1',
-                  stageName: 'TTD Submission',
-                  deliverableName: 'Technology Transfer Documentation Package',
-                  activityName: 'Commercial Site Gap Assessment & TTD Compilation',
-                  taskName: 'Technology Transfer Dossier (TTD) formal dossier submission',
-                  documentsCount: 5,
-                  documents: [
-                    { id: 1, title: 'Technology_Transfer_Protocol.pdf', uploadedDate: '2026-09-08' },
-                    { id: 2, title: 'Critical_Process_Parameters_CPP.pdf', uploadedDate: '2026-09-10' },
-                    { id: 3, title: 'Critical_Quality_Attributes_CQA.pdf', uploadedDate: '2026-09-11' },
-                    { id: 4, title: 'Manufacturing_Facility_Fit_Review.pdf', uploadedDate: '2026-09-12' },
-                    { id: 5, title: 'Plant_Readiness_Signoff.pdf', uploadedDate: '2026-09-14' }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      deliverables: []
     };
 
-    // 13. Stage 10: Exhibit Batches
+    // 13. Stage 10: GMP validation batches
     const stage10: StageNode = {
       id: 'S10',
       type: 'stage',
       stageCode: 'S10',
-      stageName: 'Exhibit / Submission Batches execution',
+      stageName: 'GMP validation batches',
       gateCode: 'Gate 4',
       expanded: false,
-      deliverables: [
-        {
-          id: 'D10-1',
-          name: 'Exhibit / Submission Batches Execution (3 Batches)',
-          expanded: false,
-          activities: [
-            {
-              id: 'A10-1',
-              name: 'Executed Batch Manufacturing Records & Stability',
-              jobCode: 'ACT14',
-              tasks: [
-                {
-                  id: 'T10-1',
-                  stageName: 'Exhibit / Submission Batches execution',
-                  deliverableName: 'Exhibit / Submission Batches Execution (3 Batches)',
-                  activityName: 'Executed Batch Manufacturing Records & Stability',
-                  taskName: 'Batch 1, 2 and 3 executed BMR packages',
-                  documentsCount: 6,
-                  documents: [
-                    { id: 1, title: 'Executed_BMR_Batch_001.pdf', uploadedDate: '2026-10-02' },
-                    { id: 2, title: 'Executed_BMR_Batch_002.pdf', uploadedDate: '2026-10-10' },
-                    { id: 3, title: 'Executed_BMR_Batch_003.pdf', uploadedDate: '2026-10-18' },
-                    { id: 4, title: 'Batch_Release_Certificates_COA.pdf', uploadedDate: '2026-10-25' },
-                    { id: 5, title: 'Process_Validation_Report.pdf', uploadedDate: '2026-11-01' },
-                    { id: 6, title: 'Exhibit_Stability_Station_Log.pdf', uploadedDate: '2026-11-05' }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      deliverables: []
     };
 
-    // 14. Gate 4: EB Stability
+    // 14. Gate 4: Consumer Validation and Product Performance Proof
     const gate4: GateNode = {
       id: 'G4',
       type: 'gate',
-      gateCode: 'Gate 4',
-      gateName: 'EB Stability',
-      documents: [
-        { id: 'GD4-1', gateCode: 'Gate 4', gateName: 'EB Stability', documentTitle: 'Exhibit/Registration Batch Scale Manufacturing Dossier', uploadedDate: '2026-11-10', uploadedBy: 'Plant GM' },
-        { id: 'GD4-2', gateCode: 'Gate 4', gateName: 'EB Stability', documentTitle: 'Exhibit Batch Release Specifications Compliance Certificate', uploadedDate: '2026-11-12', uploadedBy: 'Head QA' },
-        { id: 'GD4-3', gateCode: 'Gate 4', gateName: 'EB Stability', documentTitle: 'Pilot Bioequivalence (BE) Study Comparison Trend Report', uploadedDate: '2026-11-15', uploadedBy: 'Clinical Lead' },
-        { id: 'GD4-4', gateCode: 'Gate 4', gateName: 'EB Stability', documentTitle: '6-Month Exhibit Batch Stability Data Package', uploadedDate: '2026-11-20', uploadedBy: 'Stability Section Head' },
-        { id: 'GD4-5', gateCode: 'Gate 4', gateName: 'EB Stability', documentTitle: 'CMC Quality Data Package Consistency Audit', uploadedDate: '2026-11-25', uploadedBy: 'Regulatory Affairs' },
-        { id: 'GD4-6', gateCode: 'Gate 4', gateName: 'EB Stability', documentTitle: 'Gate 4 EB Stability Approval Recommendation', uploadedDate: '2026-11-30', uploadedBy: 'Steering Committee' }
-      ]
+      gateCode: 'Gate 4', gateName: 'Consumer Validation and Product Performance Proof',
+      documents: []
     };
 
-    // 15. Stage 11: Pivotal BE studies
+    // 15. Stage 11: Pivotal Comparative consumer and market Study
     const stage11: StageNode = {
       id: 'S11',
       type: 'stage',
       stageCode: 'S11',
-      stageName: 'Pivotal BE studies',
-      gateCode: '-',
+      stageName: 'Pivotal Comparative consumer and market Study',
+      gateCode: 'Gate 5',
       expanded: false,
-      deliverables: [
-        {
-          id: 'D11-1',
-          name: 'Pivotal Bioequivalence Clinical Study & CSR',
-          expanded: false,
-          activities: [
-            {
-              id: 'A11-1',
-              name: 'Clinical Study Protocol & Bioanalytical Validation',
-              jobCode: 'ACT15',
-              tasks: [
-                {
-                  id: 'T11-1',
-                  stageName: 'Pivotal BE studies',
-                  deliverableName: 'Pivotal Bioequivalence Clinical Study & CSR',
-                  activityName: 'Clinical Study Protocol & Bioanalytical Validation',
-                  taskName: 'Clinical Study Report (CSR) and statistical BE assessment',
-                  documentsCount: 5,
-                  documents: [
-                    { id: 1, title: 'IRB_Approved_Clinical_Protocol.pdf', uploadedDate: '2026-12-05' },
-                    { id: 2, title: 'Bioanalytical_Method_Validation_Report.pdf', uploadedDate: '2026-12-15' },
-                    { id: 3, title: 'Pharmacokinetic_Data_Set_PK.xlsx', uploadedDate: '2027-01-10' },
-                    { id: 4, title: 'Bioequivalence_Statistical_Analysis.pdf', uploadedDate: '2027-01-20' },
-                    { id: 5, title: 'Final_Clinical_Study_Report_CSR.pdf', uploadedDate: '2027-01-25' }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      deliverables: []
     };
 
-    // 16. Stage 12: Dossier preparation and filing
+    // 16. Gate 5: Market Launch and Regulatory Readiness
+    const gate5: GateNode = {
+      id: 'G5',
+      type: 'gate',
+      gateCode: 'Gate 5', gateName: 'Market Launch and Regulatory Readiness',
+      documents: []
+    };
+
+    // 17. Stage 12: Market Launch / Regulatory Approval Dossier Filing
     const stage12: StageNode = {
       id: 'S12',
       type: 'stage',
       stageCode: 'S12',
-      stageName: 'Dossier preparation and filing',
-      gateCode: 'Gate 5',
+      stageName: 'Market Launch / Regulatory Approval Dossier Filing',
+      gateCode: '-',
       expanded: false,
-      deliverables: [
-        {
-          id: 'D12-1',
-          name: 'eCTD Regulatory Submission Dossier Preparation',
-          expanded: false,
-          activities: [
-            {
-              id: 'A12-1',
-              name: 'Product Development Report (PDR) & Module 3 Compilation',
-              jobCode: 'ACT16',
-              tasks: [
-                {
-                  id: 'T12-1',
-                  stageName: 'Dossier preparation and filing',
-                  deliverableName: 'eCTD Regulatory Submission Dossier Preparation',
-                  activityName: 'Product Development Report (PDR) & Module 3 Compilation',
-                  taskName: 'PDR compilation and Module 3 CMC sections finalization',
-                  documentsCount: 6,
-                  documents: [
-                    { id: 1, title: 'Product_Development_Report_PDR.pdf', uploadedDate: '2027-02-05' },
-                    { id: 2, title: 'Module_3_2_P_Drug_Product.pdf', uploadedDate: '2027-02-12' },
-                    { id: 3, title: 'Module_3_2_S_Drug_Substance.pdf', uploadedDate: '2027-02-18' },
-                    { id: 4, title: 'Module_2_Quality_Overall_Summary.pdf', uploadedDate: '2027-02-25' },
-                    { id: 5, title: 'Module_1_Administrative_Forms.pdf', uploadedDate: '2027-03-01' },
-                    { id: 6, title: 'eCTD_Validation_Report_No_Errors.pdf', uploadedDate: '2027-03-05' }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      deliverables: []
     };
 
-    // 17. Gate 5: Regulatory Approval
-    const gate5: GateNode = {
-      id: 'G5',
-      type: 'gate',
-      gateCode: 'Gate 5',
-      gateName: 'Regulatory Approval',
-      documents: [
-        { id: 'GD5-1', gateCode: 'Gate 5', gateName: 'Regulatory Approval', documentTitle: 'eCTD Module 1 - Administrative Documentation & Cover Letter', uploadedDate: '2027-03-10', uploadedBy: 'Director Regulatory Affairs' },
-        { id: 'GD5-2', gateCode: 'Gate 5', gateName: 'Regulatory Approval', documentTitle: 'eCTD Module 2 - Common Technical Document Summaries', uploadedDate: '2027-03-12', uploadedBy: 'Medical Regulatory Writing' },
-        { id: 'GD5-3', gateCode: 'Gate 5', gateName: 'Regulatory Approval', documentTitle: 'eCTD Module 3 - Quality / CMC Technical Dossier Package', uploadedDate: '2027-03-15', uploadedBy: 'CMC Section Head' },
-        { id: 'GD5-4', gateCode: 'Gate 5', gateName: 'Regulatory Approval', documentTitle: 'FDA Electronic Gateway Submission Acknowledgment Notice', uploadedDate: '2027-03-20', uploadedBy: 'eCTD Publishing Lead' },
-        { id: 'GD5-5', gateCode: 'Gate 5', gateName: 'Regulatory Approval', documentTitle: 'Final Regulatory Submission Dossier Gate 5 Sign-off', uploadedDate: '2027-03-25', uploadedBy: 'Global Executive Board' }
-      ]
-    };
-
-    // Construct master array in sequence matching StagesComponent
+    // Construct master array in sequence matching FMCG master list
     this.allTreeNodes = [
       stage1,
-      gate1,
       stage2,
+      gate1,
       stage3,
       stage4,
       gate2,
@@ -919,8 +604,8 @@ export class ProjectDocumentsComponent implements OnInit {
       stage10,
       gate4,
       stage11,
-      stage12,
-      gate5
+      gate5,
+      stage12
     ];
   }
 
@@ -1157,7 +842,7 @@ export class ProjectDocumentsComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/projects/dashboard/analytics'], {
-      queryParams: { code: this.projectCode || '2026/GEN/001', name: this.projectName || 'Generic Tablet Development' }
+      queryParams: { code: this.projectCode || '2026/FMCG/006', name: this.projectName || 'Vitamin-Enriched Fruit Beverage 250ml' }
     });
   }
 }

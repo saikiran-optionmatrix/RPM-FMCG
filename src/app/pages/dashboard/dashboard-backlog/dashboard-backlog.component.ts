@@ -60,29 +60,30 @@ export interface StageBacklogSummary {
 export class DashboardBacklogComponent implements OnInit, AfterViewInit, OnDestroy {
   public selectedActivity: string = 'All';
   public selectedYear: number | string = 'All';
-  public selectedMonth: number = new Date().getMonth() + 1; // Current month (1-12)
+  public selectedMonth: number = new Date().getMonth() + 1;
   public selectedDivision: string = 'All';
   public selectedLocation: string = 'All';
 
   public readonly divisionsList: string[] = [
     'All',
-    'Specialty Chemicals - SC',
-    'Polymers & Resins - PR',
-    'Agrochemicals - AC',
-    'Industrial & Fine Chemicals - IF',
+    'Beverages - BV',
+    'Personal Care & Beauty - PC',
+    'Packaged Foods & Snacks - FS',
+    'Dairy & Nutrition - DN',
+    'Home Care - HC'
   ];
 
   public readonly locationsList: string[] = [
     'All',
-    'Ahmedabad',
-    'Hyderabad',
     'Mumbai',
-    'Pune',
-    'Vadodara',
     'Bengaluru',
+    'Delhi NCR',
+    'Pune',
+    'Hyderabad',
     'Chennai',
-    'Delhi',
-    'Baddi',
+    'Kolkata',
+    'Ahmedabad',
+    'Baddi'
   ];
 
   public readonly activitiesFilterList = [
@@ -111,23 +112,19 @@ export class DashboardBacklogComponent implements OnInit, AfterViewInit, OnDestr
     { value: 12, name: 'December' },
   ];
 
-  // 12 Months Labels
   public readonly monthsShort = [
     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
   ];
 
-  // 1 to 31 Days Labels
   public readonly daysList = Array.from({ length: 31 }, (_, i) => `${i + 1}`);
 
-  // Yearly data (12 months)
   private readonly yearlyBacklogData: Record<number, number[]> = {
     2026: [12, 15, 18, 22, 20, 25, 23, 28, 19, 24, 16, 14],
     2025: [14, 16, 19, 21, 24, 26, 25, 22, 20, 18, 15, 13],
     2024: [10, 12, 14, 18, 20, 22, 21, 19, 17, 16, 14, 11],
   };
 
-  // Month-wise data (1 to 31 days)
   private readonly monthlyDayBacklogs: Record<number, number[]> = {
     1: [10, 11, 12, 14, 13, 12, 11, 12, 13, 15, 14, 12, 11, 13, 14, 13, 12, 11, 12, 13, 14, 13, 12, 11, 10, 11, 12, 13, 14, 13, 12],
     2: [11, 12, 13, 15, 16, 14, 13, 14, 15, 16, 15, 14, 13, 14, 16, 15, 14, 13, 14, 15, 16, 15, 14, 13, 12, 13, 14, 15, 13, 12, 11],
@@ -143,70 +140,70 @@ export class DashboardBacklogComponent implements OnInit, AfterViewInit, OnDestr
     12: [11, 12, 13, 14, 15, 14, 13, 14, 15, 16, 15, 14, 13, 15, 16, 14, 13, 12, 14, 15, 14, 13, 12, 13, 14, 15, 14, 13, 12, 13, 14],
   };
 
-  // Pie 1: Backlog Distribution by Activities (5 Stages + Others)
+  // Pie 1: Backlog Distribution by Activities (FMCG Stages)
   readonly activitiesBacklogData = [
-    { name: 'S1: Opportunity Identification', y: 21, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 17, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 30, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 24, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 20, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 21, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 17, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 30, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 24, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 20, color: '#f59e0b' },
     { name: 'Others', y: 55, color: '#94a3b8' },
   ];
 
-  // Pie 2: Backlog Distribution by Tasks (5 Stages + Others)
+  // Pie 2: Backlog Distribution by Tasks (FMCG Stages)
   readonly tasksBacklogData = [
-    { name: 'S1: Opportunity Identification', y: 19, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 16, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 26, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 21, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 23, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 19, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 16, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 26, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 21, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 23, color: '#f59e0b' },
     { name: 'Others', y: 52, color: '#94a3b8' },
   ];
 
-  // Pie 3: Backlog Distribution by Issues (5 Stages + Others)
+  // Pie 3: Backlog Distribution by Issues (FMCG Stages)
   readonly issuesBacklogData = [
-    { name: 'S1: Opportunity Identification', y: 14, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 15, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 23, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 31, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 25, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 14, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 15, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 23, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 31, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 25, color: '#f59e0b' },
     { name: 'Others', y: 58, color: '#94a3b8' },
   ];
 
-  // Pie 4: Backlog Distribution by To-Do (5 Stages + Others)
+  // Pie 4: Backlog Distribution by To-Do (FMCG Stages)
   readonly todoBacklogData = [
-    { name: 'S1: Opportunity Identification', y: 23, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 27, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 21, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 17, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 25, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 23, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 27, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 21, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 17, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 25, color: '#f59e0b' },
     { name: 'Others', y: 51, color: '#94a3b8' },
   ];
 
-  // Pie 5: Backlog Distribution by Requirements (5 Stages + Others)
+  // Pie 5: Backlog Distribution by Requirements (FMCG Stages)
   readonly requirementsBacklogData = [
-    { name: 'S1: Opportunity Identification', y: 25, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 29, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 19, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 20, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 16, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 25, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 29, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 19, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 20, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 16, color: '#f59e0b' },
     { name: 'Others', y: 64, color: '#94a3b8' },
   ];
 
-  // Table Card: Stage-wise Backlog Summary for S1 to S12
+  // Table Card: Stage-wise Backlog Summary for S1 to S12 (FMCG)
   readonly stageBacklogList: StageBacklogSummary[] = [
-    { stage: 'S1 - Opportunity Identification', stageCode: 'S1', stageName: 'Opportunity Identification', act: 21, task: 19, iss: 14, todo: 23, req: 25 },
-    { stage: 'S2 - Concept Screening & Feasibility', stageCode: 'S2', stageName: 'Concept Screening & Feasibility', act: 17, task: 16, iss: 15, todo: 27, req: 29 },
-    { stage: 'S3 - Route Scouting & Lab Synthesis', stageCode: 'S3', stageName: 'Route Scouting & Lab Synthesis', act: 30, task: 26, iss: 23, todo: 21, req: 19 },
-    { stage: 'S4 - Process Optimization (Lab Scale)', stageCode: 'S4', stageName: 'Process Optimization (Lab Scale)', act: 24, task: 21, iss: 31, todo: 17, req: 20 },
-    { stage: 'S5 - Process Route Selection', stageCode: 'S5', stageName: 'Process Route Selection', act: 20, task: 23, iss: 25, todo: 25, req: 16 },
-    { stage: 'S6 - Bench-to-Pilot Process Development', stageCode: 'S6', stageName: 'Bench-to-Pilot Process Development', act: 18, task: 22, iss: 19, todo: 20, req: 15 },
-    { stage: 'S7 - Process Safety & Regulatory Studies', stageCode: 'S7', stageName: 'Process Safety & Regulatory Studies', act: 25, task: 24, iss: 28, todo: 18, req: 22 },
-    { stage: 'S8 - Regulatory Registration Filing (REACH / TSCA)', stageCode: 'S8', stageName: 'Regulatory Registration Filing (REACH / TSCA)', act: 16, task: 18, iss: 20, todo: 15, req: 14 },
-    { stage: 'S9 - Pilot Plant Campaign', stageCode: 'S9', stageName: 'Pilot Plant Campaign', act: 22, task: 20, iss: 17, todo: 19, req: 18 },
-    { stage: 'S10 - Demonstration-Scale Campaign', stageCode: 'S10', stageName: 'Demonstration-Scale Campaign', act: 28, task: 25, iss: 22, todo: 24, req: 21 },
-    { stage: 'S11 - Commercial Plant Build & Commissioning', stageCode: 'S11', stageName: 'Commercial Plant Build & Commissioning', act: 19, task: 17, iss: 18, todo: 16, req: 17 },
-    { stage: 'S12 - Commercial Launch & Ramp-Up', stageCode: 'S12', stageName: 'Commercial Launch & Ramp-Up', act: 15, task: 14, iss: 12, todo: 13, req: 11 },
+    { stage: 'S1 - Consumer Need and Market Opportunity', stageCode: 'S1', stageName: 'Consumer Need and Market Opportunity', act: 21, task: 19, iss: 14, todo: 23, req: 25 },
+    { stage: 'S2 - Market and Product Concept Validation', stageCode: 'S2', stageName: 'Market and Product Concept Validation', act: 17, task: 16, iss: 15, todo: 27, req: 29 },
+    { stage: 'S3 - Product Ideation and Concept Screening', stageCode: 'S3', stageName: 'Product Ideation and Concept Screening', act: 30, task: 26, iss: 23, todo: 21, req: 19 },
+    { stage: 'S4 - Product Formulation and Product Optimization', stageCode: 'S4', stageName: 'Product Formulation and Product Optimization', act: 24, task: 21, iss: 31, todo: 17, req: 20 },
+    { stage: 'S5 - Product Concept and Formula Selection', stageCode: 'S5', stageName: 'Product Concept and Formula Selection', act: 20, task: 23, iss: 25, todo: 25, req: 16 },
+    { stage: 'S6 - Product Formulation and Manufacturing Process Development', stageCode: 'S6', stageName: 'Product Formulation and Manufacturing Process Development', act: 18, task: 22, iss: 19, todo: 20, req: 15 },
+    { stage: 'S7 - Prototype Testing and Product Safety Assessment', stageCode: 'S7', stageName: 'Prototype Testing and Product Safety Assessment', act: 25, task: 24, iss: 28, todo: 18, req: 22 },
+    { stage: 'S8 - Product Concept Approval Filing', stageCode: 'S8', stageName: 'Product Concept Approval Filing', act: 16, task: 18, iss: 20, todo: 15, req: 14 },
+    { stage: 'S9 - Concept and Feasibility Validation', stageCode: 'S9', stageName: 'Concept and Feasibility Validation', act: 22, task: 20, iss: 17, todo: 19, req: 18 },
+    { stage: 'S10 - Pilot Production and Market Testing', stageCode: 'S10', stageName: 'Pilot Production and Market Testing', act: 28, task: 25, iss: 22, todo: 24, req: 21 },
+    { stage: 'S11 - Commercial Scale-Up and Launch Preparation', stageCode: 'S11', stageName: 'Commercial Scale-Up and Launch Preparation', act: 19, task: 17, iss: 18, todo: 16, req: 17 },
+    { stage: 'S12 - Regulatory Affairs & Commercial Product Launch', stageCode: 'S12', stageName: 'Regulatory Affairs & Compliance Approval and Commercial Product Launch', act: 15, task: 14, iss: 12, todo: 13, req: 11 },
   ];
 
   public getStageTotal(item: StageBacklogSummary): number {
@@ -217,16 +214,16 @@ export class DashboardBacklogComponent implements OnInit, AfterViewInit, OnDestr
     return this.stageBacklogList.reduce((acc, curr) => acc + this.getStageTotal(curr), 0);
   }
 
-  // Table Card 6: Activities which have maximum backlog
+  // Activities which have maximum backlog (FMCG)
   readonly topActivitiesWithMaxBacklog: ActivityBacklog[] = [
-    { activityName: 'Assay & Purity Method Validation (Technical Grade)', backlogCount: 48 },
-    { activityName: 'Finished Product Shelf-Life & Storage Stability Testing', backlogCount: 42 },
-    { activityName: 'Demo-Scale Batch Manufacturing', backlogCount: 38 },
-    { activityName: 'Customer Application Trial Coordination', backlogCount: 35 },
-    { activityName: 'Raw Material Quarantine & Release Testing', backlogCount: 31 },
-    { activityName: 'Drum / IBC Packaging Integrity Testing', backlogCount: 28 },
-    { activityName: 'Tech Transfer Dossier Compilation', backlogCount: 25 },
-    { activityName: 'Reactor & Distillation Equipment Qualification', backlogCount: 22 },
+    { activityName: 'Product efficacy and performance & quality test method validation (bulk product)', backlogCount: 48 },
+    { activityName: 'Finished consumer product shelf-life stability testing', backlogCount: 42 },
+    { activityName: 'GMP commercial validation batch manufacturing', backlogCount: 38 },
+    { activityName: 'Comparative consumer and market study consumer recruitment', backlogCount: 35 },
+    { activityName: 'Ingredient specification & raw material quarantine', backlogCount: 31 },
+    { activityName: 'Container closure integrity & packaging testing', backlogCount: 28 },
+    { activityName: 'Product and Manufacturing Transfer Dossier Compilation', backlogCount: 25 },
+    { activityName: 'Mixing, blending vessel & packaging equipment qualification', backlogCount: 22 },
   ];
 
   private charts: Highcharts.Chart[] = [];
@@ -244,63 +241,12 @@ export class DashboardBacklogComponent implements OnInit, AfterViewInit, OnDestr
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.initAllCharts();
-    }, 0);
-    window.addEventListener('resize', this.resizeHandler);
+      window.addEventListener('resize', this.resizeHandler);
+    }, 100);
   }
 
   ngOnDestroy(): void {
     window.removeEventListener('resize', this.resizeHandler);
-    this.destroyCharts();
-  }
-
-  public onActivityChange(activity: string): void {
-    this.selectedActivity = activity;
-  }
-
-  public onApplyFilters(): void {
-    setTimeout(() => {
-      this.initAllCharts();
-    }, 0);
-  }
-
-  public onYearChange(year: number | string): void {
-    this.selectedYear = year;
-    setTimeout(() => {
-      this.initAllCharts();
-    }, 0);
-  }
-
-  public onMonthChange(month: number): void {
-    this.selectedMonth = month;
-    setTimeout(() => {
-      this.initAllCharts();
-    }, 0);
-  }
-
-  public get selectedMonthName(): string {
-    const found = this.monthsList.find((m) => m.value === this.selectedMonth);
-    return found ? found.name : 'Selected Month';
-  }
-
-  private initAllCharts(): void {
-    this.destroyCharts();
-
-    // 1. Two top curve graphs
-    this.createYearlySplineChart('yearlyBacklogCurveContainer');
-    this.createMonthlySplineChart('monthlyBacklogCurveContainer');
-
-    // 2. Five pie charts below
-    this.createPieChart('activitiesBacklogChartContainer', 'Activities', this.activitiesBacklogData);
-    this.createPieChart('tasksBacklogChartContainer', 'Tasks', this.tasksBacklogData);
-    this.createPieChart('issuesBacklogChartContainer', 'Issues', this.issuesBacklogData);
-    this.createPieChart('todoBacklogChartContainer', 'To-Do', this.todoBacklogData);
-    this.createPieChart('requirementsBacklogChartContainer', 'Requirements', this.requirementsBacklogData);
-
-    // 3. Stacked Bar Chart below all (12 Stages x 5 Backlog Categories)
-    this.createStageStackedBarChart('stageBacklogStackedBarContainer');
-  }
-
-  private destroyCharts(): void {
     this.charts.forEach((chart) => {
       if (chart) {
         chart.destroy();
@@ -309,246 +255,49 @@ export class DashboardBacklogComponent implements OnInit, AfterViewInit, OnDestr
     this.charts = [];
   }
 
-  /**
-   * Top Curve Graph 1: Year-wise (12 Months)
-   */
-  private createYearlySplineChart(containerId: string): void {
-    const el = document.getElementById(containerId);
-    if (!el) return;
-
-    const isAll = this.selectedYear === 'All';
-    const displayYear = isAll ? 'All Years' : `${this.selectedYear}`;
-    const backlogValues =
-      (!isAll && typeof this.selectedYear === 'number'
-        ? this.yearlyBacklogData[this.selectedYear]
-        : null) || this.yearlyBacklogData[2026];
-
-    const chart = Highcharts.chart(containerId, {
-      chart: {
-        type: 'spline',
-        backgroundColor: '#ffffff',
-        spacingTop: 10,
-        spacingBottom: 10,
-        spacingLeft: 5,
-        spacingRight: 10,
-      },
-      title: { text: null },
-      credits: { enabled: false },
-      exporting: { enabled: true },
-      xAxis: {
-        categories: this.monthsShort,
-        crosshair: {
-          width: 1,
-          color: '#cbd5e1',
-          dashStyle: 'Dash',
-        },
-        labels: {
-          style: {
-            color: '#475569',
-            fontSize: '11px',
-            fontWeight: '600',
-          },
-        },
-        lineColor: '#cbd5e1',
-        tickColor: '#cbd5e1',
-      },
-      yAxis: {
-        title: {
-          text: 'No of Backlogs',
-          style: {
-            color: '#64748b',
-            fontSize: '11px',
-            fontWeight: '600',
-          },
-        },
-        gridLineColor: '#f1f5f9',
-        gridLineDashStyle: 'Dash',
-        min: 0,
-      },
-      tooltip: {
-        shared: true,
-        useHTML: true,
-        headerFormat: '<div style="font-size:11px;font-weight:700;color:#1e293b;">{point.key} (' + displayYear + ')</div>',
-        pointFormat:
-          '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;">' +
-          '<span style="color:{series.color};font-weight:600;">● {series.name}:</span> ' +
-          '<b>{point.y}</b> backlogs' +
-          '</div>',
-        backgroundColor: '#ffffff',
-        borderColor: '#e2e8f0',
-        borderRadius: 6,
-        shadow: false,
-      },
-      plotOptions: {
-        spline: {
-          lineWidth: 3,
-          states: {
-            hover: {
-              lineWidth: 4,
-            },
-          },
-          marker: {
-            enabled: true,
-            radius: 4,
-            lineWidth: 2,
-            lineColor: '#ffffff',
-            symbol: 'circle',
-            fillColor: '#ef4444',
-          },
-        },
-      },
-      legend: {
-        enabled: true,
-        align: 'center',
-        verticalAlign: 'bottom',
-        layout: 'horizontal',
-        itemStyle: {
-          fontSize: '11px',
-          color: '#475569',
-          fontWeight: '600',
-        },
-      },
-      series: [
-        {
-          name: `Backlogs (${displayYear})`,
-          type: 'spline',
-          color: '#ef4444',
-          data: backlogValues,
-        },
-      ],
-    } as any);
-
-    this.charts.push(chart);
+  public onApplyFilters(): void {
+    setTimeout(() => {
+      this.initAllCharts();
+    }, 0);
   }
 
-  /**
-   * Top Curve Graph 2: Month-wise (1 to 31 Days)
-   */
-  private createMonthlySplineChart(containerId: string): void {
-    const el = document.getElementById(containerId);
-    if (!el) return;
-
-    const displayYear = this.selectedYear === 'All' ? '' : `, ${this.selectedYear}`;
-    const dayValues = this.monthlyDayBacklogs[this.selectedMonth] || this.monthlyDayBacklogs[9];
-
-    const chart = Highcharts.chart(containerId, {
-      chart: {
-        type: 'spline',
-        backgroundColor: '#ffffff',
-        spacingTop: 10,
-        spacingBottom: 10,
-        spacingLeft: 5,
-        spacingRight: 10,
-      },
-      title: { text: null },
-      credits: { enabled: false },
-      exporting: { enabled: true },
-      xAxis: {
-        categories: this.daysList,
-        title: {
-          text: `Days of ${this.selectedMonthName} (1 to 31)`,
-          style: {
-            color: '#64748b',
-            fontSize: '11px',
-            fontWeight: '600',
-          },
-        },
-        crosshair: {
-          width: 1,
-          color: '#cbd5e1',
-          dashStyle: 'Dash',
-        },
-        labels: {
-          step: 2,
-          style: {
-            color: '#475569',
-            fontSize: '10px',
-            fontWeight: '500',
-          },
-        },
-        lineColor: '#cbd5e1',
-        tickColor: '#cbd5e1',
-      },
-      yAxis: {
-        title: {
-          text: 'No of Backlogs',
-          style: {
-            color: '#64748b',
-            fontSize: '11px',
-            fontWeight: '600',
-          },
-        },
-        gridLineColor: '#f1f5f9',
-        gridLineDashStyle: 'Dash',
-        min: 0,
-      },
-      tooltip: {
-        shared: true,
-        useHTML: true,
-        headerFormat:
-          '<div style="font-size:11px;font-weight:700;color:#1e293b;">' +
-          this.selectedMonthName + ' Day {point.key}' + displayYear +
-          '</div>',
-        pointFormat:
-          '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;">' +
-          '<span style="color:{series.color};font-weight:600;">● {series.name}:</span> ' +
-          '<b>{point.y}</b> backlogs' +
-          '</div>',
-        backgroundColor: '#ffffff',
-        borderColor: '#e2e8f0',
-        borderRadius: 6,
-        shadow: false,
-      },
-      plotOptions: {
-        spline: {
-          lineWidth: 3,
-          states: {
-            hover: {
-              lineWidth: 4,
-            },
-          },
-          marker: {
-            enabled: true,
-            radius: 3.5,
-            lineWidth: 2,
-            lineColor: '#ffffff',
-            symbol: 'circle',
-            fillColor: '#3b82f6',
-          },
-        },
-      },
-      legend: {
-        enabled: true,
-        align: 'center',
-        verticalAlign: 'bottom',
-        layout: 'horizontal',
-        itemStyle: {
-          fontSize: '11px',
-          color: '#475569',
-          fontWeight: '600',
-        },
-      },
-      series: [
-        {
-          name: `Daily Backlogs (${this.selectedMonthName})`,
-          type: 'spline',
-          color: '#3b82f6',
-          data: dayValues,
-        },
-      ],
-    } as any);
-
-    this.charts.push(chart);
+  public onYearChange(val: any): void {
+    this.selectedYear = val;
+    this.initAllCharts();
   }
 
-  /**
-   * Pie Chart Factory (Matches DashboardDelayReasonsComponent)
-   */
-  private createPieChart(
-    containerId: string,
-    seriesName: string,
-    data: { name: string; y: number; color: string }[]
-  ): void {
+  public onMonthChange(val: any): void {
+    this.selectedMonth = val;
+    this.initAllCharts();
+  }
+
+  public onActivityChange(val: any): void {
+    this.selectedActivity = val;
+    this.initAllCharts();
+  }
+
+  public onYearOrMonthChange(): void {
+    this.initAllCharts();
+  }
+
+  private initAllCharts(): void {
+    this.charts.forEach((chart) => {
+      if (chart) {
+        chart.destroy();
+      }
+    });
+    this.charts = [];
+
+    this.createStageStackedBarChart('stageBacklogStackedBarContainer');
+
+    this.createDonutChart('activitiesBacklogChartContainer', this.activitiesBacklogData);
+    this.createDonutChart('tasksBacklogChartContainer', this.tasksBacklogData);
+    this.createDonutChart('issuesBacklogChartContainer', this.issuesBacklogData);
+    this.createDonutChart('todoBacklogChartContainer', this.todoBacklogData);
+    this.createDonutChart('requirementsBacklogChartContainer', this.requirementsBacklogData);
+  }
+
+  private createDonutChart(containerId: string, seriesData: any[]): void {
     const el = document.getElementById(containerId);
     if (!el) return;
 
@@ -556,62 +305,48 @@ export class DashboardBacklogComponent implements OnInit, AfterViewInit, OnDestr
       chart: {
         type: 'pie',
         backgroundColor: '#ffffff',
-        spacingTop: 5,
-        spacingBottom: 5,
-        spacingLeft: 2,
-        spacingRight: 2,
+        height: 250,
       },
       title: { text: null },
       credits: { enabled: false },
-      exporting: { enabled: true },
+      exporting: { enabled: false },
       tooltip: {
-        useHTML: true,
-        formatter: function (this: any) {
-          return `<b>${this.key}</b><br/>Backlog Count: <b>${this.y}</b> (${this.percentage.toFixed(1)}%)`;
-        },
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            distance: -22,
-            format: '{point.percentage:.0f}%',
-            style: {
-              fontSize: '11px',
-              fontWeight: 'bold',
-              color: '#ffffff',
-              textOutline: '1px contrast',
-            },
-          },
-          showInLegend: true,
-          innerSize: '0%',
-        },
+        pointFormat: '<b>{point.name}</b>: {point.y} ({point.percentage:.1f}%)',
       },
       legend: {
         enabled: true,
-        align: 'center',
-        verticalAlign: 'bottom',
-        layout: 'horizontal',
-        maxHeight: 140,
-        itemDistance: 10,
-        symbolPadding: 5,
-        navigation: {
-          enabled: false,
-        },
+        align: 'right',
+        verticalAlign: 'middle',
+        layout: 'vertical',
         itemStyle: {
-          fontSize: '10px',
-          color: '#475569',
-          fontWeight: '500',
+          fontSize: '11px',
+          fontWeight: 'normal',
+          color: '#334155',
+        },
+        itemMarginBottom: 4,
+      },
+      plotOptions: {
+        pie: {
+          innerSize: '0%',
+          showInLegend: true,
+          dataLabels: {
+            enabled: true,
+            format: '{point.percentage:.0f}%',
+            distance: -20,
+            style: {
+              fontSize: '10px',
+              fontWeight: 'bold',
+              color: '#ffffff',
+              textOutline: 'none',
+            },
+          },
         },
       },
       series: [
         {
-          name: seriesName,
+          name: 'Backlogs',
           type: 'pie',
-          colorByPoint: true,
-          data: data,
+          data: seriesData,
         },
       ],
     } as any);
@@ -619,15 +354,11 @@ export class DashboardBacklogComponent implements OnInit, AfterViewInit, OnDestr
     this.charts.push(chart);
   }
 
-  /**
-   * Stacked Bar/Column Chart: 12 Stages on X-Axis with 5 Backlog Categories
-   * (Activities, Tasks, Issues, To-Do, Requirements)
-   */
   private createStageStackedBarChart(containerId: string): void {
     const el = document.getElementById(containerId);
     if (!el) return;
 
-    const categories = this.stageBacklogList.map((s) => s.stage);
+    const categories = this.stageBacklogList.map((s) => s.stageCode || s.stage);
 
     const chart = Highcharts.chart(containerId, {
       chart: {
@@ -640,7 +371,7 @@ export class DashboardBacklogComponent implements OnInit, AfterViewInit, OnDestr
       },
       title: { text: null },
       credits: { enabled: false },
-      exporting: { enabled: true },
+      exporting: { enabled: false },
       xAxis: {
         categories: categories,
         crosshair: {

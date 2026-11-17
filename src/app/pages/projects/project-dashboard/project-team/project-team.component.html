@@ -2,7 +2,10 @@
 
   <!-- Header Section with Title & Back Button -->
   <header class="analytics-header">
-    <h1>{{ projectName }}</h1>
+    <div class="header-title-group">
+      <h1>{{ projectName }}</h1>
+      <p class="header-subtitle" style="margin: 4px 0 0 0; font-size: 14px; color: #64748b;">Assign and manage program team members.</p>
+    </div>
 
     <div class="header-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
       <button type="button" class="back-btn" (click)="goBack()">

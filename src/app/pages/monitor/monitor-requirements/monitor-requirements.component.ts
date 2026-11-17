@@ -103,24 +103,25 @@ export class MonitorRequirementsComponent implements OnInit, OnDestroy {
     Done: [false]
   });
 
-  departmentOptions: string[] = [
-    'Polymers & Resins',
-    'Regulatory & EHS',
-    'Analytical Development & QC',
-    'Process & Manufacturing',
-    'Supply Chain & Quality',
-    'Sourcing & Procurement'
+    departmentOptions: string[] = [
+    'R&D & Product Innovation',
+    'Regulatory Affairs',
+    'Sensory & Consumer Science',
+    'Packaging Development',
+    'Quality Assurance & Food Safety',
+    'Sourcing & Procurement',
+    'Pilot Plant Operations'
   ];
 
   roleOptions: string[] = [
-    'Polymer Lead',
-    'Polymer Scientist',
+    'Lead Formulation Scientist',
+    'QA Food Safety Specialist',
     'Regulatory Affairs Specialist',
-    'Analytical Chemist',
-    'Process Development Manager',
-    'QA Chemist',
-    'Hazmat Storage Specialist',
-    'Raw Material Buyer'
+    'Sensory Science Lead',
+    'Packaging Engineering Lead',
+    'Analytical Scientist QC',
+    'Ingredient Sourcing Specialist',
+    'Pilot Plant Process Engineer'
   ];
 
   ngOnInit(): void {
@@ -136,154 +137,155 @@ export class MonitorRequirementsComponent implements OnInit, OnDestroy {
     this.overdueSub?.unsubscribe();
   }
 
-  initMockRequirements(): void {
+    initMockRequirements(): void {
     this.rawRequirements = [
       {
         id: 1,
         IsActive: true,
         Done: true,
-        ProjectCode: '2026/CHM/001',
-        RequirementName: 'Solids Content and Particle Size (>=35% solids, <=150 nm) Specification',
-        ProjectName: 'Waterborne Polyurethane Dispersion (PUD) Discovery Project',
-        Department: 'Polymers & Resins',
-        Role: 'Polymer Lead',
+        ProjectCode: '2026/FMCG/001',
+        RequirementName: 'Brix Tolerance (11.5 ± 0.3°Bx) & Titratable Acidity (0.45% citric acid eq)',
+        ProjectName: 'Vitamin-Enriched Fruit Beverage 250ml',
+        Department: 'R&D & Product Innovation',
+        Role: 'Lead Formulation Scientist',
         DueDate: '2026-02-15',
         CompletedDate: '2026-02-14',
-        Remarks: 'Analytical particle size and solids content criteria met across bench batches.',
+        Remarks: 'Benchtop Brix, refractive index and pH specifications met across trial batches.',
         isDateExceeded: false
       },
       {
         id: 2,
         IsActive: true,
         Done: false,
-        ProjectCode: '2026/CHM/001',
-        RequirementName: 'Film Formation and Mechanical Property Acceptance Limits',
-        ProjectName: 'Waterborne Polyurethane Dispersion (PUD) Discovery Project',
-        Department: 'Polymers & Resins',
-        Role: 'Polymer Scientist',
+        ProjectCode: '2026/FMCG/001',
+        RequirementName: 'Vitamin C Retention (>= 100% of RDA at Day 180 under 30°C/70% RH)',
+        ProjectName: 'Vitamin-Enriched Fruit Beverage 250ml',
+        Department: 'Quality Assurance & Food Safety',
+        Role: 'QA Food Safety Specialist',
         DueDate: '2026-02-28',
         CompletedDate: '',
-        Remarks: 'Test panel coating evaluation slot awaiting lab clearance.',
+        Remarks: 'Accelerated stability chamber testing in progress; 60-day pull pending HPLC assay.',
         isDateExceeded: true,
-        delayReason: 'Test Panel Lab Slot Unavailable'
+        delayReason: 'Accelerated Stability Chamber Slot'
       },
       {
         id: 3,
         IsActive: true,
         Done: true,
-        ProjectCode: '2026/CHM/002',
-        RequirementName: 'Catalyst Metal Loading and Activity Specification',
-        ProjectName: 'Hydrogenation Catalyst Development (Pd/C)',
-        Department: 'Regulatory & EHS',
-        Role: 'Regulatory Affairs Specialist',
+        ProjectCode: '2026/FMCG/002',
+        RequirementName: 'Viable Probiotic Count (>= 1.0 x 10^7 CFU/g at Expiry) & Clean Acid Profile',
+        ProjectName: 'Probiotic Greek Yogurt 150g',
+        Department: 'Quality Assurance & Food Safety',
+        Role: 'QA Food Safety Specialist',
         DueDate: '2026-01-20',
         CompletedDate: '2026-01-19',
-        Remarks: 'Palladium loading target (5 wt%) and turnover frequency validated.',
+        Remarks: 'Colony forming unit counts and lactic acid ratio validated on pilot fermentation batches.',
         isDateExceeded: false
       },
       {
         id: 4,
         IsActive: false,
         Done: false,
-        ProjectCode: '2026/CHM/002',
-        RequirementName: 'Leachable Metal Residue Method Sensitivity Target',
-        ProjectName: 'Hydrogenation Catalyst Development (Pd/C)',
-        Department: 'Analytical Development & QC',
-        Role: 'Analytical Chemist',
+        ProjectCode: '2026/FMCG/002',
+        RequirementName: 'Texture Profile & Viscosity Stability (Firmness >= 45g, Syneresis < 2%)',
+        ProjectName: 'Probiotic Greek Yogurt 150g',
+        Department: 'Sensory & Consumer Science',
+        Role: 'Sensory Science Lead',
         DueDate: '2026-03-05',
         CompletedDate: '',
-        Remarks: 'Reference standards for trace metal analysis in procurement queue.',
+        Remarks: 'Texture analyzer probe calibration in progress for set yogurt cup penetration test.',
         isDateExceeded: false,
-        delayReason: 'Reference Standard Qualification Delay'
+        delayReason: 'Texture Analyzer Probe Calibration Delay'
       },
       {
         id: 5,
         IsActive: true,
         Done: false,
-        ProjectCode: '2026/CHM/003',
-        RequirementName: 'Impurity Profile and Isomer Ratio Similarity Criteria',
-        ProjectName: 'Agrochemical Active Ingredient Synthesis Development',
-        Department: 'Analytical Development & QC',
-        Role: 'Analytical Chemist',
+        ProjectCode: '2026/FMCG/003',
+        RequirementName: 'Oxygen Transmission Rate (OTR < 0.5 cc/m²/day @ 23°C, 0% RH) for Recyclable Film',
+        ProjectName: 'Sustainable Barrier Snack Pouch 50g',
+        Department: 'Packaging Development',
+        Role: 'Packaging Engineering Lead',
         DueDate: '2026-03-12',
         CompletedDate: '',
-        Remarks: 'Isomer ratio and impurity purge factors under HPLC verification.',
+        Remarks: 'Mocon barrier test instrument queued for mono-material high-barrier laminate.',
         isDateExceeded: false
       },
       {
         id: 6,
         IsActive: true,
         Done: true,
-        ProjectCode: '2026/CHM/003',
-        RequirementName: 'Batch Reactor Yield Target (>=85% Overall)',
-        ProjectName: 'Agrochemical Active Ingredient Synthesis Development',
-        Department: 'Process & Manufacturing',
-        Role: 'Process Development Manager',
+        ProjectCode: '2026/FMCG/003',
+        RequirementName: 'Pouch Heat Seal Strength (>= 22 N/15mm at 140°C Sealing Jaw Temperature)',
+        ProjectName: 'Sustainable Barrier Snack Pouch 50g',
+        Department: 'Packaging Development',
+        Role: 'Packaging Engineering Lead',
         DueDate: '2026-02-10',
         CompletedDate: '2026-02-09',
-        Remarks: 'Three consecutive lab runs confirmed overall yield >= 86.4%.',
+        Remarks: 'Tensile seal strength test passed with consistent hermetic seal integrity.',
         isDateExceeded: false
       },
       {
         id: 7,
         IsActive: false,
         Done: false,
-        ProjectCode: '2026/CHM/004',
-        RequirementName: 'Water Content and Peroxide Release Limits for Recovered Solvent Lots',
-        ProjectName: 'Solvent Recovery & Fractional Distillation Process Development',
-        Department: 'Supply Chain & Quality',
-        Role: 'QA Chemist',
+        ProjectCode: '2026/FMCG/004',
+        RequirementName: 'Microbial Limits: Commercial Sterility (Absence of Spoilage Organisms & Pathogens)',
+        ProjectName: 'Plant-Based Protein Shake 330ml',
+        Department: 'Quality Assurance & Food Safety',
+        Role: 'QA Food Safety Specialist',
         DueDate: '2026-03-25',
         CompletedDate: '',
-        Remarks: 'Coulometric Karl Fischer titration protocol drafted.',
+        Remarks: 'B. stearothermophilus spore kill validation and 55°C incubation scheduled.',
         isDateExceeded: false,
-        delayReason: 'Karl Fischer Lab Backlog'
+        delayReason: 'Microbiology Incubation Facility Backlog'
       },
       {
         id: 8,
         IsActive: true,
         Done: true,
-        ProjectCode: '2026/CHM/004',
-        RequirementName: 'Hazardous Storage Architecture for Flammable Solvents (Flameproof, Earthed)',
-        ProjectName: 'Solvent Recovery & Fractional Distillation Process Development',
-        Department: 'Supply Chain & Quality',
-        Role: 'Hazmat Storage Specialist',
+        ProjectCode: '2026/FMCG/004',
+        RequirementName: 'Sensory Hedonic Overall Liking Score (>= 7.5 on 9-Point Scale vs Competitor)',
+        ProjectName: 'Plant-Based Protein Shake 330ml',
+        Department: 'Sensory & Consumer Science',
+        Role: 'Sensory Science Lead',
         DueDate: '2026-02-05',
         CompletedDate: '2026-02-18',
-        Remarks: 'Fire safety alarm and earthing bonding completed after initial due date.',
+        Remarks: 'Consumer sensory blind panel completed after initial date due to panelist re-scheduling.',
         isDateExceeded: true,
-        delayReason: 'Fire Safety Alarm Sign-off'
+        delayReason: 'Consumer Taste Panel Scheduling Delay'
       },
       {
         id: 9,
         IsActive: true,
         Done: false,
-        ProjectCode: '2026/CHM/005',
-        RequirementName: 'Global Registration Submission Matrix (REACH / EPA / CIB&RC)',
-        ProjectName: 'Water-Dispersible Granule (WDG) Formulation Development',
-        Department: 'Regulatory & EHS',
+        ProjectCode: '2026/FMCG/005',
+        RequirementName: 'FSSAI / Legal Metrology Regulatory Label & Front-of-Pack Nutritional Claim Sign-off',
+        ProjectName: 'Clean-Label Dishwash Gel Concentrate 500ml',
+        Department: 'Regulatory Affairs',
         Role: 'Regulatory Affairs Specialist',
         DueDate: '2026-04-02',
         CompletedDate: '',
-        Remarks: 'Global registration dossier matrix and test requirements finalized.',
+        Remarks: 'Legal Metrology net quantity and Ecolabel claim dossier submitted for review.',
         isDateExceeded: false
       },
       {
         id: 10,
         IsActive: true,
         Done: true,
-        ProjectCode: '2026/CHM/005',
-        RequirementName: 'Technical-Grade Active Ingredient Supplier Qualification',
-        ProjectName: 'Water-Dispersible Granule (WDG) Formulation Development',
+        ProjectCode: '2026/FMCG/005',
+        RequirementName: 'Biodegradability & Natural Surfactant Raw Material Supplier Qualification',
+        ProjectName: 'Clean-Label Dishwash Gel Concentrate 500ml',
         Department: 'Sourcing & Procurement',
-        Role: 'Raw Material Buyer',
+        Role: 'Ingredient Sourcing Specialist',
         DueDate: '2026-01-30',
         CompletedDate: '2026-01-29',
-        Remarks: 'Supplier audit and impurity profile comparability approved.',
+        Remarks: 'OECD 301B ready biodegradability test certificate verified from raw material supplier.',
         isDateExceeded: false
       }
     ];
 
+    this.totalSize = this.rawRequirements.length;
     this.applyFilter();
   }
 

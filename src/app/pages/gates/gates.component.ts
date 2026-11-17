@@ -183,8 +183,8 @@ export class GatesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const sampleDates = ['2026-02-15', '2026-02-12', '2026-02-10', '2026-02-05', '2026-01-30'];
-    const sampleUsers = ['Dr. Priya Raman', 'Rajesh Kumar', 'Anita Desai', 'Priya Reddy', 'Suresh Naidu'];
+    const sampleDates = ['2026-11-13', '2026-11-10', '2026-11-05', '2026-10-28', '2026-10-15'];
+    const sampleUsers = ['Ananya Rao', 'Dr. Priya Raman', 'Vikram Singh', 'Anita Desai', 'Rajesh Kumar'];
     this.masterData.forEach((g, idx) => {
       if (!g.historyCount) {
         g.historyCount = this.getHistoryCount(idx);

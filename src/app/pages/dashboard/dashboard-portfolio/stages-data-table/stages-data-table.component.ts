@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { DashboardStagesComponent } from '../../dashboard-stages/dashboard-stages.component';
-
-
 
 export interface StageColumnHeader {
   key: string;
@@ -25,7 +22,6 @@ export interface StageColumnHeader {
     RouterModule,
     MatIconModule,
     MatButtonModule,
-    // DashboardStagesComponent
   ],
   templateUrl: './stages-data-table.component.html',
   styleUrl: './stages-data-table.component.scss',
@@ -37,58 +33,114 @@ export class StagesDataTableComponent implements OnInit, AfterViewInit {
   canScrollLeft: boolean = false;
   canScrollRight: boolean = true;
 
-  // 12 Chemical Manufacturing Stages
+  // 12 FMCG Stages from FMCG_Stage_Gate_Data_Table.xlsx
   readonly stageHeaders: StageColumnHeader[] = [
-    { key: 's1', label: 'Stage 1', stageCode: 'S1', stageNumber: 1, subtitle: 'Opportunity Identification', fullName: 'Opportunity Identification', projectCount: 20 },
-    { key: 's2', label: 'Stage 2', stageCode: 'S2', stageNumber: 2, subtitle: 'Concept Screening & Feasibility', fullName: 'Concept Screening & Feasibility', projectCount: 19 },
-    { key: 's3', label: 'Stage 3', stageCode: 'S3', stageNumber: 3, subtitle: 'Route Scouting & Lab Synthesis', fullName: 'Route Scouting & Lab Synthesis', projectCount: 18 },
-    { key: 's4', label: 'Stage 4', stageCode: 'S4', stageNumber: 4, subtitle: 'Process Optimization (Lab Scale)', fullName: 'Process Optimization (Lab Scale)', projectCount: 17 },
-    { key: 's5', label: 'Stage 5', stageCode: 'S5', stageNumber: 5, subtitle: 'Process Route Selection & Basis of Design', fullName: 'Process Route Selection & Basis of Design', projectCount: 16 },
-    { key: 's6', label: 'Stage 6', stageCode: 'S6', stageNumber: 6, subtitle: 'Bench-to-Pilot Process Development', fullName: 'Bench-to-Pilot Process Development', projectCount: 15 },
-    { key: 's7', label: 'Stage 7', stageCode: 'S7', stageNumber: 7, subtitle: 'Process Safety & Regulatory Studies', fullName: 'Process Safety & Regulatory Studies', projectCount: 14 },
-    { key: 's8', label: 'Stage 8', stageCode: 'S8', stageNumber: 8, subtitle: 'Regulatory Registration Filing (REACH / TSCA)', fullName: 'Regulatory Registration Filing (REACH / TSCA)', projectCount: 13 },
-    { key: 's9', label: 'Stage 9', stageCode: 'S9', stageNumber: 9, subtitle: 'Pilot Plant Campaign', fullName: 'Pilot Plant Campaign', projectCount: 12 },
-    { key: 's10', label: 'Stage 10', stageCode: 'S10', stageNumber: 10, subtitle: 'Demonstration-Scale Campaign', fullName: 'Demonstration-Scale Campaign', projectCount: 11 },
-    { key: 's11', label: 'Stage 11', stageCode: 'S11', stageNumber: 11, subtitle: 'Commercial Plant Build & Commissioning', fullName: 'Commercial Plant Build & Commissioning', projectCount: 10 },
-    { key: 's12', label: 'Stage 12', stageCode: 'S12', stageNumber: 12, subtitle: 'Commercial Launch & Ramp-Up', fullName: 'Commercial Launch & Ramp-Up', projectCount: 9 }
+    { key: 's1', label: 'Stage 1', stageCode: 'S1', stageNumber: 1, subtitle: 'Consumer Need and Market Opportunity', fullName: 'Consumer Need and Market Opportunity', projectCount: 10 },
+    { key: 's2', label: 'Stage 2', stageCode: 'S2', stageNumber: 2, subtitle: 'Market and Product Concept Validation', fullName: 'Market and Product Concept Validation', projectCount: 9 },
+    { key: 's3', label: 'Stage 3', stageCode: 'S3', stageNumber: 3, subtitle: 'Product Ideation and Concept Screening', fullName: 'Product Ideation and Concept Screening', projectCount: 8 },
+    { key: 's4', label: 'Stage 4', stageCode: 'S4', stageNumber: 4, subtitle: 'Product Formulation and Product Optimization', fullName: 'Product Formulation and Product Optimization', projectCount: 7 },
+    { key: 's5', label: 'Stage 5', stageCode: 'S5', stageNumber: 5, subtitle: 'Product Concept and Formula Selection', fullName: 'Product Concept and Formula Selection', projectCount: 6 },
+    { key: 's6', label: 'Stage 6', stageCode: 'S6', stageNumber: 6, subtitle: 'Product Formulation and Process Development', fullName: 'Product Formulation and Manufacturing Process Development', projectCount: 5 },
+    { key: 's7', label: 'Stage 7', stageCode: 'S7', stageNumber: 7, subtitle: 'Prototype Testing and Safety Assessment', fullName: 'Prototype Testing and Product Safety Assessment', projectCount: 4 },
+    { key: 's8', label: 'Stage 8', stageCode: 'S8', stageNumber: 8, subtitle: 'Product Concept Approval Filing', fullName: 'Product Concept Approval Filing', projectCount: 3 },
+    { key: 's9', label: 'Stage 9', stageCode: 'S9', stageNumber: 9, subtitle: 'Concept and Feasibility Validation', fullName: 'Concept and Feasibility Validation', projectCount: 2 },
+    { key: 's10', label: 'Stage 10', stageCode: 'S10', stageNumber: 10, subtitle: 'Pilot Production and Market Testing', fullName: 'Pilot Production and Market Testing', projectCount: 1 },
+    { key: 's11', label: 'Stage 11', stageCode: 'S11', stageNumber: 11, subtitle: 'Commercial Scale-Up and Launch Preparation', fullName: 'Commercial Scale-Up and Launch Preparation', projectCount: 1 },
+    { key: 's12', label: 'Stage 12', stageCode: 'S12', stageNumber: 12, subtitle: 'Regulatory Affairs & Commercial Product Launch', fullName: 'Regulatory Affairs & Compliance Approval and Commercial Product Launch', projectCount: 1 }
   ];
 
-  // Chemical Manufacturing Projects lists
+  // FMCG Programs lists from FMCG_Stage_Gate_Data_Table.xlsx
   readonly s1List = [
-    "Waterborne Polyurethane Dispersion (PUD) Discovery Project", "Hydrogenation Catalyst Development (Pd/C)", "Agrochemical Active Ingredient Multi-Step Synthesis Development", "Solvent Recovery & Fractional Distillation Process Development", "Water-Dispersible Granule (WDG) Formulation Development", "Acrylic Emulsion Binder 50% Solids", "Liquid Epoxy Resin (Bisphenol-A, EEW 185-192)", "Sodium Lauryl Ether Sulfate (SLES) 70% Paste", "Fumed Silica (Hydrophilic, 200 m2/g)", "Hydrogen Peroxide 50% w/w (Anthraquinone Process)", "Bio-based Polyamide 6,10 Resin", "Polyether Ether Ketone (PEEK) High Flow Grade", "Thermoplastic Polyurethane (TPU) Ester Grade", "UV-Curable Oligomer for Optical Coatings", "Functionalized Graphene Oxide Dispersion", "High-Performance Intumescent Coating Additive", "Fluorosurfactant Wetting Agent 50%", "Silane Coupling Agent (GLYMO)", "Alkyl Polyglucoside Surfactant C8-C10", "Bio-Succinic Acid Platform Chemical"
+    "New Beverage Product Development Program",
+    "New Personal Care Product Formulation Development",
+    "Multi-Variant Snack Product Development",
+    "Ingredient Sourcing and Blend Optimization",
+    "Shelf-Stable Powdered Beverage Product Formulation",
+    "Vitamin-Enriched Fruit Beverage 250ml",
+    "Premium Personal Care Lotion 200ml",
+    "Ready-to-Eat Snack Range 100g",
+    "Low-Sugar Dairy Beverage 200ml",
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s2List = [
-    "Acrylic Emulsion Binder 50% Solids", "Liquid Epoxy Resin (Bisphenol-A, EEW 185-192)", "Sodium Lauryl Ether Sulfate (SLES) 70% Paste", "Fumed Silica (Hydrophilic, 200 m2/g)", "Hydrogen Peroxide 50% w/w (Anthraquinone Process)", "Bio-based Polyamide 6,10 Resin", "Polyether Ether Ketone (PEEK) High Flow Grade", "Thermoplastic Polyurethane (TPU) Ester Grade", "UV-Curable Oligomer for Optical Coatings", "Functionalized Graphene Oxide Dispersion", "High-Performance Intumescent Coating Additive", "Fluorosurfactant Wetting Agent 50%", "Silane Coupling Agent (GLYMO)", "Alkyl Polyglucoside Surfactant C8-C10", "Bio-Succinic Acid Platform Chemical", "Polyimide Film Precursor Monomer", "Specialty Polyolefin Elastomer", "Non-Ionic Polyether Defoamer", "Low VOC Acrylic Polyol"
+    "New Personal Care Product Formulation Development",
+    "Multi-Variant Snack Product Development",
+    "Ingredient Sourcing and Blend Optimization",
+    "Shelf-Stable Powdered Beverage Product Formulation",
+    "Vitamin-Enriched Fruit Beverage 250ml",
+    "Premium Personal Care Lotion 200ml",
+    "Ready-to-Eat Snack Range 100g",
+    "Low-Sugar Dairy Beverage 200ml",
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s3List = [
-    "Waterborne Polyurethane Dispersion (PUD) Discovery Project", "Hydrogenation Catalyst Development (Pd/C)", "Agrochemical Active Ingredient Multi-Step Synthesis Development", "Solvent Recovery & Fractional Distillation Process Development", "Water-Dispersible Granule (WDG) Formulation Development", "Bio-based Polyamide 6,10 Resin", "Polyether Ether Ketone (PEEK) High Flow Grade", "Thermoplastic Polyurethane (TPU) Ester Grade", "UV-Curable Oligomer for Optical Coatings", "Functionalized Graphene Oxide Dispersion", "High-Performance Intumescent Coating Additive", "Fluorosurfactant Wetting Agent 50%", "Silane Coupling Agent (GLYMO)", "Alkyl Polyglucoside Surfactant C8-C10", "Bio-Succinic Acid Platform Chemical", "Polyimide Film Precursor Monomer", "Specialty Polyolefin Elastomer", "Non-Ionic Polyether Defoamer"
+    "Multi-Variant Snack Product Development",
+    "Ingredient Sourcing and Blend Optimization",
+    "Shelf-Stable Powdered Beverage Product Formulation",
+    "Vitamin-Enriched Fruit Beverage 250ml",
+    "Premium Personal Care Lotion 200ml",
+    "Ready-to-Eat Snack Range 100g",
+    "Low-Sugar Dairy Beverage 200ml",
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s4List = [
-    "Acrylic Emulsion Binder 50% Solids", "Liquid Epoxy Resin (Bisphenol-A, EEW 185-192)", "Sodium Lauryl Ether Sulfate (SLES) 70% Paste", "Fumed Silica (Hydrophilic, 200 m2/g)", "Hydrogen Peroxide 50% w/w (Anthraquinone Process)", "Bio-based Polyamide 6,10 Resin", "Polyether Ether Ketone (PEEK) High Flow Grade", "Thermoplastic Polyurethane (TPU) Ester Grade", "UV-Curable Oligomer for Optical Coatings", "Functionalized Graphene Oxide Dispersion", "High-Performance Intumescent Coating Additive", "Fluorosurfactant Wetting Agent 50%", "Silane Coupling Agent (GLYMO)", "Alkyl Polyglucoside Surfactant C8-C10", "Bio-Succinic Acid Platform Chemical", "Polyimide Film Precursor Monomer", "Specialty Polyolefin Elastomer"
+    "Ingredient Sourcing and Blend Optimization",
+    "Shelf-Stable Powdered Beverage Product Formulation",
+    "Vitamin-Enriched Fruit Beverage 250ml",
+    "Premium Personal Care Lotion 200ml",
+    "Ready-to-Eat Snack Range 100g",
+    "Low-Sugar Dairy Beverage 200ml",
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s5List = [
-    "Waterborne Polyurethane Dispersion (PUD) Discovery Project", "Hydrogenation Catalyst Development (Pd/C)", "Agrochemical Active Ingredient Multi-Step Synthesis Development", "Solvent Recovery & Fractional Distillation Process Development", "Water-Dispersible Granule (WDG) Formulation Development", "Acrylic Emulsion Binder 50% Solids", "Liquid Epoxy Resin (Bisphenol-A, EEW 185-192)", "Sodium Lauryl Ether Sulfate (SLES) 70% Paste", "Fumed Silica (Hydrophilic, 200 m2/g)", "Hydrogen Peroxide 50% w/w (Anthraquinone Process)", "Bio-based Polyamide 6,10 Resin", "Polyether Ether Ketone (PEEK) High Flow Grade", "Thermoplastic Polyurethane (TPU) Ester Grade", "UV-Curable Oligomer for Optical Coatings", "Functionalized Graphene Oxide Dispersion", "High-Performance Intumescent Coating Additive"
+    "Shelf-Stable Powdered Beverage Product Formulation",
+    "Vitamin-Enriched Fruit Beverage 250ml",
+    "Premium Personal Care Lotion 200ml",
+    "Ready-to-Eat Snack Range 100g",
+    "Low-Sugar Dairy Beverage 200ml",
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s6List = [
-    "Bio-based Polyamide 6,10 Resin", "Polyether Ether Ketone (PEEK) High Flow Grade", "Thermoplastic Polyurethane (TPU) Ester Grade", "UV-Curable Oligomer for Optical Coatings", "Functionalized Graphene Oxide Dispersion", "High-Performance Intumescent Coating Additive", "Fluorosurfactant Wetting Agent 50%", "Silane Coupling Agent (GLYMO)", "Alkyl Polyglucoside Surfactant C8-C10", "Bio-Succinic Acid Platform Chemical", "Waterborne Polyurethane Dispersion (PUD)", "Hydrogenation Catalyst (Pd/C)", "Agrochemical Active Ingredient", "Solvent Recovery & Distillation", "Water-Dispersible Granule"
+    "Vitamin-Enriched Fruit Beverage 250ml",
+    "Premium Personal Care Lotion 200ml",
+    "Ready-to-Eat Snack Range 100g",
+    "Low-Sugar Dairy Beverage 200ml",
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s7List = [
-    "Acrylic Emulsion Binder 50% Solids", "Liquid Epoxy Resin (Bisphenol-A, EEW 185-192)", "Sodium Lauryl Ether Sulfate (SLES) 70% Paste", "Fumed Silica (Hydrophilic, 200 m2/g)", "Hydrogen Peroxide 50% w/w", "Bio-based Polyamide 6,10 Resin", "Polyether Ether Ketone (PEEK)", "Thermoplastic Polyurethane (TPU)", "UV-Curable Oligomer", "Functionalized Graphene Oxide", "High-Performance Intumescent Additive", "Fluorosurfactant Wetting Agent", "Silane Coupling Agent", "Alkyl Polyglucoside Surfactant"
+    "Premium Personal Care Lotion 200ml",
+    "Ready-to-Eat Snack Range 100g",
+    "Low-Sugar Dairy Beverage 200ml",
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s8List = [
-    "Waterborne Polyurethane Dispersion (PUD)", "Hydrogenation Catalyst Development (Pd/C)", "Agrochemical Active Ingredient Multi-Step Synthesis", "Solvent Recovery Process", "Water-Dispersible Granule Formulation", "Acrylic Emulsion Binder 50% Solids", "Liquid Epoxy Resin", "Sodium Lauryl Ether Sulfate", "Fumed Silica", "Hydrogen Peroxide 50% w/w", "Bio-based Polyamide 6,10", "PEEK High Flow Grade", "TPU Ester Grade"
+    "Ready-to-Eat Snack Range 100g",
+    "Low-Sugar Dairy Beverage 200ml",
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s9List = [
-    "Acrylic Emulsion Binder 50% Solids", "Liquid Epoxy Resin (Bisphenol-A)", "Sodium Lauryl Ether Sulfate (SLES)", "Fumed Silica (Hydrophilic)", "Hydrogen Peroxide 50% w/w", "Bio-based Polyamide 6,10", "PEEK High Flow Grade", "TPU Ester Grade", "UV-Curable Oligomer", "Functionalized Graphene Oxide", "High-Performance Intumescent", "Fluorosurfactant Wetting Agent"
+    "Low-Sugar Dairy Beverage 200ml",
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s10List = [
-    "Waterborne Polyurethane Dispersion (PUD)", "Hydrogenation Catalyst (Pd/C)", "Agrochemical Active Ingredient", "Solvent Recovery & Distillation", "Water-Dispersible Granule", "Acrylic Emulsion Binder", "Liquid Epoxy Resin", "Sodium Lauryl Ether Sulfate", "Fumed Silica", "Hydrogen Peroxide 50%", "Bio-based Polyamide"
+    "Plant-Based Protein Drink 300ml"
   ];
+
   readonly s11List = [
-    "Acrylic Emulsion Binder 50% Solids", "Liquid Epoxy Resin (Bisphenol-A)", "Sodium Lauryl Ether Sulfate (SLES)", "Fumed Silica (Hydrophilic)", "Hydrogen Peroxide 50% w/w", "Bio-based Polyamide 6,10", "PEEK High Flow Grade", "TPU Ester Grade", "UV-Curable Oligomer", "Functionalized Graphene Oxide"
+    "New Beverage Product Development Program"
   ];
+
   readonly s12List = [
-    "Hydrogen Peroxide 50% w/w (Anthraquinone Process)", "Bio-based Polyamide 6,10 Resin", "Polyether Ether Ketone (PEEK) High Flow Grade", "Thermoplastic Polyurethane (TPU) Ester Grade", "Liquid Epoxy Resin (Bisphenol-A, EEW 185-192)", "Acrylic Emulsion Binder 50% Solids", "Sodium Lauryl Ether Sulfate (SLES) 70% Paste", "Fumed Silica (Hydrophilic, 200 m2/g)", "Waterborne Polyurethane Dispersion (PUD)"
+    "New Personal Care Product Formulation Development"
   ];
 
   stageRows: any[] = [];
@@ -100,8 +152,13 @@ export class StagesDataTableComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    // Generate 20 rows dynamically based on the highest length
-    for (let i = 0; i < 20; i++) {
+    const maxLength = Math.max(
+      this.s1List.length, this.s2List.length, this.s3List.length, this.s4List.length,
+      this.s5List.length, this.s6List.length, this.s7List.length, this.s8List.length,
+      this.s9List.length, this.s10List.length, this.s11List.length, this.s12List.length
+    );
+
+    for (let i = 0; i < maxLength; i++) {
       this.stageRows.push({
         s1: this.s1List[i] || '', s2: this.s2List[i] || '', s3: this.s3List[i] || '', s4: this.s4List[i] || '',
         s5: this.s5List[i] || '', s6: this.s6List[i] || '', s7: this.s7List[i] || '', s8: this.s8List[i] || '',
@@ -141,7 +198,6 @@ export class StagesDataTableComponent implements OnInit, AfterViewInit {
   private updateScrollButtons(): void {
     if (!this.tableContainer?.nativeElement) return;
     const el = this.tableContainer.nativeElement;
-    // Buffer of 5px to prevent floating point glitches
     this.canScrollLeft = el.scrollLeft > 5;
     this.canScrollRight = el.scrollLeft + el.clientWidth < el.scrollWidth - 5;
   }
@@ -150,9 +206,9 @@ export class StagesDataTableComponent implements OnInit, AfterViewInit {
     if (key === 's1' || key === 's2') return false;
 
     const redIndexesMap: { [key: string]: number[] } = {
-      s3: [2, 7, 13], s4: [1, 6, 11], s5: [3, 8, 14], s6: [2, 9],
-      s7: [1, 5, 10], s8: [3, 7], s9: [2, 6], s10: [1, 8],
-      s11: [3, 7], s12: [2, 5]
+      s3: [2, 5], s4: [1, 4], s5: [2], s6: [1, 3],
+      s7: [1], s8: [1], s9: [0], s10: [0],
+      s11: [0], s12: [0]
     };
     return redIndexesMap[key]?.includes(rowIndex) || false;
   }

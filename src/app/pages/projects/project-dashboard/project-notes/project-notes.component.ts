@@ -70,9 +70,9 @@ export class ProjectNotesComponent implements OnInit {
   editNoteText: string = '';
   editDialogRef: any = null;
 
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  dynamicBreadcrumb: string = 'Acrylic Emulsion Binder 50% Solids - 2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/006';
 
   constructor(
     private router: Router,
@@ -95,20 +95,20 @@ export class ProjectNotesComponent implements OnInit {
   }
 
   loadTags(): void {
-    const stored = localStorage.getItem('rpm_tags_chm_v1');
+    const stored = localStorage.getItem('rpm_tags_fmcg_v1');
     let tagsList = [];
     if (stored) {
       tagsList = JSON.parse(stored);
     } else {
       tagsList = [
-        { id: 1, name: 'Raw Material', isActive: true, description: 'Notes regarding raw material and monomer evaluation' },
-        { id: 2, name: 'Recipe', isActive: true, description: 'Notes regarding polymerization recipe and surfactant screening' },
-        { id: 3, name: 'Analytical', isActive: true, description: 'Notes regarding solids, particle size and viscosity testing' },
-        { id: 4, name: 'Process', isActive: true, description: 'Notes regarding reactor runs, exotherm control and filtration' },
-        { id: 5, name: 'Stability', isActive: true, description: 'Notes regarding thermal aging and freeze-thaw stability' },
-        { id: 6, name: 'Regulatory', isActive: true, description: 'Notes regarding REACH/TSCA dossier preparation and SDS' }
+        { id: 1, name: 'Reference Product', isActive: true, description: 'Notes regarding reference product and benchmark evaluation' },
+        { id: 2, name: 'product formulation', isActive: true, description: 'Notes regarding product formulation and recipe optimization' },
+        { id: 3, name: 'Analytical', isActive: true, description: 'Notes regarding analytical testing and nutritional profiling' },
+        { id: 4, name: 'Bioprocess', isActive: true, description: 'Notes regarding bioprocess, pilot mixing and blending trials' },
+        { id: 5, name: 'Stability', isActive: true, description: 'Notes regarding shelf-life stability and accelerated testing' },
+        { id: 6, name: 'Regulatory Affairs & Compliance', isActive: true, description: 'Notes regarding food safety standards and FSSAI/regulatory compliance' }
       ];
-      localStorage.setItem('rpm_tags_chm_v1', JSON.stringify(tagsList));
+      localStorage.setItem('rpm_tags_fmcg_v1', JSON.stringify(tagsList));
     }
     this.availableTags = tagsList.filter((t: any) => t.isActive).map((t: any) => t.name);
     if (this.availableTags.length > 0 && !this.selectedTag) {
@@ -117,7 +117,7 @@ export class ProjectNotesComponent implements OnInit {
   }
 
   loadNotes(): void {
-    const stored = localStorage.getItem('rpm_notes_chm_v1');
+    const stored = localStorage.getItem('rpm_notes_fmcg_v1');
     if (stored) {
       this.notesList = JSON.parse(stored);
     } else {
@@ -126,23 +126,23 @@ export class ProjectNotesComponent implements OnInit {
           actions: '',
           date: '06/05/2026',
           postedBy: 'Rajesh Kumar',
-          message: 'Raw material evaluation completed; monomer supplier qualification is under review with 2 shortlisted sources.',
-          document: 'Monomer Specification.pdf',
-          tags: 'Raw Material'
+          message: 'Reference Consumer Product Characterization completed; product formulation vendor qualification is under review with 2 shortlisted sources.',
+          document: 'Consumer Benchmark Study.pdf',
+          tags: 'Reference Product'
         },
         {
           actions: '',
           date: '06/12/2026',
           postedBy: 'Anita Desai',
-          message: 'Recipe screening completed with the selected surfactant system; particle size of 120 nm and 50% solids achieved in lab batches.',
-          document: 'Recipe Screening Report.pdf',
-          tags: 'Recipe'
+          message: 'Clone screening completed on the selected CHO host product formulation; lead clone titer of 2.8 g/L observed in shake-flask runs.',
+          document: 'Screening Trial Report.pdf',
+          tags: 'product formulation'
         },
         {
           actions: '',
           date: '06/20/2026',
           postedBy: 'Amit Patel',
-          message: 'Analytical testing initiated for solids, particle size, viscosity and residual monomer (GC) method development.',
+          message: 'Analytical testing initiated for product efficacy and performance product performance and quality test, and charge variant (cIEF) and size-exclusion HPLC method development.',
           document: 'Analytical Method Report.pdf',
           tags: 'Analytical'
         },
@@ -150,15 +150,15 @@ export class ProjectNotesComponent implements OnInit {
           actions: '',
           date: '06/28/2026',
           postedBy: 'Neha Sharma',
-          message: 'Lab-scale 2 L polymerization completed with controlled exotherm and less than 0.05% coagulum.',
+          message: 'Pilot expression run completed in a 5 L benchtop mixing and blending vessel with consistent titer and viable cell density.',
           document: 'Process Execution Record.pdf',
-          tags: 'Process'
+          tags: 'Bioprocess'
         },
         {
           actions: '',
           date: '07/04/2026',
           postedBy: 'Vikram Singh',
-          message: 'Initiated 3-month accelerated storage stability testing (50 degrees C) and freeze-thaw cycling on the emulsion.',
+          message: 'Initiated 3-month accelerated shelf-life Shelf-Life Stability testing (25°C/60% RH) and forced degradation (thermal and agitation stress) on bulk product.',
           document: 'Stability Protocol.pdf',
           tags: 'Stability'
         },
@@ -166,14 +166,14 @@ export class ProjectNotesComponent implements OnInit {
           actions: '',
           date: '07/11/2026',
           postedBy: 'Priya Nair',
-          message: 'Completed REACH data gap analysis, SDS authoring and specification review.',
-          document: 'REACH Dossier Draft.pdf',
-          tags: 'Regulatory'
+          message: 'Completed eCTD Module 3 bulk product (3.2.S) outline, ingredient specification characterization summary and specification review.',
+          document: 'Regulatory Dossier Draft.pdf',
+          tags: 'Regulatory Affairs & Compliance'
         }
       ];
-      localStorage.setItem('rpm_notes_chm_v1', JSON.stringify(this.notesList));
+      localStorage.setItem('rpm_notes_fmcg_v1', JSON.stringify(this.notesList));
     }
-    const defaultUpdaters = ['Dr. Sarah Jenkins', 'Rajesh Kumar', 'Anita Desai', 'Amit Patel', 'Neha Sharma', 'Vikram Malhotra', 'Priya Nair'];
+    const defaultUpdaters = ['Dr. Priya Raman', 'Rajesh Kumar', 'Anita Desai', 'Amit Patel', 'Neha Sharma', 'Vikram Singh', 'Priya Nair'];
     const defaultDates = ['2026-06-05', '2026-06-12', '2026-06-20', '2026-06-28', '2026-07-04', '2026-07-11', '2026-07-18', '2026-07-25', '2026-08-02', '2026-08-09', '2026-08-16', '2026-08-23'];
     this.notesList.forEach((n, idx) => {
       if (!n.historyCount) {
@@ -213,15 +213,15 @@ export class ProjectNotesComponent implements OnInit {
         day: '2-digit',
         year: 'numeric'
       }),
-      postedBy: 'Dr. Sarah Jenkins',
+      postedBy: 'Ananya Rao',
       message: this.noteText.trim(),
       document: this.attachedDocument || '',
       tags: this.selectedTag,
       updatedDate: now,
-      updatedBy: 'Dr. Sarah Jenkins'
+      updatedBy: 'Ananya Rao'
     };
     this.notesList = [newNote, ...this.notesList];
-    localStorage.setItem('rpm_notes_v3', JSON.stringify(this.notesList));
+    localStorage.setItem('rpm_notes_fmcg_v1', JSON.stringify(this.notesList));
     this.clearForm();
     this.updatePagination();
   }
@@ -253,7 +253,7 @@ export class ProjectNotesComponent implements OnInit {
       this.editingNote.message = this.editNoteText.trim();
       this.editingNote.updatedDate = new Date().toISOString().split('T')[0];
       this.editingNote.updatedBy = 'Dr. Sarah Jenkins';
-      localStorage.setItem('rpm_notes_v3', JSON.stringify(this.notesList));
+      localStorage.setItem('rpm_notes_fmcg_v1', JSON.stringify(this.notesList));
       this.updatePagination();
     }
     this.closeEditDialog();
@@ -274,7 +274,7 @@ export class ProjectNotesComponent implements OnInit {
           this.closeEditDialog();
         }
         this.notesList = this.notesList.filter(n => n !== note);
-        localStorage.setItem('rpm_notes_v3', JSON.stringify(this.notesList));
+        localStorage.setItem('rpm_notes_fmcg_v1', JSON.stringify(this.notesList));
         this.updatePagination();
       }
     });
@@ -296,7 +296,7 @@ export class ProjectNotesComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/projects/dashboard/analytics'], {
-      queryParams: { code: this.projectCode || "2026/GEN/001", name: this.projectName || "Generic Tablet Development" }
+      queryParams: { code: this.projectCode || "2026/FMCG/006", name: this.projectName || "Vitamin-Enriched Fruit Beverage 250ml" }
     });
   }
 

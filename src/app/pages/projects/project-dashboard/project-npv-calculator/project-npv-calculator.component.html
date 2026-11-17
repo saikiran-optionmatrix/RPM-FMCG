@@ -1,6 +1,9 @@
 <div class="analytics-page" style="padding: 10px 25px 80px 25px">
   <header class="analytics-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
-    <h1>{{ projectName }}</h1>
+    <div class="header-title-group">
+      <h1>{{ projectName }}</h1>
+      <p class="header-subtitle" style="margin: 4px 0 0 0; font-size: 14px; color: #64748b;">Calculate and evaluate program Net Present Value (NPV).</p>
+    </div>
     
     <div style="display: flex; gap: 10px;">
       <button mat-raised-button color="primary" class="app-btn app-btn-primary" (click)="openSetupDialog()"

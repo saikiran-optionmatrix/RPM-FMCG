@@ -54,18 +54,18 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
 
   private charts: any[] = [];
 
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  dynamicBreadcrumb: string = 'Acrylic Emulsion Binder 50% Solids - 2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/006';
 
   // --- Task Data ---
   overdueTasks: Task[] = [
-    { name: 'Monomer-Initiator Compatibility Study', assignee: 'Dr. Priya R.', status: 'CRITICAL', slipDays: '+6d' },
-    { name: 'Monomer Feed Profile Optimization', assignee: 'Rahul K.', status: 'CRITICAL', slipDays: '+5d' },
-    { name: 'Lab Reactor Batch Run (2 L)', assignee: 'Meena S.', status: 'HIGH', slipDays: '+4d' },
-    { name: 'Particle Size & Viscosity Method Validation', assignee: 'Anil P.', status: 'HIGH', slipDays: '+3d' },
-    { name: 'Emulsion Storage Stability Assessment', assignee: 'Kavya R.', status: 'HIGH', slipDays: '+3d' },
-    { name: 'Polymerization Process Documentation', assignee: 'Suresh N.', status: 'MEDIUM', slipDays: '+2d' },
+    { name: 'Formula and Product Consistency Study', assignee: 'Dr. Priya R.', status: 'CRITICAL', slipDays: '+6d' },
+    { name: 'Upstream yield and Product Formulation optimization', assignee: 'Rahul K.', status: 'CRITICAL', slipDays: '+5d' },
+    { name: 'Pilot mixing and blending vessel Batch Run', assignee: 'Meena S.', status: 'HIGH', slipDays: '+4d' },
+    { name: 'Product efficacy and performance test Validation', assignee: 'Anil P.', status: 'HIGH', slipDays: '+3d' },
+    { name: 'Bulk product Shelf-Life Stability Assessment', assignee: 'Kavya R.', status: 'HIGH', slipDays: '+3d' },
+    { name: 'Blending, Finishing and Quality Control Process Documentation', assignee: 'Suresh N.', status: 'MEDIUM', slipDays: '+2d' },
   ];
 
   // --- Gantt Timeline Data ---
@@ -74,8 +74,8 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
   ganttTasks: GanttTaskItem[] = [
     {
       id: 1,
-      label: '1. Benchmark Grade Characteri...',
-      fullName: '1. Benchmark Grade Characterization — 12d',
+      label: '1. Reference Product Chara...',
+      fullName: '1. Reference Product Analytical Characterization — 12d',
       duration: '12d',
       isOverdue: false,
       leftPercent: 1.5,
@@ -83,8 +83,8 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
     },
     {
       id: 2,
-      label: '2. Monomer & Surfactant Screen...',
-      fullName: '2. Monomer & Surfactant Screening — 18d',
+      label: '2. Product Formulation Dev...',
+      fullName: '2. Product Formulation Development & Clone Selection — 18d',
       duration: '18d',
       isOverdue: false,
       leftPercent: 9.5,
@@ -92,8 +92,8 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
     },
     {
       id: 3,
-      label: '3. Lab-Scale Polymerization De...',
-      fullName: '3. Lab-Scale Polymerization Dev — 24d',
+      label: '3. Ingredient Processing D...',
+      fullName: '3. Ingredient Processing Development — 24d',
       duration: '24d',
       isOverdue: false,
       leftPercent: 24.5,
@@ -101,8 +101,8 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
     },
     {
       id: 4,
-      label: '4. Particle Size Control Study...',
-      fullName: '4. Particle Size Control Study — 14d',
+      label: '4. Blending & Finishing De...',
+      fullName: '4. Blending, Finishing and Quality Control Development — 14d',
       duration: '14d',
       isOverdue: true,
       leftPercent: 44.5,
@@ -110,8 +110,8 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
     },
     {
       id: 5,
-      label: '5. Residual Monomer Reduction ...',
-      fullName: '5. Residual Monomer Reduction — 20d',
+      label: '5. Finished Product Optimi...',
+      fullName: '5. Finished Product Formulation Optimization — 20d',
       duration: '20d',
       isOverdue: true,
       leftPercent: 55.0,
@@ -119,8 +119,8 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
     },
     {
       id: 6,
-      label: '6. Storage Stability Initiatio...',
-      fullName: '6. Storage Stability Initiation — 30d',
+      label: '6. Bulk Shelf-Life Initiat...',
+      fullName: '6. Bulk Product Shelf-Life Stability Study Initiation — 30d',
       duration: '30d',
       isOverdue: true,
       leftPercent: 71.0,
@@ -236,12 +236,12 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
 
   private getSprintBufferChartOptions(): any {
     const stageNames: Record<string, string> = {
-      'S1': 'S1 - Opportunity Identification',
-      'S2': 'S2 - Concept Screening & Feasibility',
-      'S3': 'S3 - Route Scouting & Lab Synthesis',
-      'S4': 'S4 - Process Optimization (Lab Scale)',
-      'S5': 'S5 - Process Route Selection & Basis of Design',
-      'S6': 'S6 - Bench-to-Pilot Process Development'
+      'S1': 'S1 - Consumer Need and Market Opportunity',
+      'S2': 'S2 - Market and Product Concept Validation',
+      'S3': 'S3 - Product Ideation and Concept Screening',
+      'S4': 'S4 - Product Formulation and Product Optimization',
+      'S5': 'S5 - Product Concept and Formula Selection',
+      'S6': 'S6 - Product Formulation and Manufacturing Process Development'
     };
 
     return {
@@ -356,11 +356,11 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
 
   private getStageBufferChartOptions(): any {
     const gateNames: Record<string, string> = {
-      'Gate 1': 'Gate 1 - Concept Approval',
-      'Gate 2': 'Gate 2 - Route Selection',
-      'Gate 3': 'Gate 3 - Registration & Pilot Readiness',
-      'Gate 4': 'Gate 4 - Demo-Scale Proof',
-      'Gate 5': 'Gate 5 - Commercial Readiness'
+      'Gate 1': 'Gate 1 - Product Concept Selection',
+      'Gate 2': 'Gate 2 - Product Concept and Formula Selection',
+      'Gate 3': 'Gate 3 - Product Concept and Feasibility Approval',
+      'Gate 4': 'Gate 4 - Consumer Validation and Product Performance Proof',
+      'Gate 5': 'Gate 5 - Market Launch and Regulatory Readiness'
     };
 
     return {
@@ -550,17 +550,17 @@ export class ProjectAnalyticsComponent implements OnInit, AfterViewInit, OnDestr
           name: 'Effort allocation',
           data: [
             {
-              name: 'Process Chemists & Engineers',
+              name: 'BioManufacturing Process Development Scientists',
               y: 76.9,
               color: '#3b82f6'
             },
             {
-              name: 'Analytical & QC',
+              name: 'Quality Testing & QC',
               y: 15.7,
               color: '#10b981'
             },
             {
-              name: 'Equipment & Pilot Plant Setup',
+              name: 'Facility & Equipment Setup',
               y: 7.4,
               color: '#f59e0b'
             }

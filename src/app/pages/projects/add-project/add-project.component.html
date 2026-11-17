@@ -1,6 +1,6 @@
 <div class="NewHeader">
   <h1 mat-dialog-title>
-    {{ isEditMode ? 'Update Project' : 'Add Project' }}
+    {{ isEditMode ? 'Update Program' : 'Add Program' }}
   </h1>
 </div>
 
@@ -58,27 +58,27 @@
 
           <!-- Project Code -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Project Code :</label>
+            <label class="add-member-label control-label">Program Code :</label>
             <input class="form-control name back" placeholder="Enter Project Code" formControlName="projectCode"
               type="text">
           </div>
 
           <!-- Product Name -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Product Name :</label>
+            <label class="add-member-label control-label">Program Name :</label>
             <input class="form-control name back" placeholder="Enter Product Name" formControlName="productName"
               type="text">
           </div>
 
           <!-- Molecule -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Molecule :</label>
+            <label class="add-member-label control-label">Molecule / Modality :</label>
             <input class="form-control name back" placeholder="Enter Molecule" formControlName="module" type="text">
           </div>
 
           <!-- Star Product -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Star Product :</label>
+            <label class="add-member-label control-label">Star Program :</label>
             <select class="form-control name back" formControlName="starProduct">
               <option value="">Select Star Product</option>
               @for (sp of starProductList; track sp) {
@@ -89,7 +89,7 @@
 
           <!-- Registration Type -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Registration Type :</label>
+            <label class="add-member-label control-label">Regulatory Pathway :</label>
             <select class="form-control name back" formControlName="registrationType">
               <option value="">Select Registration Type</option>
               @for (reg of registrationTypesList; track reg) {
@@ -100,7 +100,7 @@
 
           <!-- Project Owner -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Project Owner :</label>
+            <label class="add-member-label control-label">Program Owner :</label>
             <select class="form-control name back" formControlName="projectOwner">
               <option value="">Select Project Owner</option>
               @for (owner of projectOwnersList; track owner) {
@@ -111,7 +111,7 @@
 
           <!-- Project Lead -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Project Lead :</label>
+            <label class="add-member-label control-label">Program Lead :</label>
             <select class="form-control name back" formControlName="projectLead">
               <option value="">Select Project Lead</option>
               @for (lead of projectLeadsList; track lead) {
@@ -151,21 +151,21 @@
 
           <!-- Project Start Date -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Project Start Date :</label>
+            <label class="add-member-label control-label">Program Start Date :</label>
             <input class="form-control name back" placeholder="e.g. 01-Jul-2026" formControlName="projectStartDate"
               type="text">
           </div>
 
           <!-- Project End Date -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Project End Date :</label>
+            <label class="add-member-label control-label">Program End Date :</label>
             <input class="form-control name back" placeholder="e.g. 30-Jun-2027" formControlName="projectEndDate"
               type="text">
           </div>
 
           <!-- Project Budget (USD mn) -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Project Budget (USD mn) :</label>
+            <label class="add-member-label control-label">Program Budget (USD mn) :</label>
             <input class="form-control name back" placeholder="e.g. 0.45" formControlName="projectBudget" type="text">
           </div>
         </div>
@@ -234,7 +234,7 @@
         <div class="fields-grid">
           <!-- Dosage Form -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Dosage Form :</label>
+            <label class="add-member-label control-label">Dosage Form / Presentation :</label>
             <select class="form-control name back" formControlName="dosageForm">
               <option value="">Select Dosage Form</option>
               @for (form of dosageFormsList; track form) {
@@ -245,7 +245,7 @@
 
           <!-- Strength -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Strength :</label>
+            <label class="add-member-label control-label">Strength / Concentration :</label>
             <input class="form-control name back" placeholder="e.g. 250 mg & 500 mg" formControlName="strength"
               type="text">
           </div>
@@ -258,14 +258,14 @@
 
           <!-- Pharmacopoeia -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Pharmacopoeia :</label>
+            <label class="add-member-label control-label">Compendial Standards / FSSAI :</label>
             <input class="form-control name back" placeholder="e.g. USP, Ph.Eur, In house"
               formControlName="pharmacopoeia" type="text">
           </div>
 
           <!-- Packaging Details -->
           <div class="form-field-group full-width">
-            <label class="add-member-label control-label">Packaging Details :</label>
+            <label class="add-member-label control-label">Primary Packaging Details :</label>
             <input class="form-control name back" placeholder="e.g. Blister pack/ ALU, stopper vials"
               formControlName="packagingDetails" type="text">
           </div>
@@ -279,63 +279,63 @@
         <div class="fields-grid">
           <!-- Innovator Company -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Innovator (Company) :</label>
+            <label class="add-member-label control-label">Reference Product (Company) :</label>
             <input class="form-control name back" placeholder="e.g. Janssen-Cilag (Johnson & Johnson)"
               formControlName="innovatorCompany" type="text">
           </div>
 
           <!-- Innovator Brand Name -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Innovator Brand Name :</label>
+            <label class="add-member-label control-label">Reference Product Brand Name :</label>
             <input class="form-control name back" placeholder="e.g. Zytiga" formControlName="innovatorBrandName"
               type="text">
           </div>
 
           <!-- Innovator Dosage Form -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Innovator Dosage Form :</label>
+            <label class="add-member-label control-label">Reference Product Dosage Form :</label>
             <input class="form-control name back" placeholder="e.g. Film-coated tablets"
               formControlName="innovatorDosageForm" type="text">
           </div>
 
           <!-- Innovator Strengths -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Innovator Strengths :</label>
+            <label class="add-member-label control-label">Reference Product Strengths :</label>
             <input class="form-control name back" placeholder="e.g. 250 mg, 500 mg"
               formControlName="innovatorStrengths" type="text">
           </div>
 
           <!-- Innovator Approval Date -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Innovator Approval Date :</label>
+            <label class="add-member-label control-label">Reference Product Approval Date :</label>
             <input class="form-control name back" placeholder="e.g. 05-Sep-2011 (EU); 28-Apr-2011 (US FDA)"
               formControlName="innovatorApprovalDate" type="text">
           </div>
 
           <!-- Innovator Pack Presentation -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Innovator Pack Presentation :</label>
+            <label class="add-member-label control-label">Reference Product Pack Presentation :</label>
             <input class="form-control name back" placeholder="e.g. 250 mg: HDPE bottle of 120 tablets"
               formControlName="innovatorPackPresentation" type="text">
           </div>
 
           <!-- Innovator Bio Strength -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Innovator Bio Strength :</label>
+            <label class="add-member-label control-label">Reference Product Efficacy / Strength :</label>
             <input class="form-control name back" placeholder="e.g. 500 mg or Not applicable"
               formControlName="innovatorBioStrength" type="text">
           </div>
 
           <!-- RLD Information -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">RLD Information (SmPC / PIL / COA) :</label>
+            <label class="add-member-label control-label">Reference Product Info (PI / CoA) :</label>
             <input class="form-control name back" placeholder="e.g. Available" formControlName="rldInformation"
               type="text">
           </div>
 
           <!-- Innovator vs Jodas -->
           <div class="form-field-group full-width">
-            <label class="add-member-label control-label">Innovator vs Jodas :</label>
+            <label class="add-member-label control-label">Reference Product vs Our Product :</label>
             <input class="form-control name back" placeholder="e.g. Same dosage form and strengths"
               formControlName="innovatorVsJodas" type="text">
           </div>
@@ -356,48 +356,48 @@
         <div class="fields-grid">
           <!-- API Manufacturer -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">API Manufacturer :</label>
+            <label class="add-member-label control-label">Bulk Product / Ingredient Manufacturer :</label>
             <input class="form-control name back" placeholder="e.g. Mac chem" formControlName="apiManufacturer"
               type="text">
           </div>
 
           <!-- Polymorph Form -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">Polymorph Form (if applicable) :</label>
+            <label class="add-member-label control-label">Ingredient Grade / Expression System :</label>
             <input class="form-control name back" placeholder="e.g. Crystalline; form to be confirmed from vendor"
               formControlName="polymorphForm" type="text">
           </div>
 
           <!-- CEP/DMF No & Receipt Status -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">CEP/DMF No & Receipt Status :</label>
+            <label class="add-member-label control-label">Specification / File No & Receipt Status :</label>
             <input class="form-control name back" placeholder="e.g. DMF open part: Available; CEP/DMF No. to be added"
               formControlName="cepDmfNoReceiptStatus" type="text">
           </div>
 
           <!-- DMF/ASMF/CEP Received -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">DMF/ASMF/CEP Received :</label>
+            <label class="add-member-label control-label">DMF / ASMF Received :</label>
             <input class="form-control name back" placeholder="e.g. Available" formControlName="dmfAsmfCepReceived"
               type="text">
           </div>
 
           <!-- API Vendor Qualification -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">API Vendor Qualification :</label>
+            <label class="add-member-label control-label">Bulk Product Vendor Qualification :</label>
             <input class="form-control name back" placeholder="e.g. Qualified / Under re-qualification"
               formControlName="apiVendorQualification" type="text">
           </div>
 
           <!-- API - ML -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">API - ML :</label>
+            <label class="add-member-label control-label">Bulk Product - Finished Product - ML :</label>
             <input class="form-control name back" placeholder="e.g. Available" formControlName="apiMl" type="text">
           </div>
 
           <!-- API - GMP -->
           <div class="form-field-group">
-            <label class="add-member-label control-label">API - GMP :</label>
+            <label class="add-member-label control-label">Bulk Product - GMP :</label>
             <input class="form-control name back" placeholder="e.g. Present not required" formControlName="apiGmp"
               type="text">
           </div>
@@ -423,11 +423,11 @@
             </div>
           </div>
 
-          <!-- Section 2: Bio Study (Optional) -->
+          <!-- Section 2: Comparative / Consumer Study (Optional) -->
           <h4 class="section-title mt-3">Bio Study (Optional)</h4>
           <div class="fields-grid">
             <div class="form-field-group">
-              <label class="add-member-label control-label">Bio Study CRO Name :</label>
+              <label class="add-member-label control-label">Comparative Study Testing Partner Name :</label>
               <input class="form-control name back" placeholder="Enter CRO name" formControlName="bioStudyCroName"
                 type="text">
             </div>
@@ -450,7 +450,7 @@
             </div>
 
             <div class="form-field-group full-width">
-              <label class="add-member-label control-label">Bio Study Report :</label>
+              <label class="add-member-label control-label">Comparative Study Report :</label>
               <input class="form-control name back" placeholder="e.g. BE available / Not applicable"
                 formControlName="bioStudyReport" type="text">
             </div>

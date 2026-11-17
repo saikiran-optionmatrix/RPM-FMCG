@@ -82,9 +82,9 @@ export class ProjectHoursComponent implements OnInit {
   currentDate: Date = new Date(2026, 5, 1); // June 2026
   selectedDate: Date | null = null;
 
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  dynamicBreadcrumb: string = 'Acrylic Emulsion Binder 50% Solids - 2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/001';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/001';
 
   filteredEntries: HourEntry[] = [];
   paginatedEntries: HourEntry[] = [];
@@ -99,22 +99,22 @@ export class ProjectHoursComponent implements OnInit {
       dateObj: new Date(2026, 5, 2),
       jobCode: 'JB-301',
       name: 'Rajesh Kumar',
-      project: '2026/CHM/006 - Acrylic Emulsion Binder 50% Solids',
+      project: '2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml',
       projectsCount: 3,
       tasksList: [
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Process Development",
-                "task": "Monomer Feed Profile Optimization",
+                "task": "Beverage Brix & Acid Balancing",
                 "hours": 4.5,
-                "description": "Semi-continuous monomer feed rate and reactor temperature control"
+                "description": "Adjustment of soluble solids (11.5°Bx) and citric acid ratio for optimal tartness"
         },
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Lab Trials",
-                "task": "Lab Reactor Batch Run (2 L)",
+                "task": "Benchtop Blending Trial (5 L)",
                 "hours": 3.4,
-                "description": "2 L reactor trial batch synthesis and exotherm monitoring"
+                "description": "Benchtop blending trial and vitamin C stability monitoring"
         }
 ],
       totalHours: 7.9,
@@ -125,7 +125,7 @@ export class ProjectHoursComponent implements OnInit {
         {
                 "sender": "Rajesh Kumar",
                 "date": "2026-06-02",
-                "text": "Submitted timesheet for monomer feed optimization."
+                "text": "Submitted timesheet for beverage formulation optimization."
         },
         {
                 "sender": "Process Lead",
@@ -138,22 +138,22 @@ export class ProjectHoursComponent implements OnInit {
       dateObj: new Date(2026, 5, 2),
       jobCode: 'JB-302',
       name: 'Anita Desai',
-      project: '2026/CHM/006 - Acrylic Emulsion Binder 50% Solids',
+      project: '2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml',
       projectsCount: 3,
       tasksList: [
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Raw Material Sourcing",
-                "task": "Surfactant Screening & Qualification",
+                "task": "Vitamin & Antioxidant Premix Screening",
                 "hours": 4.5,
-                "description": "Anionic/non-ionic surfactant package screening for emulsion stability"
+                "description": "Water-soluble vitamin C and B-complex premix screening for clarity"
         },
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Raw Material Sourcing",
-                "task": "Monomer Inhibitor Removal Trials",
+                "task": "Natural Flavor & Color Blending Trials",
                 "hours": 3.4,
-                "description": "Evaluation of MEHQ inhibitor removal resins"
+                "description": "Passionfruit and mango natural flavor synergy trials"
         }
 ],
       totalHours: 7.9,
@@ -166,22 +166,22 @@ export class ProjectHoursComponent implements OnInit {
       dateObj: new Date(2026, 5, 2),
       jobCode: 'JB-303',
       name: 'Priya Reddy',
-      project: '2026/CHM/006 - Acrylic Emulsion Binder 50% Solids',
+      project: '2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml',
       projectsCount: 3,
       tasksList: [
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Regulatory Affairs",
-                "task": "REACH / TSCA Dossier Compilation",
+                "task": "FSSAI Regulatory Dossier Compilation",
                 "hours": 4.5,
-                "description": "Compilation of polymer characterization and monomer registration data"
+                "description": "Nutritional panel validation and immunity claim substantiation dossier"
         },
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Regulatory Affairs",
-                "task": "Safety Data Sheet Authoring",
+                "task": "Front-of-Pack Nutrition Labeling Review",
                 "hours": 3.4,
-                "description": "16-section multilingual GHS Safety Data Sheet authoring"
+                "description": "Verification of RDA % claim substantiation and allergen declarations"
         }
 ],
       totalHours: 7.9,
@@ -194,22 +194,22 @@ export class ProjectHoursComponent implements OnInit {
       dateObj: new Date(2026, 5, 2),
       jobCode: 'JB-304',
       name: 'Amit Patel (Overtime)',
-      project: '2026/CHM/006 - Acrylic Emulsion Binder 50% Solids',
+      project: '2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml',
       projectsCount: 3,
       tasksList: [
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Analytical & QC",
-                "task": "Particle Size & Viscosity Profiling",
+                "task": "Brix, pH & Turbidity Profiling",
                 "hours": 5.5,
-                "description": "DLS particle size distribution and Brookfield viscosity measurements"
+                "description": "Digital refractometer Brix verification and spectrophotometer turbidity"
         },
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Analytical & QC",
-                "task": "Residual Monomer GC-FID Analysis",
+                "task": "HPLC Vitamin C & B6 Assay",
                 "hours": 5.2,
-                "description": "Gas chromatography testing for residual butyl acrylate below 100 ppm"
+                "description": "Reverse-phase HPLC determination of ascorbic acid retention"
         }
 ],
       totalHours: 10.7,
@@ -220,7 +220,7 @@ export class ProjectHoursComponent implements OnInit {
         {
                 "sender": "Amit Patel",
                 "date": "2026-06-02",
-                "text": "Overtime authorized for urgent residual monomer GC run."
+                "text": "Overtime authorized for urgent HPLC vitamin stability run."
         }
 ]
     },
@@ -228,22 +228,22 @@ export class ProjectHoursComponent implements OnInit {
       dateObj: new Date(2026, 5, 2),
       jobCode: 'JB-305',
       name: 'Suresh Naidu',
-      project: '2026/CHM/006 - Acrylic Emulsion Binder 50% Solids',
+      project: '2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml',
       projectsCount: 3,
       tasksList: [
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Plant Operations",
-                "task": "Reactor Maintenance & Cleaning",
+                "task": "Jacketed Blending Vessel CIP Cleaning",
                 "hours": 4.5,
-                "description": "Jacketed reactor caustic boil-out and seal inspection"
+                "description": "Clean-in-place caustic rinse and aseptic seal inspection on 100 L vessel"
         },
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Plant Operations",
-                "task": "Monomer Feed Pump Calibration",
+                "task": "Liquid Flavor Metering Pump Calibration",
                 "hours": 3.4,
-                "description": "Peristaltic pump metering accuracy and stroke calibration"
+                "description": "Aseptic dosing pump accuracy and flowrate calibration"
         }
 ],
       totalHours: 7.9,
@@ -256,18 +256,18 @@ export class ProjectHoursComponent implements OnInit {
       dateObj: new Date(2026, 5, 2),
       jobCode: 'JB-306',
       name: 'Arun Joseph',
-      project: '2026/CHM/006 - Acrylic Emulsion Binder 50% Solids',
+      project: '2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml',
       projectsCount: 3,
       tasksList: [
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Process Safety",
                 "task": "Calorimetry & Exotherm Assessment",
                 "hours": 4.5,
                 "description": "RC1 reaction calorimetry heat output and cooling rate calculations"
         },
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Process Safety",
                 "task": "HAZOP Study Node Preparation",
                 "hours": 3.4,
@@ -284,18 +284,18 @@ export class ProjectHoursComponent implements OnInit {
       dateObj: new Date(2026, 5, 2),
       jobCode: 'JB-307',
       name: 'Lakshmi Devi',
-      project: '2026/CHM/006 - Acrylic Emulsion Binder 50% Solids',
+      project: '2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml',
       projectsCount: 3,
       tasksList: [
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Quality Assurance",
                 "task": "Batch Record Audit",
                 "hours": 4.5,
                 "description": "Review of in-process critical parameters for trial batches"
         },
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Quality Assurance",
                 "task": "COA Verification",
                 "hours": 3.4,
@@ -318,18 +318,18 @@ export class ProjectHoursComponent implements OnInit {
       dateObj: new Date(2026, 5, 2),
       jobCode: 'JB-308',
       name: 'Deepa Nair (Overtime)',
-      project: '2026/CHM/006 - Acrylic Emulsion Binder 50% Solids',
+      project: '2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml',
       projectsCount: 3,
       tasksList: [
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Polymer Synthesis",
                 "task": "Emulsion Polymerization Synthesis",
                 "hours": 6,
                 "description": "Extended polymerization run tracking monomer conversion kinetics"
         },
         {
-                "project": "2026/CHM/006 - Acrylic Emulsion Binder 50% Solids",
+                "project": "2026/FMCG/001 - Vitamin-Enriched Fruit Beverage 250ml",
                 "module": "Polymer Synthesis",
                 "task": "Coagulum Determination & Filtration",
                 "hours": 4.5,
@@ -627,7 +627,7 @@ export class ProjectHoursComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/projects/dashboard/analytics'], {
-      queryParams: { code: this.projectCode || "2026/GEN/001", name: this.projectName || "Generic Tablet Development" }
+      queryParams: { code: this.projectCode || "2026/FMCG/001", name: this.projectName || "Vitamin-Enriched Fruit Beverage 250ml" }
     });
   }
 }

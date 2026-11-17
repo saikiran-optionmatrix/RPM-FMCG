@@ -1,6 +1,9 @@
 <div class="analytics-page" style="padding: 10px 25px 80px 25px">
   <header class="analytics-header">
-    <h1>{{ projectName }}</h1>
+    <div>
+      <h1>{{ projectName }}</h1>
+      <p style="margin: 2px 0 0 0; font-size: 13px; color: #64748b;">Plan dates, milestones, and deliverables.</p>
+    </div>
     <div style="display: flex; align-items: center; gap: 10px;">
       <!-- <button mat-raised-button (click)="filterToggle = !filterToggle"
         style="background-color: black; color: white; height: 38px;">
@@ -267,7 +270,7 @@
               @if (isCriticalPath) {
                 <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: #ef4444;"></span>
               }
-              {{ isCriticalPath ? 'Critical Path Gantt Chart (Non-Overlapping)' : 'Project Gantt Chart' }}
+              {{ isCriticalPath ? 'Critical Path Gantt Chart (Non-Overlapping)' : 'Program Gantt Chart' }}
             </span>
             <button class="scroll-btn" (click)="scrollGantt('left')" title="Scroll Left">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

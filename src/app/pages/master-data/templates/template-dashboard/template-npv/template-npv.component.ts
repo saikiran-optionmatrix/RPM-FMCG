@@ -33,11 +33,11 @@ export class TemplateNpvComponent implements OnInit {
     this.route.snapshot.queryParamMap.get('projectName') ||
     this.route.snapshot.queryParamMap.get('name') ||
     this.route.snapshot.queryParamMap.get('templateName') ||
-    'Specialty Chemical Process Development Program';
+    'New Beverage Product Development Program';
 
   // --- Properties ---
-  projectCode: string = '2026/CHM/001';
-  dynamicBreadcrumb: string = 'Specialty Chemical Process Development Program - 2026/CHM/001';
+  projectCode: string = '2026/FMCG/001';
+  dynamicBreadcrumb: string = 'New Beverage Product Development Program - 2026/FMCG/001';
 
   // Setup parameters
   discountRate: number = 12;

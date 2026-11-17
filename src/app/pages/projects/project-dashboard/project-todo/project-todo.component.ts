@@ -116,9 +116,9 @@ export class ProjectTodoComponent implements OnInit {
   currentPage: number = 1;
   pageSize: number = 10;
 
-  projectName: string = 'Generic Tablet Development';
-  projectCode: string = '2026/GEN/001';
-  dynamicBreadcrumb: string = 'Generic Tablet Development - 2026/GEN/001';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/006';
 
   // Timeline Modal Popup state
   showTimelineModal: boolean = false;
@@ -149,14 +149,14 @@ export class ProjectTodoComponent implements OnInit {
     this.loadInitialData();
     const sampleDates = ['2026-02-15', '2026-02-12', '2026-02-10', '2026-02-05', '2026-01-30', '2026-01-28', '2026-01-25', '2026-01-20'];
     const sampleTaskNames = [
-      'API Characterization Study',
-      'Excipient Sourcing & Compatibility',
-      'Analytical Method Validation',
-      'Stability Protocol Setup',
-      'Formulation Trial & Blending',
-      'Dissolution Profile Optimization',
-      'Bioequivalence Study Protocol',
-      'Regulatory Dossier Preparation'
+      'Benchmark Commercial Fruit Beverage Characterization',
+      'Vitamin C & Zinc Premix Sourcing & Assay Verification',
+      'Pasteurization Thermal Profile & Kinetic Inactivation Study',
+      'Sensory Panel Organoleptic Evaluation',
+      'Hot-Fill Bottle Compatibility & PET Wall Thickness Testing',
+      'Accelerated Shelf-Life Stability & Vitamin Retention Study',
+      'FSSAI Labeling & Nutrition Claim Regulatory Dossier',
+      'Gate 2 Concept & Formula Selection Submission'
     ];
     this.todos.forEach((todo, idx) => {
       if (!todo.task) {
@@ -166,7 +166,7 @@ export class ProjectTodoComponent implements OnInit {
         todo.updatedDate = sampleDates[idx % sampleDates.length];
       }
       if (!todo.updatedBy) {
-        todo.updatedBy = todo.assignedTo || 'Dr. Sarah Jenkins';
+        todo.updatedBy = todo.assignedTo || 'Ananya Rao';
       }
     });
     this.extractFilterOptions();
@@ -231,21 +231,21 @@ export class ProjectTodoComponent implements OnInit {
       {
         id: 1,
         done: true,
-        subject: 'Review Reference Product Specifications',
-        description: 'Analyze innovator product physical and chemical characteristics and finalize critical quality attributes.',
-        assignedTo: 'Ana Vega',
-        dateCreated: '2026-05-28',
-        dueDate: '2026-06-05',
-        role: 'Formulation Scientist',
-        group: 'Product Development',
-        site: 'R&D Center – Mumbai',
-        department: 'Formulation R&D',
+        subject: 'Benchmark Commercial Fruit Beverage Characterization',
+        description: 'Evaluate flavor profile, sugar-acid ratio, pH, and Brix against market benchmarks.',
+        assignedTo: 'Dr. Priya Raman',
+        dateCreated: '2026-06-01',
+        dueDate: '2026-06-10',
+        role: 'Lead Formulation Scientist',
+        group: 'Beverage R&D',
+        site: 'Beverage Pilot Plant - Bengaluru',
+        department: 'Food Product Development',
         status: 'Completed',
         planStart: '2026-06-01',
-        planEnd: '2026-06-05',
+        planEnd: '2026-06-10',
         actualStart: '2026-06-01',
-        actualEnd: '2026-06-05',
-        eta: '2026-06-05',
+        actualEnd: '2026-06-10',
+        eta: '2026-06-10',
         actualHours: 30,
         section: 'Section A',
         taskCode: 'TODO-001',
@@ -254,15 +254,15 @@ export class ProjectTodoComponent implements OnInit {
       {
         id: 2,
         done: true,
-        subject: 'Complete API Characterization',
-        description: 'Evaluate polymorphism, particle size distribution, solubility profile, and hygroscopicity.',
-        assignedTo: 'Ravi Shah',
+        subject: 'Vitamin C & Zinc Premix Sourcing & Assay Verification',
+        description: 'Verify certificate of analysis and stability specs for nutrient premix.',
+        assignedTo: 'Rajesh Kumar',
         dateCreated: '2026-05-30',
         dueDate: '2026-06-12',
-        role: 'Pre-Formulation Lead',
-        group: 'API Development',
-        site: 'R&D Center – Hyderabad',
-        department: 'Pre-Formulation',
+        role: 'Regulatory Affairs Specialist',
+        group: 'Quality & Regulatory',
+        site: 'QA Lab - Mumbai',
+        department: 'Quality Assurance',
         status: 'Completed',
         planStart: '2026-06-05',
         planEnd: '2026-06-12',
@@ -277,15 +277,15 @@ export class ProjectTodoComponent implements OnInit {
       {
         id: 3,
         done: false,
-        subject: 'Conduct API–Excipient Compatibility Study',
-        description: 'Perform isothermal stress testing (DSC, FTIR, HPLC) with proposed excipients list.',
-        assignedTo: 'Mia Chen',
+        subject: 'Pasteurization Thermal Profile & Kinetic Inactivation Study',
+        description: 'Conduct lab-scale pasteurization kinetics and shelf-life thermal modeling.',
+        assignedTo: 'Vikram Singh',
         dateCreated: '2026-06-02',
         dueDate: '2026-06-16',
-        role: 'Analytical Scientist',
-        group: 'Formulation Group',
-        site: 'R&D Center – Ahmedabad',
-        department: 'Formulation Development',
+        role: 'Senior Packaging Engineer',
+        group: 'Process Engineering',
+        site: 'Beverage Pilot Plant - Bengaluru',
+        department: 'Process Engineering',
         status: 'In Process',
         planStart: '2026-06-08',
         planEnd: '2026-06-16',
@@ -300,15 +300,15 @@ export class ProjectTodoComponent implements OnInit {
       {
         id: 4,
         done: false,
-        subject: 'Finalize Excipient Selection',
-        description: 'Select optimal binders, disintegrants, and lubricants based on compatibility matrix.',
-        assignedTo: 'Ana Vega',
+        subject: 'Sensory Panel Organoleptic Evaluation',
+        description: 'Run 9-point hedonic scale sensory panel for taste, mouthfeel, sweetness, and aroma.',
+        assignedTo: 'Anita Desai',
         dateCreated: '2026-06-05',
         dueDate: '2026-06-20',
-        role: 'Formulation Scientist',
-        group: 'Formulation Group',
-        site: 'R&D Center – Mumbai',
-        department: 'Formulation R&D',
+        role: 'QA/QC Lead',
+        group: 'Consumer Testing',
+        site: 'Sensory Lab - Gurgaon',
+        department: 'Quality Assurance',
         status: 'In Process',
         planStart: '2026-06-12',
         planEnd: '2026-06-20',
@@ -323,15 +323,15 @@ export class ProjectTodoComponent implements OnInit {
       {
         id: 5,
         done: false,
-        subject: 'Prepare Prototype Formulation Batch',
-        description: 'Compound and compress initial laboratory prototype trial batches (Batch #PB-01).',
-        assignedTo: 'Sara Iqbal',
+        subject: 'Hot-Fill Bottle Compatibility & PET Wall Thickness Testing',
+        description: 'Validate 250ml aseptic PET bottle neck finish and drop impact resistance.',
+        assignedTo: 'Amit Patel',
         dateCreated: '2026-06-10',
         dueDate: '2026-07-02',
-        role: 'Process Chemist',
-        group: 'Product Development',
-        site: 'Pilot Lab – Hyderabad',
-        department: 'Formulation Development',
+        role: 'Bioprocess Engineer',
+        group: 'Packaging Development',
+        site: 'Packaging Lab - Mumbai',
+        department: 'Packaging Engineering',
         status: 'Pending',
         planStart: '2026-06-22',
         planEnd: '2026-07-02',
@@ -346,14 +346,14 @@ export class ProjectTodoComponent implements OnInit {
       {
         id: 6,
         done: false,
-        subject: 'Review Dissolution Test Results',
-        description: 'Compare multi-media in-vitro dissolution profiles against Reference Listed Drug (RLD).',
-        assignedTo: 'Mei Tanaka',
+        subject: 'Accelerated Shelf-Life Stability & Vitamin Retention Study',
+        description: 'Setup 3-month accelerated stability chambers at 37°C/75% RH for vitamin degradation kinetics.',
+        assignedTo: 'Priya Reddy',
         dateCreated: '2026-06-15',
         dueDate: '2026-07-08',
-        role: 'QC Chemist',
-        group: 'Analytical Group',
-        site: 'R&D Center – Ahmedabad',
+        role: 'Procurement & Sourcing Lead',
+        group: 'Analytical Science',
+        site: 'Central Analytical Lab - Mumbai',
         department: 'Analytical Development',
         status: 'Pending',
         planStart: '2026-06-30',
@@ -369,15 +369,15 @@ export class ProjectTodoComponent implements OnInit {
       {
         id: 7,
         done: false,
-        subject: 'Optimize Tablet Formulation',
-        description: 'Fine-tune granulation parameters and lubricant concentrations for target hardness and disintegration.',
-        assignedTo: 'Diego Ruiz',
+        subject: 'FSSAI Labeling & Nutrition Claim Regulatory Dossier',
+        description: 'Prepare FSSAI nutritional claim substantiation and labeling compliance pack.',
+        assignedTo: 'Ananya Rao',
         dateCreated: '2026-06-20',
         dueDate: '2026-07-16',
-        role: 'Formulation Scientist',
-        group: 'Formulation Group',
-        site: 'R&D Center – Mumbai',
-        department: 'Formulation R&D',
+        role: 'Program Manager',
+        group: 'Program Management',
+        site: 'Corporate HQ - Mumbai',
+        department: 'Regulatory Affairs',
         status: 'Pending',
         planStart: '2026-07-06',
         planEnd: '2026-07-16',
@@ -392,15 +392,15 @@ export class ProjectTodoComponent implements OnInit {
       {
         id: 8,
         done: false,
-        subject: 'Prepare Gate 3 Formulation Review',
-        description: 'Compile stability data, dissolution equivalence reports, and Gate 3 stage dossier for approval.',
-        assignedTo: 'Olivia Brown',
+        subject: 'Gate 2 Concept & Formula Selection Submission',
+        description: 'Compile benchmark analysis, cost of goods, and pilot trials dossier for Gate 2 approval.',
+        assignedTo: 'Ananya Rao',
         dateCreated: '2026-06-25',
         dueDate: '2026-07-25',
-        role: 'Project Manager',
-        group: 'R&D Program Management',
-        site: 'R&D Center – Mumbai',
-        department: 'Project Management',
+        role: 'Program Manager',
+        group: 'Program Management',
+        site: 'Corporate HQ - Mumbai',
+        department: 'Program Management',
         status: 'Pending',
         planStart: '2026-07-18',
         planEnd: '2026-07-25',

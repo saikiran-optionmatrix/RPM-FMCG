@@ -52,65 +52,66 @@ export class ItemSubCategoriesComponent {
   constructor(private dialog: MatDialog) {}
   readonly assets: Asset[] = [
     {
-      name: 'API & Raw Materials',
-      code: 'Active Pharmaceutical Ingredient (API)',
-      status: 'Active',
+        "name": "Raw Ingredients",
+        "code": "Organic Sweeteners & Extracts",
+        "status": "Active"
     },
-
     {
-      name: 'API & Raw Materials',
-      code: 'API Samples',
-      status: 'Active',
+        "name": "Raw Ingredients",
+        "code": "Active Botanicals & Essential Oils",
+        "status": "Active"
     },
-
     {
-      name: 'Excipients',
-      code: 'Binders & Fillers',
-      status: 'Active',
+        "name": "Functional Additives & Texturizers",
+        "code": "Hydrocolloids & Emulsifiers",
+        "status": "Active"
     },
-
     {
-      name: 'Excipients',
-      code: 'Disintegrants & Lubricants',
-      status: 'Active',
+        "name": "Functional Additives & Texturizers",
+        "code": "Vitamins & Mineral Fortifiers",
+        "status": "Active"
     },
-
     {
-      name: 'Analytical Materials',
-      code: 'Analytical Standards',
-      status: 'Active',
+        "name": "Flavors & Fragrance Concentrates",
+        "code": "Natural Beverage Flavors",
+        "status": "Active"
     },
-
     {
-      name: 'Analytical Materials',
-      code: 'Reagents & Solvents',
-      status: 'Active',
+        "name": "Flavors & Fragrance Concentrates",
+        "code": "Fine Cosmetic Fragrances",
+        "status": "Active"
     },
-
     {
-      name: 'Packaging Materials',
-      code: 'Blister Packs',
-      status: 'Active',
+        "name": "Packaging Materials & Substrates",
+        "code": "Rigid rPET Preforms & Bottles",
+        "status": "Active"
     },
-
     {
-      name: 'Packaging Materials',
-      code: 'Bottles & Labels',
-      status: 'Active',
+        "name": "Packaging Materials & Substrates",
+        "code": "High-Barrier Flexible Pouches",
+        "status": "Active"
     },
-
     {
-      name: 'Finished Products',
-      code: 'Development Tablets',
-      status: 'Active',
+        "name": "Packaging Materials & Substrates",
+        "code": "Mono-Material Closures & Pumps",
+        "status": "Active"
     },
-
     {
-      name: 'Laboratory Consumables',
-      code: 'Testing Consumables',
-      status: 'Active',
+        "name": "Finished FMCG Products",
+        "code": "Commercial Packaged Goods",
+        "status": "Active"
     },
-  ];
+    {
+        "name": "Laboratory & Sensory Supplies",
+        "code": "Certified Analytical Standards",
+        "status": "Active"
+    },
+    {
+        "name": "Laboratory & Sensory Supplies",
+        "code": "Sensory Panel Blind Samples",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
 

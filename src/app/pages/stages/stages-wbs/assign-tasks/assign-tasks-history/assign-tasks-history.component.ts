@@ -72,9 +72,9 @@ export class AssignTasksHistoryComponent implements OnInit {
   }
 
   initHistoryRecords(): void {
-    const curTaskName = this.taskName || 'Review industrial application demand, customer specifications and market opportunities';
-    const curTaskCode = this.taskCode || 'CHM-T001';
-    const curJobCode = this.jobCode || 'BD01';
+    const curTaskName = this.taskName || 'Identify consumer trends, unmet pain points and category white-space opportunities';
+    const curTaskCode = this.taskCode || 'TSK-1001';
+    const curJobCode = this.jobCode || 'CINS-04';
     const count = this.historyCount || 3;
 
     const baseDates = [
@@ -87,11 +87,11 @@ export class AssignTasksHistoryComponent implements OnInit {
     ];
 
     const users = [
-      'Dr. Robert Vance',
-      'Sarah Jenkins',
-      'Michael Chang',
-      'Emily Watson',
-      'David Miller'
+      'Ananya Rao',
+      'Dr. Priya Raman',
+      'Vikram Singh',
+      'Anita Desai',
+      'Rajesh Kumar'
     ];
 
     const taskNameVariations = [
@@ -129,111 +129,75 @@ export class AssignTasksHistoryComponent implements OnInit {
     const otherTasksCatalog: AssignTaskHistoryItem[] = [
       {
         id: 101,
-        taskName: 'Review industrial application demand, customer specifications and market opportunities',
-        taskCode: 'CHM-T001',
-        jobCode: 'BD01',
+        taskName: 'Identify consumer trends, unmet pain points and category white-space opportunities',
+        taskCode: 'TSK-1001',
+        jobCode: 'CINS-04',
         revision: 'Rev 3',
-        changedDate: '2024-05-19 16:40',
-        changedBy: 'Rajesh Kumar'
+        changedDate: '2026-11-13 14:30',
+        changedBy: 'Ananya Rao'
       },
       {
         id: 102,
-        taskName: 'Benchmark competing chemical grades, suppliers and production technologies',
-        taskCode: 'CHM-T002',
-        jobCode: 'BD01',
+        taskName: 'Analyze competitive landscape, brand share and price-pack architecture',
+        taskCode: 'TSK-1002',
+        jobCode: 'MKTG-02',
         revision: 'Rev 2',
-        changedDate: '2024-05-01 10:30',
+        changedDate: '2026-11-10 11:15',
         changedBy: 'Rajesh Kumar'
       },
       {
         id: 103,
-        taskName: 'Define target product profile, purity, concentration and performance attributes',
-        taskCode: 'CHM-T003',
-        jobCode: 'RND01',
+        taskName: 'Conduct focus group interviews and ethnographic shopper observation',
+        taskCode: 'TSK-1003',
+        jobCode: 'CINS-04',
         revision: 'Rev 3',
-        changedDate: '2024-05-15 09:20',
+        changedDate: '2026-11-08 09:45',
         changedBy: 'Dr. Priya Raman'
       },
       {
         id: 104,
-        taskName: 'Prepare preliminary business case, project economics and opportunity assessment',
-        taskCode: 'CHM-T004',
-        jobCode: 'PM01',
+        taskName: 'Map sensory preferences, taste/texture profiles and benefit expectations',
+        taskCode: 'TSK-1004',
+        jobCode: 'SENS-01',
         revision: 'Rev 2',
-        changedDate: '2024-05-10 14:15',
+        changedDate: '2026-11-05 16:20',
         changedBy: 'Anita Desai'
       },
       {
         id: 105,
-        taskName: 'Screen reaction chemistry, formulation options and product feasibility',
-        taskCode: 'CHM-T005',
-        jobCode: 'RND01',
+        taskName: 'Formulate Target Product Profile (TPP) and product positioning charter',
+        taskCode: 'TSK-1005',
+        jobCode: 'CINS-04',
         revision: 'Rev 1',
-        changedDate: '2024-04-28 11:00',
-        changedBy: 'Dr. Priya Raman'
+        changedDate: '2026-10-28 10:10',
+        changedBy: 'Vikram Singh'
       },
       {
         id: 106,
-        taskName: 'Assess raw material availability, critical reagent supply and vendor capability',
-        taskCode: 'CHM-T006',
-        jobCode: 'RM01',
+        taskName: 'Define target packaging format, sustainability targets and shelf impact goals',
+        taskCode: 'TSK-1006',
+        jobCode: 'PKG-01',
         revision: 'Rev 2',
-        changedDate: '2024-04-22 15:30',
-        changedBy: 'Priya Reddy'
+        changedDate: '2026-10-20 15:30',
+        changedBy: 'Vikram Singh'
       },
       {
         id: 107,
-        taskName: 'Conduct preliminary process hazard, environmental and regulatory screening',
-        taskCode: 'CHM-T007',
-        jobCode: 'PSE01',
+        taskName: 'Review regulatory classifications, permissible food/cosmetic ingredients and mandatory warnings',
+        taskCode: 'TSK-1007',
+        jobCode: 'REG-01',
         revision: 'Rev 1',
-        changedDate: '2024-04-18 13:45',
-        changedBy: 'Suresh Naidu'
+        changedDate: '2026-10-15 13:45',
+        changedBy: 'Rajesh Kumar'
       },
       {
         id: 108,
-        taskName: 'Prepare feasibility report, target specifications and Gate 1 submission',
-        taskCode: 'CHM-T008',
-        jobCode: 'QA03',
+        taskName: 'Model initial financial business case, Target COGS and retail margin expectations',
+        taskCode: 'TSK-1008',
+        jobCode: 'FIN-01',
         revision: 'Rev 1',
-        changedDate: '2024-04-12 17:00',
+        changedDate: '2026-10-10 17:00',
         changedBy: 'Amit Patel'
-      },
-      {
-        id: 109,
-        taskName: 'Develop candidate synthesis routes and reaction pathway hypotheses',
-        taskCode: 'CHM-T009',
-        jobCode: 'RND01',
-        revision: 'Rev 2',
-        changedDate: '2024-04-08 10:15',
-        changedBy: 'Dr. Priya Raman'
-      },
-      {
-        id: 110,
-        taskName: 'Conduct laboratory-scale reaction and catalyst screening experiments',
-        taskCode: 'CHM-T010',
-        jobCode: 'REAC01',
-        revision: 'Rev 1',
-        changedDate: '2024-03-30 16:50',
-        changedBy: 'Priya Reddy'
-      },
-      {
-        id: 111,
-        taskName: 'Characterize intermediates, impurities and product composition using GC/HPLC and spectroscopy',
-        taskCode: 'CHM-T011',
-        jobCode: 'CHRO01',
-        revision: 'Rev 2',
-        changedDate: '2024-03-24 11:20',
-        changedBy: 'Anita Desai'
-      },
-      {
-        id: 112,
-        taskName: 'Document route scouting results, material balance and preliminary yield assessment',
-        taskCode: 'CHM-T012',
-        jobCode: 'QC02',
-        revision: 'Rev 1',
-        changedDate: '2024-03-18 14:10',
-        changedBy: 'Rajesh Kumar'
       }
     ];
 

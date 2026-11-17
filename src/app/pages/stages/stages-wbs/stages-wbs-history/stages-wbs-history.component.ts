@@ -92,17 +92,17 @@ export class StagesWbsHistoryComponent implements OnInit {
 
   initHistoryRecords(): void {
     const curSlNo = this.slNo || '1.1.1';
-    const curActivity = this.activityName || 'Review industrial application demand, customer specifications and market opportunities';
-    const curCode = this.activityCode || '1.1.1';
-    const curTasks = this.tasks || '8';
-    const curReqs = this.requirements || '7';
+    const curActivity = this.activityName || 'Map consumption occasions and unmet consumer jobs';
+    const curCode = this.activityCode || 'FMCG-A-0001';
+    const curTasks = this.tasks || '4';
+    const curReqs = this.requirements || '2';
     const curPred = this.predecessor || '—';
     const curDuration = this.duration || '0';
     const curEffort = this.effort || '0';
     const rawCost = this.cost || '1200000';
     const curCost = rawCost.startsWith('$') ? rawCost : `$${Number(rawCost).toLocaleString()}`;
-    const curApplicability = this.applicability || 'All Products';
-    const curDescription = this.description || 'Program start';
+    const curApplicability = this.applicability || 'All FMCG Products';
+    const curDescription = this.description || 'Execute consumer occasion mapping and identify category unmet needs.';
 
     // Historical revisions for the selected activity
     const selectedRevisions: WbsActivityHistoryRecord[] = [
@@ -134,7 +134,7 @@ export class StagesWbsHistoryComponent implements OnInit {
         effort: '24',
         cost: '$2,400',
         applicability: curApplicability,
-        description: 'Adjusted scope to incorporate FDA guideline clarifications.',
+        description: 'Adjusted consumer cohort size for regional market segmentation.',
         revision: 'Rev 2',
         changedDate: '2026-01-20'
       },
@@ -160,137 +160,92 @@ export class StagesWbsHistoryComponent implements OnInit {
     const otherActivities: WbsActivityHistoryRecord[] = [
       {
         id: 4,
-        slNo: '0.1.2',
-        activity: 'Country & Regulatory Scope Identification',
-        activityCode: 'ACT-002',
-        tasks: '1',
-        requirements: '9',
-        predecessor: '7',
-        duration: '2',
-        effort: '12',
-        cost: '$1,200',
-        applicability: 'All Products',
-        description: 'Identify target geographies, regulatory pathways and filing timelines',
+        slNo: '1.1.1',
+        activity: 'Map consumption occasions and unmet consumer jobs',
+        activityCode: 'FMCG-A-0001',
+        tasks: '4',
+        requirements: '2',
+        predecessor: '—',
+        duration: '21',
+        effort: '70',
+        cost: '$978',
+        applicability: 'All FMCG Products',
+        description: 'Occasion-by-segment opportunity map with demand evidence',
         revision: 'Rev 2'
       },
       {
         id: 5,
-        slNo: '0.1.3',
-        activity: 'Preliminary COGs and CAPEX Estimation',
-        activityCode: 'ACT-003',
-        tasks: '7',
-        requirements: '8',
-        predecessor: '5',
-        duration: '2',
-        effort: '14',
-        cost: '$1,400',
-        applicability: 'All Products',
-        description: 'Estimate initial Cost of Goods and manufacturing plant CAPEX requirements',
+        slNo: '1.1.2',
+        activity: 'Benchmark competitor portfolio and pack-price architecture',
+        activityCode: 'FMCG-A-0002',
+        tasks: '4',
+        requirements: '4',
+        predecessor: '1.1.1 (FS)',
+        duration: '15',
+        effort: '85',
+        cost: '$1,214',
+        applicability: 'All FMCG Products',
+        description: 'Competitor SKU, unit-price and pack-size benchmark',
         revision: 'Rev 1'
       },
       {
         id: 6,
-        slNo: '0.2.1',
-        activity: 'Market Sizing & Forecast Analysis',
-        activityCode: 'ACT-004',
-        tasks: '9',
-        requirements: '1',
-        predecessor: '4',
-        duration: '3',
-        effort: '18',
-        cost: '$1,800',
-        applicability: 'All Products',
-        description: 'Evaluate IQVIA sales data, market volume and 10-year sales curve',
+        slNo: '1.2.1',
+        activity: 'Synthesize category trends, macro drivers and channel shifts',
+        activityCode: 'FMCG-A-0003',
+        tasks: '3',
+        requirements: '3',
+        predecessor: '1.1.2 (FS)',
+        duration: '14',
+        effort: '60',
+        cost: '$850',
+        applicability: 'All FMCG Products',
+        description: 'Category growth forecasts, channel split and emerging consumer behaviors',
         revision: 'Rev 1'
       },
       {
         id: 7,
-        slNo: '0.2.2',
-        activity: 'NPV & Commercial Attractiveness Model',
-        activityCode: 'ACT-005',
-        tasks: '5',
-        requirements: '11',
-        predecessor: '6',
-        duration: '2',
-        effort: '10',
-        cost: '$1,000',
-        applicability: 'All Products',
-        description: 'Compute Net Present Value (NPV), IRR and payback horizon',
-        revision: 'Rev 1'
-      },
-      {
-        id: 8,
-        slNo: '1.1.1',
-        activity: 'Review industrial application demand, customer specifications and market opportunities',
-        activityCode: 'CHM-T001',
+        slNo: '2.1.1',
+        activity: 'Draft preliminary Target Product Profile (TPP) and concept boards',
+        activityCode: 'FMCG-A-0011',
         tasks: '4',
-        requirements: '5',
+        requirements: '3',
         predecessor: '—',
-        duration: '5',
-        effort: '100',
-        cost: '$10,000',
-        applicability: 'All Products',
-        description: 'Review industrial application demand, customer specifications and market opportunities (CHM-T001)',
+        duration: '18',
+        effort: '95',
+        cost: '$1,500',
+        applicability: 'All FMCG Products',
+        description: 'Consumer concept statements, benefit hierarchy and pack claims',
         revision: 'Rev 2'
       },
       {
+        id: 8,
+        slNo: '2.1.2',
+        activity: 'Screen concept propositions with consumer panel (Top 2 Box >= 75%)',
+        activityCode: 'FMCG-A-0012',
+        tasks: '5',
+        requirements: '4',
+        predecessor: '2.1.1 (FS)',
+        duration: '20',
+        effort: '110',
+        cost: '$2,200',
+        applicability: 'All FMCG Products',
+        description: 'Quantitative consumer testing results and purchase intent validation',
+        revision: 'Rev 1'
+      },
+      {
         id: 9,
-        slNo: '1.1.2',
-        activity: 'Benchmark competing chemical grades, suppliers and production technologies',
-        activityCode: 'CHM-T002',
-        tasks: '4',
-        requirements: '5',
-        predecessor: '1.1.1 (FS)',
-        duration: '5',
-        effort: '100',
-        cost: '$10,000',
-        applicability: 'All Products',
-        description: 'Benchmark competing chemical grades, suppliers and production technologies (CHM-T002)',
-        revision: 'Rev 1'
-      },
-      {
-        id: 10,
-        slNo: '1.2.1',
-        activity: 'Define target product profile, purity, concentration and performance attributes',
-        activityCode: 'CHM-T003',
-        tasks: '4',
-        requirements: '5',
-        predecessor: '1.2.0 (FS)',
-        duration: '5',
-        effort: '100',
-        cost: '$10,000',
-        applicability: 'All Products',
-        description: 'Define target product profile, purity, concentration and performance attributes (CHM-T003)',
-        revision: 'Rev 1'
-      },
-      {
-        id: 11,
-        slNo: '1.2.2',
-        activity: 'Prepare preliminary business case, project economics and opportunity assessment',
-        activityCode: 'CHM-T004',
-        tasks: '4',
-        requirements: '5',
-        predecessor: '1.2.1 (FS)',
-        duration: '5',
-        effort: '100',
-        cost: '$10,000',
-        applicability: 'All Products',
-        description: 'Prepare preliminary business case, project economics and opportunity assessment (CHM-T004)',
-        revision: 'Rev 1'
-      },
-      {
-        id: 12,
-        slNo: '2.1.1',
-        activity: 'Screen reaction chemistry, formulation options and product feasibility',
-        activityCode: 'CHM-T005',
-        tasks: '4',
-        requirements: '5',
-        predecessor: 'Stage start',
-        duration: '5',
-        effort: '75',
-        cost: '$7,500',
-        applicability: 'All Products',
-        description: 'Screen reaction chemistry, formulation options and product feasibility (CHM-T005)',
+        slNo: '4.1.1',
+        activity: 'Compound bench-scale formulation variants across sweetness and flavor levels',
+        activityCode: 'FMCG-A-0031',
+        tasks: '5',
+        requirements: '3',
+        predecessor: '—',
+        duration: '25',
+        effort: '140',
+        cost: '$3,800',
+        applicability: 'All FMCG Products',
+        description: 'Formulation recipe optimization and sensory hedonic scorecards',
         revision: 'Rev 1'
       }
     ];

@@ -39,54 +39,519 @@ interface MasterItem {
 export class JobCodesComponent {
   constructor(private dialog: MatDialog) {}
   readonly items: MasterItem[] = [
-    { name: 'Plant Operator', code: 'MFG01', narration: 'Plant Operator', description: 'Plant Operator', hourlyRate: 350, status: 'Active' },
-    { name: 'Production Executive', code: 'MFG02', narration: 'Production Executive', description: 'Production Executive', hourlyRate: 500, status: 'Active' },
-    { name: 'Production Supervisor', code: 'MFG03', narration: 'Production Supervisor', description: 'Production Supervisor', hourlyRate: 650, status: 'Active' },
-    { name: 'Production Manager', code: 'MFG04', narration: 'Production Manager', description: 'Production Manager', hourlyRate: 1000, status: 'Active' },
-    { name: 'Reactor Operator', code: 'REAC01', narration: 'Reactor Operator', description: 'Reactor Operator', hourlyRate: 400, status: 'Active' },
-    { name: 'Distillation Operator', code: 'DIST01', narration: 'Distillation Operator', description: 'Distillation Operator', hourlyRate: 400, status: 'Active' },
-    { name: 'Crystallization and Filtration Operator', code: 'CRY01', narration: 'Crystallization and Filtration Operator', description: 'Crystallization and Filtration Operator', hourlyRate: 400, status: 'Active' },
-    { name: 'Polymerization Operator', code: 'POLY01', narration: 'Polymerization Operator', description: 'Polymerization Operator', hourlyRate: 400, status: 'Active' },
-    { name: 'Blending and Formulation Operator', code: 'BLD01', narration: 'Blending and Formulation Operator', description: 'Blending and Formulation Operator', hourlyRate: 400, status: 'Active' },
-    { name: 'Drum and Bag Packing Operator', code: 'PKG01', narration: 'Drum and Bag Packing Operator', description: 'Drum and Bag Packing Operator', hourlyRate: 500, status: 'Active' },
-    { name: 'Quality Assurance Executive', code: 'QA01', narration: 'Quality Assurance Executive', description: 'Quality Assurance Executive', hourlyRate: 500, status: 'Active' },
-    { name: 'Quality Assurance Officer', code: 'QA02', narration: 'Quality Assurance Officer', description: 'Quality Assurance Officer', hourlyRate: 450, status: 'Active' },
-    { name: 'Quality Assurance Manager', code: 'QA03', narration: 'Quality Assurance Manager', description: 'Quality Assurance Manager', hourlyRate: 1000, status: 'Active' },
-    { name: 'In-Process Quality Assurance Executive', code: 'IPQA01', narration: 'In-Process Quality Assurance Executive', description: 'In-Process Quality Assurance Executive', hourlyRate: 500, status: 'Active' },
-    { name: 'Quality Management System Executive', code: 'QMS01', narration: 'Quality Management System Executive', description: 'Quality Management System Executive', hourlyRate: 550, status: 'Active' },
-    { name: 'Quality Documentation Executive', code: 'DOC01', narration: 'Quality Documentation Executive', description: 'Quality Documentation Executive', hourlyRate: 400, status: 'Active' },
-    { name: 'Process Validation Executive', code: 'VAL01', narration: 'Process Validation Executive', description: 'Process Validation Executive', hourlyRate: 650, status: 'Active' },
-    { name: 'ISO / Responsible Care Audit Executive', code: 'AUD01', narration: 'ISO / Responsible Care Audit Executive', description: 'ISO / Responsible Care Audit Executive', hourlyRate: 700, status: 'Active' },
-    { name: 'Deviation and CAPA Executive', code: 'DEV01', narration: 'Deviation and CAPA Executive', description: 'Deviation and CAPA Executive', hourlyRate: 550, status: 'Active' },
-    { name: 'Batch Release Officer', code: 'BREL01', narration: 'Batch Release Officer', description: 'Batch Release Officer', hourlyRate: 600, status: 'Active' },
-    { name: 'Quality Control Analyst', code: 'QC01', narration: 'Quality Control Analyst', description: 'Quality Control Analyst', hourlyRate: 450, status: 'Active' },
-    { name: 'Quality Control Executive', code: 'QC02', narration: 'Quality Control Executive', description: 'Quality Control Executive', hourlyRate: 500, status: 'Active' },
-    { name: 'Quality Control Manager', code: 'QC03', narration: 'Quality Control Manager', description: 'Quality Control Manager', hourlyRate: 1000, status: 'Active' },
-    { name: 'Chromatography (GC / HPLC) Analyst', code: 'CHRO01', narration: 'Chromatography (GC / HPLC) Analyst', description: 'Chromatography (GC / HPLC) Analyst', hourlyRate: 550, status: 'Active' },
-    { name: 'Spectroscopy (FTIR / NMR) Analyst', code: 'SPEC01', narration: 'Spectroscopy (FTIR / NMR) Analyst', description: 'Spectroscopy (FTIR / NMR) Analyst', hourlyRate: 550, status: 'Active' },
-    { name: 'Storage Stability Testing Analyst', code: 'STAB01', narration: 'Storage Stability Testing Analyst', description: 'Storage Stability Testing Analyst', hourlyRate: 450, status: 'Active' },
-    { name: 'Raw Material Testing Analyst', code: 'RMQC01', narration: 'Raw Material Testing Analyst', description: 'Raw Material Testing Analyst', hourlyRate: 400, status: 'Active' },
-    { name: 'Finished Product Testing Analyst', code: 'FPQC01', narration: 'Finished Product Testing Analyst', description: 'Finished Product Testing Analyst', hourlyRate: 450, status: 'Active' },
-    { name: 'Wet Chemistry and Titration Analyst', code: 'WET01', narration: 'Wet Chemistry and Titration Analyst', description: 'Wet Chemistry and Titration Analyst', hourlyRate: 500, status: 'Active' },
-    { name: 'Effluent and Stack Emission Monitoring Analyst', code: 'EM01', narration: 'Effluent and Stack Emission Monitoring Analyst', description: 'Effluent and Stack Emission Monitoring Analyst', hourlyRate: 450, status: 'Active' },
-    { name: 'Process Water and ETP Testing Analyst', code: 'WAT01', narration: 'Process Water and ETP Testing Analyst', description: 'Process Water and ETP Testing Analyst', hourlyRate: 400, status: 'Active' },
-    { name: 'Process Safety Engineer', code: 'PSE01', narration: 'Process Safety Engineer', description: 'Process Safety Engineer', hourlyRate: 750, status: 'Active' },
-    { name: 'Engineering Executive', code: 'ENG01', narration: 'Engineering Executive', description: 'Engineering Executive', hourlyRate: 500, status: 'Active' },
-    { name: 'Engineering Manager', code: 'ENG02', narration: 'Engineering Manager', description: 'Engineering Manager', hourlyRate: 1000, status: 'Active' },
-    { name: 'Mechanical Maintenance Technician', code: 'MECH01', narration: 'Mechanical Maintenance Technician', description: 'Mechanical Maintenance Technician', hourlyRate: 400, status: 'Active' },
-    { name: 'Electrical Technician', code: 'ELEC01', narration: 'Electrical Technician', description: 'Electrical Technician', hourlyRate: 400, status: 'Active' },
-    { name: 'Fume Extraction and Scrubber Technician', code: 'HVAC01', narration: 'Fume Extraction and Scrubber Technician', description: 'Fume Extraction and Scrubber Technician', hourlyRate: 450, status: 'Active' },
-    { name: 'Utilities Operator (Boiler, Chiller, Compressed Air)', code: 'UTIL01', narration: 'Utilities Operator (Boiler, Chiller, Compressed Air)', description: 'Utilities Operator (Boiler, Chiller, Compressed Air)', hourlyRate: 350, status: 'Active' },
-    { name: 'Instrumentation and DCS Technician', code: 'INST01', narration: 'Instrumentation and DCS Technician', description: 'Instrumentation and DCS Technician', hourlyRate: 500, status: 'Active' },
-    { name: 'Calibration Technician', code: 'CAL01', narration: 'Calibration Technician', description: 'Calibration Technician', hourlyRate: 450, status: 'Active' },
-    { name: 'Commissioning and Qualification Engineer', code: 'CQV01', narration: 'Commissioning and Qualification Engineer', description: 'Commissioning and Qualification Engineer', hourlyRate: 750, status: 'Active' },
-    { name: 'Warehouse Executive', code: 'WH01', narration: 'Warehouse Executive', description: 'Warehouse Executive', hourlyRate: 350, status: 'Active' },
-    { name: 'Warehouse Supervisor', code: 'WH02', narration: 'Warehouse Supervisor', description: 'Warehouse Supervisor', hourlyRate: 450, status: 'Active' },
-    { name: 'Warehouse Manager', code: 'WH03', narration: 'Warehouse Manager', description: 'Warehouse Manager', hourlyRate: 800, status: 'Active' },
-    { name: 'Raw Material Storekeeper', code: 'RM01', narration: 'Raw Material Storekeeper', description: 'Raw Material Storekeeper', hourlyRate: 300, status: 'Active' },
-    { name: 'Hazardous Materials Storekeeper', code: 'HZ01', narration: 'Hazardous Materials Storekeeper', description: 'Hazardous Materials Storekeeper', hourlyRate: 300, status: 'Active' },
-    { name: 'Finished Goods Executive', code: 'FG01', narration: 'Finished Goods Executive', description: 'Finished Goods Executive', hourlyRate: 350, status: 'Active' },
-  ];
+  {
+    "name": "Consumer Insights Lead",
+    "code": "CINS-01",
+    "narration": "Lead Consumer Insights and Category Strategy",
+    "description": "Leads market demand discovery, occasion mapping and portfolio positioning.",
+    "hourlyRate": 950,
+    "status": "Active"
+  },
+  {
+    "name": "Senior Market Research Analyst",
+    "code": "CINS-02",
+    "narration": "FMCG Market Research and Competitor Intelligence",
+    "description": "Conducts competitor benchmarking, volume projections and channel dynamics.",
+    "hourlyRate": 750,
+    "status": "Active"
+  },
+  {
+    "name": "Consumer Trend & Behavior Analyst",
+    "code": "CINS-03",
+    "narration": "Trend Identification and Demographic Analysis",
+    "description": "Monitors dietary trends, ingredient perceptions and consumer behavioral shifts.",
+    "hourlyRate": 650,
+    "status": "Active"
+  },
+  {
+    "name": "Occasion & Needs Space Specialist",
+    "code": "CINS-04",
+    "narration": "Usage Occasions and Category Gaps Mapping",
+    "description": "Maps consumer consumption occasions and unmet functional needs.",
+    "hourlyRate": 600,
+    "status": "Active"
+  },
+  {
+    "name": "Principal Consumer Researcher",
+    "code": "CRE-01",
+    "narration": "Consumer Validation and Research Design",
+    "description": "Directs qualitative and quantitative consumer testing methodologies.",
+    "hourlyRate": 900,
+    "status": "Active"
+  },
+  {
+    "name": "Qualitative Focus Group Moderator",
+    "code": "CRE-02",
+    "narration": "Consumer Focus Group and In-Depth Interviews",
+    "description": "Moderates consumer panels and synthesizes sensory acceptance feedback.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Quantitative Validation Analyst",
+    "code": "CRE-03",
+    "narration": "Statistical Consumer Data and Preference Modeling",
+    "description": "Analyzes TURF, penalty analysis and concept test statistical metrics.",
+    "hourlyRate": 650,
+    "status": "Active"
+  },
+  {
+    "name": "Consumer Panel Coordinator",
+    "code": "CRE-04",
+    "narration": "Recruitment and Screening for Consumer Tests",
+    "description": "Coordinates panel recruitment, blind sampling and sensory testing logistics.",
+    "hourlyRate": 500,
+    "status": "Active"
+  },
+  {
+    "name": "Category Strategy Director",
+    "code": "CAT-01",
+    "narration": "Overall Category Vision and Brand Assortment",
+    "description": "Develops long-term category roadmaps and channel margin frameworks.",
+    "hourlyRate": 1100,
+    "status": "Active"
+  },
+  {
+    "name": "Assortment & Pricing Manager",
+    "code": "CAT-02",
+    "narration": "Pack-Price Architecture and Retail Margins",
+    "description": "Optimizes price per unit volume, promotional tiering and retailer margins.",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "Channel Category Specialist",
+    "code": "CAT-03",
+    "narration": "Channel Placement and Modern Trade Assortment",
+    "description": "Manages category planograms and channel-specific SKU variations.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Retail Assortment Planner",
+    "code": "CAT-04",
+    "narration": "SKU Rationalization and On-Shelf Availability",
+    "description": "Forecasts shelf share, velocity per store and distribution depth.",
+    "hourlyRate": 600,
+    "status": "Active"
+  },
+  {
+    "name": "Lead Formulation Scientist",
+    "code": "RDI-01",
+    "narration": "Principal Recipe and Formula Development",
+    "description": "Designs food/beverage formulations, nutritional profiles and functional matrices.",
+    "hourlyRate": 1100,
+    "status": "Active"
+  },
+  {
+    "name": "Food & Beverage Recipe Chemist",
+    "code": "RDI-02",
+    "narration": "Bench Formulation and Flavor Harmonization",
+    "description": "Optimizes taste, texture, emulsification and mouthfeel of prototypes.",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "Ingredient Application Specialist",
+    "code": "RDI-03",
+    "narration": "Novel Food Ingredients and Stabilizers",
+    "description": "Tests hydrocolloids, natural sweeteners, fortification premixes and acidity regulators.",
+    "hourlyRate": 750,
+    "status": "Active"
+  },
+  {
+    "name": "Sensory & Bench Formulation Scientist",
+    "code": "RDI-04",
+    "narration": "Iterative Lab Prototypes and Stability Testing",
+    "description": "Prepares benchtop iterations and monitors accelerated thermal aging.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Commercial Finance Director",
+    "code": "FIN-01",
+    "narration": "NPD Business Case Governance and Program NPV",
+    "description": "Oversees product economics, capital investment thresholds and NPV model.",
+    "hourlyRate": 1200,
+    "status": "Active"
+  },
+  {
+    "name": "Cost of Goods & Margin Analyst",
+    "code": "FIN-02",
+    "narration": "COGS Modeling and BOM Variance Control",
+    "description": "Tracks raw and packaging material standard costs against targets.",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "Capex & Business Case Controller",
+    "code": "FIN-03",
+    "narration": "Equipment Investment and Payback Analysis",
+    "description": "Models tooling, changeover parts and production line payback returns.",
+    "hourlyRate": 900,
+    "status": "Active"
+  },
+  {
+    "name": "Financial Modeling Analyst",
+    "code": "FIN-04",
+    "narration": "Discounted Cash Flow and Scenario Sensitivity",
+    "description": "Runs scenario simulations for raw material inflation and volume elasticity.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Ingredient Sourcing Manager",
+    "code": "SUP-01",
+    "narration": "Strategic Food-Grade Sourcing and Contracting",
+    "description": "Manages supplier relationships for concentrates, flavors and packaging.",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "Supplier Quality Assurance Auditor",
+    "code": "SUP-02",
+    "narration": "Vendor Qualification and Auditing",
+    "description": "Audits GFSI, BRC, FSSC 22000 and HACCP compliance of raw ingredient vendors.",
+    "hourlyRate": 800,
+    "status": "Active"
+  },
+  {
+    "name": "Packaging Material Procurement Lead",
+    "code": "SUP-03",
+    "narration": "Barrier Films, Bottles and Corrugate Sourcing",
+    "description": "Procures preforms, closures, aseptic cartons and secondary packaging.",
+    "hourlyRate": 750,
+    "status": "Active"
+  },
+  {
+    "name": "Raw Material Sourcing Specialist",
+    "code": "SUP-04",
+    "narration": "Spot Market Purchases and Commodity Monitoring",
+    "description": "Tracks commodity indices (sugar, pulp, resins) and secures supply buffer.",
+    "hourlyRate": 650,
+    "status": "Active"
+  },
+  {
+    "name": "Packaging Engineering Lead",
+    "code": "PKG-01",
+    "narration": "Structural Packaging Design and Sustainability",
+    "description": "Leads bottle, closure, pouch and corrugated shipper structural development.",
+    "hourlyRate": 950,
+    "status": "Active"
+  },
+  {
+    "name": "Sustainable Material Technologist",
+    "code": "PKG-02",
+    "narration": "Recyclable Resins and Biodegradable Substrates",
+    "description": "Validates PCR resin ratios, barrier mono-materials and light-weighting.",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "Barrier Film & Laminate Specialist",
+    "code": "PKG-03",
+    "narration": "OTR/WVTR Gas Barrier and Shelf-Life Protection",
+    "description": "Optimizes oxygen and moisture transmission rates to prevent rancidity.",
+    "hourlyRate": 750,
+    "status": "Active"
+  },
+  {
+    "name": "Packaging Line Compatibility Engineer",
+    "code": "PKG-04",
+    "narration": "Line Machinability and High-Speed FFS Feasibility",
+    "description": "Tests high-speed thermoforming, sealing temperatures and capping torque.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Sensory & Consumer Science Lead",
+    "code": "SENS-01",
+    "narration": "Sensory Profiling and Objective Flavor Mapping",
+    "description": "Directs sensory methodologies, QDA profiling and consumer preference tests.",
+    "hourlyRate": 900,
+    "status": "Active"
+  },
+  {
+    "name": "Trained Sensory Panel Leader",
+    "code": "SENS-02",
+    "narration": "Sensory Panel Calibration and Descriptive Analysis",
+    "description": "Calibrates internal panelists for aroma, sweetness, bitterness and acidity.",
+    "hourlyRate": 750,
+    "status": "Active"
+  },
+  {
+    "name": "Descriptive Analysis Scientist",
+    "code": "SENS-03",
+    "narration": "Texture, Rheology and Sensory Correlation",
+    "description": "Correlates instrumental viscosity data with sensory mouthfeel evaluations.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Shelf-Life Sensory Evaluator",
+    "code": "SENS-04",
+    "narration": "Real-Time and Accelerated Organoleptic Drift",
+    "description": "Monitors color degradation, flavor fade and off-notes across storage periods.",
+    "hourlyRate": 600,
+    "status": "Active"
+  },
+  {
+    "name": "Brand Marketing Director",
+    "code": "MKT-01",
+    "narration": "Brand Equity, Positioning and GTM Strategy",
+    "description": "Owns launch commercialization strategy, brand archetype and value proposition.",
+    "hourlyRate": 1200,
+    "status": "Active"
+  },
+  {
+    "name": "Product Launch Campaign Manager",
+    "code": "MKT-02",
+    "narration": "Integrated Marketing Campaigns and Sampling",
+    "description": "Coordinates 360-degree consumer marketing, digital campaigns and ATL/BTL.",
+    "hourlyRate": 900,
+    "status": "Active"
+  },
+  {
+    "name": "Digital & Trade Marketing Lead",
+    "code": "MKT-03",
+    "narration": "E-Commerce Activation and In-Store Merchandising",
+    "description": "Drives quick-commerce banner ads, retail POS displays and sampling drives.",
+    "hourlyRate": 800,
+    "status": "Active"
+  },
+  {
+    "name": "Packaging Artwork & Claims Specialist",
+    "code": "MKT-04",
+    "narration": "Front-of-Pack Artwork and Benefit Claims",
+    "description": "Coordinates claims substantiation, nutrition tables and packaging prepress.",
+    "hourlyRate": 650,
+    "status": "Active"
+  },
+  {
+    "name": "Program Director / PMO Lead",
+    "code": "PMO-01",
+    "narration": "NPD Stage-Gate Governance and Milestone Delivery",
+    "description": "Oversees enterprise cross-functional NPD delivery and gate sign-offs.",
+    "hourlyRate": 1200,
+    "status": "Active"
+  },
+  {
+    "name": "Stage-Gate Governance Manager",
+    "code": "PMO-02",
+    "narration": "Gate Criteria Audit and Gate Readiness Assessment",
+    "description": "Enforces deliverables checklist, stage sign-offs and risk containment.",
+    "hourlyRate": 950,
+    "status": "Active"
+  },
+  {
+    "name": "Agile Project Scrum Master",
+    "code": "PMO-03",
+    "narration": "Sprint Cadence and Cross-Functional Blockers",
+    "description": "Facilitates bi-weekly sprints, Kanban boards and inter-departmental handoffs.",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "NPD Schedule & Resource Coordinator",
+    "code": "PMO-04",
+    "narration": "Master Schedule, WBS and Pilot Resource Allocation",
+    "description": "Maintains critical path dependencies and pilot facility booking schedules.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Pilot Plant Operations Manager",
+    "code": "MFG-01",
+    "narration": "Pilot Scale-up and Batching Facility Management",
+    "description": "Manages pilot processing lines, clean-in-place (CIP) and trial execution.",
+    "hourlyRate": 1000,
+    "status": "Active"
+  },
+  {
+    "name": "Commercial Scale-up Process Engineer",
+    "code": "MFG-02",
+    "narration": "Tech Transfer from Pilot to Commercial Lines",
+    "description": "Translates laboratory blend recipes to 10,000L commercial mixing vessels.",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "High-Shear Mixing & Batching Specialist",
+    "code": "MFG-03",
+    "narration": "Homogenization, Thermal Pasteurization & Emulsion",
+    "description": "Optimizes homogenization pressures and heat exchanger pasteurization cycles.",
+    "hourlyRate": 650,
+    "status": "Active"
+  },
+  {
+    "name": "Filling & Packaging Line Lead",
+    "code": "MFG-04",
+    "narration": "Aseptic Filling, Capping and Secondary Packing",
+    "description": "Executes commercial trial packaging on high-speed blow-fill-seal lines.",
+    "hourlyRate": 600,
+    "status": "Active"
+  },
+  {
+    "name": "Quality Assurance & Food Safety Manager",
+    "code": "QA-01",
+    "narration": "Corporate Food Safety Management System (FSMS)",
+    "description": "Maintains FSSC 22000, HACCP plans and cross-contamination prevention.",
+    "hourlyRate": 1000,
+    "status": "Active"
+  },
+  {
+    "name": "HACCP & GMP Lead Auditor",
+    "code": "QA-02",
+    "narration": "Hazard Analysis Critical Control Points (HACCP)",
+    "description": "Monitors CCPs (metal detection, pasteurization temperature, filter screens).",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "Microbial & Contaminant Specialist",
+    "code": "QA-03",
+    "narration": "Pathogen Screening, Yeast/Mold and Total Count",
+    "description": "Performs rapid bioburden testing, pathogen challenges and water potability.",
+    "hourlyRate": 750,
+    "status": "Active"
+  },
+  {
+    "name": "Regulatory QA Documentation Officer",
+    "code": "QA-04",
+    "narration": "Batch Manufacturing Records & Certificate of Analysis",
+    "description": "Audits finished product COAs, lot traceability and non-conformance CAPAs.",
+    "hourlyRate": 600,
+    "status": "Active"
+  },
+  {
+    "name": "Supply Chain Industrialization Lead",
+    "code": "SCM-01",
+    "narration": "End-to-End NPD Supply Chain Readiness",
+    "description": "Coordinates warehouse slotting, pallet configurations and transit testing.",
+    "hourlyRate": 950,
+    "status": "Active"
+  },
+  {
+    "name": "Demand Forecasting & Planning Manager",
+    "code": "SCM-02",
+    "narration": "Initial Launch Pipeline Stock and Safety Buffers",
+    "description": "Forecasts initial national rollout volume requirements and replenishment cycles.",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "Cold-Chain & Logistics Specialist",
+    "code": "SCM-03",
+    "narration": "Refrigerated Transport and Temperature Data Loggers",
+    "description": "Validates reefer truck temperatures and distribution center handling protocols.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Finished Goods Distribution Planner",
+    "code": "SCM-04",
+    "narration": "Regional Hub Allocation and Distributor Dispatch",
+    "description": "Manages regional hub stock transfers and retailer delivery appointment windows.",
+    "hourlyRate": 600,
+    "status": "Active"
+  },
+  {
+    "name": "Regulatory Affairs Director",
+    "code": "REG-01",
+    "narration": "Regulatory Strategy and Compliance Authority Liaison",
+    "description": "Manages national regulatory approvals (FSSAI, CDSCO, FDA) and category standards.",
+    "hourlyRate": 1100,
+    "status": "Active"
+  },
+  {
+    "name": "Food Safety & FSSAI Specialist",
+    "code": "REG-02",
+    "narration": "Food Category Standards and Additive Permissibility",
+    "description": "Validates ingredient dosage against FSSAI food additive positive lists.",
+    "hourlyRate": 850,
+    "status": "Active"
+  },
+  {
+    "name": "Labeling Claims & Compliance Officer",
+    "code": "REG-03",
+    "narration": "Front-of-Pack Nutrition and Health Claims Validation",
+    "description": "Audits ingredient declarations, allergen warnings and nutrition claims.",
+    "hourlyRate": 750,
+    "status": "Active"
+  },
+  {
+    "name": "Regulatory Dossier & Submissions Lead",
+    "code": "REG-04",
+    "narration": "Proprietary Food Licenses and Dossier Preparation",
+    "description": "Prepares technical dossiers and stability study submissions for authority clearance.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Modern Trade Channel Director",
+    "code": "SLS-01",
+    "narration": "Supermarket and Hypermarket Commercial Agreements",
+    "description": "Negotiates joint business plans, shelf space and retail listings.",
+    "hourlyRate": 1150,
+    "status": "Active"
+  },
+  {
+    "name": "Key Account Sales Manager",
+    "code": "SLS-02",
+    "narration": "National Chains and Quick-Commerce Accounts",
+    "description": "Manages Blinkit, Zepto, Swiggy Instamart and Amazon retail execution.",
+    "hourlyRate": 900,
+    "status": "Active"
+  },
+  {
+    "name": "Distributor Network Lead",
+    "code": "SLS-03",
+    "narration": "General Trade Wholesale & Distributor Alignment",
+    "description": "Onboards regional stockists, secondary wholesale distribution and credit terms.",
+    "hourlyRate": 800,
+    "status": "Active"
+  },
+  {
+    "name": "Retail Merchandising & Execution Specialist",
+    "code": "SLS-04",
+    "narration": "In-Store Display, Shelf Visibility and Stock Fill",
+    "description": "Monitors store compliance, stock rotation (FIFO) and POS merchandising.",
+    "hourlyRate": 600,
+    "status": "Active"
+  },
+  {
+    "name": "Environmental Health & Safety Manager",
+    "code": "EHS-01",
+    "narration": "Plant EHS Compliance and Environmental Sustainability",
+    "description": "Directs plant workplace safety, occupational health and emission standards.",
+    "hourlyRate": 900,
+    "status": "Active"
+  },
+  {
+    "name": "Food Plant Hygiene & Safety Lead",
+    "code": "EHS-02",
+    "narration": "Allergen Zoning, Personal Hygiene and Sanitation",
+    "description": "Audits allergen segregation zones, gowning protocols and slip-fall safety.",
+    "hourlyRate": 750,
+    "status": "Active"
+  },
+  {
+    "name": "Sustainability & Carbon Footprint Analyst",
+    "code": "EHS-03",
+    "narration": "EPR Plastic Waste and Carbon Intensity Accounting",
+    "description": "Calculates Extended Producer Responsibility (EPR) and factory water footprint.",
+    "hourlyRate": 700,
+    "status": "Active"
+  },
+  {
+    "name": "Chemical & Effluent Safety Specialist",
+    "code": "EHS-04",
+    "narration": "Cleaning Chemical Handling and ETP Monitoring",
+    "description": "Oversees caustic/acid CIP chemical storage, MSDS safety and effluent compliance.",
+    "hourlyRate": 650,
+    "status": "Active"
+  }
+];
 
   showFilter = false;
   keyword = '';

@@ -15,10 +15,11 @@ export class SaveTemplateComponent implements OnInit {
 
 
    readonly divisionsList = [
-    'Oral Solids - OS',
-    'Injectables - IJ',
-    'Complex Injectables - CI',
-    'Biotech - BT',
+    'Beverage R&D',
+    'Food Formulation',
+    'Personal Care & Cosmetics',
+    'Packaging & Innovation',
+    'Regulatory Affairs & Compliance'
   ];
   templateForm: FormGroup;
   isSubmitting = false;

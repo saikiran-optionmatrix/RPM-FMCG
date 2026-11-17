@@ -92,9 +92,9 @@ export class ProjectIssuesComponent implements OnInit {
 
   isKanbanView: boolean = false;
 
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  dynamicBreadcrumb: string = 'Acrylic Emulsion Binder 50% Solids - 2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/006';
 
   // Sample data for Project Issues
   originalTableList: IssueItem[] = [

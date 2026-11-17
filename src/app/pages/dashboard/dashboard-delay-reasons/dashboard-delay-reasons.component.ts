@@ -54,23 +54,24 @@ export class DashboardDelayReasonsComponent implements OnInit, AfterViewInit, On
 
   readonly divisionsList: string[] = [
     'All',
-    'Specialty Chemicals - SC',
-    'Polymers & Resins - PR',
-    'Agrochemicals - AC',
-    'Industrial & Fine Chemicals - IF',
+    'Beverages - BV',
+    'Personal Care & Beauty - PC',
+    'Packaged Foods & Snacks - FS',
+    'Dairy & Nutrition - DN',
+    'Home Care - HC'
   ];
 
   readonly locationsList: string[] = [
     'All',
-    'Ahmedabad',
-    'Hyderabad',
     'Mumbai',
-    'Pune',
-    'Vadodara',
     'Bengaluru',
+    'Delhi NCR',
+    'Pune',
+    'Hyderabad',
     'Chennai',
-    'Delhi',
-    'Baddi',
+    'Kolkata',
+    'Ahmedabad',
+    'Baddi'
   ];
 
   onApplyFilters(): void {
@@ -81,69 +82,69 @@ export class DashboardDelayReasonsComponent implements OnInit, AfterViewInit, On
 
   private charts: Highcharts.Chart[] = [];
 
-  // Top Delay Reason for each of the 12 Stages
+  // Top Delay Reason for each of the 12 FMCG Stages
   readonly topDelayReasonsByStage: StageDelayReason[] = [
-    { stageNumber: 1, stageCode: 'S1', stageName: 'Opportunity Identification', topReason: 'Market & Application Feasibility Analysis Delay' },
-    { stageNumber: 2, stageCode: 'S2', stageName: 'Concept Screening & Feasibility', topReason: 'Charter Finalization Delay' },
-    { stageNumber: 3, stageCode: 'S3', stageName: 'Route Scouting & Lab Synthesis', topReason: 'Raw Material, Catalyst & Solvent Shortage' },
-    { stageNumber: 4, stageCode: 'S4', stageName: 'Process Optimization (Lab Scale)', topReason: 'Low Yield / Side-Reaction Anomaly' },
-    { stageNumber: 5, stageCode: 'S5', stageName: 'Process Route Selection', topReason: 'Raw Material Lot Rejection' },
-    { stageNumber: 6, stageCode: 'S6', stageName: 'Bench-to-Pilot Process Development', topReason: 'Pilot Batch Yield & Purity Variation' },
-    { stageNumber: 7, stageCode: 'S7', stageName: 'Process Safety & Regulatory Studies', topReason: 'Hazard Study / Method Validation Pending' },
-    { stageNumber: 8, stageCode: 'S8', stageName: 'Regulatory Registration Filing (REACH / TSCA)', topReason: 'Finished Product Specification Failure' },
-    { stageNumber: 9, stageCode: 'S9', stageName: 'Pilot Plant Campaign', topReason: 'Tech Transfer Dossier Review Pending' },
-    { stageNumber: 10, stageCode: 'S10', stageName: 'Demonstration-Scale Campaign', topReason: 'Reactor / Distillation Equipment Downtime' },
-    { stageNumber: 11, stageCode: 'S11', stageName: 'Commercial Plant Build & Commissioning', topReason: 'Contractor / Equipment Delivery Delay' },
-    { stageNumber: 12, stageCode: 'S12', stageName: 'Commercial Launch & Ramp-Up', topReason: 'Regulatory Query Response Delay (REACH / EPA)' },
+    { stageNumber: 1, stageCode: 'S1', stageName: 'Consumer Need and Market Opportunity', topReason: 'Target & Market Feasibility Analysis Delay' },
+    { stageNumber: 2, stageCode: 'S2', stageName: 'Market and Product Concept Validation', topReason: 'Charter Finalization Delay' },
+    { stageNumber: 3, stageCode: 'S3', stageName: 'Product Ideation and Concept Screening', topReason: 'Product formulation, packaging substrate & food-grade ingredient shortage' },
+    { stageNumber: 4, stageCode: 'S4', stageName: 'Product Formulation and Product Optimization', topReason: 'Ingredient Compatibility & Formulation Anomaly' },
+    { stageNumber: 5, stageCode: 'S5', stageName: 'Product Concept and Formula Selection', topReason: 'Packaging Material & Substrate Rejection' },
+    { stageNumber: 6, stageCode: 'S6', stageName: 'Product Formulation and Process Development', topReason: 'Pilot production batch formulation & yield variation' },
+    { stageNumber: 7, stageCode: 'S7', stageName: 'Prototype Testing and Safety Assessment', topReason: 'Product efficacy and performance / safety test validation pending' },
+    { stageNumber: 8, stageCode: 'S8', stageName: 'Product Concept Approval Filing', topReason: 'Finished consumer product release quality test failure' },
+    { stageNumber: 9, stageCode: 'S9', stageName: 'Concept and Feasibility Validation', topReason: 'Product and Manufacturing Transfer Dossier Review Pending' },
+    { stageNumber: 10, stageCode: 'S10', stageName: 'Pilot Production and Market Testing', topReason: 'Mixing, blending vessel & packaging line downtime' },
+    { stageNumber: 11, stageCode: 'S11', stageName: 'Commercial Scale-Up and Launch Preparation', topReason: 'Consumer sensory & panel recruitment delay' },
+    { stageNumber: 12, stageCode: 'S12', stageName: 'Regulatory Affairs & Commercial Product Launch', topReason: 'Regulatory Affairs & Compliance Query Response Delay (FSSAI / FDA)' },
   ];
 
-  // 1,1: Activities Delay Distribution Data (5 Stages + Others)
+  // Activities Delay Distribution Data (5 Stages + Others)
   readonly activitiesData = [
-    { name: 'S1: Opportunity Identification', y: 20, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 16, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 28, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 22, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 18, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 20, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 16, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 28, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 22, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 18, color: '#f59e0b' },
     { name: 'Others', y: 54, color: '#94a3b8' },
   ];
 
-  // 1,2: Tasks Delay Distribution Data (5 Stages + Others)
+  // Tasks Delay Distribution Data (5 Stages + Others)
   readonly tasksData = [
-    { name: 'S1: Opportunity Identification', y: 18, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 15, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 25, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 20, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 22, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 18, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 15, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 25, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 20, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 22, color: '#f59e0b' },
     { name: 'Others', y: 48, color: '#94a3b8' },
   ];
 
-  // 1,3: Issues Delay Distribution Data (5 Stages + Others)
+  // Issues Delay Distribution Data (5 Stages + Others)
   readonly issuesData = [
-    { name: 'S1: Opportunity Identification', y: 12, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 14, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 22, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 30, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 24, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 12, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 14, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 22, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 30, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 24, color: '#f59e0b' },
     { name: 'Others', y: 56, color: '#94a3b8' },
   ];
 
-  // 2,1: To-Do Delay Distribution Data (5 Stages + Others)
+  // To-Do Delay Distribution Data (5 Stages + Others)
   readonly todoData = [
-    { name: 'S1: Opportunity Identification', y: 22, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 26, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 20, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 16, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 24, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 22, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 26, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 20, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 16, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 24, color: '#f59e0b' },
     { name: 'Others', y: 50, color: '#94a3b8' },
   ];
 
-  // 2,2: Requirements Delay Distribution Data (5 Stages + Others)
+  // Requirements Delay Distribution Data (5 Stages + Others)
   readonly requirementsData = [
-    { name: 'S1: Opportunity Identification', y: 24, color: '#3b82f6' },
-    { name: 'S2: Concept Screening', y: 28, color: '#06b6d4' },
-    { name: 'S3: Route Scouting', y: 18, color: '#10b981' },
-    { name: 'S4: Process Optimization', y: 19, color: '#84cc16' },
-    { name: 'S5: Route Selection', y: 15, color: '#f59e0b' },
+    { name: 'S1: Consumer Need & Opportunity', y: 24, color: '#3b82f6' },
+    { name: 'S2: Concept Validation', y: 28, color: '#06b6d4' },
+    { name: 'S3: Ideation & Screening', y: 18, color: '#10b981' },
+    { name: 'S4: Formulation & Optimization', y: 19, color: '#84cc16' },
+    { name: 'S5: Formula Selection', y: 15, color: '#f59e0b' },
     { name: 'Others', y: 62, color: '#94a3b8' },
   ];
 
@@ -160,8 +161,8 @@ export class DashboardDelayReasonsComponent implements OnInit, AfterViewInit, On
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.initAllCharts();
-    }, 0);
-    window.addEventListener('resize', this.resizeHandler);
+      window.addEventListener('resize', this.resizeHandler);
+    }, 100);
   }
 
   ngOnDestroy(): void {
@@ -175,18 +176,21 @@ export class DashboardDelayReasonsComponent implements OnInit, AfterViewInit, On
   }
 
   private initAllCharts(): void {
-    this.createPieChart('activitiesDelayChartContainer', 'Activities', this.activitiesData);
-    this.createPieChart('tasksDelayChartContainer', 'Tasks', this.tasksData);
-    this.createPieChart('issuesDelayChartContainer', 'Issues', this.issuesData);
-    this.createPieChart('todoDelayChartContainer', 'To-Do', this.todoData);
-    this.createPieChart('requirementsDelayChartContainer', 'Requirements', this.requirementsData);
+    this.charts.forEach((chart) => {
+      if (chart) {
+        chart.destroy();
+      }
+    });
+    this.charts = [];
+
+    this.createDonutChart('activitiesDelayChartContainer', this.activitiesData);
+    this.createDonutChart('tasksDelayChartContainer', this.tasksData);
+    this.createDonutChart('issuesDelayChartContainer', this.issuesData);
+    this.createDonutChart('todoDelayChartContainer', this.todoData);
+    this.createDonutChart('requirementsDelayChartContainer', this.requirementsData);
   }
 
-  private createPieChart(
-    containerId: string,
-    seriesName: string,
-    data: { name: string; y: number; color: string }[]
-  ): void {
+  private createDonutChart(containerId: string, seriesData: any[]): void {
     const el = document.getElementById(containerId);
     if (!el) return;
 
@@ -194,62 +198,48 @@ export class DashboardDelayReasonsComponent implements OnInit, AfterViewInit, On
       chart: {
         type: 'pie',
         backgroundColor: '#ffffff',
-        spacingTop: 5,
-        spacingBottom: 5,
-        spacingLeft: 2,
-        spacingRight: 2,
+        height: 250,
       },
       title: { text: null },
       credits: { enabled: false },
-      exporting: { enabled: true },
+      exporting: { enabled: false },
       tooltip: {
-        useHTML: true,
-        formatter: function (this: any) {
-          return `<b>${this.key}</b><br/>Delay Count: <b>${this.y}</b> (${this.percentage.toFixed(1)}%)`;
-        },
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            distance: -22,
-            format: '{point.percentage:.0f}%',
-            style: {
-              fontSize: '11px',
-              fontWeight: 'bold',
-              color: '#ffffff',
-              textOutline: '1px contrast',
-            },
-          },
-          showInLegend: true,
-          innerSize: '0%',
-        },
+        pointFormat: '<b>{point.name}</b>: {point.y} ({point.percentage:.1f}%)',
       },
       legend: {
         enabled: true,
-        align: 'center',
-        verticalAlign: 'bottom',
-        layout: 'horizontal',
-        maxHeight: 140,
-        itemDistance: 10,
-        symbolPadding: 5,
-        navigation: {
-          enabled: false,
-        },
+        align: 'right',
+        verticalAlign: 'middle',
+        layout: 'vertical',
         itemStyle: {
-          fontSize: '10px',
-          color: '#475569',
-          fontWeight: '500',
+          fontSize: '11px',
+          fontWeight: 'normal',
+          color: '#334155',
+        },
+        itemMarginBottom: 4,
+      },
+      plotOptions: {
+        pie: {
+          innerSize: '0%',
+          showInLegend: true,
+          dataLabels: {
+            enabled: true,
+            format: '{point.percentage:.0f}%',
+            distance: -20,
+            style: {
+              fontSize: '10px',
+              fontWeight: 'bold',
+              color: '#ffffff',
+              textOutline: 'none',
+            },
+          },
         },
       },
       series: [
         {
-          name: seriesName,
+          name: 'Delays',
           type: 'pie',
-          colorByPoint: true,
-          data: data,
+          data: seriesData,
         },
       ],
     } as any);

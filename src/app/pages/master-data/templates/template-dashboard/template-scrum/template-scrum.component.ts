@@ -130,25 +130,25 @@ export class TemplateScrumComponent implements OnInit, OnDestroy {
     this.route.snapshot.queryParamMap.get('projectName') ||
     this.route.snapshot.queryParamMap.get('name') ||
     this.route.snapshot.queryParamMap.get('templateName') ||
-    'Specialty Chemical Process Development Program';
-  projectCode: string = this.route.snapshot.queryParamMap.get('code') || '2026/CHM/001';
+    'New Beverage Product Development Program';
+  projectCode: string = this.route.snapshot.queryParamMap.get('code') || '2026/FMCG/001';
   dynamicBreadcrumb: string = 'Scrum';
 
-  team = ['Rajesh Kumar', 'Anita Desai', 'Priya Reddy', 'Amit Patel', 'Suresh Naidu', 'Dr. Priya Raman'];
+  team = ['Ananya Rao', 'Dr. Priya Raman', 'Vikram Singh', 'Anita Desai', 'Rajesh Kumar', 'Amit Patel'];
   stages: Stage[] = [
-    'S1 - Opportunity Identification',
-    'S2 - Concept Screening & Feasibility',
-    'S3 - Route Scouting & Lab Synthesis',
-    'S4 - Process Optimization (Lab Scale)',
-    'S5 - Process Route Selection & Basis of Design',
-    'S6 - Bench-to-Pilot Process Development',
-    'S7 - Process Safety & Regulatory Studies',
-    'S8 - Regulatory Registration Filing (REACH / TSCA)',
-    'S9 - Pilot Plant Campaign',
-    'S10 - Demonstration-Scale Campaign',
-    'S11 - Commercial Plant Build & Commissioning',
-    'S12 - Commercial Launch & Ramp-Up',
-  ];
+    "S1 - Consumer Need and Market Opportunity",
+    "S2 - Market and Product Concept Validation",
+    "S3 - Product Ideation and Concept Screening",
+    "S4 - Product Formulation and Product Optimization",
+    "S5 - Product Concept and Formula Selection",
+    "S6 - Product Formulation and Manufacturing Process Development",
+    "S7 - Prototype Testing and Product Safety Assessment",
+    "S8 - Product Concept Approval Filing",
+    "S9 - Concept and Feasibility Validation",
+    "S10 - Pilot Production and Market Testing",
+    "S11 - Commercial Scale-Up and Launch Preparation",
+    "S12 - Regulatory Approval and Commercial Product Launch"
+];
   stageFilter: 'all' | Stage = 'all';
 
   showAssignmentView = false;
@@ -156,20 +156,20 @@ export class TemplateScrumComponent implements OnInit, OnDestroy {
   selectedAssignmentSprintId: string = 'sprint-2';
 
   assignAvailableTasks: AssignTask[] = [
-    { id: 'AT1', name: 'API Characterization & Solid-State Screening', code: 'T-001', module: 'Pre-Formulation', duration: '5d', effort: '40h', selected: false },
-    { id: 'AT2', name: 'Excipient Compatibility & Binary Blend DSC', code: 'T-002', module: 'Formulation', duration: '7d', effort: '56h', selected: false },
-    { id: 'AT3', name: 'HPLC Assay & Related Substances Method Dev', code: 'T-003', module: 'Analytical R&D', duration: '5d', effort: '40h', selected: false },
-    { id: 'AT4', name: 'High-Shear Wet Granulation Optimization', code: 'T-004', module: 'Process Dev', duration: '10d', effort: '80h', selected: false },
-    { id: 'AT5', name: 'Dissolution Profiling in Multi-Media Buffers', code: 'T-005', module: 'Analytical R&D', duration: '4d', effort: '32h', selected: false },
-    { id: 'AT6', name: 'Container Closure Integrity & Barrier Testing', code: 'T-006', module: 'Packaging Dev', duration: '6d', effort: '48h', selected: false },
-    { id: 'AT7', name: 'Accelerated Stability Chamber Protocol (40°C/75% RH)', code: 'T-007', module: 'Quality Control', duration: '5d', effort: '40h', selected: false },
+    { id: 'AT1', name: 'Consumer Occasion Mapping & Focus Group Synthesis', code: 'T-001', module: 'Consumer Insights', duration: '5d', effort: '40h', selected: false },
+    { id: 'AT2', name: 'Benchtop Flavor Emulsion & Taste Optimization', code: 'T-002', module: 'Formulation', duration: '7d', effort: '56h', selected: false },
+    { id: 'AT3', name: 'High-Shear Homogenization & Acidity Balancing', code: 'T-003', module: 'Process Dev', duration: '5d', effort: '40h', selected: false },
+    { id: 'AT4', name: 'QDA Descriptive Sensory Panel Discrimination', code: 'T-004', module: 'Sensory Science', duration: '4d', effort: '32h', selected: false },
+    { id: 'AT5', name: 'Packaging Barrier Film OTR/WVTR & Drop Test', code: 'T-005', module: 'Packaging Dev', duration: '6d', effort: '48h', selected: false },
+    { id: 'AT6', name: 'Accelerated Microbial & Vitamin Retention Study', code: 'T-006', module: 'Quality Assurance', duration: '5d', effort: '40h', selected: false },
+    { id: 'AT7', name: 'FSSAI Nutrition Panel & Allergen Declarations', code: 'T-007', module: 'Regulatory Affairs', duration: '3d', effort: '24h', selected: false },
   ];
 
   assignAssignedTasks: AssignTask[] = [
-    { id: 'AT8', name: 'Microbial Enumeration & Sterility Validation', code: 'T-008', module: 'Microbiology', duration: '4d', effort: '32h', selected: false },
-    { id: 'AT9', name: 'Pilot-Scale Fluid Bed Dryer Qualification', code: 'T-009', module: 'Engineering', duration: '3d', effort: '24h', selected: false },
-    { id: 'AT10', name: 'GCP Clinical Bioequivalence Protocol Review', code: 'T-010', module: 'Clinical / Medical', duration: '2d', effort: '16h', selected: false },
-    { id: 'AT11', name: 'eCTD Module 3 Quality Dossier Compilation', code: 'T-011', module: 'Regulatory Affairs', duration: '3d', effort: '24h', selected: false },
+    { id: 'AT8', name: '5,000L Pilot Processing Trial & Pasteurization Lethality', code: 'T-008', module: 'Manufacturing', duration: '4d', effort: '32h', selected: false },
+    { id: 'AT9', name: 'High-Speed 400 bpm Aseptic Bottling Line Trial', code: 'T-009', module: 'Packaging Line', duration: '3d', effort: '24h', selected: false },
+    { id: 'AT10', name: 'Distributor Pipeline Stock Logistics & Cold-Chain Protocol', code: 'T-010', module: 'Supply Chain', duration: '2d', effort: '16h', selected: false },
+    { id: 'AT11', name: 'Retail Planogram & Quick-Commerce Campaign Setup', code: 'T-011', module: 'Commercial Launch', duration: '3d', effort: '24h', selected: false },
   ];
 
   onAssignmentSprintChange(): void {
@@ -256,44 +256,39 @@ export class TemplateScrumComponent implements OnInit, OnDestroy {
 
   sprints: Sprint[] = [
     {
-      id: 'backlog',
-      label: 'Backlog',
-      kind: 'backlog',
+      id: 'backlog', label: 'Backlog', kind: 'backlog',
       tasks: [
-        this.t('Reference Product Characterization', 'TSK-101', 'JOB-21', '2026-01-05', '2026-01-20', 24, 10, "Analyze the reference product's dosage form, strength, physical characteristics, and target quality attributes.", 'Feasibility', 'Pending'),
-        this.t('Target Product Profile Definition', 'TSK-102', 'JOB-21', '2026-02-01', '2026-02-25', 20, 8, 'Define the desired quality, performance, and formulation requirements for the generic tablet.', 'Feasibility', 'Pending'),
-        this.t('API Characterization', 'TSK-103', 'JOB-22', '2026-03-02', '2026-03-20', 32, 14, 'Evaluate API properties relevant to formulation development and product performance.', 'Formulation', 'Allocated'),
-        this.t('API–Excipient Compatibility Study', 'TSK-104', 'JOB-22', '2026-04-05', '2026-04-26', 40, 18, 'Assess potential interactions between the API and selected excipients.', 'Formulation', 'In Process'),
-        this.t('Excipient Screening', 'TSK-105', 'JOB-23', '2026-05-02', '2026-05-28', 36, 15, 'Evaluate and shortlist suitable excipients for the tablet formulation.', 'Formulation', 'In Process'),
-        this.t('Prototype Formulation Design', 'TSK-106', 'JOB-23', '2026-06-01', '2026-06-22', 48, 20, 'Develop preliminary formulation compositions using the selected API and excipients.', 'Formulation', 'On Hold'),
-        this.t('Laboratory Prototype Batch', 'TSK-107', 'JOB-24', '2026-07-01', '2026-07-15', 56, 22, 'Prepare laboratory-scale prototype batches and document formulation and process parameters.', 'Formulation', 'Cancelled'),
-        this.t('Dissolution Testing', 'TSK-108', 'JOB-24', '2026-08-03', '2026-08-25', 40, 18, 'Evaluate dissolution performance of prototype batches against predefined targets.', 'Formulation', 'Completed'),
-        this.t('Formulation Optimization', 'TSK-109', 'JOB-25', '2026-09-01', '2026-09-18', 60, 25, 'Analyze experimental results and optimize formulation composition and process parameters.', 'Formulation', 'Completed'),
-      ],
+        this.t('Reference Product Analytical Characterization', 'TSK-101', 'JOB-21', '2026-01-05', '2026-01-20', 24, 10, 'Analyze reference beverage nutritional specs, vitamins, Brix, and sensory attributes.', 'S1 - Consumer Need and Market Opportunity', 'Pending'),
+        this.t('Target Product Profile (TPP) Definition', 'TSK-102', 'JOB-21', '2026-02-01', '2026-02-25', 20, 8, 'Define beverage specification, packaging benchmarks and regulatory requirements.', 'S1 - Consumer Need and Market Opportunity', 'Pending'),
+        this.t('Host product formulation and Vector Characterization', 'TSK-103', 'JOB-22', '2026-03-02', '2026-03-20', 32, 14, 'Evaluate host product formulation and expression vector properties relevant to titer, product quality and scalability.', 'S4 - Product Formulation and Product Optimization', 'Allocated'),
+        this.t('Formula and Product Consistency Study', 'TSK-104', 'JOB-22', '2026-04-05', '2026-04-26', 40, 18, 'Assess the genetic and productivity shelf-life Stability of lead clones across cell generations.', 'S4 - Product Formulation and Product Optimization', 'In Process'),
+        this.t('Culture packaging substrate Screening', 'TSK-105', 'JOB-23', '2026-05-02', '2026-05-28', 36, 15, 'Evaluate and shortlist suitable culture packaging substrate and feed supplements for the expression platform.', 'S4 - Product Formulation and Product Optimization', 'In Process'),
+        this.t('Upstream yield and Product Formulation optimization', 'TSK-106', 'JOB-23', '2026-06-01', '2026-06-22', 44, 20, 'Optimize feed strategy, temperature and pH to raise ingredient blend titer.', 'S4 - Product Formulation and Product Optimization', 'On Hold'),
+        this.t('Protein A Capture ingredient refining Development', 'TSK-107', 'JOB-24', '2026-07-01', '2026-07-15', 38, 16, 'Develop the capture ingredient separation and quality testing step and define yield and purity targets.', 'S4 - Product Formulation and Product Optimization', 'Cancelled'),
+        this.t('Charge Variant and Glycan Profiling', 'TSK-108', 'JOB-24', '2026-08-03', '2026-08-25', 42, 18, 'Characterize charge variants and glycosylation against the reference product.', 'S4 - Product Formulation and Product Optimization', 'Completed'),
+        this.t('product efficacy and performance product performance and quality test Development', 'TSK-109', 'JOB-25', '2026-09-01', '2026-09-18', 46, 22, 'Develop a cell-based product efficacy and performance quality test that reflects the mechanism of action.', 'S4 - Product Formulation and Product Optimization', 'Completed'),
+        this.t('Aggregation and shelf-life Stability Screening', 'TSK-110', 'JOB-25', '2026-09-19', '2026-10-01', 30, 12, 'Screen buffer conditions for aggregation and short-term shelf-life Stability.', 'S4 - Product Formulation and Product Optimization', 'Completed')
+      ]
     },
     {
-      id: 'sprint-1',
-      label: 'Sprint 1',
-      kind: 'completed',
+      id: 'sprint-1', label: 'Sprint 1', kind: 'completed',
       tasks: [
-        { ...this.t('Reference Product Characterization', 'TSK-001', 'JOB-10', '2026-06-01', '2026-06-02', 4, 1, 'Innovator RLD dissolution profile & crystalline form benchmarking.', 'Feasibility', 'Completed'), assigned: 'Aarav Shah', status: 'completed', approved: true, progress: 100, eta: '2026-06-02', actualStart: '2026-06-01', actualFinish: '2026-06-02', expenses: 250 },
-        { ...this.t('Target Product Profile Definition', 'TSK-002', 'JOB-10', '2026-06-02', '2026-06-03', 6, 1, 'Define QTPP criteria: assay, purity, content uniformity, stability.', 'Feasibility', 'Completed'), assigned: 'Diego Ruiz', status: 'completed', approved: true, progress: 85, eta: '2026-06-03', actualStart: '2026-06-02', actualFinish: '2026-06-03', expenses: 0 },
-        { ...this.t('API Characterization', 'TSK-003', 'JOB-11', '2026-06-03', '2026-06-04', 8, 1, 'Powder XRD, particle size distribution (D10/D50/D90) & DSC analysis.', 'Formulation', 'In Process'), assigned: 'Mei Tanaka', status: 'inprocess', approved: false, progress: 60, eta: '2026-06-04', actualStart: '2026-06-03', actualFinish: '', expenses: 50 },
-        { ...this.t('API–Excipient Compatibility Study', 'TSK-004', 'JOB-12', '2026-06-03', '2026-06-05', 6, 2, 'Isothermal stress testing with binders, disintegrants, and lubricants.', 'Formulation', 'Completed'), assigned: 'Olivia Brown', status: 'completed', approved: true, progress: 100, eta: '2026-06-05', actualStart: '2026-06-03', actualFinish: '2026-06-05', expenses: 1200 },
-        { ...this.t('Excipient Screening', 'TSK-005', 'JOB-12', '2026-06-02', '2026-06-04', 8, 2, 'Pharmacopoeial compliance and grade selection (USP-NF / Ph. Eur.).', 'Formulation', 'Allocated'), assigned: 'Diego Ruiz', status: 'allocated', approved: false, progress: 25, eta: '2026-06-04', actualStart: '2026-06-02', actualFinish: '', expenses: 0 },
-      ],
+        { ...this.t('Reference Product Analytical Characterization', 'TSK-001', 'JOB-10', '2026-06-01', '2026-06-02', 4, 1, 'Analyze reference beverage nutritional specs, vitamins, Brix, and sensory attributes.', 'S1 - Consumer Need and Market Opportunity', 'Completed'), assigned: 'Rajesh Kumar', status: 'completed', approved: true, progress: 100, eta: '2026-06-02', actualStart: '2026-06-01', actualFinish: '2026-06-02', expenses: 250 },
+        { ...this.t('Target Product Profile (TPP) Definition', 'TSK-002', 'JOB-10', '2026-06-02', '2026-06-03', 6, 1, 'Define beverage specification, packaging benchmarks and regulatory requirements.', 'S1 - Consumer Need and Market Opportunity', 'Completed'), assigned: 'Anita Desai', status: 'completed', approved: true, progress: 85, eta: '2026-06-03', actualStart: '2026-06-02', actualFinish: '2026-06-03', expenses: 0 },
+        { ...this.t('Host product formulation and Vector Characterization', 'TSK-003', 'JOB-11', '2026-06-03', '2026-06-04', 8, 1, 'Evaluate host product formulation and expression vector properties.', 'S4 - Product Formulation and Product Optimization', 'In Process'), assigned: 'Priya Reddy', status: 'inprocess', approved: false, progress: 60, eta: '2026-06-04', actualStart: '2026-06-03', actualFinish: '', expenses: 50 },
+        { ...this.t('Formula and Product Consistency Study', 'TSK-004', 'JOB-12', '2026-06-03', '2026-06-05', 6, 2, 'Assess consistency and shelf-life stability of lead candidate blends.', 'S4 - Product Formulation and Product Optimization', 'Completed'), assigned: 'Amit Patel', status: 'completed', approved: true, progress: 100, eta: '2026-06-05', actualStart: '2026-06-03', actualFinish: '2026-06-05', expenses: 1200 },
+        { ...this.t('Culture packaging substrate Screening', 'TSK-005', 'JOB-12', '2026-06-02', '2026-06-04', 8, 2, 'Evaluate food-grade ingredient substrates and stabilizer packages.', 'S4 - Product Formulation and Product Optimization', 'Allocated'), assigned: 'Anita Desai', status: 'allocated', approved: false, progress: 25, eta: '2026-06-04', actualStart: '2026-06-02', actualFinish: '', expenses: 0 }
+      ]
     },
     {
-      id: 'sprint-2',
-      label: 'Sprint 2',
-      kind: 'active',
+      id: 'sprint-2', label: 'Sprint 2', kind: 'active',
       tasks: [
-        { ...this.t('Prototype Formulation Design', 'TSK-201', 'JOB-30', '2026-06-25', '2026-07-02', 16, 5, 'DOE formulation trial design matrix across 3 binder concentrations.', 'Formulation', 'In Process'), assigned: 'Priya Nair', status: 'inprocess', approved: false, progress: 75, eta: '2026-07-02', actualStart: '2026-06-26', actualFinish: '', expenses: 120, notes: [{ sender: 'Admin', date: '2026-07-02', text: 'Granulation complete, awaiting compression tool set.' }] },
-        { ...this.t('Laboratory Prototype Batch', 'TSK-202', 'JOB-30', '2026-06-26', '2026-06-30', 6, 2, '1 kg pilot blend compression and tablet hardness testing.', 'Formulation', 'Completed'), assigned: 'Priya Nair', status: 'completed', approved: true, progress: 100, eta: '2026-06-30', actualStart: '2026-06-26', actualFinish: '2026-06-29', expenses: 0 },
-        { ...this.t('Dissolution Testing', 'TSK-203', 'JOB-31', '2026-06-27', '2026-07-03', 10, 4, 'USP Apparatus II paddle dissolution at pH 1.2, 4.5, and 6.8.', 'Formulation', 'In Process'), assigned: 'Mei Tanaka', status: 'inprocess', approved: false, progress: 40, eta: '2026-07-03', actualStart: '2026-06-28', actualFinish: '', expenses: 50 },
-        { ...this.t('Formulation Optimization', 'TSK-204', 'JOB-31', '2026-06-29', '2026-07-01', 4, 2, 'Optimize disintegration time and friability (< 0.5%).', 'Formulation', 'Allocated'), assigned: 'Aarav Shah', status: 'allocated', approved: false, progress: 0, eta: '2026-07-01', actualStart: '', actualFinish: '', expenses: 0 },
-      ],
-    },
+        { ...this.t('Upstream yield and Product Formulation optimization', 'TSK-201', 'JOB-30', '2026-06-25', '2026-07-02', 16, 5, 'Optimize mixing parameters, temperature and pH profile.', 'S4 - Product Formulation and Product Optimization', 'In Process'), assigned: 'Rajesh Kumar', status: 'inprocess', approved: false, progress: 75, eta: '2026-07-02', actualStart: '2026-06-26', actualFinish: '', expenses: 120, notes: [{ sender: 'Admin', date: '2026-07-02', text: 'Pre-emulsion stable, initiating continuous metering trial.' }] },
+        { ...this.t('Protein A Capture ingredient refining Development', 'TSK-202', 'JOB-30', '2026-06-26', '2026-06-30', 6, 2, 'Develop capture and filtration steps and define yield targets.', 'S4 - Product Formulation and Product Optimization', 'Completed'), assigned: 'Priya Reddy', status: 'completed', approved: true, progress: 100, eta: '2026-06-30', actualStart: '2026-06-26', actualFinish: '2026-06-29', expenses: 0 },
+        { ...this.t('Charge Variant and Glycan Profiling', 'TSK-203', 'JOB-31', '2026-06-27', '2026-07-03', 10, 4, 'Characterize active nutrient profile against reference benchmark.', 'S4 - Product Formulation and Product Optimization', 'In Process'), assigned: 'Amit Patel', status: 'inprocess', approved: false, progress: 40, eta: '2026-07-03', actualStart: '2026-06-28', actualFinish: '', expenses: 50 },
+        { ...this.t('product efficacy and performance product performance and quality test Development', 'TSK-204', 'JOB-31', '2026-06-29', '2026-07-01', 4, 2, 'Validate bioassay and efficacy tests against specifications.', 'S4 - Product Formulation and Product Optimization', 'Allocated'), assigned: 'Rajesh Kumar', status: 'allocated', approved: false, progress: 0, eta: '2026-07-01', actualStart: '', actualFinish: '', expenses: 0 }
+      ]
+    }
   ];
 
   private t(
@@ -400,7 +395,7 @@ export class TemplateScrumComponent implements OnInit, OnDestroy {
         taskName: task.task,
         taskCode: task.taskCode,
         jobCode: task.jobCode,
-        projectName: this.projectName || 'Generic Pharma Development',
+        projectName: this.projectName || 'New Beverage Product Development Program',
         stage: task.stage,
         status: statusLabel,
         planStart: task.planStart,

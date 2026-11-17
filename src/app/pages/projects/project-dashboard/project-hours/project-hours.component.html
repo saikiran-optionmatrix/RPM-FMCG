@@ -2,7 +2,10 @@
 
   <!-- Header Section with Title & Action Buttons -->
   <header class="analytics-header">
-    <h1>{{ projectName }}</h1>
+    <div>
+      <h1>{{ projectName }}</h1>
+      <p style="margin: 2px 0 0 0; font-size: 13px; color: #64748b;">Track time spent on program work.</p>
+    </div>
 
     <div class="header-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
       <button mat-raised-button class="app-btn app-btn-primary" (click)="addTimesheet()" style="height: 38px;">
@@ -83,7 +86,7 @@
               <th class="text-left" style="color: white; font-size: 13px; padding: 10px 8px; font-weight: 600;">Name
               </th>
               <th class="text-center"
-                style="color: white; font-size: 13px; padding: 10px 8px; font-weight: 600; width: 80px;">Projects</th>
+                style="color: white; font-size: 13px; padding: 10px 8px; font-weight: 600; width: 80px;">Programs</th>
               <th class="text-center"
                 style="color: white; font-size: 13px; padding: 10px 8px; font-weight: 600; width: 80px;">Tasks</th>
               <th class="text-center"

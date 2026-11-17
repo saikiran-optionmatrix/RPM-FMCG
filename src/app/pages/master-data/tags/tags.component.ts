@@ -37,36 +37,46 @@ export class TagsComponent {
   constructor(private dialog: MatDialog) {}
   readonly items: MasterItem[] = [
     {
-      name: 'API Assessment',
-      description: 'API evaluation and supplier qualification',
-      status: 'Active',
+        "name": "Consumer Insights",
+        "description": "Occasion mapping, focus groups and unmet consumer need research",
+        "status": "Active"
     },
     {
-      name: 'Formulation',
-      description: 'Formulation development and optimization',
-      status: 'Active',
+        "name": "Bench Formulation",
+        "description": "Recipe development, bench compounding and prototype optimization",
+        "status": "Active"
     },
     {
-      name: 'Analytical Testing',
-      description: 'Assay, dissolution and testing activities',
-      status: 'Active',
+        "name": "Sensory Profiling",
+        "description": "Blind consumer taste panels, texture profiling and descriptive analysis",
+        "status": "Active"
     },
     {
-      name: 'Stability',
-      description: 'Stability study and sample monitoring',
-      status: 'Active',
+        "name": "Shelf-Life Stability",
+        "description": "Accelerated storage stability, microbiological testing and challenge studies",
+        "status": "Active"
     },
     {
-      name: 'Validation',
-      description: 'Process and method validation',
-      status: 'Active',
+        "name": "Sustainable Packaging",
+        "description": "PCR substrate testing, barrier performance and line machinability",
+        "status": "Active"
     },
     {
-      name: 'Regulatory',
-      description: 'Regulatory documentation and submission',
-      status: 'Active',
+        "name": "Pilot Line Trial",
+        "description": "Pilot manufacturing runs, scale-up yield evaluation and filling speed trials",
+        "status": "Active"
     },
-  ];
+    {
+        "name": "Regulatory Label Claim",
+        "description": "FSSAI / FDA compliance, nutrition facts panel and artwork substantiation",
+        "status": "Active"
+    },
+    {
+        "name": "Clean Label & Natural",
+        "description": "Synthetic additive replacement, natural colorants and clean label claims",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
   keyword = '';

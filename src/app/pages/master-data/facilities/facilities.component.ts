@@ -44,31 +44,31 @@ export class FacilitiesComponent {
   constructor(private dialog: MatDialog) {}
   readonly assets: Asset[] = [
     {
-      name: 'Chemical Manufacturing Plant',
-      code: 'LOC-MFG',
-      status: 'Active',
+        "name": "Pilot Manufacturing & Packaging Site",
+        "code": "LOC-MFG",
+        "status": "Active"
     },
     {
-      name: 'Process R&D Center',
-      code: 'LOC-RND',
-      status: 'Active',
+        "name": "FMCG Product Innovation & R&D Center",
+        "code": "LOC-RND",
+        "status": "Active"
     },
     {
-      name: 'Quality Control & Analytical Lab',
-      code: 'LOC-QC',
-      status: 'Active',
+        "name": "Quality Control & Sensory Analysis Laboratory",
+        "code": "LOC-QC",
+        "status": "Active"
     },
     {
-      name: 'Pilot Plant & Process Safety Testing Facility',
-      code: 'LOC-PLT',
-      status: 'Active',
+        "name": "Shelf-Life Stability & Cold Chain Testing Center",
+        "code": "LOC-STB",
+        "status": "Active"
     },
     {
-      name: 'Hazardous Materials Storage & Warehouse',
-      code: 'LOC-WHS',
-      status: 'Active',
-    },
-  ];
+        "name": "National Ambient & Cold Storage Warehouse",
+        "code": "LOC-WHS",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
 

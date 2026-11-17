@@ -37,22 +37,143 @@ export class TemplateBudgetComponent implements OnInit, OnDestroy {
     this.route.snapshot.queryParamMap.get('projectName') ||
     this.route.snapshot.queryParamMap.get('name') ||
     this.route.snapshot.queryParamMap.get('templateName') ||
-    'Oral Solid Dosage (OSD) Formulation & Commercialization';
-  projectCode: string = this.route.snapshot.queryParamMap.get('code') || '2026/GEN/001';
+    'New Beverage Product Development Program';
+  projectCode: string = this.route.snapshot.queryParamMap.get('code') || '2026/FMCG/001';
 
   allRows: BudgetItem[] = [
-    { stage: 'Product Selection', module: 'Feasibility', task: 'Reference Product Assessment', allocation: 'PR', standardHours: 25, actualHours: 18, budgetINR: 20000, usageINR: 18000, completion: 70 },
-    { stage: 'Pre-Formulation', module: 'API Characterization', task: 'API Characterization', allocation: 'AR', standardHours: 40, actualHours: 28, budgetINR: 35000, usageINR: 32500, completion: 65 },
-    { stage: 'Pre-Formulation', module: 'Compatibility', task: 'API–Excipient Compatibility', allocation: 'SK', standardHours: 35, actualHours: 22, budgetINR: 30000, usageINR: 28000, completion: 60 },
-    { stage: 'Formulation Development', module: 'Formulation Design', task: 'Prototype Formulation', allocation: 'MK', standardHours: 60, actualHours: 35, budgetINR: 55000, usageINR: 50000, completion: 55 },
-    { stage: 'Formulation Development', module: 'Excipient Screening', task: 'Excipient Optimization', allocation: 'RK', standardHours: 45, actualHours: 25, budgetINR: 40000, usageINR: 36000, completion: 50 },
-    { stage: 'Formulation Development', module: 'Prototype Batch', task: 'Laboratory Batch Preparation', allocation: 'PS', standardHours: 50, actualHours: 30, budgetINR: 65000, usageINR: 58000, completion: 45 },
-    { stage: 'Analytical Development', module: 'Analytical Testing', task: 'Assay & Related Substances', allocation: 'VN', standardHours: 50, actualHours: 22, budgetINR: 50000, usageINR: 42000, completion: 40 },
-    { stage: 'Analytical Development', module: 'Dissolution', task: 'Dissolution Method Development', allocation: 'SK', standardHours: 40, actualHours: 18, budgetINR: 45000, usageINR: 39000, completion: 35 },
-    { stage: 'Optimization', module: 'Formulation Optimization', task: 'Process & Formula Optimization', allocation: 'DR', standardHours: 55, actualHours: 20, budgetINR: 60000, usageINR: 45000, completion: 30 },
-    { stage: 'Stability', module: 'Stability Testing', task: 'Accelerated Stability Study', allocation: 'AP', standardHours: 70, actualHours: 15, budgetINR: 80000, usageINR: 55000, completion: 20 },
-    { stage: 'Scale-Up', module: 'Pilot Batch', task: 'Pilot-Scale Manufacturing', allocation: 'RK', standardHours: 80, actualHours: 10, budgetINR: 120000, usageINR: 35000, completion: 10 },
-  ];
+  {
+    "stage": "S1 - Consumer Need & Market Opportunity",
+    "module": "Consumer & Market Analysis",
+    "task": "Consumer occasions & unmet needs research",
+    "allocation": "AR",
+    "standardHours": 60,
+    "actualHours": 58,
+    "budgetINR": 65000,
+    "usageINR": 62000,
+    "completion": 100
+  },
+  {
+    "stage": "S2 - Concept Screening & Feasibility",
+    "module": "Product Concept Validation",
+    "task": "Target Product Profile (TPP) baseline",
+    "allocation": "PR",
+    "standardHours": 80,
+    "actualHours": 78,
+    "budgetINR": 85000,
+    "usageINR": 82000,
+    "completion": 100
+  },
+  {
+    "stage": "S3 - Product Formulation & Ingredient Sourcing",
+    "module": "Benchtop Formulation",
+    "task": "Food-grade ingredient vendor qualification",
+    "allocation": "VS",
+    "standardHours": 120,
+    "actualHours": 115,
+    "budgetINR": 140000,
+    "usageINR": 135000,
+    "completion": 100
+  },
+  {
+    "stage": "S4 - POC Expression & Ingredient Refining",
+    "module": "Recipe Optimization",
+    "task": "Flavor profiling & sugar-acid balance",
+    "allocation": "AD",
+    "standardHours": 140,
+    "actualHours": 95,
+    "budgetINR": 160000,
+    "usageINR": 110000,
+    "completion": 68
+  },
+  {
+    "stage": "S5 - Process Development & Lab Validation",
+    "module": "Process & Homogenization",
+    "task": "High-shear blending & thermal lethality",
+    "allocation": "AP",
+    "standardHours": 160,
+    "actualHours": 90,
+    "budgetINR": 190000,
+    "usageINR": 105000,
+    "completion": 55
+  },
+  {
+    "stage": "S6 - Formulation Optimization",
+    "module": "Sensory & Stability",
+    "task": "Consumer sensory panel discrimination",
+    "allocation": "AD",
+    "standardHours": 110,
+    "actualHours": 50,
+    "budgetINR": 125000,
+    "usageINR": 60000,
+    "completion": 45
+  },
+  {
+    "stage": "S7 - Pilot Plant Scale-up & Line Trials",
+    "module": "Pilot Trials",
+    "task": "5,000L pilot run & pasteurization check",
+    "allocation": "AP",
+    "standardHours": 200,
+    "actualHours": 60,
+    "budgetINR": 280000,
+    "usageINR": 85000,
+    "completion": 30
+  },
+  {
+    "stage": "S8 - Packaging & Barrier Development",
+    "module": "Structural Packaging",
+    "task": "Barrier film OTR/WVTR and drop test",
+    "allocation": "VS",
+    "standardHours": 130,
+    "actualHours": 35,
+    "budgetINR": 150000,
+    "usageINR": 42000,
+    "completion": 25
+  },
+  {
+    "stage": "S9 - Quality & Food Safety Clearance",
+    "module": "FSMS & HACCP",
+    "task": "Microbial challenge test & HACCP audit",
+    "allocation": "AD",
+    "standardHours": 90,
+    "actualHours": 18,
+    "budgetINR": 110000,
+    "usageINR": 25000,
+    "completion": 20
+  },
+  {
+    "stage": "S10 - Regulatory Dossier & Labeling",
+    "module": "FSSAI Compliance",
+    "task": "Nutrition facts panel & claim validation",
+    "allocation": "RK",
+    "standardHours": 80,
+    "actualHours": 12,
+    "budgetINR": 95000,
+    "usageINR": 15000,
+    "completion": 15
+  },
+  {
+    "stage": "S11 - Commercial Manufacturing Commissioning",
+    "module": "Commercial Scale-Up",
+    "task": "High-speed 400 bpm bottling run",
+    "allocation": "AP",
+    "standardHours": 220,
+    "actualHours": 20,
+    "budgetINR": 320000,
+    "usageINR": 30000,
+    "completion": 10
+  },
+  {
+    "stage": "S12 - Launch & Market Rollout",
+    "module": "Commercial Launch",
+    "task": "Distributor pipeline fill & merchandising",
+    "allocation": "AR",
+    "standardHours": 150,
+    "actualHours": 0,
+    "budgetINR": 220000,
+    "usageINR": 0,
+    "completion": 0
+  }
+];
 
   displayedRows: BudgetItem[] = [];
   stages: string[] = [];

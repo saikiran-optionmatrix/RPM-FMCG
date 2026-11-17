@@ -77,15 +77,15 @@ export class StagesHistoryComponent implements OnInit {
   }
 
   initHistoryData(): void {
-    const curStageName = this.stageName || 'Business Case';
-    const curDivision = this.division || 'Oral Solids - OS';
+    const curStageName = this.stageName || 'Consumer Need & Market Opportunity';
+    const curDivision = this.division || 'FMCG Product Innovation';
     const curStageCode = this.stageCode || 'S1';
     const curSeq = this.sequence || '1';
-    const curGate = this.gateCode || 'Gate 1';
-    const curPlanEffort = this.planEffort || 80;
-    const curPlanDuration = this.planDuration || 10;
-    const curMaterialBudget = this.materialBudget || '$15,000';
-    const curDescription = this.stageDescription || 'Business Case Preparation by PMO Team for respective molecule and country';
+    const curGate = this.gateCode || '-';
+    const curPlanEffort = this.planEffort || 650;
+    const curPlanDuration = this.planDuration || 35;
+    const curMaterialBudget = this.materialBudget || '$9,000';
+    const curDescription = this.stageDescription || 'Define target consumption occasions, category unmet needs and realistic commercial opportunity.';
 
     // Historical revisions for the selected stage (matching image fields)
     const selectedRevisions: StageHistoryRecord[] = [

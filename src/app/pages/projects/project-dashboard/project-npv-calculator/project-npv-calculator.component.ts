@@ -62,11 +62,11 @@ export class ProjectNpvCalculatorComponent implements OnInit {
   @ViewChild('scrollContainer1') scrollContainer1!: ElementRef;
   @ViewChild('scrollContainer2') scrollContainer2!: ElementRef;
 
-  projectName: string = this.route.snapshot.queryParamMap.get('projectName') || this.route.snapshot.queryParamMap.get('name') || 'Generic Tablet Development';
+  projectName: string = this.route.snapshot.queryParamMap.get('projectName') || this.route.snapshot.queryParamMap.get('name') || 'Vitamin-Enriched Fruit Beverage 250ml';
   
   // --- Properties ---
-  projectCode: string = '2026/GEN/001';
-  dynamicBreadcrumb: string = 'Generic Tablet Development - 2026/GEN/001';
+  projectCode: string = '2026/FMCG/006';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/006';
 
   // Setup parameters
   discountRate: number = 12;
@@ -135,7 +135,7 @@ export class ProjectNpvCalculatorComponent implements OnInit {
     {
       id: 1,
       subject: 'COGS',
-      remarks: 'Estimated based on API & excipient baseline costing model',
+      remarks: 'Estimated based on food-grade ingredient, vitamin premix & packaging baseline costing model',
       year0: 2300000,
       year1: 1200000,
       year2: 850000,
@@ -156,7 +156,7 @@ export class ProjectNpvCalculatorComponent implements OnInit {
     },
     {
       id: 2,
-      subject: 'ANFD',
+      subject: 'Aseptic Filling Line Equipment',
       remarks: 'Purchased and validated in pilot facility with recurring maintenance',
       year0: 12300000,
       year1: 1500000,
@@ -178,7 +178,7 @@ export class ProjectNpvCalculatorComponent implements OnInit {
     },
     {
       id: 3,
-      subject: 'Vacuum Pump',
+      subject: 'Continuous Blending & Homogenizer System',
       remarks: 'Delivery, qualification and periodic seal replacement',
       year0: 3000000,
       year1: 1500000,
@@ -200,8 +200,8 @@ export class ProjectNpvCalculatorComponent implements OnInit {
     },
     {
       id: 4,
-      subject: 'Droplet generation device',
-      remarks: 'CDA executed with IIT Madras research team',
+      subject: 'Pasteurization & Heat Exchanger Unit',
+      remarks: 'Thermal inactivation and pasteurization process unit',
       year0: 1000000,
       year1: 450000,
       year2: 250000,
@@ -244,8 +244,8 @@ export class ProjectNpvCalculatorComponent implements OnInit {
     },
     {
       id: 6,
-      subject: 'Packaging & Serialization Equipment',
-      remarks: 'High-speed blister packaging and serialization lines',
+      subject: 'Packaging Line & Shrink Sleeve Labeling Machine',
+      remarks: 'High-speed 250ml aseptic PET line and shrink sleeve labeling machine',
       year0: 950000,
       year1: 1400000,
       year2: 600000,
@@ -288,8 +288,8 @@ export class ProjectNpvCalculatorComponent implements OnInit {
     },
     {
       id: 8,
-      subject: 'Regulatory Dossier & Pharmacovigilance',
-      remarks: 'eCTD filings, site registration and annual post-market surveillance',
+      subject: 'Regulatory Dossier & Food Safety Compliance',
+      remarks: 'FSSAI filings, nutrition claim substantiation and annual surveillance',
       year0: 750000,
       year1: 1100000,
       year2: 500000,

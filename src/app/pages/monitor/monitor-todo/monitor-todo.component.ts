@@ -129,65 +129,65 @@ export class MonitorTodoComponent implements OnInit, OnDestroy {
     this.overdueSub?.unsubscribe();
   }
 
-  private loadMockData(): void {
+    private loadMockData(): void {
     this.mockData = [
       {
         id: 1,
-        ProjectCode: '2026/CHM/001',
-        Subject: 'Concept Screening - Chemistry Feasibility',
-        delayReason: 'Calorimetry Lab Slot',
-        Description: 'Conduct feasibility and competitor benchmarking on polyurethane dispersion chemistry, particle size and film performance.',
-        Comments: 'Competitor benchmarking and reaction calorimetry underway',
+        ProjectCode: '2026/FMCG/001',
+        Subject: 'Consumer Need and Market Opportunity - Beverage Trend & Benchmark Analysis',
+        delayReason: 'Sensory Booth Panel Slot',
+        Description: 'Conduct sensory benchmark analysis and competitor tasting on vitamin retention, Brix balance and fruit mouthfeel.',
+        Comments: 'Hedonic tasting and competitor benchmark panel in progress',
         IsActive: true,
         CreatedDate: '2026-01-10T00:00:00',
         DueDate: '2026-06-15T00:00:00',
         CompletionDate: null,
-        Responsibility: 'Dr. Sarah Jenkins',
+        Responsibility: 'Dr. Priya Raman',
         Group: 'Research',
-        Department: 'Process Chemistry',
-        ProjectName: 'Waterborne Polyurethane Dispersion (PUD) Discovery Project',
+        Department: 'R&D & Product Innovation',
+        ProjectName: 'Vitamin-Enriched Fruit Beverage 250ml',
         Status: 'Pending'
       },
       {
         id: 2,
-        ProjectCode: '2026/CHM/002',
-        Subject: 'Project Definition - Target Product Profile & Specifications',
-        Description: 'Cascade target product profile, activity and selectivity specifications for the pilot lot.',
-        Comments: 'Signed off by project manager and technical lead',
+        ProjectCode: '2026/FMCG/002',
+        Subject: 'Program Definition - Target Product Profile & Nutritional Specs',
+        Description: 'Cascade target product profile, live probiotic CFU count (>=10^7 CFU/g) and protein purity specifications for consumer lot.',
+        Comments: 'Signed off by food regulatory lead and technical director',
         IsActive: true,
         CreatedDate: '2026-01-15T00:00:00',
         DueDate: '2026-03-25T00:00:00',
         CompletionDate: '2026-03-24T00:00:00',
         Responsibility: 'Priya Reddy',
-        Group: 'Project Management',
-        Department: 'Finance & Project Management',
-        ProjectName: 'Hydrogenation Catalyst Development (Pd/C)',
+        Group: 'Regulatory',
+        Department: 'Regulatory Affairs',
+        ProjectName: 'Probiotic Greek Yogurt 150g',
         Status: 'Completed'
       },
       {
         id: 3,
-        ProjectCode: '2026/CHM/003',
-        Subject: 'Process Development - Synthesis Route Strategy',
-        delayReason: 'Reactor Allocation Delay',
-        Description: 'Finalize multi-step synthesis route strategy, intermediate selection criteria and batch process design.',
-        Comments: 'Bench-scale route screening in progress',
+        ProjectCode: '2026/FMCG/003',
+        Subject: 'Manufacturing Process Development - Barrier Pouch Extrusion Strategy',
+        delayReason: 'Extrusion Pilot Line Allocation Delay',
+        Description: 'Finalize recyclable mono-material PP laminate film strategy, barrier layer selection and high-speed pouch sealing design.',
+        Comments: 'Bench sealing trials and barrier OTR testing underway',
         IsActive: true,
         CreatedDate: '2026-02-01T00:00:00',
         DueDate: '2026-07-01T00:00:00',
         CompletionDate: null,
         Responsibility: 'Rajesh Kumar',
-        Group: 'Process Development',
-        Department: 'Process Chemistry',
-        ProjectName: 'Agrochemical Active Ingredient Synthesis Development',
+        Group: 'Packaging',
+        Department: 'Packaging Development',
+        ProjectName: 'Sustainable Barrier Snack Pouch 50g',
         Status: 'Progress'
       },
       {
         id: 4,
-        ProjectCode: '2026/CHM/004',
-        Subject: 'Supplier Sourcing - Raw Material Qualification',
-        delayReason: 'Solvent Specification Update',
-        Description: 'Issue qualification package for technical-grade solvents, including impurity limits and certificates of analysis.',
-        Comments: 'Vendor CoA under review by quality',
+        ProjectCode: '2026/FMCG/004',
+        Subject: 'Supplier Sourcing - Food-Grade Protein Isolate Qualification',
+        delayReason: 'Ingredient Specification Update',
+        Description: 'Issue qualification package for commercial pea and oat protein isolates, including solubility index, allergen and heavy metal limits.',
+        Comments: 'Supplier CoA under review by food safety team',
         IsActive: true,
         CreatedDate: '2026-02-10T00:00:00',
         DueDate: '2026-06-30T00:00:00',
@@ -195,69 +195,27 @@ export class MonitorTodoComponent implements OnInit, OnDestroy {
         Responsibility: 'Anita Desai',
         Group: 'Sourcing',
         Department: 'Sourcing & Procurement',
-        ProjectName: 'Solvent Recovery & Fractional Distillation Process Development',
+        ProjectName: 'Plant-Based Protein Shake 330ml',
         Status: 'Hold'
       },
       {
         id: 5,
-        ProjectCode: '2026/CHM/005',
-        Subject: 'Plant Readiness - Assay Validation & Tech Transfer',
-        delayReason: 'Resource Reallocation',
-        Description: 'Execute validation of active-content and suspensibility assays on WDG pilot lots.',
-        Comments: 'Pilot lot analytical method qualification completed',
+        ProjectCode: '2026/FMCG/005',
+        Subject: 'Quality & Process Transfer - ASTM D4009 Grease Cutting & Foam Audit',
+        delayReason: 'Production Line Downtime',
+        Description: 'Execute standardized plate wash performance and foam stability audit on dishwash gel pilot lots.',
+        Comments: 'Pilot plant validation completed and signed off',
         IsActive: true,
         CreatedDate: '2026-03-05T00:00:00',
         DueDate: '2026-05-20T00:00:00',
         CompletionDate: '2026-05-19T00:00:00',
         Responsibility: 'Amit Patel',
         Group: 'Quality',
-        Department: 'Quality Assurance',
-        ProjectName: 'Water-Dispersible Granule (WDG) Formulation Development',
+        Department: 'Quality Assurance & Food Safety',
+        ProjectName: 'Clean-Label Dishwash Gel Concentrate 500ml',
         Status: 'Completed'
       }
     ];
-  }
-
-  // --- Toggles & Filters ---
-
-  toggleView(view: 'table' | 'kanban' | 'calendar'): void {
-    this.isKanbanView = view === 'kanban';
-    this.isCalendarView = view === 'calendar';
-    if (this.isKanbanView) this.initializeKanbanData();
-    if (this.isCalendarView) this.generateCalendarData();
-  }
-
-  toggleWeekend(): void {
-    this.showWeekend = !this.showWeekend;
-    this.displayDays = this.showWeekend ? [1, 2, 3, 4, 5, 6, 7] : [1, 2, 3, 4, 5];
-    this.generateCalendarData();
-  }
-
-  toggleFilter(): void {
-    this.showFilter = !this.showFilter;
-  }
-
-  toggleOverdueOnly(checked: boolean): void {
-    this.showOverdueOnly = checked;
-    this.monitorStateService.setOverdue(this.showOverdueOnly);
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: { overdue: this.showOverdueOnly ? 'true' : null },
-      queryParamsHandling: 'merge'
-    });
-    this.applyFilterData();
-    this.cdr.markForCheck();
-  }
-
-  onSearch(): void {
-    this.currentPage = 0;
-    this.applyFilterData();
-  }
-
-  onClear(): void {
-    this.filterForm.reset();
-    this.currentPage = 0;
-    this.applyFilterData();
   }
 
   applyFilterData(): void {
@@ -277,6 +235,40 @@ export class MonitorTodoComponent implements OnInit, OnDestroy {
 
     if (this.isKanbanView) this.initializeKanbanData();
     if (this.isCalendarView) this.generateCalendarData();
+  }
+
+    toggleOverdueOnly(checked?: boolean): void {
+    if (checked !== undefined) {
+      this.showOverdueOnly = checked;
+    }
+    this.applyFilterData();
+  }
+
+  toggleWeekend(): void {
+    this.showWeekend = !this.showWeekend;
+    if (this.isCalendarView) {
+      this.generateCalendarData();
+    }
+  }
+
+  toggleView(view: 'kanban' | 'calendar' | 'table'): void {
+    this.isKanbanView = view === 'kanban';
+    this.isCalendarView = view === 'calendar';
+    this.applyFilterData();
+  }
+
+  toggleFilter(): void {
+    this.showFilter = !this.showFilter;
+  }
+
+  onSearch(): void {
+    this.currentPage = 0;
+    this.applyFilterData();
+  }
+
+  onClear(): void {
+    this.filterForm.reset();
+    this.applyFilterData();
   }
 
   handlePage(event: PageEvent): void {

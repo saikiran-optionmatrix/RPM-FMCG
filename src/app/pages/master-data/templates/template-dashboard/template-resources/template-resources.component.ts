@@ -38,11 +38,11 @@ export class TemplateResourcesComponent implements OnInit, OnDestroy {
     this.route.snapshot.queryParamMap.get('projectName') ||
     this.route.snapshot.queryParamMap.get('name') ||
     this.route.snapshot.queryParamMap.get('templateName') ||
-    'Specialty Chemical Process Development Program';
+    'New Beverage Product Development Program';
   projectCode: string =
     this.route.snapshot.queryParamMap.get('projectCode') ||
     this.route.snapshot.queryParamMap.get('code') ||
-    '2026/CHM/001';
+    '2026/FMCG/001';
   dynamicBreadcrumb: string = 'Resources';
 
   availableResources: ResourceItem[] = [];
@@ -77,14 +77,14 @@ export class TemplateResourcesComponent implements OnInit, OnDestroy {
 
   initializeData(): void {
     this.availableResources = [
-      { code: 'RES001', name: 'GC-MS System A', selected: false },
+      { code: 'RES001', name: 'LC-MS System A', selected: false },
       { code: 'RES002', name: 'Anita Desai', selected: false },
-      { code: 'RES003', name: 'Jacketed Glass Reactor B (5 L)', selected: false },
+      { code: 'RES003', name: 'Benchtop Mixing & Blending Vessel B (5 L)', selected: false },
       { code: 'RES004', name: 'Amit Patel', selected: false },
-      { code: 'RES005', name: 'Particle Size Analyzer C', selected: false },
-      { code: 'RES006', name: 'Deepa Nair', selected: false },
-      { code: 'RES007', name: 'Arun Joseph', selected: false },
-      { code: 'RES008', name: 'Lakshmi Devi', selected: false }
+      { code: 'RES005', name: 'HunterLab Colorimeter & Spectrophotometer', selected: false },
+      { code: 'RES006', name: 'Sensory Evaluation Booth Suite', selected: false },
+      { code: 'RES007', name: 'Texture Analyzer (TA.XT Plus)', selected: false },
+      { code: 'RES008', name: 'HPLC Vitamin Assay System B', selected: false }
     ];
 
     this.allocatedResources = [
@@ -92,7 +92,7 @@ export class TemplateResourcesComponent implements OnInit, OnDestroy {
       { code: 'RES010', name: 'Rajesh Kumar', selected: false },
       { code: 'RES011', name: 'Priya Reddy', selected: false },
       { code: 'RES012', name: 'Suresh Naidu', selected: false },
-      { code: 'RES013', name: 'Rotary Evaporator and Vacuum Oven', selected: false }
+      { code: 'RES013', name: 'Stability Climatic Chamber (40°C/75% RH)', selected: false }
     ];
   }
 

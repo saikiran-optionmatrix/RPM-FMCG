@@ -63,8 +63,8 @@ export class ResourcesComponent implements OnInit, AfterViewInit {
   canScrollRight = signal<boolean>(true);
 
   // Project Info
-  projectName = signal<string>('Acrylic Emulsion Binder 50% Solids');
-  projectCode = signal<string>('2026/CHM/006');
+  projectName = signal<string>('Vitamin-Enriched Fruit Beverage 250ml');
+  projectCode = signal<string>('2026/FMCG/001');
 
 
 
@@ -103,55 +103,61 @@ export class ResourcesComponent implements OnInit, AfterViewInit {
     setTimeout(() => this.checkScroll(), 0);
   }
 
-  private initializeData(): void {
+    private initializeData(): void {
     this.schedules.set([
       {
-        resource: 'GC-MS System A', initials: 'GA', stage: 'S1 - Opportunity Identification', module: 'Competitor Grade & Market Analysis',
-        task: 'Benchmark Grade Characterization', fromDate: '2026-06-01', fromTime: '09:00 AM', toDate: '2026-06-05',
+        resource: 'LC-MS System A', initials: 'LC', stage: 'S1 - Business Case', module: 'Reference Product & Market Analysis',
+        task: 'Reference Product Analytical Characterization', fromDate: '2026-06-01', fromTime: '09:00 AM', toDate: '2026-06-05',
         toTime: '05:00 PM', planDuration: '5 days', actualDuration: '5 days',
         status: 'Completed', dayPlacement: 'Monday', color: '#dcfce7', updatedBy: 'Priya Reddy'
       },
       {
-        resource: 'Anita Desai', initials: 'AD', stage: 'S3 - Route Scouting & Lab Synthesis', module: 'Surfactant & Monomer Sourcing',
-        task: 'Surfactant Screening & Trial Batches', fromDate: '2026-06-08', fromTime: '09:00 AM', toDate: '2026-06-21',
+        resource: 'Anita Desai', initials: 'AD', stage: 'S3 - Food-Grade Ingredient Procurement', module: 'Product Formulation Development & Sourcing',
+        task: 'Natural Flavor Screening & Trial Batches', fromDate: '2026-06-08', fromTime: '09:00 AM', toDate: '2026-06-21',
         toTime: '05:00 PM', planDuration: '14 days', actualDuration: '12 days',
         status: 'Completed', dayPlacement: 'Tuesday', color: '#dcfce7', updatedBy: 'Anita Desai'
       },
       {
-        resource: 'Jacketed Glass Reactor B (5 L)', initials: 'JR', stage: 'S4 - Process Optimization (Lab Scale)', module: 'Process Development',
-        task: 'Monomer Feed Profile Optimization', fromDate: '2026-06-22', fromTime: '09:00 AM', toDate: '2026-07-02',
+        resource: 'Benchtop Mixing & Blending Vessel B (5 L)', initials: 'BV', stage: 'S4 - POC Expression & Ingredient Refining', module: 'Pilot Blending & Process Optimization',
+        task: 'Upstream Yield & Formulation Optimization', fromDate: '2026-06-22', fromTime: '09:00 AM', toDate: '2026-07-02',
         toTime: '05:00 PM', planDuration: '10 days', actualDuration: '8 days',
         status: 'Active', dayPlacement: 'Wednesday', color: '#e0f2fe', updatedBy: 'Rajesh Kumar'
       },
       {
-        resource: 'Amit Patel', initials: 'AP', stage: 'S4 - Process Optimization (Lab Scale)', module: 'Analytical Development',
-        task: 'Film Property & Viscosity Testing', fromDate: '2026-07-03', fromTime: '09:00 AM', toDate: '2026-07-13',
+        resource: 'Amit Patel', initials: 'AP', stage: 'S4 - POC Expression & Ingredient Refining', module: 'Analytical QA & Quality Test Development',
+        task: 'Product Efficacy & Quality Testing', fromDate: '2026-07-03', fromTime: '09:00 AM', toDate: '2026-07-13',
         toTime: '05:00 PM', planDuration: '10 days', actualDuration: 'N/A',
         status: 'Pending', dayPlacement: 'Thursday', color: '#ffedd5', updatedBy: 'Amit Patel'
       },
       {
-        resource: 'Particle Size Analyzer C', initials: 'PA', stage: 'S4 - Process Optimization (Lab Scale)', module: 'Analytical Development',
-        task: 'Particle Size Distribution Runs', fromDate: '2026-07-14', fromTime: '09:00 AM', toDate: '2026-07-24',
+        resource: 'HunterLab Colorimeter & Spectrophotometer', initials: 'HC', stage: 'S4 - POC Expression & Ingredient Refining', module: 'Sensory & Visual Quality Testing',
+        task: 'Color Delta-E & Cloud Turbidity Measurement', fromDate: '2026-07-14', fromTime: '09:00 AM', toDate: '2026-07-24',
         toTime: '05:00 PM', planDuration: '10 days', actualDuration: 'N/A',
         status: 'Pending', dayPlacement: 'Friday', color: '#ffedd5', updatedBy: 'Priya Reddy'
       },
       {
-        resource: 'Fume Hood Suite 3', initials: 'FH', stage: 'S3 - Route Scouting & Lab Synthesis', module: 'Raw Material Sourcing',
-        task: 'Monomer Distillation & Inhibitor Removal', fromDate: '2026-06-05', fromTime: '09:00 AM', toDate: '2026-06-15',
+        resource: 'Sensory Evaluation Booth Suite', initials: 'SB', stage: 'S3 - Food-Grade Ingredient Procurement', module: 'Sensory Evaluation',
+        task: 'Hedonic 9-Point Consumer Taste Panel', fromDate: '2026-06-05', fromTime: '09:00 AM', toDate: '2026-06-15',
         toTime: '05:00 PM', planDuration: '10 days', actualDuration: '10 days',
         status: 'Completed', dayPlacement: 'Friday', color: '#dcfce7', updatedBy: 'Anita Desai'
       },
       {
-        resource: 'Rotary Evaporator and Vacuum Oven', initials: 'RE', stage: 'S4 - Process Optimization (Lab Scale)', module: 'Polymer Purification',
-        task: 'Residual Monomer Reduction & Stripping', fromDate: '2026-07-01', fromTime: '09:00 AM', toDate: '2026-07-10',
+        resource: 'Stability Climatic Chamber (40°C/75% RH)', initials: 'SC', stage: 'S5 - Prototype Validation & Stability', module: 'Accelerated Shelf-Life Testing',
+        task: 'Accelerated Vitamin Retention Stability Run', fromDate: '2026-07-01', fromTime: '09:00 AM', toDate: '2026-07-10',
         toTime: '05:00 PM', planDuration: '9 days', actualDuration: '7 days',
         status: 'Active', dayPlacement: 'Wednesday', color: '#e0f2fe', updatedBy: 'Deepa Nair'
       },
       {
-        resource: 'Pilot Reactor (100 L)', initials: 'PR', stage: 'S6 - Bench-to-Pilot Process Development', module: 'Pilot Plant Trials',
-        task: 'Bench-to-Pilot Polymerization Run', fromDate: '2026-07-15', fromTime: '09:00 AM', toDate: '2026-07-30',
+        resource: 'Jacketed Blending Vessel 50 L', initials: 'JV', stage: 'S6 - Pilot Manufacturing Run', module: 'Pilot Blending Batches',
+        task: 'Pilot Plant Thermal Processing Trial', fromDate: '2026-07-15', fromTime: '09:00 AM', toDate: '2026-07-30',
         toTime: '05:00 PM', planDuration: '15 days', actualDuration: 'N/A',
         status: 'Pending', dayPlacement: 'Wednesday', color: '#ffedd5', updatedBy: 'Suresh Naidu'
+      },
+      {
+        resource: 'Aseptic FFS Packaging Line', initials: 'AL', stage: 'S8 - Finished Consumer Product Validation', module: 'Aseptic Filling & Sealing',
+        task: 'High-Speed Bottle Filling & Seal Validation', fromDate: '2026-08-01', fromTime: '09:00 AM', toDate: '2026-08-15',
+        toTime: '05:00 PM', planDuration: '14 days', actualDuration: 'N/A',
+        status: 'Pending', dayPlacement: 'Monday', color: '#ffedd5', updatedBy: 'Vikram Singh'
       }
     ]);
   }

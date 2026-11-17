@@ -1,9 +1,9 @@
 <div class="buffer-top-bar">
   <div class="filters-row">
     <div class="filter-item">
-      <label class="filter-label">Project Filter:</label>
-      <mat-select [(ngModel)]="selectedBufferProject" (selectionChange)="onBufferFilterChange()" class="app-custom-select" style="min-width: 200px;">
-        <mat-option value="All Projects">All Projects</mat-option>
+      <label class="filter-label">Program Filter:</label>
+      <mat-select [(ngModel)]="selectedBufferProject" (selectionChange)="onBufferFilterChange()" class="app-custom-select" style="min-width: 240px;">
+        <mat-option value="All Programs">All Programs</mat-option>
         @for (p of projects; track p) {
           <mat-option [value]="p">{{ p }}</mat-option>
         }
@@ -38,14 +38,12 @@
 <div class="charts-grid">
   <!-- Left Chart -->
   <mat-card class="chart-card" style="padding: 16px;">
-    <!-- Moved Title to HTML -->
     <h3 style="margin: 0 0 16px 0; font-size: 16px; font-weight: 600; color: #000000; text-align: center;">Buffer Consumed vs % Completion</h3>
     <div id="bufferBarChartContainer" class="chart-container"></div>
   </mat-card>
 
   <!-- Right Chart -->
   <mat-card class="chart-card" style="padding: 16px;">
-    <!-- Moved Title to HTML -->
     <h3 style="margin: 0 0 16px 0; font-size: 16px; font-weight: 600; color: #000000; text-align: center;">Buffer Stage-wise Distribution</h3>
     <div id="bufferPieChartContainer" class="chart-container"></div>
   </mat-card>

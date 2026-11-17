@@ -58,36 +58,46 @@ export class AssetsComponent {
 
   readonly assets: Asset[] = [
     {
-      name: 'Glass-Lined Jacketed Reactor (500 L)',
-      code: 'AST-1001',
-      status: 'Active',
+        "name": "High-Shear Emulsifier & Pilot Homogenizer (50L)",
+        "code": "AST-1001",
+        "status": "Active"
     },
     {
-      name: 'Gas Chromatograph (GC-FID / GC-MS)',
-      code: 'AST-1002',
-      status: 'Active',
+        "name": "Pilot Mixing & Blending Vessel (Stirred-Tank, 500L)",
+        "code": "AST-1002",
+        "status": "Active"
     },
     {
-      name: 'Laser Particle Size Analyzer',
-      code: 'AST-1003',
-      status: 'Active',
+        "name": "Automated Form-Fill-Seal (FFS) Packaging Prototype Line",
+        "code": "AST-1003",
+        "status": "Active"
     },
     {
-      name: 'Walk-in Fume Hood (Ducted, Scrubber-Connected)',
-      code: 'AST-1004',
-      status: 'Active',
+        "name": "Climate-Controlled Accelerated Stability Chamber (ICH/FMCG)",
+        "code": "AST-1004",
+        "status": "Active"
     },
     {
-      name: 'Agitated Nutsche Filter Dryer (ANFD)',
-      code: 'AST-1005',
-      status: 'Active',
+        "name": "Sensory Panel Testing Suite & Controlled Booths",
+        "code": "AST-1005",
+        "status": "Active"
     },
     {
-      name: 'Karl Fischer Titrator',
-      code: 'AST-1006',
-      status: 'Active',
+        "name": "Texture Analyzer & Dynamic Rheometer",
+        "code": "AST-1006",
+        "status": "Active"
     },
-  ];
+    {
+        "name": "Gas Chromatography-Mass Spectrometry (GC-MS) Aroma Suite",
+        "code": "AST-1007",
+        "status": "Active"
+    },
+    {
+        "name": "Spectrophotometer & HunterLab Colorimeter",
+        "code": "AST-1008",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
 

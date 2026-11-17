@@ -86,9 +86,9 @@ export class ProjectNotesHistoryComponent implements OnInit {
   initHistoryNotes(): void {
     const curDate = this.date || '06/05/2026';
     const curPoster = this.postedBy || 'Rajesh Kumar';
-    const curDesc = this.description || 'API evaluation completed; supplier qualification is under review with 2 qualified DMF sources.';
-    const curDoc = this.document || 'API Specification.pdf';
-    const curTag = this.tags || 'API Assessment';
+    const curDesc = this.description || 'Reference Consumer Product Characterization completed; product formulation vendor qualification is under review with 2 shortlisted sources.';
+    const curDoc = this.document || 'Consumer Benchmark Study.pdf';
+    const curTag = this.tags || 'Reference Product';
 
     // Build revision chain for the selected note
     const selectedRevisions: NoteHistoryItem[] = [
@@ -248,8 +248,8 @@ export class ProjectNotesHistoryComponent implements OnInit {
   goBack(): void {
     this.router.navigate(['/projects/dashboard/notes'], {
       queryParams: {
-        code: this.projectCode || '2026/GEN/001',
-        name: this.projectName || 'Generic Tablet Development'
+        code: this.projectCode || '2026/FMCG/006',
+        name: this.projectName || 'Vitamin-Enriched Fruit Beverage 250ml'
       },
       queryParamsHandling: 'merge'
     });

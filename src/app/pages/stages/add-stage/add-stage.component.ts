@@ -28,10 +28,12 @@ export class AddStageComponent implements OnInit {
   isSubmitting = false;
 
   divisionOptions: string[] = [
-    'Polymers & Resins - PR',
-    'Specialty Chemicals - SC',
-    'Agrochemicals - AG',
-    'Petrochemicals - PC'
+    'Beverages - BV',
+    'Personal Care & Beauty - PC',
+    'Packaged Foods & Snacks - FS',
+    'Dairy & Nutrition - DN',
+    'Home Care - HC',
+    'FMCG Product Innovation - FI'
   ];
   gateOptions: string[] = ['-', 'Gate 1', 'Gate 2', 'Gate 3', 'Gate 4', 'Gate 5'];
 
@@ -42,7 +44,7 @@ export class AddStageComponent implements OnInit {
   ) {
     this.myGroup = this.fb.group({
       stageName: ['', [Validators.required]],
-      division: [['Polymers & Resins - PR'], [Validators.required]],
+      division: [['FMCG Product Innovation - FI'], [Validators.required]],
       stageCode: [''],
       stageSerial: [null, [Validators.required, Validators.min(1)]],
       gateCode: ['', [Validators.required]],

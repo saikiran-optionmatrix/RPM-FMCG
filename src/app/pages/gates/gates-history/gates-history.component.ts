@@ -75,10 +75,10 @@ export class GatesHistoryComponent implements OnInit {
 
   initHistoryRecords(): void {
     const curCode = this.gateCode || 'Gate 1';
-    const curName = this.gateName || 'Opportunity and portfolio approval';
-    const curStage = this.stageCode || 'S1';
-    const curDiv = this.division || 'Oral Solids - OS';
-    const curDesc = this.description || 'Formal gate review to evaluate therapeutic and market opportunity assessment, target product profile, freedom-to-operate clearance, business case and preliminary risk screening.';
+    const curName = this.gateName || 'Product Concept Selection';
+    const curStage = this.stageCode || 'S2';
+    const curDiv = this.division || 'Beverages - BV, Personal Care & Beauty - PC';
+    const curDesc = this.description || 'Formal decision gate to evaluate target consumer segment, occasion, unmet need, competitive positioning, preliminary packaging and formulation feasibility, and program charter.';
     const curWorkflow = this.workflow || '3/5';
     const curCount = this.count || 7;
     const curStatus = this.status !== undefined ? this.status : true;
@@ -93,11 +93,11 @@ export class GatesHistoryComponent implements OnInit {
     ];
 
     const users = [
-      'Dr. Robert Vance',
-      'Sarah Jenkins',
-      'Michael Chang',
-      'Emily Watson',
-      'David Miller'
+      'Ananya Rao',
+      'Dr. Priya Raman',
+      'Vikram Singh',
+      'Anita Desai',
+      'Rajesh Kumar'
     ];
 
     const descVariations = [
@@ -142,98 +142,72 @@ export class GatesHistoryComponent implements OnInit {
 
     // Catalog gates for rich history reference
     const catalogGates: GateHistoryRecord[] = [
-      {
-        id: 101,
-        status: true,
-        gateCode: 'Gate 1',
-        name: 'Opportunity and portfolio approval',
-        division: 'Oral Solids - OS',
-        description: 'Formal gate review to evaluate therapeutic and market opportunity assessment, target product profile, freedom-to-operate clearance, business case and preliminary risk screening, approving the opportunity into formal program definition.',
-        stageCode: 'S1',
-        workflow: '3/5',
-        count: 7,
-        changedDate: '2026-02-15 14:30',
-        changedBy: 'Dr. Sarah Jenkins'
-      },
-      {
-        id: 102,
-        status: true,
-        gateCode: 'Gate 2',
-        name: 'Product definition and project charter approval',
-        division: 'Oral Solids - OS, Injectables - IJ',
-        description: 'Formal decision gate to review finalized target product profile, reference listed drug characterization, regulatory submission pathway, IP strategy, cross-functional program charter, and funding commitment before starting formulation development.',
-        stageCode: 'S2',
-        workflow: '2/5',
-        count: 6,
-        changedDate: '2026-01-18 10:20',
-        changedBy: 'Dr. Robert Vance'
-      },
-      {
-        id: 103,
-        status: false,
-        gateCode: 'Gate 3',
-        name: 'Formulation concept and sourcing strategy approval',
-        division: 'Oral Solids - OS, Biotech - BT',
-        description: 'Formal decision gate to evaluate pre-formulation findings, prototype formulation selection, API and critical excipient sourcing readiness, primary packaging selection, and project schedule before committing capital to full formulation and process development.',
-        stageCode: 'S3',
-        workflow: '4/5',
-        count: 6,
-        changedDate: '2025-12-14 16:00',
-        changedBy: 'Michael Chang'
-      },
-      {
-        id: 104,
-        status: false,
-        gateCode: 'Gate 4',
-        name: 'Formulation and process development approval',
-        division: 'Oral Solids - OS',
-        description: 'Formal decision gate to review formulation optimization, DoE stability data, manufacturing process train readiness, analytical method qualification, and supplier qualification before proceeding with development batch manufacturing.',
-        stageCode: 'S4',
-        workflow: '3/5',
-        count: 6,
-        changedDate: '2025-11-20 11:35',
-        changedBy: 'Emily Watson'
-      },
-      {
-        id: 105,
-        status: false,
-        gateCode: 'Gate 5',
-        name: 'Facility and manufacturing readiness approval',
-        division: 'Oral Solids - OS, Injectables - IJ, Biotech - BT',
-        description: 'Formal decision gate to verify equipment and facility qualification, utility readiness, cleaning validation, operator training, and supply chain readiness before initiating registration and process validation batch manufacturing.',
-        stageCode: 'S7',
-        workflow: '5/5',
-        count: 5,
-        changedDate: '2025-10-08 15:40',
-        changedBy: 'David Miller'
-      },
-      {
-        id: 106,
-        status: false,
-        gateCode: 'Gate 6',
-        name: 'Validation and regulatory submission readiness',
-        division: 'Oral Solids - OS, Injectables - IJ',
-        description: 'Formal decision gate to evaluate registration and process validation batch outcomes, stability data, dossier readiness, and bioequivalence / clinical study reports before authorizing filing with regulatory agencies.',
-        stageCode: 'S9',
-        workflow: '2/5',
-        count: 5,
-        changedDate: '2025-09-15 13:10',
-        changedBy: 'Vikram Sharma'
-      },
-      {
-        id: 107,
-        status: false,
-        gateCode: 'Gate 7',
-        name: 'Commercial launch authorization',
-        division: 'Oral Solids - OS',
-        description: 'Final formal gate to review market authorization approvals, manufacturing site inspection clearances, commercial supply chain readiness, distribution channel stocking, and pharmacovigilance setup before authorizing commercial distribution and sale.',
-        stageCode: 'S11',
-        workflow: '4/5',
-        count: 5,
-        changedDate: '2025-08-01 09:00',
-        changedBy: 'Anita Desai'
-      }
-    ];
+    {
+        "id": 101,
+        "status": true,
+        "gateCode": "Gate 1",
+        "name": "Product Concept Selection",
+        "division": "Beverages - BV, Packaged Foods & Snacks - FS",
+        "description": "Formal decision gate to evaluate target consumer segment, occasion, unmet need, competitive positioning, preliminary packaging and formulation feasibility, and program charter.",
+        "stageCode": "S2",
+        "workflow": "3/5",
+        "count": 7,
+        "changedDate": "2026-11-13 14:30",
+        "changedBy": "Ananya Rao"
+    },
+    {
+        "id": 102,
+        "status": true,
+        "gateCode": "Gate 2",
+        "name": "Product Concept & Formula Selection",
+        "division": "Beverages - BV, Personal Care & Beauty - PC",
+        "description": "Lock preferred prototype formula, target ingredient specifications, preliminary sensory scores, target shelf life, and packaging compatibility.",
+        "stageCode": "S5",
+        "workflow": "2/5",
+        "count": 6,
+        "changedDate": "2026-11-10 10:20",
+        "changedBy": "Dr. Priya Raman"
+    },
+    {
+        "id": 103,
+        "status": true,
+        "gateCode": "Gate 3",
+        "name": "Product Concept & Feasibility Approval",
+        "division": "Personal Care & Beauty - PC, Dairy & Nutrition - DN",
+        "description": "Approve consumer sensory acceptance, preliminary stability, packaging integrity, food/cosmetic safety assessment, and unit economics feasibility.",
+        "stageCode": "S7",
+        "workflow": "4/5",
+        "count": 8,
+        "changedDate": "2026-11-05 16:00",
+        "changedBy": "Vikram Singh"
+    },
+    {
+        "id": 104,
+        "status": true,
+        "gateCode": "Gate 4",
+        "name": "Consumer Validation & Product Performance Proof",
+        "division": "Beverages - BV, Home Care - HC",
+        "description": "Validate pilot run yields, sensory equivalence at scale, packaging line machinability, extended shelf-life confirmation, and blind consumer test hurdles.",
+        "stageCode": "S10",
+        "workflow": "5/5",
+        "count": 7,
+        "changedDate": "2026-10-28 11:35",
+        "changedBy": "Anita Desai"
+    },
+    {
+        "id": 105,
+        "status": true,
+        "gateCode": "Gate 5",
+        "name": "Market Launch & Regulatory Compliance Readiness",
+        "division": "Beverages - BV, Personal Care & Beauty - PC, Packaged Foods & Snacks - FS",
+        "description": "Verify commercial plant qualification, statutory regulatory filings, certified packaging artwork, supply chain inventory, and commercial launch clearance.",
+        "stageCode": "S11",
+        "workflow": "5/5",
+        "count": 9,
+        "changedDate": "2026-10-15 15:40",
+        "changedBy": "Rajesh Kumar"
+    }
+];
 
     const filteredCatalog = catalogGates.filter(
       g => g.gateCode.toLowerCase() !== curCode.toLowerCase()

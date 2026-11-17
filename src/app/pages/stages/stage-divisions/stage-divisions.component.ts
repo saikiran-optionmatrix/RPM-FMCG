@@ -22,10 +22,12 @@ export class StageDivisionsComponent implements OnInit {
   stageName: string = '';
 
   divisionsList: DivisionOption[] = [
-    { name: 'Polymers & Resins - PR', code: 'PR', selected: false },
-    { name: 'Specialty Chemicals - SC', code: 'SC', selected: false },
-    { name: 'Agrochemicals - AG', code: 'AG', selected: false },
-    { name: 'Petrochemicals - PC', code: 'PC', selected: false },
+    { name: 'Beverages - BV', code: 'BV', selected: false },
+    { name: 'Personal Care & Beauty - PC', code: 'PC', selected: false },
+    { name: 'Packaged Foods & Snacks - FS', code: 'FS', selected: false },
+    { name: 'Dairy & Nutrition - DN', code: 'DN', selected: false },
+    { name: 'Home Care - HC', code: 'HC', selected: false },
+    { name: 'FMCG Product Innovation - FI', code: 'FI', selected: false },
   ];
 
   constructor(

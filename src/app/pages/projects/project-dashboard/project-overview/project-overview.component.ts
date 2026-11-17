@@ -34,9 +34,9 @@ export class ProjectOverviewComponent implements OnInit, AfterViewInit, OnDestro
 
   private chart: any;
 
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  dynamicBreadcrumb: string = 'Acrylic Emulsion Binder 50% Solids - 2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/006';
 
   // Gate Badges
   gates = [
@@ -128,11 +128,11 @@ export class ProjectOverviewComponent implements OnInit, AfterViewInit, OnDestro
         }
       },
       categories: [
-        'PHASE 1 - Concept & Feasibility',
-        'PHASE 2 - Route Development & Selection',
-        'PHASE 3 - Pilot Development & Safety',
-        'PHASE 4 - Registration & Scale-Up',
-        'PHASE 5 - Commercial Plant & Launch'
+        'Phase 1 - Consumer Need & Concept (S1–S2)',
+        'Phase 2 - Formulation & Process Dev (S3–S4)',
+        'Phase 3 - Scale-Up & Feasibility (S5–S8)',
+        'Phase 4 - Pilot & Market Proof (S9–S10)',
+        'Phase 5 - Commercial Launch (S11–S12)'
       ]
     },
     tooltip: {
@@ -174,11 +174,11 @@ export class ProjectOverviewComponent implements OnInit, AfterViewInit, OnDestro
           `;
         } else {
           const stageNames = [
-            'PHASE 1 - Concept & Feasibility',
-            'PHASE 2 - Route Development & Selection',
-            'PHASE 3 - Pilot Development & Safety',
-            'PHASE 4 - Registration & Scale-Up',
-            'PHASE 5 - Commercial Plant & Launch'
+            'Phase 1 - Consumer Need & Concept (S1–S2)',
+            'Phase 2 - Formulation & Process Dev (S3–S4)',
+            'Phase 3 - Scale-Up & Feasibility (S5–S8)',
+            'Phase 4 - Pilot & Market Proof (S9–S10)',
+            'Phase 5 - Commercial Launch (S11–S12)'
           ];
           const stageName = stageNames[point.y] || `Phase ${point.y + 1}`;
           const startDate = Highcharts.dateFormat('%b %d, %Y', point.start);
@@ -248,10 +248,10 @@ export class ProjectOverviewComponent implements OnInit, AfterViewInit, OnDestro
             lineColor: 'transparent'
           },
           custom: {
-            gateName: 'Gate 1: Concept Approval',
+            gateName: 'Gate 1: Product Concept Selection',
             gateStatus: 'Passed & Approved',
             gateDate: '12 Mar 2026',
-            gateDesc: 'Business case, patent search and project charter approved.'
+            gateDesc: 'Business case, consumer market review and program charter approved.'
           }
         },
 
@@ -281,10 +281,10 @@ export class ProjectOverviewComponent implements OnInit, AfterViewInit, OnDestro
             lineColor: 'transparent'
           },
           custom: {
-            gateName: 'Gate 2: Process Route Selection',
+            gateName: 'Gate 2: Product Concept and Formula Selection',
             gateStatus: 'Under Review / In Progress',
             gateDate: '15 Aug 2026',
-            gateDesc: 'Candidate route yield, selectivity and preliminary basis of design review.'
+            gateDesc: 'Candidate formulation yield, shelf-life stability and recipe lock.'
           }
         },
 
@@ -310,10 +310,10 @@ export class ProjectOverviewComponent implements OnInit, AfterViewInit, OnDestro
             lineColor: 'transparent'
           },
           custom: {
-            gateName: 'Gate 3: Registration & Pilot Readiness',
+            gateName: 'Gate 3: Product Concept and Feasibility Approval',
             gateStatus: 'Scheduled / Pending',
             gateDate: '20 Dec 2026',
-            gateDesc: 'HAZOP review, analytical method validation and pilot plant readiness.'
+            gateDesc: 'Process feasibility, quality testing methods and pilot readiness.'
           }
         },
 
@@ -339,10 +339,10 @@ export class ProjectOverviewComponent implements OnInit, AfterViewInit, OnDestro
             lineColor: 'transparent'
           },
           custom: {
-            gateName: 'Gate 4: Demo-Scale Proof',
+            gateName: 'Gate 4: Consumer Validation and Product Performance Proof',
             gateStatus: 'Scheduled / Pending',
             gateDate: '25 Apr 2027',
-            gateDesc: 'Demo campaign proof, customer qualification trials and REACH / TSCA status.'
+            gateDesc: 'Pilot scale production proof, consumer panel testing and compliance readiness.'
           }
         },
 
@@ -368,10 +368,10 @@ export class ProjectOverviewComponent implements OnInit, AfterViewInit, OnDestro
             lineColor: 'transparent'
           },
           custom: {
-            gateName: 'Gate 5: Commercial Production Readiness',
+            gateName: 'Gate 5: Market Launch and Regulatory Readiness',
             gateStatus: 'Scheduled / Pending',
             gateDate: '31 Jul 2027',
-            gateDesc: 'Commercial plant commissioning, GHS labeling and launch authorization.'
+            gateDesc: 'Commercial production commissioning, labeling and market launch authorization.'
           }
         }
       ]

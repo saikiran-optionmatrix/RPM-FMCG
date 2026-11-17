@@ -102,9 +102,9 @@ export class ProjectScheduleComponent implements OnInit {
   @ViewChild('allocationTasksDialog') allocationTasksDialog!: TemplateRef<any>;
   @ViewChild('allocationProjectsDialog') allocationProjectsDialog!: TemplateRef<any>;
 
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  dynamicBreadcrumb: string = 'Acrylic Emulsion Binder 50% Solids - 2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/006';
 
   viewMode: 'grid' | 'gantt' | 'allocation' = 'gantt';
   isMaskingPending: boolean = false;
@@ -112,20 +112,20 @@ export class ProjectScheduleComponent implements OnInit {
 
   filterToggle: boolean = false;
   stages: string[] = [
-  "S1 - Opportunity Identification",
-  "S2 - Concept Screening & Feasibility",
-  "S3 - Route Scouting & Lab Synthesis",
-  "S4 - Process Optimization (Lab Scale)",
-  "S5 - Process Route Selection & Basis of Design",
-  "S6 - Bench-to-Pilot Process Development",
-  "S7 - Process Safety & Regulatory Studies",
-  "S8 - Regulatory Registration Filing (REACH / TSCA)",
-  "S9 - Pilot Plant Campaign",
-  "S10 - Demonstration-Scale Campaign",
-  "S11 - Commercial Plant Build & Commissioning",
-  "S12 - Commercial Launch & Ramp-Up"
+  "S1 - Consumer Need and Market Opportunity",
+  "S2 - Market and Product Concept Validation",
+  "S3 - Product Ideation and Concept Screening",
+  "S4 - Product Formulation and Product Optimization",
+  "S5 - Product Concept and Formula Selection",
+  "S6 - Product Formulation and Manufacturing Process Development",
+  "S7 - Prototype Testing and Product Safety Assessment",
+  "S8 - Product Concept Approval Filing",
+  "S9 - Concept and Feasibility Validation",
+  "S10 - Pilot Production and Market Testing",
+  "S11 - Commercial Scale-Up and Launch Preparation",
+  "S12 - Regulatory Approval and Commercial Product Launch"
 ];
-  stageFilter: string = 'S1 - Opportunity Identification';
+  stageFilter: string = 'S1 - Consumer Need and Market Opportunity';
   sprints: string[] = ['Sprint 1', 'Sprint 2', 'Sprint 3', 'Sprint 4', 'Sprint 5'];
   sprintFilter: string = 'all';
   modules: string[] = [
@@ -967,7 +967,9 @@ export class ProjectScheduleComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/projects/dashboard/analytics']);
+    this.router.navigate(['/projects/dashboard/analytics'], {
+      queryParams: { code: this.projectCode || "2026/FMCG/006", name: this.projectName || "Vitamin-Enriched Fruit Beverage 250ml" }
+    });
   }
 
   // ─── Allocation Calendar & Methods ──────────────────────────────────────────

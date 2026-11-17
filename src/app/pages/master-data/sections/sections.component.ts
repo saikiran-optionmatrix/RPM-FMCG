@@ -39,57 +39,87 @@ export class SectionsComponent {
   constructor(private dialog: MatDialog) {}
 
   readonly departments: string[] = [
-    'Research & Development',
-    'Quality Control',
-    'Quality Assurance',
-    'Manufacturing',
-    'Regulatory Affairs',
-  ];
+    "Consumer Insights & Strategy",
+    "Consumer Research",
+    "Category Management",
+    "R&D & Product Innovation",
+    "Packaging Development",
+    "Sensory & Consumer Science",
+    "Quality Assurance",
+    "Quality Control",
+    "Regulatory Affairs & Compliance",
+    "Pilot & Commercial Manufacturing",
+    "Supply Chain & Sourcing",
+    "Brand Marketing & Commercialization",
+    "Finance & Commercialization",
+    "Program Management Office"
+];
 
   readonly items: MasterItem[] = [
     {
-      name: 'Process Chemistry & Route Development',
-      code: 'PCRD',
-      department: 'Research & Development',
-      remarks: 'Route scouting, catalyst development and process optimization',
-      status: 'Active',
+        "name": "Consumer Research & Analytics",
+        "code": "CRA",
+        "department": "Consumer Insights & Strategy",
+        "remarks": "Occasion mapping, category white-spaces and consumer behavioral profiling",
+        "status": "Active"
     },
     {
-      name: 'Analytical Development',
-      code: 'AD',
-      department: 'Research & Development',
-      remarks: 'Analytical method development and product characterization',
-      status: 'Active',
+        "name": "Formulation & Recipe Development",
+        "code": "FRD",
+        "department": "R&D & Product Innovation",
+        "remarks": "Bench compounding, sensory screening and clean-label ingredient formulation",
+        "status": "Active"
     },
     {
-      name: 'Quality Control',
-      code: 'QC',
-      department: 'Quality Control',
-      remarks: 'Assay, purity and release testing',
-      status: 'Active',
+        "name": "Packaging Engineering & Materials",
+        "code": "PEM",
+        "department": "Packaging Development",
+        "remarks": "Barrier materials, sustainable substrates, shelf impact and line machinability",
+        "status": "Active"
     },
     {
-      name: 'Manufacturing',
-      code: 'MFG',
-      department: 'Manufacturing',
-      remarks: 'Reaction, separation, drying and packing operations',
-      status: 'Active',
+        "name": "Sensory Evaluation & Hedonic Testing",
+        "code": "SEHT",
+        "department": "Sensory & Consumer Science",
+        "remarks": "Blind consumer panels, descriptive sensory profiling and organoleptic testing",
+        "status": "Active"
     },
     {
-      name: 'Regulatory Affairs',
-      code: 'RA',
-      department: 'Regulatory Affairs',
-      remarks: 'REACH / TSCA dossiers and submissions',
-      status: 'Active',
+        "name": "Analytical & Microbiology Quality Control",
+        "code": "AMQC",
+        "department": "Quality Control",
+        "remarks": "Chemical assay, preservative efficacy, microbiology and finished goods release",
+        "status": "Active"
     },
     {
-      name: 'Quality Assurance',
-      code: 'QA',
-      department: 'Quality Assurance',
-      remarks: 'ISO 9001 compliance, validation and batch approvals',
-      status: 'Active',
+        "name": "Food Safety & Quality Governance",
+        "code": "FSQG",
+        "department": "Quality Assurance",
+        "remarks": "HACCP, FSSC 22000 compliance, supplier audits and GMP batch records",
+        "status": "Active"
     },
-  ];
+    {
+        "name": "Pilot Manufacturing & Line Scale-Up",
+        "code": "PMLS",
+        "department": "Pilot & Commercial Manufacturing",
+        "remarks": "Pilot plant trials, filling line qualification and commercial process validation",
+        "status": "Active"
+    },
+    {
+        "name": "Regulatory Compliance & Label Claims",
+        "code": "RCLC",
+        "department": "Regulatory Affairs & Compliance",
+        "remarks": "FSSAI/FDA/EU filings, ingredient clearances and packaging artwork substantiation",
+        "status": "Active"
+    },
+    {
+        "name": "Strategic Sourcing & Supplier Quality",
+        "code": "SSSQ",
+        "department": "Supply Chain & Sourcing",
+        "remarks": "Raw ingredient vendor qualification, contract packaging and risk mitigation",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
   keyword = '';

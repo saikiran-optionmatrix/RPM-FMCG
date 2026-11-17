@@ -37,12 +37,42 @@ interface MasterItem {
 })
 export class SitesComponent {
   readonly items: MasterItem[] = [
-    { name: 'Chemical Manufacturing Plant', code: 'LOC-MFG', city: 'Ahmedabad', state: 'Gujarat', status: 'Active' },
-    { name: 'Process R&D Center', code: 'LOC-RND', city: 'Hyderabad', state: 'Telangana', status: 'Active' },
-    { name: 'Quality Control & Analytical Lab', code: 'LOC-QC', city: 'Pune', state: 'Maharashtra', status: 'Active' },
-    { name: 'Pilot Plant & Process Safety Testing Facility', code: 'LOC-PLT', city: 'Chennai', state: 'Tamil Nadu', status: 'Active' },
-    { name: 'Hazardous Materials Storage & Warehouse', code: 'LOC-WHS', city: 'Mumbai', state: 'Maharashtra', status: 'Active' },
-  ];
+    {
+        "name": "Pilot Manufacturing & Packaging Site",
+        "code": "LOC-MFG",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "status": "Active"
+    },
+    {
+        "name": "FMCG Product Innovation & R&D Center",
+        "code": "LOC-RND",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "status": "Active"
+    },
+    {
+        "name": "Quality Control & Sensory Analysis Laboratory",
+        "code": "LOC-QC",
+        "city": "Pune",
+        "state": "Maharashtra",
+        "status": "Active"
+    },
+    {
+        "name": "Shelf-Life Stability & Cold Chain Testing Center",
+        "code": "LOC-STB",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "status": "Active"
+    },
+    {
+        "name": "National Ambient & Cold Storage Warehouse",
+        "code": "LOC-WHS",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
   keyword = '';

@@ -1,5 +1,5 @@
 <div class="gates-header-section" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding-left: 55px; padding-right: 55px;">
-  <p class="gates-subtitle-text" style="margin-bottom: 0; margin-left: 0;">Stages</p>
+  <p class="gates-subtitle-text" style="margin-bottom: 0; margin-left: 0;">Stages Portfolio (S1–S12)</p>
   <button type="button" class="back-btn" (click)="goBack()">
     <mat-icon>arrow_back</mat-icon><span>Back</span>
   </button>
@@ -22,8 +22,8 @@
               @for (head of stageHeaders; track head.key) {
               <th class="text-center align-middle stage-col-header" [title]="head.fullName">
                 <div class="stage-label fw-bold">{{ head.label }} ({{ head.stageCode }})</div>
-                <div class="stage-subtitle  small mt-1">{{ head.subtitle }}</div>
-                <div class="stage-count-badge mt-2">{{ head.projectCount }} Projects</div>
+                <div class="stage-subtitle small mt-1">{{ head.subtitle }}</div>
+                <div class="stage-count-badge mt-2">{{ head.projectCount }} {{ head.projectCount === 1 ? 'Program' : 'Programs' }}</div>
               </th>
               }
             </tr>

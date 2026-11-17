@@ -79,9 +79,9 @@ export class HoursComponent implements OnInit {
   currentDate: Date = new Date(2026, 5, 1); // June 2026
   selectedDate: Date | null = null;
 
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  dynamicBreadcrumb: string = 'Acrylic Emulsion Binder 50% Solids - 2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/001';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/001';
 
   // Data Arrays
   entries: HourEntry[] = [];
@@ -116,44 +116,43 @@ export class HoursComponent implements OnInit {
   }
 
   private loadMockData(): void {
-    const chemicalTasksPool: { module: string; task: string; description: string }[] = [
-      { module: 'Process Chemistry', task: 'Monomer Feed Profile Optimization', description: 'Semi-batch emulsion feed dosing profile and temperature trajectory control' },
-      { module: 'Process Chemistry', task: 'Monomer-Initiator Compatibility Study', description: 'Thermal stability and half-life analysis of persulfate initiator system' },
-      { module: 'Process Chemistry', task: 'Bench Scale Polymerization Run (2 L)', description: 'Jacketed glass reactor emulsion synthesis targeting 50% w/w solids' },
-      { module: 'Process Chemistry', task: 'Exotherm Control & Heat Removal Profiling', description: 'Reaction calorimetry calculation and adiabatic runaway boundary determination' },
-      { module: 'Process Chemistry', task: 'Coagulum Reduction Study', description: 'Surfactant HLB ratio optimization to minimize reactor fouling below 0.05%' },
-      { module: 'Analytical & QC', task: 'Residual Monomer GC-FID Analysis', description: 'Gas chromatography testing for residual butyl acrylate and methyl methacrylate (< 100 ppm)' },
-      { module: 'Analytical & QC', task: 'DLS Particle Size Distribution', description: 'Dynamic light scattering measurement targeting 120-150 nm monodisperse particles' },
-      { module: 'Analytical & QC', task: 'Brookfield Viscosity Profiling', description: 'Viscosity measurements across shear rates (spindle 2 @ 60 rpm, 500-1500 cP)' },
-      { module: 'Analytical & QC', task: 'Solids Content Gravimetric Verification', description: 'Halogen moisture balance determination of non-volatile active polymer solids' },
-      { module: 'Analytical & QC', task: 'Minimum Film-Forming Temperature (MFFT)', description: 'MFFT gradient bar measurement targeting < 10°C for architectural binder' },
-      { module: 'Process Safety', task: 'RC1 Reaction Calorimetry', description: 'Reaction heat flow calorimeter assessment of polymerization heat release' },
-      { module: 'Process Safety', task: 'HAZOP Node Preparation & LOPA', description: 'Hazard and operability node reviews for emergency vent and cooling water failure' },
-      { module: 'Process Safety', task: 'Emergency Vent Sizing (DIERS)', description: 'Two-phase relief valve and rupture disk hydraulic calculation' },
-      { module: 'Pilot Plant Operations', task: 'Jacketed Reactor Cleaning & Inspection', description: 'Caustic boil-out and mechanical seal integrity check on 500 L reactor' },
-      { module: 'Pilot Plant Operations', task: 'Monomer Feed Pump Stroke Calibration', description: 'Peristaltic and diaphragm metering pump accuracy calibration' },
-      { module: 'Pilot Plant Operations', task: 'Pilot Batch Execution (100 L)', description: 'Scale-up batch run with automated cascade jacket cooling control' },
-      { module: 'Pilot Plant Operations', task: 'Chaser Catalyst Addition & Deodorization', description: 'Redox chaser feeding to reduce unreacted free monomer' },
-      { module: 'Pilot Plant Operations', task: 'Post-Polymerization Filtration & Drumming', description: '100 mesh filter bag filtration and sealed drum packaging' },
-      { module: 'Regulatory & Quality', task: 'REACH Registration Dossier Compilation', description: 'Data gap analysis, toxicological profiling and lead registrant submission' },
-      { module: 'Regulatory & Quality', task: 'Safety Data Sheet (GHS/CLP) Authoring', description: '16-section SDS compilation with transport classifications (ADR/IMDG)' },
-      { module: 'Regulatory & Quality', task: 'Technical Transfer Dossier (TTD) Review', description: 'Verification of PFDs, P&IDs, CPP/CQA design space and SOPs' }
+        const fmcgTasksPool: { module: string; task: string; description: string }[] = [
+      { module: 'Formulation Development', task: 'Brix & Acid Balancing Trial', description: 'Adjustment of soluble solids (11.5°Bx) and citric/malic acid ratio for optimal tartness' },
+      { module: 'Formulation Development', task: 'Vitamin Fortification Emulsion', description: 'Micro-encapsulated vitamin C, B6, B12 and zinc premix dispersion in aqueous phase' },
+      { module: 'Formulation Development', task: 'Natural Color & Flavor Blending', description: 'Screening beta-carotene, black carrot extract and natural passionfruit-mango aromatics' },
+      { module: 'Formulation Development', task: 'Sweetener Masking Optimization', description: 'Stevia rebaudioside-M and monk fruit synergy to mask vitamin bitter lingering' },
+      { module: 'Formulation Development', task: 'Hydrocolloid Stabilizer Hydration', description: 'High-shear dissolution of pectin and citrus fiber for cloud retention' },
+      { module: 'Sensory Science', task: 'Hedonic Scale 9-Point Taste Panel', description: 'Untrained consumer panel (n=60) evaluating overall liking, aroma, sweetness and aftertaste' },
+      { module: 'Sensory Science', task: 'Descriptive Sensory Profiling (QDA)', description: 'Trained descriptive panel evaluating 14 sensory attributes across 3 candidate formulations' },
+      { module: 'Sensory Science', task: 'Triangle Discrimination Testing', description: 'ISO 4120 sensory difference test comparing ambient vs cold-stored shelf-life samples' },
+      { module: 'Analytical & QA', task: 'HPLC Vitamin C & B-Complex Assay', description: 'Reverse-phase HPLC determination of ascorbic acid and thiamine retention' },
+      { module: 'Analytical & QA', task: 'Total Plate Count & Yeast/Mold Testing', description: 'Pour plate microbial load evaluation (limit: < 10 CFU/ml total aerobic count)' },
+      { module: 'Analytical & QA', task: 'Headspace Gas Analysis (O2/CO2)', description: 'PBI Dansensor headspace oxygen verification targeting < 0.5% residual headspace oxygen' },
+      { module: 'Analytical & QA', task: 'Brix & Refractometer Calibration', description: 'Digital temperature-compensated refractometer calibration against certified sucrose standard' },
+      { module: 'Packaging Development', task: 'Barrier PET Bottle OTR & WVTR Testing', description: 'Mocon permeability measurement of multi-layer PET bottle with passive oxygen scavenger' },
+      { module: 'Packaging Development', task: 'Hot-Fill Cap Torque & Leakage Audit', description: 'Secure-Pak digital torque meter testing of 38mm tamper-evident closure seal' },
+      { module: 'Packaging Development', task: 'Drop & Secondary Packaging Compression', description: 'ISTA 3A case drop and pallet stacking compression strength simulation' },
+      { module: 'Pilot Plant Operations', task: 'Jacketed Blending Vessel Trial (100 L)', description: 'Batch thermal mixing (65°C) and high-shear agitator vortex control' },
+      { module: 'Pilot Plant Operations', task: 'High-Shear Emulsification Homogenization', description: 'Two-stage GEA homogenizer run at 200/50 bar for sub-micron emulsion droplets' },
+      { module: 'Pilot Plant Operations', task: 'HTST Aseptic Pasteurization (95°C / 30s)', description: 'Tubular heat exchanger thermal processing and holding tube validation' },
+      { module: 'Pilot Plant Operations', task: 'Aseptic Filling & Capping Run', description: 'HEPA laminar flow ISO Class 5 sterile filling line operation' },
+      { module: 'Regulatory & Quality', task: 'FSSAI Label & Nutritional Panel Compliance', description: 'Verification of RDA % claim substantiation, ingredient declarations and allergen callouts' },
+      { module: 'Regulatory & Quality', task: 'Shelf-Life Accelerated Stability Protocol', description: 'Climatic chamber protocol design for 40°C/75% RH (6-month accelerated study)' }
     ];
 
     const teamMembers: { name: string; code: string; role: string }[] = [
-      { name: 'Rajesh Kumar', code: 'JB-301', role: 'Process Engineer' },
-      { name: 'Anita Desai', code: 'JB-302', role: 'Supply Chain & Quality Specialist' },
+      { name: 'Rajesh Kumar', code: 'JB-301', role: 'Bioprocess Engineer' },
+      { name: 'Anita Desai', code: 'JB-302', role: 'QA & Sensory Science Lead' },
       { name: 'Priya Reddy', code: 'JB-303', role: 'Regulatory Affairs Specialist' },
-      { name: 'Amit Patel', code: 'JB-304', role: 'Analytical Chemist, QC' },
-      { name: 'Suresh Naidu', code: 'JB-305', role: 'Plant Operator' },
-      { name: 'Arun Joseph', code: 'JB-306', role: 'Process Safety Engineer' },
-      { name: 'Lakshmi Devi', code: 'JB-307', role: 'QA Chemist' },
-      { name: 'Deepa Nair', code: 'JB-308', role: 'Polymer Scientist' },
-      { name: 'Vikram Singh', code: 'JB-309', role: 'Pilot Plant Engineer' },
-      { name: 'Sneha Sharma', code: 'JB-310', role: 'Synthesis Chemist' }
+      { name: 'Amit Patel', code: 'JB-304', role: 'Analytical Scientist, QC' },
+      { name: 'Suresh Naidu', code: 'JB-305', role: 'Product Formulation Specialist' },
+      { name: 'Arun Joseph', code: 'JB-306', role: 'Formulation Chemist' },
+      { name: 'Lakshmi Devi', code: 'JB-307', role: 'QA Food Safety Lead' },
+      { name: 'Deepa Nair', code: 'JB-308', role: 'Packaging Technologist' },
+      { name: 'Vikram Singh', code: 'JB-309', role: 'Packaging Engineering Lead' },
+      { name: 'Sneha Sharma', code: 'JB-310', role: 'Sensory & Consumer Insights Specialist' }
     ];
 
-    // Day task distributions
     const daySchedules: { day: number; targetTasks: number; empCount: number }[] = [
       { day: 1, targetTasks: 40, empCount: 6 },
       { day: 2, targetTasks: 55, empCount: 8 },
@@ -210,7 +209,7 @@ export class HoursComponent implements OnInit {
               approved = true;
               declined = false;
               pending = false;
-              msgList = [{ sender: 'Ananya Rao', date: '2026-06-02', text: 'Reviewed and approved monomer optimization hours.' }];
+              msgList = [{ sender: 'Ananya Rao', date: '2026-06-02', text: 'Reviewed and approved beverage formulation trial hours.' }];
               break;
             case 'Anita Desai':
               count = 7;
@@ -276,7 +275,7 @@ export class HoursComponent implements OnInit {
 
         const tasksList: HourTaskDetail[] = [];
         for (let t = 0; t < count; t++) {
-          const taskTemplate = chemicalTasksPool[taskPoolIdx % chemicalTasksPool.length];
+          const taskTemplate = fmcgTasksPool[taskPoolIdx % fmcgTasksPool.length];
           taskPoolIdx++;
           const hourAlloc = Number(((empTotalHours / count) + (t % 2 === 0 ? 0.2 : -0.2)).toFixed(1));
           tasksList.push({

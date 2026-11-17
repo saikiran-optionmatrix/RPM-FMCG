@@ -51,31 +51,25 @@ export class AddProjectComponent implements OnInit {
     { id: 'timeline', label: 'Timeline' },
     { id: 'market', label: 'Market' },
     { id: 'productDetails', label: 'Product Details' },
-    { id: 'innovator', label: 'Innovator' },
-    { id: 'api', label: 'API' },
+    { id: 'innovator', label: 'Reference Product' },
+    { id: 'api', label: 'Bulk Ingredient' },
     { id: 'others', label: 'Others' }
   ];
 
   // Option lists for dropdowns
   readonly divisionsList = [
-    'Endocrinology / Diabetes',
-    'Neurology',
-    'Gastroenterology',
-    'Anti-infectives',
-    'Respiratory',
-    'Oncology',
-    'Diagnostics / Contrast Media',
-    'Oral Solids - OS',
-    'Injectables - IJ',
-    'Complex Injectables - CI',
-    'Biotech - BT',
+    'Beverages - BV',
+    'Personal Care & Beauty - PC',
+    'Packaged Foods & Snacks - FS',
+    'Dairy & Nutrition - DN',
+    'Home Care - HC'
   ];
   readonly templatesList = [
-    'Generic Tablet Development',
-    'Generic API Process Development',
-    'Complex Injectable Development',
-    'Generic API Development',
-    'Generic Injectable Formulation',
+    'New Beverage Product Development Program',
+    'New Personal Care Product Formulation Development',
+    'Multi-Variant Snack Product Development',
+    'Ingredient Sourcing and Blend Optimization',
+    'Shelf-Stable Powdered Beverage Product Formulation'
   ];
   readonly locationsList = locations && locations.length ? locations : [
     'Hyderabad',

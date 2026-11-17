@@ -136,17 +136,95 @@ export class TemplateWbsTasksComponent implements OnInit {
     }
 
     const baseCatalog: Partial<TaskItem>[] = [
-      { taskName: 'Reaction Chemistry Literature & Route Feasibility Screening', taskCode: 'TC-01', jobCode: 'PCRD01', dueDate: '2026-01-18', completedDate: '2026-01-18', responsibility: 'Dr. Priya Raman', department: 'Process Chemistry', active: true, done: true },
-      { taskName: 'Process Safety & Reaction Calorimetry Screening Protocol', taskCode: 'TC-02', jobCode: 'PSE01', dueDate: '2026-01-20', completedDate: '2026-01-20', responsibility: 'Rajesh Kumar', department: 'Process Safety', active: true, done: true },
-      { taskName: 'Catalyst & Raw Material Scouting Campaign', taskCode: 'TC-03', jobCode: 'PCRD02', dueDate: '2026-01-24', completedDate: '2026-01-23', responsibility: 'Anita Desai', department: 'Process Chemistry', active: true, done: true },
-      { taskName: 'Analytical Impurity Profiling & Chromatography Method Validation', taskCode: 'TC-04', jobCode: 'CHRO01', dueDate: '2026-01-28', completedDate: '', responsibility: 'Priya Reddy', department: 'Analytical Development', active: true, done: false },
-      { taskName: 'Fractional Distillation Column Internals & Packing Study', taskCode: 'TC-05', jobCode: 'DIST01', dueDate: '2026-02-02', completedDate: '', responsibility: 'Amit Patel', department: 'Chemical Engineering', active: true, done: false },
-      { taskName: 'Polymerization Reactor Feed Profile & Kinetic Study', taskCode: 'TC-06', jobCode: 'POLY01', dueDate: '2026-02-05', completedDate: '', responsibility: 'Suresh Naidu', department: 'Process Chemistry', active: true, done: false },
-      { taskName: 'Accelerated Product Storage Stability Protocol', taskCode: 'TC-07', jobCode: 'STAB01', dueDate: '2026-02-10', completedDate: '', responsibility: 'Lakshmi Devi', department: 'Quality Control', active: true, done: false },
-      { taskName: 'Drum & IBC Packaging Lot Compatibility Assessment', taskCode: 'TC-08', jobCode: 'PKG01', dueDate: '2026-02-15', completedDate: '', responsibility: 'Arun Joseph', department: 'Quality Assurance', active: true, done: false },
-      { taskName: 'Pilot Plant Process Hazard Review (HAZOP) Protocol', taskCode: 'TC-09', jobCode: 'PSE01', dueDate: '2026-02-20', completedDate: '', responsibility: 'Rajesh Kumar', department: 'Process Safety', active: true, done: false },
-      { taskName: 'Global REACH / TSCA Chemical Registration Dossier Filing', taskCode: 'TC-10', jobCode: 'RA01', dueDate: '2026-02-25', completedDate: '', responsibility: 'Deepa Nair', department: 'Regulatory Affairs', active: true, done: false }
-    ];
+    {
+        "taskName": "Map consumption occasions, day-parts and consumer usage habits",
+        "taskCode": "TSK-1001",
+        "jobCode": "CINS-04",
+        "dueDate": "2026-01-18",
+        "completedDate": "2026-01-18",
+        "responsibility": "Ananya Rao",
+        "department": "Consumer Insights & Strategy",
+        "active": true,
+        "done": true
+    },
+    {
+        "taskName": "Analyze competitive landscape, brand share and price-pack architecture",
+        "taskCode": "TSK-1002",
+        "jobCode": "CAT-02",
+        "dueDate": "2026-01-20",
+        "completedDate": "2026-01-20",
+        "responsibility": "Rajesh Kumar",
+        "department": "Category Management",
+        "active": true,
+        "done": true
+    },
+    {
+        "taskName": "Conduct focus group interviews and ethnographic shopper observation",
+        "taskCode": "TSK-1003",
+        "jobCode": "CRE-02",
+        "dueDate": "2026-01-24",
+        "completedDate": "2026-01-23",
+        "responsibility": "Ananya Rao",
+        "department": "Consumer Research",
+        "active": true,
+        "done": true
+    },
+    {
+        "taskName": "Map sensory preferences, taste/texture profiles and benefit expectations",
+        "taskCode": "TSK-1004",
+        "jobCode": "SEN-02",
+        "dueDate": "2026-01-28",
+        "completedDate": "",
+        "responsibility": "Anita Desai",
+        "department": "Sensory Science",
+        "active": true,
+        "done": false
+    },
+    {
+        "taskName": "Formulate Target Product Profile (TPP) and product positioning charter",
+        "taskCode": "TSK-1005",
+        "jobCode": "RDI-01",
+        "dueDate": "2026-02-02",
+        "completedDate": "",
+        "responsibility": "Dr. Priya Raman",
+        "department": "R&D Formulation",
+        "active": true,
+        "done": false
+    },
+    {
+        "taskName": "Define target packaging format, sustainability targets and shelf impact goals",
+        "taskCode": "TSK-1006",
+        "jobCode": "PACK-01",
+        "dueDate": "2026-02-05",
+        "completedDate": "",
+        "responsibility": "Vikram Singh",
+        "department": "Packaging Development",
+        "active": true,
+        "done": false
+    },
+    {
+        "taskName": "Review regulatory classifications, permissible food/cosmetic ingredients and mandatory warnings",
+        "taskCode": "TSK-1007",
+        "jobCode": "REG-02",
+        "dueDate": "2026-02-10",
+        "completedDate": "",
+        "responsibility": "Rajesh Kumar",
+        "department": "Regulatory Affairs",
+        "active": true,
+        "done": false
+    },
+    {
+        "taskName": "Model initial financial business case, Target COGS and retail margin expectations",
+        "taskCode": "TSK-1008",
+        "jobCode": "FIN-03",
+        "dueDate": "2026-02-15",
+        "completedDate": "",
+        "responsibility": "Amit Patel",
+        "department": "Commercial Finance",
+        "active": true,
+        "done": false
+    }
+];
 
     this.tasksList = Array.from({ length: targetCount }, (_, i) => {
       const template = baseCatalog[i % baseCatalog.length];

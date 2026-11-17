@@ -74,9 +74,9 @@ export class ProjectResourcesComponent implements OnInit {
   currentPage: number = 1;
   pageSize: number = 10;
   isTemplate: boolean = false;
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  dynamicBreadcrumb: string = 'Acrylic Emulsion Binder 50% Solids - 2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/001';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/001';
 
   constructor(
     public dialog: MatDialog,
@@ -112,16 +112,16 @@ export class ProjectResourcesComponent implements OnInit {
     this.updatePagination();
   }
 
-  initializeData(): void {
+    initializeData(): void {
     this.availableResources = [
-      { code: 'RES001', name: 'GC-MS System A', selected: false },
+      { code: 'RES001', name: 'LC-MS System A', selected: false },
       { code: 'RES002', name: 'Anita Desai', selected: false },
-      { code: 'RES003', name: 'Jacketed Glass Reactor B (5 L)', selected: false },
+      { code: 'RES003', name: 'Benchtop Mixing & Blending Vessel B (5 L)', selected: false },
       { code: 'RES004', name: 'Amit Patel', selected: false },
-      { code: 'RES005', name: 'Particle Size Analyzer C', selected: false },
-      { code: 'RES006', name: 'Fume Hood Suite 3', selected: false },
-      { code: 'RES007', name: 'Rotary Evaporator and Vacuum Oven', selected: false },
-      { code: 'RES008', name: 'Rajesh Kumar', selected: false }
+      { code: 'RES005', name: 'HunterLab Colorimeter & Spectrophotometer', selected: false },
+      { code: 'RES006', name: 'Sensory Evaluation Booth Suite', selected: false },
+      { code: 'RES007', name: 'Texture Analyzer (TA.XT Plus)', selected: false },
+      { code: 'RES008', name: 'HPLC Vitamin Assay System B', selected: false }
     ];
 
     this.allocatedResources = [
@@ -133,52 +133,140 @@ export class ProjectResourcesComponent implements OnInit {
 
     this.schedules = [
       {
-        resource: 'GC-MS System A', initials: 'GC', stage: 'S1 - Opportunity Identification', module: 'Competitor Grade & Market Analysis',
-        task: 'Benchmark Grade Characterization', fromDate: '2026-06-01', fromTime: '09:00 AM', toDate: '2026-06-10',
-        toTime: '05:00 PM', planDuration: '10 days', actualDuration: '10 days',
-        status: 'Completed', dayPlacement: 'Monday', color: '#dcfce7', updatedBy: 'Dr. Priya Raman'
+        resource: 'LC-MS System A',
+        initials: 'LC',
+        stage: 'S1 - Business Case',
+        module: 'Reference Product & Market Analysis',
+        task: 'Reference Product Analytical Characterization',
+        fromDate: '2026-06-01',
+        fromTime: '09:00 AM',
+        toDate: '2026-06-10',
+        toTime: '05:00 PM',
+        planDuration: '10 days',
+        actualDuration: '10 days',
+        status: 'Completed',
+        dayPlacement: 'Monday',
+        color: '#dcfce7',
+        updatedBy: 'Priya Reddy'
       },
       {
-        resource: 'Anita Desai', initials: 'AD', stage: 'S3 - Route Scouting & Lab Synthesis', module: 'Surfactant & Monomer Sourcing',
-        task: 'Surfactant Screening & Trial Batches', fromDate: '2026-06-08', fromTime: '09:00 AM', toDate: '2026-06-21',
-        toTime: '05:00 PM', planDuration: '14 days', actualDuration: '12 days',
-        status: 'Completed', dayPlacement: 'Tuesday', color: '#dcfce7', updatedBy: 'Anita Desai'
+        resource: 'Anita Desai',
+        initials: 'AD',
+        stage: 'S3 - Food-Grade Ingredient Procurement',
+        module: 'Product Formulation Development & Sourcing',
+        task: 'Natural Flavor Screening & Trial Batches',
+        fromDate: '2026-06-08',
+        fromTime: '09:00 AM',
+        toDate: '2026-06-21',
+        toTime: '05:00 PM',
+        planDuration: '14 days',
+        actualDuration: '12 days',
+        status: 'Completed',
+        dayPlacement: 'Tuesday',
+        color: '#dcfce7',
+        updatedBy: 'Anita Desai'
       },
       {
-        resource: 'Jacketed Glass Reactor B (5 L)', initials: 'JR', stage: 'S4 - Process Optimization (Lab Scale)', module: 'Process Development',
-        task: 'Monomer Feed Profile Optimization', fromDate: '2026-06-22', fromTime: '09:00 AM', toDate: '2026-07-02',
-        toTime: '05:00 PM', planDuration: '10 days', actualDuration: '8 days',
-        status: 'Active', dayPlacement: 'Wednesday', color: '#e0f2fe', updatedBy: 'Rajesh Kumar'
+        resource: 'Benchtop Mixing & Blending Vessel B (5 L)',
+        initials: 'BV',
+        stage: 'S4 - POC Expression & Ingredient Refining',
+        module: 'Pilot Blending & Process Optimization',
+        task: 'Upstream Yield & Formulation Optimization',
+        fromDate: '2026-06-22',
+        fromTime: '09:00 AM',
+        toDate: '2026-07-02',
+        toTime: '05:00 PM',
+        planDuration: '10 days',
+        actualDuration: '8 days',
+        status: 'Active',
+        dayPlacement: 'Wednesday',
+        color: '#e0f2fe',
+        updatedBy: 'Rajesh Kumar'
       },
       {
-        resource: 'Amit Patel', initials: 'AP', stage: 'S4 - Process Optimization (Lab Scale)', module: 'Analytical Development',
-        task: 'Film Property & Viscosity Testing', fromDate: '2026-07-03', fromTime: '09:00 AM', toDate: '2026-07-13',
-        toTime: '05:00 PM', planDuration: '10 days', actualDuration: 'N/A',
-        status: 'Pending', dayPlacement: 'Thursday', color: '#ffedd5', updatedBy: 'Amit Patel'
+        resource: 'Amit Patel',
+        initials: 'AP',
+        stage: 'S4 - POC Expression & Ingredient Refining',
+        module: 'Analytical QA & Quality Test Development',
+        task: 'Product Efficacy & Quality Testing',
+        fromDate: '2026-07-03',
+        fromTime: '09:00 AM',
+        toDate: '2026-07-13',
+        toTime: '05:00 PM',
+        planDuration: '10 days',
+        actualDuration: 'N/A',
+        status: 'Pending',
+        dayPlacement: 'Thursday',
+        color: '#ffedd5',
+        updatedBy: 'Amit Patel'
       },
       {
-        resource: 'Particle Size Analyzer C', initials: 'PS', stage: 'S4 - Process Optimization (Lab Scale)', module: 'Analytical Development',
-        task: 'Particle Size Distribution Runs', fromDate: '2026-07-14', fromTime: '09:00 AM', toDate: '2026-07-25',
-        toTime: '05:00 PM', planDuration: '12 days', actualDuration: 'N/A',
-        status: 'Pending', dayPlacement: 'Friday', color: '#ffedd5', updatedBy: 'Priya Reddy'
+        resource: 'HunterLab Colorimeter & Spectrophotometer',
+        initials: 'HC',
+        stage: 'S4 - POC Expression & Ingredient Refining',
+        module: 'Sensory & Visual Quality Testing',
+        task: 'Color Delta-E & Cloud Turbidity Measurement',
+        fromDate: '2026-07-14',
+        fromTime: '09:00 AM',
+        toDate: '2026-07-25',
+        toTime: '05:00 PM',
+        planDuration: '12 days',
+        actualDuration: 'N/A',
+        status: 'Pending',
+        dayPlacement: 'Friday',
+        color: '#ffedd5',
+        updatedBy: 'Priya Reddy'
       },
       {
-        resource: 'Fume Hood Suite 3', initials: 'FH', stage: 'S3 - Route Scouting & Lab Synthesis', module: 'Raw Material Sourcing',
-        task: 'Monomer Inhibitor Removal Trials', fromDate: '2026-07-27', fromTime: '09:00 AM', toDate: '2026-08-10',
-        toTime: '05:00 PM', planDuration: '15 days', actualDuration: 'N/A',
-        status: 'Completed', dayPlacement: 'Monday', color: '#dcfce7', updatedBy: 'Anita Desai'
+        resource: 'Sensory Evaluation Booth Suite',
+        initials: 'SB',
+        stage: 'S3 - Food-Grade Ingredient Procurement',
+        module: 'Sensory Evaluation',
+        task: 'Hedonic 9-Point Consumer Taste Panel',
+        fromDate: '2026-07-27',
+        fromTime: '09:00 AM',
+        toDate: '2026-08-10',
+        toTime: '05:00 PM',
+        planDuration: '15 days',
+        actualDuration: 'N/A',
+        status: 'Completed',
+        dayPlacement: 'Monday',
+        color: '#dcfce7',
+        updatedBy: 'Anita Desai'
       },
       {
-        resource: 'Rotary Evaporator and Vacuum Oven', initials: 'RE', stage: 'S4 - Process Optimization (Lab Scale)', module: 'Process Development',
-        task: 'Residual Monomer Reduction', fromDate: '2026-08-11', fromTime: '09:00 AM', toDate: '2026-09-10',
-        toTime: '05:00 PM', planDuration: '30 days', actualDuration: 'N/A',
-        status: 'Active', dayPlacement: 'Tuesday', color: '#e0f2fe', updatedBy: 'Rajesh Kumar'
+        resource: 'Texture Analyzer (TA.XT Plus)',
+        initials: 'TF',
+        stage: 'S4 - POC Expression & Ingredient Refining',
+        module: 'Viscosity & Rheology Development',
+        task: 'Viscosity Profile & Texture Analysis',
+        fromDate: '2026-08-11',
+        fromTime: '09:00 AM',
+        toDate: '2026-09-10',
+        toTime: '05:00 PM',
+        planDuration: '30 days',
+        actualDuration: 'N/A',
+        status: 'Active',
+        dayPlacement: 'Tuesday',
+        color: '#e0f2fe',
+        updatedBy: 'Rajesh Kumar'
       },
       {
-        resource: 'Priya Reddy', initials: 'PR', stage: 'S7 - Process Safety & Regulatory Studies', module: 'Process Safety & EHS',
-        task: 'HAZOP Study Review & Registration Dossier', fromDate: '2026-09-11', fromTime: '09:00 AM', toDate: '2026-09-25',
-        toTime: '05:00 PM', planDuration: '15 days', actualDuration: 'N/A',
-        status: 'Pending', dayPlacement: 'Wednesday', color: '#ffedd5', updatedBy: 'Priya Reddy'
+        resource: 'HPLC Vitamin Assay System B',
+        initials: 'HP',
+        stage: 'S4 - POC Expression & Ingredient Refining',
+        module: 'Analytical Development',
+        task: 'Vitamin Retention & Purity Profiling',
+        fromDate: '2026-09-11',
+        fromTime: '09:00 AM',
+        toDate: '2026-09-25',
+        toTime: '05:00 PM',
+        planDuration: '15 days',
+        actualDuration: 'N/A',
+        status: 'Pending',
+        dayPlacement: 'Wednesday',
+        color: '#ffedd5',
+        updatedBy: 'Priya Reddy'
       }
     ];
 
@@ -186,15 +274,6 @@ export class ProjectResourcesComponent implements OnInit {
       if (!s.historyCount) {
         s.historyCount = (idx % 10) + 1;
       }
-    });
-  }
-
-  // Timeline modal
-  openTimelineModal(item: ResourceScheduleItem): void {
-    this.dialog.open(ResourceTimelineComponent, {
-      width: '650px',
-      maxWidth: '95vw',
-      data: item
     });
   }
 
@@ -300,6 +379,13 @@ export class ProjectResourcesComponent implements OnInit {
     });
   }
 
+  openTimelineModal(item: ResourceScheduleItem): void {
+    this.dialog.open(ResourceTimelineComponent, {
+      width: '600px',
+      data: item
+    });
+  }
+
   editSchedule(item: ResourceScheduleItem): void {
     const dialogRef = this.dialog.open(AddResourceComponent, {
       width: '1000px',
@@ -346,7 +432,9 @@ export class ProjectResourcesComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/projects/dashboard/analytics']);
+    this.router.navigate(['/projects/dashboard/analytics'], {
+      queryParams: { code: this.projectCode || "2026/FMCG/001", name: this.projectName || "Vitamin-Enriched Fruit Beverage 250ml" }
+    });
   }
 
   openHistory(item?: any): void {

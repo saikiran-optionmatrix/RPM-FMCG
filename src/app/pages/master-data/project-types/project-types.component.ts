@@ -37,16 +37,31 @@ export class ProjectTypesComponent {
   constructor(private dialog: MatDialog) {}
   readonly items: MasterItem[] = [
     {
-      name: 'New Product & Process Development',
-      description: 'Development of new chemical products, grades and synthesis or polymerization routes',
-      status: 'Active',
+        "name": "New Product Development (NPD)",
+        "description": "End-to-end consumer research, formulation design, packaging innovation and launch of new-to-market consumer products",
+        "status": "Active"
     },
     {
-      name: 'Scale-Up & Plant Technology Transfer',
-      description: 'Scale-up of proven processes to pilot, demonstration and commercial plants',
-      status: 'Active',
+        "name": "Line Extension & Variant Expansion",
+        "description": "Development of new pack sizes, flavor profiles, fragrances, shades or seasonal consumer variants on existing base platforms",
+        "status": "Active"
     },
-  ];
+    {
+        "name": "Packaging Innovation & Sustainability",
+        "description": "Structural redesign, barrier optimization, post-consumer recycled (PCR) resin adoption and sustainable substrate qualification",
+        "status": "Active"
+    },
+    {
+        "name": "Cost Optimization & Value Engineering (VAVE)",
+        "description": "Formula cost re-engineering, alternate raw ingredient sourcing, yield optimization and packaging material light-weighting",
+        "status": "Active"
+    },
+    {
+        "name": "Regulatory Reformulation & Compliance",
+        "description": "Nutritional profile improvement, sodium/sugar reduction, clean label compliance and market-specific label change programs",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
   keyword = '';

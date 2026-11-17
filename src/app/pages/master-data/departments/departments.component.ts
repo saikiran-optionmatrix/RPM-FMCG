@@ -38,36 +38,102 @@ export class DepartmentsComponent {
   constructor(private dialog: MatDialog) {}
   readonly items: MasterItem[] = [
     {
-      name: 'Research & Development',
-      code: 'R&D',
-      remarks: 'Process chemistry research and route development',
-      status: 'Active',
+        "name": "Consumer Insights & Strategy",
+        "code": "CINS",
+        "remarks": "Consumer occasion mapping, trends and category unmet needs",
+        "status": "Active"
     },
     {
-      name: 'Quality Control',
-      code: 'QC',
-      remarks: 'Analytical, purity and product release testing',
-      status: 'Active',
+        "name": "Consumer Research",
+        "code": "CRE",
+        "remarks": "Focus groups, ethnographic research and quantitative validation",
+        "status": "Active"
     },
     {
-      name: 'Quality Assurance',
-      code: 'QA',
-      remarks: 'ISO 9001 compliance, batch record review and validation',
-      status: 'Active',
+        "name": "Category Management",
+        "code": "CAT",
+        "remarks": "Category strategy, pricing architecture and channel assortment",
+        "status": "Active"
     },
     {
-      name: 'Manufacturing',
-      code: 'MFG',
-      remarks: 'Reaction, separation and packing plant operations',
-      status: 'Active',
+        "name": "R&D & Product Innovation",
+        "code": "RDI",
+        "remarks": "Formulation design, recipe development and ingredient blending",
+        "status": "Active"
     },
     {
-      name: 'Regulatory Affairs',
-      code: 'RA',
-      remarks: 'REACH / TSCA registrations and regulatory documentation',
-      status: 'Active',
+        "name": "Packaging Development",
+        "code": "PKG",
+        "remarks": "Primary and secondary packaging structural design and barrier testing",
+        "status": "Active"
     },
-  ];
+    {
+        "name": "Sensory & Consumer Science",
+        "code": "SENS",
+        "remarks": "Sensory profiling, hedonic evaluations and descriptive analysis",
+        "status": "Active"
+    },
+    {
+        "name": "Quality Assurance",
+        "code": "QA",
+        "remarks": "HACCP, FSSC 22000, supplier audits and quality system governance",
+        "status": "Active"
+    },
+    {
+        "name": "Quality Control",
+        "code": "QC",
+        "remarks": "Analytical release testing, microbiology and physical property verification",
+        "status": "Active"
+    },
+    {
+        "name": "Regulatory Affairs & Compliance",
+        "code": "REG",
+        "remarks": "FSSAI/FDA/EU regulations, label compliances and mandatory disclosures",
+        "status": "Active"
+    },
+    {
+        "name": "Pilot & Commercial Manufacturing",
+        "code": "MFG",
+        "remarks": "Pilot line trials, batch scale-up and commercial plant packaging operations",
+        "status": "Active"
+    },
+    {
+        "name": "Supply Chain & Sourcing",
+        "code": "SCM",
+        "remarks": "Raw ingredient procurement, packaging supplier qualification and logistics",
+        "status": "Active"
+    },
+    {
+        "name": "Brand Marketing & Commercialization",
+        "code": "MKTG",
+        "remarks": "Go-to-market execution, brand positioning and trade launch activation",
+        "status": "Active"
+    },
+    {
+        "name": "Finance & Commercialization",
+        "code": "FIN",
+        "remarks": "Target cost modeling, COGS analysis and financial ROI projections",
+        "status": "Active"
+    },
+    {
+        "name": "Environmental Health & Safety",
+        "code": "EHS",
+        "remarks": "Workplace safety, factory hygiene and environmental sustainability",
+        "status": "Active"
+    },
+    {
+        "name": "Legal & Intellectual Property",
+        "code": "LEGAL",
+        "remarks": "Trademark registration, brand IP protection and contract governance",
+        "status": "Active"
+    },
+    {
+        "name": "Program Management Office",
+        "code": "PMO",
+        "remarks": "Stage-Gate governance, milestone tracking and cross-functional orchestration",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
   keyword = '';

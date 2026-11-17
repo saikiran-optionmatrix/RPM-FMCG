@@ -59,9 +59,9 @@ export class ProjectMaterialsComponent implements OnInit {
   displayedRows: ProjectMaterial[] = [];
 
   isTemplate: boolean = false;
-  projectName: string = 'Acrylic Emulsion Binder 50% Solids';
-  projectCode: string = '2026/CHM/006';
-  dynamicBreadcrumb: string = 'Acrylic Emulsion Binder 50% Solids - 2026/CHM/006';
+  projectName: string = 'Vitamin-Enriched Fruit Beverage 250ml';
+  projectCode: string = '2026/FMCG/006';
+  dynamicBreadcrumb: string = 'Vitamin-Enriched Fruit Beverage 250ml - 2026/FMCG/006';
 
   constructor(
     private router: Router,
@@ -261,7 +261,9 @@ export class ProjectMaterialsComponent implements OnInit {
 
 
   goBack(): void {
-    this.router.navigate(['/projects/dashboard/analytics']);
+    this.router.navigate(['/projects/dashboard/analytics'], {
+      queryParams: { code: this.projectCode || "2026/FMCG/006", name: this.projectName || "Vitamin-Enriched Fruit Beverage 250ml" }
+    });
   }
 
   openTimelineModal(item: ProjectMaterial): void {

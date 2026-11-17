@@ -75,8 +75,8 @@ export class GateCriteriaHistoryComponent implements OnInit {
   }
 
   initHistoryRecords(): void {
-    const curSubject = this.subject || 'Therapeutic Area & Unmet Medical Need Assessment';
-    const curDesc = this.description || 'Epidemiological prevalence data, standard-of-care analysis, and addressable patient population verified and endorsed by medical affairs.';
+    const curSubject = this.subject || 'Target segment, consumption occasion and unmet need supported by traceable consumer research';
+    const curDesc = this.description || 'Target segment, consumption occasion and unmet need supported by traceable consumer research.';
     const curPriority = this.priority !== undefined ? this.priority : 'High';
     const curMandatory = this.mandatory !== undefined ? this.mandatory : true;
     const count = this.historyCount || 3;
@@ -90,11 +90,11 @@ export class GateCriteriaHistoryComponent implements OnInit {
     ];
 
     const users = [
-      'Dr. Sarah Jenkins',
-      'Vikram Sharma',
-      'Elena Rostova',
-      'Rajesh Kumar',
-      'Anita Desai'
+      'Ananya Rao',
+      'Dr. Priya Raman',
+      'Vikram Singh',
+      'Anita Desai',
+      'Rajesh Kumar'
     ];
 
     const descVariations = [
@@ -121,67 +121,67 @@ export class GateCriteriaHistoryComponent implements OnInit {
 
     // Catalog gate criteria for complete reference
     const catalogCriteria: GateCriteriaHistoryRecord[] = [
-      {
-        id: 101,
-        subject: 'Target Product Profile (TPP) Baseline Sign-off',
-        description: 'Dosage form, strength, release mechanism, indication, route of administration, and packaging format documented in baseline TPP.',
-        guidelines: 'TPP_Specification.pdf',
-        priority: 'High',
-        mandatory: true,
-        changedDate: '2026-01-18 10:20',
-        changedBy: 'Dr. Sarah Jenkins'
-      },
-      {
-        id: 102,
-        subject: 'Preliminary Business Case & Target Cost Model',
-        description: 'Target unit economics, bill of materials (BOM) cost roll-up, and return-on-investment (ROI) threshold validated by finance.',
-        guidelines: 'Target_Cost_Model.pdf',
-        priority: 'High',
-        mandatory: true,
-        changedDate: '2026-01-10 14:15',
-        changedBy: 'Michael Chang'
-      },
-      {
-        id: 103,
-        subject: 'Patents & Freedom-to-Operate (FTO) Clearance',
-        description: 'Formal IP landscape search and freedom-to-operate legal opinion documented for API crystalline form and formulation composition.',
-        guidelines: 'FTO_Clearance.pdf',
-        priority: 'High',
-        mandatory: true,
-        changedDate: '2025-12-14 16:00',
-        changedBy: 'Vikram Sharma'
-      },
-      {
-        id: 104,
-        subject: 'API Sourcing Feasibility & DMF Availability',
-        description: 'At least two qualified API synthetic routes identified with Drug Master File (DMF) availability and initial pricing feasibility.',
-        guidelines: 'API_Sourcing_Assessment.pdf',
-        priority: 'Medium',
-        mandatory: false,
-        changedDate: '2025-11-20 11:35',
-        changedBy: 'Elena Rostova'
-      },
-      {
-        id: 105,
-        subject: 'Regulatory Filing Pathway & Exclusivity Strategy',
-        description: 'Target submission route (ANDA / 505(b)(2) / MAA) defined across target jurisdictions (US, EU, ROW) with bioequivalence expectations.',
-        guidelines: 'Regulatory_Roadmap.pdf',
-        priority: 'High',
-        mandatory: true,
-        changedDate: '2025-11-08 09:50',
-        changedBy: 'Rajesh Kumar'
-      },
-      {
-        id: 106,
-        subject: 'Portfolio Steering Committee Concept Authorization',
-        description: 'Executive R&D committee formal charter sign-off approving progression into product definition and funding allocation.',
-        guidelines: 'Gate_Release_Signoff.pdf',
-        priority: 'Medium',
-        mandatory: false,
-        changedDate: '2025-10-25 15:40',
-        changedBy: 'Anita Desai'
-      }
-    ];
+    {
+        "id": 101,
+        "subject": "Target segment, consumption occasion and unmet need supported by traceable consumer research",
+        "description": "Target segment, consumption occasion and unmet need supported by traceable consumer research",
+        "guidelines": "Consumer_Research_Protocol.pdf",
+        "priority": "High",
+        "mandatory": true,
+        "changedDate": "2026-11-13 14:30",
+        "changedBy": "Ananya Rao"
+    },
+    {
+        "id": 102,
+        "subject": "Category size, competitive benchmarks and product price position documented",
+        "description": "Category size, competitive benchmarks and product price position documented",
+        "guidelines": "Market_Benchmark_Report.pdf",
+        "priority": "High",
+        "mandatory": true,
+        "changedDate": "2026-11-10 10:20",
+        "changedBy": "Rajesh Kumar"
+    },
+    {
+        "id": 103,
+        "subject": "Preferred formula selected against sensory, functional and commercial targets",
+        "description": "Preferred formula selected against sensory, functional and commercial targets",
+        "guidelines": "Sensory_Target_Scorecard.pdf",
+        "priority": "High",
+        "mandatory": true,
+        "changedDate": "2026-11-05 16:00",
+        "changedBy": "Dr. Priya Raman"
+    },
+    {
+        "id": 104,
+        "subject": "Prototype formulation complies with food/cosmetic safety standards and target shelf-life evidence",
+        "description": "Prototype formulation complies with food/cosmetic safety standards and target shelf-life evidence",
+        "guidelines": "Safety_Stability_Protocol.pdf",
+        "priority": "High",
+        "mandatory": true,
+        "changedDate": "2026-10-28 11:35",
+        "changedBy": "Anita Desai"
+    },
+    {
+        "id": 105,
+        "subject": "Consumer sensory and home-use test confirms benchmark parity or superiority",
+        "description": "Consumer sensory and home-use test confirms benchmark parity or superiority",
+        "guidelines": "Consumer_Sensory_Test_Summary.pdf",
+        "priority": "High",
+        "mandatory": true,
+        "changedDate": "2026-10-20 09:50",
+        "changedBy": "Vikram Singh"
+    },
+    {
+        "id": 106,
+        "subject": "Commercial quality specifications, release tests and lot genealogy approved",
+        "description": "Commercial quality specifications, release tests and lot genealogy approved",
+        "guidelines": "Commercial_QA_Specifications.pdf",
+        "priority": "High",
+        "mandatory": true,
+        "changedDate": "2026-10-15 15:40",
+        "changedBy": "Anita Desai"
+    }
+];
 
     const filteredCatalog = catalogCriteria.filter(
       c => c.subject.toLowerCase() !== curSubject.toLowerCase()

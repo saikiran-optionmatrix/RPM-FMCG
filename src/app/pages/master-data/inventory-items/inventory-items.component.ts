@@ -48,71 +48,86 @@ export class InventoryItemsComponent {
   constructor(private dialog: MatDialog) {}
   readonly assets: Asset[] = [
     {
-      name: 'Active Pharmaceutical Ingredient (API)',
-      code: 'API-001',
-      category: 'Raw Materials',
-      subCategory: 'API',
-      quantity: '25 kg',
-      unitRate: '₹12,500/kg',
-      description: 'API for tablet formulation',
-      status: 'Active',
+        "name": "Organic Stevia & Natural Sweetener Extract",
+        "code": "ING-001",
+        "category": "Raw Ingredients",
+        "subCategory": "Sweeteners & Flavors",
+        "quantity": "50 kg",
+        "unitRate": "₹3,200/kg",
+        "description": "High-purity steviol glycoside for low-calorie beverage formulation",
+        "status": "Active"
     },
-
     {
-      name: 'Pharmaceutical Excipients',
-      code: 'EXC-001',
-      category: 'Raw Materials',
-      subCategory: 'Excipients',
-      quantity: '100 kg',
-      unitRate: '₹450/kg',
-      description: 'Binders, fillers and disintegrants',
-      status: 'Active',
+        "name": "Natural Citrus Terpene & Aroma Emulsion",
+        "code": "ING-002",
+        "category": "Raw Ingredients",
+        "subCategory": "Aromas & Fragrances",
+        "quantity": "20 L",
+        "unitRate": "₹4,500/L",
+        "description": "Cold-pressed food-grade natural citrus essential oil",
+        "status": "Active"
     },
-
     {
-      name: 'Analytical Standards',
-      code: 'STD-001',
-      category: 'Laboratory',
-      subCategory: 'Standards',
-      quantity: '10 units',
-      unitRate: '₹3,500/unit',
-      description: 'Standards for analytical testing',
-      status: 'Active',
+        "name": "Microcrystalline Cellulose & Xanthan Gum Stabilizer",
+        "code": "ING-003",
+        "category": "Raw Ingredients",
+        "subCategory": "Hydrocolloids & Texturizers",
+        "quantity": "150 kg",
+        "unitRate": "₹650/kg",
+        "description": "Rheology modifier and suspension aid for liquid nutritionals",
+        "status": "Active"
     },
-
     {
-      name: 'Granulation Materials',
-      code: 'GRN-001',
-      category: 'Manufacturing',
-      subCategory: 'Granulation',
-      quantity: '50 kg',
-      unitRate: '₹800/kg',
-      description: 'Materials for granulation trials',
-      status: 'Active',
+        "name": "Sustainable Recycled PET (rPET) Resin Flakes",
+        "code": "PKG-001",
+        "category": "Packaging Materials",
+        "subCategory": "Rigid Plastics",
+        "quantity": "500 kg",
+        "unitRate": "₹140/kg",
+        "description": "100% PCR food-contact approved bottle preform resin",
+        "status": "Active"
     },
-
     {
-      name: 'Tablet Packaging Materials',
-      code: 'PKG-001',
-      category: 'Packaging',
-      subCategory: 'Primary',
-      quantity: '5,000 units',
-      unitRate: '₹12/unit',
-      description: 'Blister/bottle packaging materials',
-      status: 'Active',
+        "name": "Multi-Layer High-Barrier Pouches (Al-Free)",
+        "code": "PKG-002",
+        "category": "Packaging Materials",
+        "subCategory": "Flexible Films",
+        "quantity": "10,000 pcs",
+        "unitRate": "₹4.50/pc",
+        "description": "EVOH oxygen-barrier moisture-proof recyclable pouches",
+        "status": "Active"
     },
-
     {
-      name: 'Stability Samples',
-      code: 'STB-001',
-      category: 'Quality',
-      subCategory: 'Stability',
-      quantity: '500 units',
-      unitRate: '₹25/unit',
-      description: 'Samples for stability studies',
-      status: 'Active',
+        "name": "Biodegradable Dispensing Caps & Pumps",
+        "code": "PKG-003",
+        "category": "Packaging Materials",
+        "subCategory": "Closures & Dispensers",
+        "quantity": "5,000 pcs",
+        "unitRate": "₹8.20/pc",
+        "description": "Mono-material polyolefin lotion dispenser pumps",
+        "status": "Active"
     },
-  ];
+    {
+        "name": "Analytical Chromatographic Reference Standards",
+        "code": "LAB-001",
+        "category": "Laboratory Consumables",
+        "subCategory": "Analytical Standards",
+        "quantity": "15 vials",
+        "unitRate": "₹2,800/vial",
+        "description": "Certified vitamin and preservative reference standards",
+        "status": "Active"
+    },
+    {
+        "name": "Sensory Panel Tasting Cups & Blind Coding Sets",
+        "code": "LAB-002",
+        "category": "Laboratory Consumables",
+        "subCategory": "Sensory Supplies",
+        "quantity": "2,000 sets",
+        "unitRate": "₹2.50/set",
+        "description": "Food-grade odorless 3-digit randomized evaluation cups",
+        "status": "Active"
+    }
+];
 
   showFilter = false;
 
